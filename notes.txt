@@ -1,0 +1,25 @@
+
+---------------------------------------------------------------------------------------------------
+GENERAL
+
+dependencies: 
+  express: express
+  express-validator: validation for express
+  bcryptjs: password encryption
+  config: global vars
+  gravatar: profile avatars
+  jsonwebtoken: validation tokens
+  mongoose: interact with mongodb
+  request: http requests to another api (using for github)
+dev dependencies (installed with -D):
+  nodemon: updates server so we don't have to constantly refresh
+  concurrently: run server and client at same time
+Starting development by doing backend first;
+---------------------------------------------------------------------------------------------------
+TESTING
+
+endpoints:
+  use Postman to send different types of requests and information;
+  can make collections to make testing easier;
+
+
