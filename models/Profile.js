@@ -3,11 +3,10 @@ const mongoose = require("mongoose");
 const ProfileSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "user",
-    require: true
+    ref: "user"
   },
   major: {
-    type: String
+    type: [String]
   },
   minor: {
     type: [String]

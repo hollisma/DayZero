@@ -32,3 +32,63 @@ router.get("/me", auth, async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
+/**
+ * @route   POST api/profile
+ * @desc    Create or update user profile
+ * @access  Private
+ */
+router.post("/", [auth], async (req, res) => {
+  // Destructure properties from req
+  const {
+    major,
+    minor,
+    phone,
+    categoriesHave,
+    categoriesWant,
+    bio,
+    time,
+    extendedBio,
+    coreValues,
+    projects
+  } = req.body;
+
+  // Build profile object
+  const profileFields = {};
+  profileFields.user = req.user.id;
+  if (major) profileFields.major = major.split(",").map(maj => maj.trim());
+  if (minor) profileFields.minor = minor.split(",").map(min => min.trim());
+  if (phone) profileFields.phone = phone;
+  if (categoriesHave)
+    profileFields.categoriesHave = categoriesHave
+      .split(",")
+      .map(cH => cH.trim());
+  if (categoriesWant)
+    profileFields.categoriesWant = categoriesWant
+      .split(",")
+      .map(cW => cW.trim());
+  if (bio) profileFields.bio = bio;
+  if (time) profileFields.time = time;
+  if (extendedBio) profileFields.extendedBio = extendedBio;
+  if (coreValues)
+    profileFields.coreValues = coreValues.split(",").map(cv => cv.trim());
+  if (projects) profileFields.projects = projects.split(",").map(p => p.trim());
+
+  try {
+    let profile = await Profile.findOne({ user: req.user.id });
+
+    if (profile) {
+      // Update
+      profile = await Profile.findOneAndUpdate(
+        { user: req.user.id },
+        { $set: profileFields },
+        { new: true }
+      );
+
+      return res.json(profile);
+    }
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
