@@ -1,0 +1,26 @@
+const mongoose = require("mongoose");
+
+const GroupSchema = new mongoose.Schema({
+  members: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: "user",
+    // Will depend on if we want empty groups
+    require: true
+  },
+  time: {
+    type: Date
+  },
+  location: {
+    type: String
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  active: {
+    type: Boolean,
+    default: true
+  }
+});
+
+module.exports = Group = mongoose.model("group", GroupSchema);
