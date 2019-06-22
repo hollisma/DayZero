@@ -6,8 +6,6 @@ const { check, validationResult } = require("express-validator/check");
 // Models
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
-const Group = require("../../models/Group");
-const Feedback = require("../../models/Feedback");
 
 /**
  * @route   GET api/profile/me
@@ -151,3 +149,5 @@ router.delete("/", auth, async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
+module.exports = router;

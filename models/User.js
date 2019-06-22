@@ -24,8 +24,7 @@ const UserSchema = new mongoose.Schema({
   group: {
     // Use this to refer to another model
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'group',
-    unique: true
+    ref: 'group'
   }
 });
 

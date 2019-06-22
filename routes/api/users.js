@@ -33,7 +33,7 @@ router.post(
       // Check if user already exists
       var user = await User.findOne({ email });
       if (user) {
-        return res.status(400).json({ msg: 'User already exists' });
+        return res.status(400).json({ errors: [{ msg: 'User already exists' }] });
       }
 
       // Get Gravatar profile
@@ -68,7 +68,7 @@ router.post(
       jwt.sign(
         payload,
         config.get('jwtSecret'),
-        { expiresIn: 360000 },
+        { expiresIn: 3600000 },
         (err, token) => {
           if (err) throw err;
           res.json({ token });
