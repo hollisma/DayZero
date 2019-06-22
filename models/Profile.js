@@ -16,15 +16,14 @@ const ProfileSchema = new mongoose.Schema({
     type: String
   },
   categoriesHave: {
-    type: [String],
-    require: true
+    type: [String]
   },
   categoriesWant: {
-    type: [String],
-    require: true
+    type: [String]
   },
   bio: {
-    type: String
+    type: String,
+    require: true
   },
   time: {
     // Will change if we use Calendly
