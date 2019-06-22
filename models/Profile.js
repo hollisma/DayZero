@@ -6,7 +6,8 @@ const ProfileSchema = new mongoose.Schema({
     ref: "user"
   },
   major: {
-    type: [String]
+    type: [String],
+    require: true
   },
   minor: {
     type: [String]
@@ -15,10 +16,12 @@ const ProfileSchema = new mongoose.Schema({
     type: String
   },
   categoriesHave: {
-    type: [String]
+    type: [String],
+    require: true
   },
   categoriesWant: {
-    type: [String]
+    type: [String],
+    require: true
   },
   bio: {
     type: String

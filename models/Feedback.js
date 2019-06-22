@@ -10,7 +10,7 @@ const FeedbackSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "group"
   },
-  time: {
+  date: {
     type: Date,
     default: Date.now
   },
