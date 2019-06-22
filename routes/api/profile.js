@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const config = require("config");
 const auth = require("../../middleware/auth");
 const { check, validationResult } = require("express-validator/check");
 
@@ -103,6 +102,11 @@ router.post(
 
         return res.json(profile);
       }
+
+      // Create
+      profile = new Profile(profileFields);
+      await profile.save();
+      res.json(profile);
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server Error");
