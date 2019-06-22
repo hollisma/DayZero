@@ -1,7 +1,10 @@
 TODO: 
-write Group and Profile models
-write profile routes
-write group routes
+group routing api
+feedback routing api
+testing users routing api
+testing profile routing api
+testing group routing api
+testing feedback routing api
 
 ---------------------------------------------------------------------------------------------------
 GENERAL
