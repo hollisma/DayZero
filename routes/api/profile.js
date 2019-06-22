@@ -36,15 +36,19 @@ router.get("/me", auth, async (req, res) => {
  * @access  Private
  */
 router.post(
-  "/", 
+  "/",
   [
     auth,
     [
       // TODO: this might need to be changed for arrays
-      check('major', 'Major is required').not().isEmpty(),
-      check('bio', 'Bio is required').not().isEmpty()
+      check("major", "Major is required")
+        .not()
+        .isEmpty(),
+      check("bio", "Bio is required")
+        .not()
+        .isEmpty()
     ]
-  ], 
+  ],
   async (req, res) => {
     // Go through validation checks
     const errors = validationResult(req);
@@ -66,28 +70,33 @@ router.post(
       projects
     } = req.body;
 
-    // Build profile object
-    const profileFields = {};
-    profileFields.user = req.user.id;
-    if (major) profileFields.major = major.split(",").map(maj => maj.trim());
-    if (minor) profileFields.minor = minor.split(",").map(min => min.trim());
-    if (phone) profileFields.phone = phone;
-    if (categoriesHave)
-      profileFields.categoriesHave = categoriesHave
-        .split(",")
-        .map(cH => cH.trim());
-    if (categoriesWant)
-      profileFields.categoriesWant = categoriesWant
-        .split(",")
-        .map(cW => cW.trim());
-    if (bio) profileFields.bio = bio;
-    if (time) profileFields.time = time;
-    if (extendedBio) profileFields.extendedBio = extendedBio;
-    if (coreValues)
-      profileFields.coreValues = coreValues.split(",").map(cv => cv.trim());
-    if (projects) profileFields.projects = projects.split(",").map(p => p.trim());
-
     try {
+      // Build profile object
+      const profileFields = {};
+      profileFields.user = req.user.id;
+      profileFields.major = major
+        ? major.split(",").map(maj => maj.trim())
+        : [];
+      profileFields.minor = minor
+        ? minor.split(",").map(min => min.trim())
+        : [];
+      profileFields.phone = phone ? phone : null;
+      profileFields.categoriesHave = categoriesHave
+        ? categoriesHave.split(",").map(cH => cH.trim())
+        : [];
+      profileFields.categoriesWant = categoriesWant
+        ? categoriesWant.split(",").map(cW => cW.trim())
+        : [];
+      profileFields.bio = bio ? bio : null;
+      profileFields.time = time ? time : null;
+      profileFields.extendedBio = extendedBio ? extendedBio : null;
+      profileFields.coreValues = coreValues
+        ? coreValues.split(",").map(cV => cV.trim())
+        : [];
+      profileFields.projects = projects
+        ? projects.split(",").map(p => p.trim())
+        : [];
+
       let profile = await Profile.findOne({ user: req.user.id });
 
       if (profile) {
@@ -109,7 +118,8 @@ router.post(
       console.error(err.message);
       res.status(500).send("Server Error");
     }
-});
+  }
+);
 
 /**
  * @route   GET api/profile/user/:user_id
