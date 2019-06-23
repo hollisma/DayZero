@@ -13,13 +13,13 @@ const GroupSchema = new mongoose.Schema({
   location: {
     type: String
   },
-  date: {
-    type: Date,
-    default: Date.now
-  },
   active: {
     type: Boolean,
     default: true
+  },
+  date: {
+    type: Date, 
+    default: Date.now
   }
 });
 

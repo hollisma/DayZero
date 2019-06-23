@@ -6,7 +6,8 @@ const ProfileSchema = new mongoose.Schema({
     ref: "user"
   },
   major: {
-    type: [String]
+    type: [String],
+    require: true
   },
   minor: {
     type: [String]
@@ -21,7 +22,8 @@ const ProfileSchema = new mongoose.Schema({
     type: [String]
   },
   bio: {
-    type: String
+    type: String,
+    require: true
   },
   time: {
     // Will change if we use Calendly
