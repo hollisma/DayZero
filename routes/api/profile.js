@@ -1,14 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const { check, validationResult } = require("express-validator/check");
 const auth = require("../../middleware/auth");
 
 // Models
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
-<<<<<<< HEAD
-const Feedback = require("../../models/Feedback");
-=======
->>>>>>> 027a15ec7225c88773ce6207b722c7e483eef313
 
 /**
  * @route   GET api/profile/me
@@ -123,21 +120,6 @@ router.post(
     }
   }
 );
-
-/**
- * @route   GET api/profile
- * @desc    Get all profiles
- * @access  Public
- * */
-router.get("/", async (req, res) => {
-  try {
-    const profiles = await Profile.find().populate("user", ["name", "avatar"]);
-    res.json(profiles);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send("Server Error");
-  }
-});
 
 /**
  * @route   GET api/profile

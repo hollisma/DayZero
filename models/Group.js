@@ -3,22 +3,19 @@ const mongoose = require("mongoose");
 const GroupSchema = new mongoose.Schema({
   members: {
     type: [mongoose.Schema.Types.ObjectId],
-    ref: "user",
+    ref: "user"
     // Will depend on if we want empty groups
-    require: true
+    // require: true
   },
   time: {
     type: Date
-  },
-  location: {
-    type: String
   },
   active: {
     type: Boolean,
     default: true
   },
   date: {
-    type: Date, 
+    type: Date,
     default: Date.now
   }
 });

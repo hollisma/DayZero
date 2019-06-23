@@ -1,64 +1,60 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const auth = require('../../middleware/auth');
-const { check, validationResult } = require('express-validator/check');
+const auth = require("../../middleware/auth");
+const { check, validationResult } = require("express-validator/check");
 
 // Models
 const User = require("../../models/User");
 const Group = require("../../models/Group");
 
 /**
- * @route   PUT api/groups
+ * @route   POST api/groups
  * @desc    Make a group
  * @access  Private
  */
-router.put('/', auth, async (req, res) => {
-  
+router.post("/", auth, async (req, res) => {
   try {
-    const user = await User.findOne({ id: req.user.id });
-    
+    const user = await User.findById(req.user.id);
+
     // Check if user is in group
     if (user.group) {
-      res.status(400).json({ msg: 'User is already in a group' });
+      return res.status(400).json({ msg: "User is already in a group" });
     }
 
-    // Create group
+    // Create group with current user as a member
     const group = new Group({ members: [req.user.id] });
     await group.save();
 
-    // Add user to group
-    user.group = group._id;
+    // Add group to user
+    const newGroup = { group: group._id };
+    await User.findByIdAndUpdate(req.user.id, { $set: newGroup });
 
     res.json(group);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
 /**
- * @route   POST api/groups/:group_id/:user_id
+ * @route   PUT api/groups/:group_id/:user_id
  * @desc    Update a group
  * @access  Private
  */
-router.put('/', auth, async (req, res) => {
+router.put("/", auth, async (req, res) => {
   // Destructure properties from req
-  const {
-    members, 
-    time, 
-    location, 
-    active
-  }
+  const { members, time, location, active } = req.body;
 
   // Build group object
   const groupFields = {};
   if (members) profileFields.members.push(members);
-  
+
   try {
     const group = await Group.findOne({ id: req.params.group_id });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
+module.exports = router;
