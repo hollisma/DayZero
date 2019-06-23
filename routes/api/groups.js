@@ -47,7 +47,11 @@ router.put("/:group_id", auth, async (req, res) => {
     const group = await Group.findById(req.params.group_id);
     var groupArr = group.members;
     if (groupArr.includes(req.user.id)) {
-      return res.status(400).json({ msg: "User is already in group" });
+      return res.status(400).json({ msg: "User is already in a group" });
+    }
+    const user = await User.findById(req.user.id);
+    if (user.group) {
+      return res.status(400).json({ msg: "User is already in a group" });
     }
     groupArr.push(req.user.id);
 
