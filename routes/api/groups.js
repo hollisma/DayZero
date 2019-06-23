@@ -37,20 +37,32 @@ router.post("/", auth, async (req, res) => {
 });
 
 /**
- * @route   PUT api/groups/:group_id/:user_id
- * @desc    Update a group
+ * @route   PUT api/groups/:group_id
+ * @desc    Add a group member
  * @access  Private
  */
-router.put("/", auth, async (req, res) => {
-  // Destructure properties from req
-  const { members, time, location, active } = req.body;
-
-  // Build group object
-  const groupFields = {};
-  if (members) profileFields.members.push(members);
-
+router.put("/:group_id", auth, async (req, res) => {
   try {
-    const group = await Group.findOne({ id: req.params.group_id });
+    // Get new array of members
+    const group = await Group.findById(req.params.group_id);
+    var groupArr = group.members;
+    if (groupArr.includes(req.user.id)) {
+      return res.status(400).json({ msg: "User is already in group" });
+    }
+    groupArr.push(req.user.id);
+
+    // Update members of group
+    const newMembers = { members: groupArr };
+    await Group.findOneAndUpdate(req.params.group_id, {
+      $set: newMembers
+    });
+
+    // Add group to user
+    const newGroup = { group: group._id };
+    await User.findByIdAndUpdate(req.user.id, { $set: newGroup });
+
+    const resultGroup = await Group.findById(req.params.group_id);
+    res.json(resultGroup);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
