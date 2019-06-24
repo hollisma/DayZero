@@ -75,7 +75,7 @@ router.put("/add/:group_id", auth, async (req, res) => {
 
 /**
  * @route   PUT api/groups/remove/:group_id
- * @desc    Add a group member
+ * @desc    Remove a group member
  * @access  Private
  */
 router.put("/remove/:group_id", auth, async (req, res) => {
@@ -104,6 +104,45 @@ router.put("/remove/:group_id", auth, async (req, res) => {
 
     const resultGroup = await Group.findById(req.params.group_id);
     res.json(resultGroup);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+/**
+ * @route   PUT api/groups/:group_id
+ * @desc    Update group
+ * @access  Private                     SHOULD BE ADMIN
+ */
+router.put("/:group_id", auth, async (req, res) => {
+  // Destructure properties from req
+  var { members, time, active } = req.body;
+
+  try {
+    var group = await Group.findById(req.params.group_id);
+
+    // Build group object
+    const groupFields = {};
+
+    groupFields.members = members;
+    if (group.members) {
+      groupFields.members.push(...group.members);
+    }
+    if (members && groupFields.members.length > 4) {
+      return res.status(400).json({ msg: "Maximum group size is 4" });
+    }
+
+    groupFields.time = time instanceof Date ? time : group.time;
+    groupFields.active = typeof active == typeof true ? active : group.active;
+
+    await Group.findByIdAndUpdate(req.params.group_id, {
+      $set: groupFields
+    });
+
+    group = await Group.findById(req.params.group_id);
+
+    res.json(group);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

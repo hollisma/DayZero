@@ -70,33 +70,29 @@ router.post(
       projects
     } = req.body;
 
-    try {
-      // Build profile object
-      const profileFields = {};
-      profileFields.user = req.user.id;
-      profileFields.major = major
-        ? major.split(",").map(maj => maj.trim())
-        : [];
-      profileFields.minor = minor
-        ? minor.split(",").map(min => min.trim())
-        : [];
-      profileFields.phone = phone ? phone : null;
-      profileFields.categoriesHave = categoriesHave
-        ? categoriesHave.split(",").map(cH => cH.trim())
-        : [];
-      profileFields.categoriesWant = categoriesWant
-        ? categoriesWant.split(",").map(cW => cW.trim())
-        : [];
-      profileFields.bio = bio ? bio : null;
-      profileFields.time = time ? time : null;
-      profileFields.extendedBio = extendedBio ? extendedBio : null;
-      profileFields.coreValues = coreValues
-        ? coreValues.split(",").map(cV => cV.trim())
-        : [];
-      profileFields.projects = projects
-        ? projects.split(",").map(p => p.trim())
-        : [];
+    // Build profile object
+    const profileFields = {};
+    profileFields.user = req.user.id;
+    profileFields.major = major ? major.split(",").map(maj => maj.trim()) : [];
+    profileFields.minor = minor ? minor.split(",").map(min => min.trim()) : [];
+    profileFields.phone = phone ? phone : null;
+    profileFields.categoriesHave = categoriesHave
+      ? categoriesHave.split(",").map(cH => cH.trim())
+      : [];
+    profileFields.categoriesWant = categoriesWant
+      ? categoriesWant.split(",").map(cW => cW.trim())
+      : [];
+    profileFields.bio = bio ? bio : null;
+    profileFields.time = time ? time : null;
+    profileFields.extendedBio = extendedBio ? extendedBio : null;
+    profileFields.coreValues = coreValues
+      ? coreValues.split(",").map(cV => cV.trim())
+      : [];
+    profileFields.projects = projects
+      ? projects.split(",").map(p => p.trim())
+      : [];
 
+    try {
       let profile = await Profile.findOne({ user: req.user.id });
 
       if (profile) {
