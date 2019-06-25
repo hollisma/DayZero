@@ -124,15 +124,17 @@ router.put("/:group_id", auth, async (req, res) => {
 
     // Build group object
     const groupFields = {};
-
-    groupFields.members = members;
-    if (group.members) {
-      groupFields.members.push(...group.members);
-    }
-    if (members && groupFields.members.length > 4) {
+    // Add members nonsafely
+    groupFields.members = group.members;
+    members.forEach(member => {
+      if (!groupFields.members.includes(member)) {
+        groupFields.members.push(member);
+      }
+    });
+    if (groupFields.members.length > 4) {
       return res.status(400).json({ msg: "Maximum group size is 4" });
     }
-
+    // Add time & active safely
     groupFields.time = time instanceof Date ? time : group.time;
     groupFields.active = typeof active == typeof true ? active : group.active;
 
