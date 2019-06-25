@@ -6,9 +6,10 @@ const FeedbackSchema = new mongoose.Schema({
     ref: "user",
     require: true
   },
-  Group: {
+  group: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "group"
+    ref: "group",
+    require: true
   },
   date: {
     type: Date,

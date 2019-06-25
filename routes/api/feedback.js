@@ -19,11 +19,11 @@ router.post("/", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
     if (!user.group) {
-      res.status(400).json({ msg: "User is not in a group" });
+      return res.status(400).json({ msg: "User is not in a group" });
     }
     const group = await Group.findById(user.group);
     if (group.active) {
-      res.status(400).json({ msg: "User's group has not met yet" });
+      return res.status(400).json({ msg: "User's group has not met yet" });
     }
 
     // Build feedback object
@@ -44,3 +44,5 @@ router.post("/", auth, async (req, res) => {
     res.status(500).send("Server error");
   }
 });
+
+module.exports = router;
