@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const auth = require("../../middleware/auth");
+const admin = require("../../middleware/admin");
 const { check, validationResult } = require("express-validator/check");
 
 // Models
@@ -134,11 +135,11 @@ router.put("/remove/:group_id", auth, async (req, res) => {
 });
 
 /**
- * @route   PUT api/groups/:group_id
+ * @route   PUT api/groups/admin/:group_id
  * @desc    Update group
- * @access  Private                     SHOULD BE ADMIN
+ * @access  Admin
  */
-router.put("/:group_id", auth, async (req, res) => {
+router.put("/admin/:group_id", admin, async (req, res) => {
   // Destructure properties from req
   var { members, time, active } = req.body;
 
@@ -185,17 +186,12 @@ router.put("/:group_id", auth, async (req, res) => {
 module.exports = router;
 
 /**
- * @route   PUT api/groups/archive/:group_id
+ * @route   PUT api/groups/admin/archive/:group_id
  * @desc    Archive group
- * @access  Private                     SHOULD BE ADMIN
+ * @access  Admin
  */
-router.put("/archive/:group_id", auth, async (req, res) => {
+router.put("/admin/archive/:group_id", admin, async (req, res) => {
   try {
-    var group = await Group.findById(req.params.group_id);
-    if (!group.members.some(member => member == req.user.id)) {
-      res.status(401).json({ msg: "Current user not in group" });
-    }
-
     await Group.findByIdAndUpdate(req.params.group_id, {
       $set: { active: false }
     });

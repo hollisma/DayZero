@@ -1,8 +1,10 @@
 const jwt = require("jsonwebtoken");
 const config = require("config");
 
-// Purpose: middleware function that makes sure the req has a valid token
-module.exports = (req, res, next) => {
+const User = require("../models/User");
+
+// Purpose: middleware function that makes sure the req has a valid token for admin user
+module.exports = async (req, res, next) => {
   // Get token from header
   // Token must be passed into header with key 'x-auth-token'
   const token = req.header("x-auth-token");
@@ -16,6 +18,13 @@ module.exports = (req, res, next) => {
   try {
     const decoded = jwt.verify(token, config.get("jwtSecret"));
     req.user = decoded.user;
+
+    const user = await User.findById(req.user.id);
+    if (user.email != config.get("adminEmail")) {
+      return res
+        .status(401)
+        .json({ msg: "No admin token, authorization denied" });
+    }
 
     next();
   } catch (err) {
