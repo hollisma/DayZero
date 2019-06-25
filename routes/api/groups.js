@@ -75,7 +75,7 @@ router.put("/add/:group_id", auth, async (req, res) => {
 
 /**
  * @route   PUT api/groups/remove/:group_id
- * @desc    Remove a group member
+ * @desc    Remove current member from group
  * @access  Private
  */
 router.put("/remove/:group_id", auth, async (req, res) => {
@@ -125,21 +125,29 @@ router.put("/:group_id", auth, async (req, res) => {
     // Build group object
     const groupFields = {};
     // Add members nonsafely
+    var newMembers = [];
     groupFields.members = group.members;
     members.forEach(member => {
       if (!groupFields.members.includes(member)) {
+        newMembers.push(member);
         groupFields.members.push(member);
       }
     });
     if (groupFields.members.length > 4) {
       return res.status(400).json({ msg: "Maximum group size is 4" });
     }
-    // Add time & active safely
-    groupFields.time = time instanceof Date ? time : group.time;
+    // Add time & active
+    groupFields.time = time ? time : group.time;
     groupFields.active = typeof active == typeof true ? active : group.active;
 
     await Group.findByIdAndUpdate(req.params.group_id, {
       $set: groupFields
+    });
+
+    // Add group to user
+    const newGroup = { group: req.params.group_id };
+    newMembers.forEach(async member => {
+      await User.findByIdAndUpdate(member, newGroup);
     });
 
     group = await Group.findById(req.params.group_id);
