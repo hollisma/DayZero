@@ -1,13 +1,10 @@
 TODO: 
-group routing api
-feedback routing api
-testing users routing api
-testing profile routing api
-testing group routing api
-testing feedback routing api
+redux and frontend
 
 ---------------------------------------------------------------------------------------------------
 GENERAL
+
+run "npm run dev" to run backend and frontend at the same time;
 
 dependencies: 
   express: express
@@ -22,6 +19,7 @@ dev dependencies (installed with -D):
   nodemon: updates server so we don't have to constantly refresh
   concurrently: run server and client at same time
 Starting development by doing backend first;
+
 ---------------------------------------------------------------------------------------------------
 TESTING
 
@@ -29,6 +27,18 @@ endpoints:
   use Postman to send different types of requests and information;
   can make collections to make testing easier;
 
+---------------------------------------------------------------------------------------------------
+FRONTEND
+
+dependencies: 
+  axios: http request
+  react-router-dom: router
+  redux: state management
+  react-redux: connect react to redux
+  redux-thunk: middleware
+  redux-devtools-extension: devtools
+  moment: date time formatter
+  react-moment: use moment in react
 
 
 
