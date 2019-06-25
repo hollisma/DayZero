@@ -145,9 +145,8 @@ router.put("/:group_id", auth, async (req, res) => {
     });
 
     // Add group to user
-    const newGroup = { group: req.params.group_id };
     newMembers.forEach(async member => {
-      await User.findByIdAndUpdate(member, newGroup);
+      await User.findByIdAndUpdate(member, { group: req.params.group_id });
     });
 
     group = await Group.findById(req.params.group_id);
