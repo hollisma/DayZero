@@ -8,6 +8,29 @@ const User = require("../../models/User");
 const Group = require("../../models/Group");
 
 /**
+ * @route   GET api/groups
+ * @desc    Get a group
+ * @access  Private
+ */
+router.get("/", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+
+    // Check if user is in group
+    if (!user.group) {
+      return res.status(400).json({ msg: "User is not in a group" });
+    }
+
+    const group = await Group.findById(user.group);
+
+    res.json(group);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+/**
  * @route   POST api/groups
  * @desc    Make a group
  * @access  Private
