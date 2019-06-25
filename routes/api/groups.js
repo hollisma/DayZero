@@ -140,6 +140,7 @@ router.put("/:group_id", auth, async (req, res) => {
     groupFields.time = time ? time : group.time;
     groupFields.active = typeof active == typeof true ? active : group.active;
 
+    // Update group
     await Group.findByIdAndUpdate(req.params.group_id, {
       $set: groupFields
     });
