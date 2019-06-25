@@ -160,3 +160,25 @@ router.put("/:group_id", auth, async (req, res) => {
 });
 
 module.exports = router;
+
+/**
+ * @route   PUT api/groups/archive/:group_id
+ * @desc    Archive group
+ * @access  Private                     SHOULD BE ADMIN
+ */
+router.put("/archive/:group_id", auth, async (req, res) => {
+  try {
+    await Group.findByIdAndUpdate(req.params.group_id, {
+      $set: { active: false }
+    });
+
+    const group = await Group.findById(req.params.group_id);
+
+    res.json(group);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+module.exports = router;
