@@ -191,11 +191,16 @@ module.exports = router;
  */
 router.put("/archive/:group_id", auth, async (req, res) => {
   try {
+    var group = await Group.findById(req.params.group_id);
+    if (!group.members.some(member => member == req.user.id)) {
+      res.status(401).json({ msg: "Current user not in group" });
+    }
+
     await Group.findByIdAndUpdate(req.params.group_id, {
       $set: { active: false }
     });
 
-    const group = await Group.findById(req.params.group_id);
+    group = await Group.findById(req.params.group_id);
 
     res.json(group);
   } catch (err) {
