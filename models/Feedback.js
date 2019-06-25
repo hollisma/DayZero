@@ -22,6 +22,12 @@ const FeedbackSchema = new mongoose.Schema({
   },
   q3: {
     type: String
+  },
+  q4: {
+    type: String
+  },
+  q5: {
+    type: String
   }
 });
 

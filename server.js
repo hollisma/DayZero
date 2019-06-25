@@ -17,6 +17,7 @@ app.use("/api/auth", require("./routes/api/auth.js"));
 app.use("/api/users", require("./routes/api/users.js"));
 app.use("/api/profile", require("./routes/api/profile.js"));
 app.use("/api/groups", require("./routes/api/groups.js"));
+app.use("/api/feedback", require("./routes.api/feedback.js"));
 
 // Looks at environment variables for port. Useful when deploying to heroku
 const PORT = process.env.PORT || 5000;
