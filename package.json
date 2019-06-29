@@ -23,7 +23,8 @@
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.1",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "semantic-ui-react": "^0.87.2"
   },
   "bugs": {
     "url": "https://github.com/hollisma/DayZero/issues"
