@@ -8,17 +8,17 @@ const Navbar = () => {
       </h1>
       <ul className="right menu">
         <li className="item">
-          <a href="home.html" className="current">
+          <a href="#first" className="current">
             Home
           </a>
         </li>
         <li className="item">
-          <a href="howitworks.html" className="reg">
+          <a href="#second" className="reg">
             How It Works
           </a>
         </li>
         <li className="item">
-          <a href="aboutus.html" className="reg">
+          <a href="#third" className="reg">
             FAQ/About Us
           </a>
         </li>
