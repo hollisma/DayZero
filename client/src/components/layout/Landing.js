@@ -2,7 +2,7 @@ import React from "react";
 
 const Landing = () => {
   return (
-    <section className="landing">
+    <section id="landing" className="landing">
       {/* First section */}
       <div id="first" className="chunk">
         <div className="ui vertical stripe segment">
