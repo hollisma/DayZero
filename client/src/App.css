@@ -11,38 +11,35 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem;
+  padding: 0rem 3rem;
   position: fixed;
   z-index: 1;
   width: 100%;
   top: 0;
   border-bottom: solid 1px var(--primary-color);
-  opacity: 0.9;
+  opacity: 0.7;
 }
-
+.grey {
+  background: grey !important;
+}
 .navbar a {
   color: black;
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
-
 .navbar .reg:hover {
   color: lightcoral;
 }
-
 .navbar h1 {
   font-size: 2.2rem;
 }
-
 .navbar li {
   color: #444;
   font-size: 1.2rem;
 }
-
 .navbar .current {
   color: red;
 }
-
 .navbar .signin {
   color: lightskyblue;
 }
