@@ -23,8 +23,8 @@ const Register = () => {
       <p className="lead">
         <i className="fas fa-user" /> Sign Into Your Account
       </p>
-      <form className="form" onSubmit={e => onSubmit(e)}>
-        <div className="form-group">
+      <form className="ui form" onSubmit={e => onSubmit(e)}>
+        <div className="field">
           <input
             type="email"
             placeholder="Email Address"
@@ -34,7 +34,7 @@ const Register = () => {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="field">
           <input
             type="password"
             placeholder="Password"
@@ -44,7 +44,7 @@ const Register = () => {
             minLength="6"
           />
         </div>
-        <input type="submit" className="btn btn-primary" value="Login" />
+        <input type="submit" className="ui button" value="Login" />
       </form>
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign Up</Link>

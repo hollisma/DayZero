@@ -22,7 +22,7 @@ const Navbar = () => {
       </h1>
       <ul className="right menu">
         <li className="item">
-          <a href="#first" className="current">
+          <a href="#first" className="text-primary">
             Home
           </a>
         </li>
@@ -37,7 +37,7 @@ const Navbar = () => {
           </a>
         </li>
         <li className="item">
-          <Link to="/Register" className="register">
+          <Link to="/Register" className="text-secondary">
             Sign In
           </Link>
         </li>

@@ -5,10 +5,11 @@ const Register = () => {
   const [formData, setFromData] = useState({
     name: "",
     email: "",
-    password: ""
+    password: "",
+    phone_number: ""
   });
 
-  const { name, email, password } = formData;
+  const { name, email, password, phone_number } = formData;
 
   const onChange = e =>
     setFromData({ ...formData, [e.target.name]: e.target.value });
@@ -24,8 +25,8 @@ const Register = () => {
       <p className="lead">
         <i className="fas fa-user" /> Create Your Account
       </p>
-      <form className="form" onSubmit={e => onSubmit(e)}>
-        <div className="form-group">
+      <form className="ui form" onSubmit={e => onSubmit(e)}>
+        <div className="field">
           <input
             type="text"
             placeholder="Name"
@@ -35,7 +36,7 @@ const Register = () => {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="field">
           <input
             type="email"
             placeholder="Email Address"
@@ -44,12 +45,17 @@ const Register = () => {
             onChange={e => onChange(e)}
             required
           />
-          <small className="form-text">
-            This site uses Gravatar so if you want a profile image, use a
-            Gravatar email
-          </small>
         </div>
-        <div className="form-group">
+        <div className="field">
+          <input
+            type="text"
+            placeholder="Phone Number"
+            name="phone_number"
+            value={phone_number}
+            onChange={e => onChange(e)}
+          />
+        </div>
+        <div className="field">
           <input
             type="password"
             placeholder="Password"
@@ -59,7 +65,7 @@ const Register = () => {
             minLength="6"
           />
         </div>
-        <input type="submit" className="btn btn-primary" value="Register" />
+        <input type="submit" className="ui button" value="Register" />
       </form>
       <p className="my-1">
         Already have an account? <Link to="/login">Sign In</Link>
