@@ -24,7 +24,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.1",
     "request": "^2.88.0",
-    "semantic-ui-react": "^0.87.2"
+    "semantic-ui-react": "^0.87.2",
+    "sweetalert2": "^8.13.0",
+    "sweetalert2-react-content": "^1.1.0"
   },
   "bugs": {
     "url": "https://github.com/hollisma/DayZero/issues"

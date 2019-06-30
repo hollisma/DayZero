@@ -1,22 +1,34 @@
 import React, { Fragment, useState } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { register } from "../../actions/auth";
+import PropTypes from "prop-types";
 
-const Register = () => {
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
+
+const Register = ({ register }) => {
   const [formData, setFromData] = useState({
     name: "",
     email: "",
+    phone_number: "",
     password: "",
-    phone_number: ""
+    password2: ""
   });
 
-  const { name, email, password, phone_number } = formData;
+  const { name, email, phone_number, password, password2 } = formData;
 
   const onChange = e =>
     setFromData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log(formData);
+    if (password !== password2) {
+      MySwal.fire({ title: "Passwords do not match", type: "error" });
+    } else {
+      register({ name, email, phone_number, password });
+    }
   };
 
   return (
@@ -65,6 +77,16 @@ const Register = () => {
             minLength="6"
           />
         </div>
+        <div className="field">
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            name="password2"
+            value={password2}
+            onChange={e => onChange(e)}
+            minLength="6"
+          />
+        </div>
         <input type="submit" className="ui button" value="Register" />
       </form>
       <p className="my-1">
@@ -74,4 +96,11 @@ const Register = () => {
   );
 };
 
-export default Register;
+Register.propTypes = {
+  register: PropTypes.func.isRequired
+};
+
+export default connect(
+  null,
+  { register }
+)(Register);
