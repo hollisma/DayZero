@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const handleScroll = () => {
@@ -17,7 +18,7 @@ const Navbar = () => {
   return (
     <nav className="ui secondary menu navbar" id="navbar">
       <h1 className="item">
-        <a href="#first">Day Zero</a>
+        <Link to="/">Day Zero</Link>
       </h1>
       <ul className="right menu">
         <li className="item">
@@ -36,9 +37,9 @@ const Navbar = () => {
           </a>
         </li>
         <li className="item">
-          <a href="signin.html" className="signin">
+          <Link to="/Register" className="register">
             Sign In
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
