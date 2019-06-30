@@ -46,17 +46,17 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul className="right menu">
       <li className="item">
-        <a href="#first" className="text-primary">
+        <a href="/#first" className="text-primary">
           Home
         </a>
       </li>
       <li className="item">
-        <a href="#second" className="reg">
+        <a href="/#second" className="reg">
           How It Works
         </a>
       </li>
       <li className="item">
-        <a href="#third" className="reg">
+        <a href="/#third" className="reg">
           FAQ/About Us
         </a>
       </li>

@@ -21,17 +21,29 @@ const Landing = () => {
         <div className="ui vertical stripe segment">
           <div className="ui middle aligned stackable grid container">
             <div>
-              <h3 className="ui header">We Help Companies and Companions</h3>
-              <p>
-                We can give your company superpowers to do things that they
-                never thought possible. Let us delight your customers and
-                empower your needs...through pure data analytics.
-              </p>
-              <h3 className="ui header">We Make Bananas That Can Dance</h3>
-              <p>
-                Yes that's right, you thought it was the stuff of dreams, but
-                even bananas can be bioengineered.
-              </p>
+              <h1>How Day Zero Works</h1>
+              <div className="section">
+                <img src={require("../../img/three-group")} />
+                <p>
+                  Tell us what kind of people you'd like to meet. Entrepreneurs?
+                  Aspiring artists and musicians? People who love building
+                  rockets?
+                </p>
+              </div>
+              <div className="section">
+                <img src={require("../../img/three-group")} />
+                <p>
+                  Set your calendar for the times you're free to grab a meal of
+                  coffee
+                </p>
+              </div>
+              <div className="section">
+                <img src={require("../../img/three-group")} />
+                <p>
+                  Based on your interests, Day Zero will automatically match you
+                  with three other people to have a meal or coffee!
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -40,7 +52,18 @@ const Landing = () => {
       {/* Third section */}
       <div id="third" className="chunk">
         <div className="ui vertical stripe segment">
-          <div className="ui middle aligned stackable grid container" />
+          <div className="ui middle aligned stackable grid container">
+            <div>
+              <h3 className="ui header">Who are we?</h3>
+              <p>A couple of dumb guys that want to meet people</p>
+              <h3 className="ui header">How am I being matched?</h3>
+              <p>
+                We have curated a complicated, state-of-the-art matching
+                algorithm designed for opitmal user satisfaction. Aka, we use a
+                random number generator
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
