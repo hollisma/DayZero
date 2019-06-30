@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <nav className="ui secondary menu navbar" id="navbar">
       <h1 className="item">
-        <a href="index.html">Day Zero</a>
+        <a href="#first">Day Zero</a>
       </h1>
       <ul className="right menu">
         <li className="item">
