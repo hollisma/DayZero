@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 
@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 
-const Register = ({ register }) => {
+const Register = ({ register, isAuthenticated }) => {
   const [formData, setFromData] = useState({
     name: "",
     email: "",
@@ -30,6 +30,10 @@ const Register = ({ register }) => {
       register({ name, email, phone_number, password });
     }
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="dashboard" />;
+  }
 
   return (
     <Fragment>
@@ -97,10 +101,15 @@ const Register = ({ register }) => {
 };
 
 Register.propTypes = {
-  register: PropTypes.func.isRequired
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired
 };
 
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { register }
 )(Register);
