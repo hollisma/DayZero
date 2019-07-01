@@ -165,21 +165,28 @@ body {
 }
 
 /* Second section */
+#second h1 {
+  margin-bottom: 7rem;
+  font-size: 3rem;
+}
+#second .grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-auto-rows: minmax(7rem, auto);
+  grid-gap: 1rem;
+  align-items: center;
+  justify-items: start;
+  justify-content: start !important;
+}
 #second p {
   font-size: 1.5rem;
-  display: inline;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
 }
 #second img {
-  max-width: 10%;
+  max-width: 70%;
   margin: 1rem;
-  vertical-align: middle;
-}
-#second .section {
-  margin: 2rem;
-  /* align-items: left; */
-  /* justify-content: left; */
-  text-align: left;
-  /* position: relative !important; */
 }
 
 /* Vertical Stripe */
