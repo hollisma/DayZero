@@ -109,7 +109,7 @@ body {
   width: 100%;
   top: 0;
   border-bottom: solid 1px var(--primary-color);
-  opacity: 0.85;
+  opacity: 0.8;
   height: 100px;
   transition: all 0.4s ease-out;
   -webkit-transition: all 0.4s ease-out;
@@ -118,8 +118,8 @@ body {
   background: grey !important;
 }
 .scrolled {
-  height: 65px;
-  background-color: #999 !important;
+  height: 85px;
+  background-color: #bbb !important;
 }
 .navbar a {
   color: black;
@@ -133,11 +133,11 @@ body {
   color: lightcoral;
 }
 .navbar h1 {
-  font-size: 2rem;
+  font-size: 2.6rem;
 }
 .navbar li {
   color: #444;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 /* Landing Page */
@@ -160,33 +160,53 @@ body {
   background: lightblue;
 }
 .landing h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   padding-bottom: 0rem;
+}
+.landing p {
+  font-size: 2rem !important;
+}
+.landing img {
+  max-width: 80%;
+  margin: 1rem;
+}
+
+/* First section */
+#first img {
+  width: 22rem;
+  margin: 3rem;
+}
+#first .images {
+  /* justify-content: flex-start; */
 }
 
 /* Second section */
 #second h1 {
   margin-bottom: 7rem;
-  font-size: 3rem;
+  font-size: 4rem;
 }
 #second .grid {
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-auto-rows: minmax(7rem, auto);
-  grid-gap: 1rem;
+  grid-gap: 3rem;
   align-items: center;
   justify-items: start;
   justify-content: start !important;
 }
 #second p {
-  font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
   padding: 0;
 }
-#second img {
-  max-width: 70%;
-  margin: 1rem;
+
+/* Third section */
+#third h2 {
+  font-size: 3rem !important;
+  padding: 1rem;
+}
+#third p {
+  margin-bottom: 7rem;
 }
 
 /* Vertical Stripe */

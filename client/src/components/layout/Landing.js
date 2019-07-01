@@ -9,8 +9,11 @@ const Landing = () => {
         <div className="ui vertical stripe segment">
           <h1>Meeting interesting people just got a whole lot easier</h1>
           <p>Now Available At: </p>
-          {/* images of stanford and princeton */}
-          <button className="ui button basic blue big">
+          <div className="images">
+            <img src={require("../../img/stanford")} alt="" />
+            <img src={require("../../img/princeton")} alt="" />
+          </div>
+          <button className="ui button basic blue massive">
             <Link to="/register">FIND YOUR DAY ZEROS</Link>
           </button>
         </div>
@@ -21,17 +24,17 @@ const Landing = () => {
         <div className="ui vertical stripe segment">
           <h1>How Day Zero Works</h1>
           <div className="ui middle aligned stackable grid container">
-            <img src={require("../../img/three-group")} />
+            <img src={require("../../img/three-group")} alt="" />
             <p>
               Tell us what kind of people you'd like to meet. Entrepreneurs?
               Aspiring artists and musicians? People who love building rockets?
             </p>
-            <img src={require("../../img/three-group")} />
+            <img src={require("../../img/three-group")} alt="" />
             <p>
               Set your calendar for the times you're free to grab a meal of
               coffee
             </p>
-            <img src={require("../../img/three-group")} />
+            <img src={require("../../img/three-group")} alt="" />
             <p>
               Based on your interests, Day Zero will automatically match you
               with three other people to have a meal or coffee!
@@ -45,9 +48,9 @@ const Landing = () => {
         <div className="ui vertical stripe segment">
           <div className="ui middle aligned stackable grid container">
             <div>
-              <h3 className="ui header">Who are we?</h3>
+              <h2>Who are we?</h2>
               <p>A couple of dumb guys that want to meet people</p>
-              <h3 className="ui header">How am I being matched?</h3>
+              <h2>How am I being matched?</h2>
               <p>
                 We have curated a complicated, state-of-the-art matching
                 algorithm designed for opitmal user satisfaction. Aka, we use a
