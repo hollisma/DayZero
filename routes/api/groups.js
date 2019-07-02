@@ -6,6 +6,7 @@ const admin = require("../../middleware/admin");
 // Models
 const User = require("../../models/User");
 const Group = require("../../models/Group");
+const { MET } = require("../../models/userTypes");
 
 /**
  * @route   GET api/groups
@@ -191,6 +192,15 @@ module.exports = router;
  */
 router.put("/admin/archive/:group_id", admin, async (req, res) => {
   try {
+    // Change each member type to MET
+    var group = await Group.findById(req.params.group_id);
+    const members = group.members;
+    members.forEach(async member => {
+      await User.findByIdAndUpdate(member, {
+        $set: { user_type: MET }
+      });
+    });
+
     await Group.findByIdAndUpdate(req.params.group_id, {
       $set: { active: false }
     });
