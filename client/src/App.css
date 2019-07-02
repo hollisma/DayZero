@@ -182,7 +182,8 @@ body {
   margin: 3rem;
 }
 #first .images {
-  /* justify-content: flex-start; */
+  /* TODO: doesn't work */
+  justify-content: flex-start;
 }
 
 /* Second section */

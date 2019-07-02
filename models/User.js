@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+import { GUEST } from "./userTypes";
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -10,9 +11,17 @@ const UserSchema = new mongoose.Schema({
     require: true,
     unique: true
   },
+  phone_number: {
+    type: String
+  },
   password: {
     type: String,
     require: true
+  },
+  password: {
+    type: String,
+    require: true,
+    default: GUEST
   },
   avatar: {
     type: String
