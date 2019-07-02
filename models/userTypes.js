@@ -3,5 +3,6 @@ module.exports = {
   REGISTERED: "REGISTERED",
   PROFILED: "PROFILED",
   MET: "MET",
+  INACTIVE: "INACTIVE",
   DELETED: "DELETED"
 };
