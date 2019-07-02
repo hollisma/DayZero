@@ -6,6 +6,7 @@ const auth = require("../../middleware/auth");
 // Models
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
+const { PROFILED } = require("../../models/userTypes");
 
 /**
  * @route   GET api/profile/me
@@ -109,6 +110,12 @@ router.post(
       // Create
       profile = new Profile(profileFields);
       await profile.save();
+
+      // Set user type to PROFILED
+      await User.findByIdAndUpdate(req.user.id, {
+        $set: { user_type: PROFILED }
+      });
+
       res.json(profile);
     } catch (err) {
       console.error(err.message);
@@ -160,6 +167,7 @@ router.get("/user/:user_id", async (req, res) => {
  * @desc    Delete profile and user
  * @access  Private
  */
+/** @TODO use DELETED user_type to keep info stored */
 router.delete("/", auth, async (req, res) => {
   try {
     // Remove profile
