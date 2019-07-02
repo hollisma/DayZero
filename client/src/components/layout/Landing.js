@@ -13,7 +13,7 @@ const Landing = () => {
             <img src={require("../../img/stanford")} alt="" />
             <img src={require("../../img/princeton")} alt="" />
           </div>
-          <button className="ui button basic blue massive">
+          <button className="ui button basic blue big">
             <Link to="/register">FIND YOUR DAY ZEROS</Link>
           </button>
         </div>
