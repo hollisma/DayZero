@@ -6,6 +6,7 @@ const auth = require("../../middleware/auth");
 const User = require("../../models/User");
 const Group = require("../../models/Group");
 const Feedback = require("../../models/Feedback");
+const MET = require("../../models/userTypes");
 
 /**
  * @route   POST api/feedback
@@ -20,6 +21,9 @@ router.post("/", auth, async (req, res) => {
     const user = await User.findById(req.user.id);
     if (!user.group) {
       return res.status(400).json({ msg: "User is not in a group" });
+    }
+    if (user.user_type !== MET) {
+      return res.status(400).json({ msg: "User has not met with a group yet" });
     }
     const group = await Group.findById(user.group);
     if (group.active) {
