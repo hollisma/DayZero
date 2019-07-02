@@ -26,17 +26,22 @@ body {
 
 /* Text Styles*/
 .x-large {
-  font-size: 4rem;
+  font-size: 4rem !important;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.larger {
+  font-size: 3rem !important;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 .large {
-  font-size: 3rem;
+  font-size: 2rem !important;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 .lead {
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
   margin-bottom: 1rem;
 }
 .text-primary {
@@ -48,54 +53,54 @@ body {
 
 /* Padding */
 .p {
-  padding: 0.5rem;
+  padding: 0.5rem !important;
 }
 .p-1 {
-  padding: 1rem;
+  padding: 1rem !important;
 }
 .p-2 {
-  padding: 2rem;
+  padding: 2rem !important;
 }
 .p-3 {
-  padding: 3rem;
+  padding: 3rem !important;
 }
 .py {
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 !important;
 }
 .py-1 {
-  padding: 1rem 0;
+  padding: 1rem 0 !important;
 }
 .py-2 {
-  padding: 2rem 0;
+  padding: 2rem 0 !important;
 }
 .py-3 {
-  padding: 3rem 0;
+  padding: 3rem 0 !important;
 }
 
 /* Margin */
 .m {
-  margin: 0.5rem;
+  margin: 0.5rem !important;
 }
 .m-1 {
-  margin: 1rem;
+  margin: 1rem !important;
 }
 .m-2 {
-  margin: 2rem;
+  margin: 2rem !important;
 }
 .m-3 {
-  margin: 3rem;
+  margin: 3rem !important;
 }
 .my {
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 !important;
 }
 .my-1 {
-  margin: 1rem 0;
+  margin: 1rem 0 !important;
 }
 .my-2 {
-  margin: 2rem 0;
+  margin: 2rem 0 !important;
 }
 .my-3 {
-  margin: 3rem 0;
+  margin: 3rem 0 !important;
 }
 
 /* Navbar */

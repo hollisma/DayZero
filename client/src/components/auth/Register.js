@@ -37,12 +37,12 @@ const Register = ({ register, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Sign Up</h1>
-      <p className="lead">
+      <h1 className="x-large text-primary">Sign Up</h1>
+      <p className="large my-3">
         <i className="fas fa-user" /> Create Your Account
       </p>
       <form className="ui form" onSubmit={e => onSubmit(e)}>
-        <div className="field">
+        <div className="field lead">
           <input
             type="text"
             placeholder="Name"
@@ -52,7 +52,7 @@ const Register = ({ register, isAuthenticated }) => {
             required
           />
         </div>
-        <div className="field">
+        <div className="field lead">
           <input
             type="email"
             placeholder="Email Address"
@@ -62,7 +62,7 @@ const Register = ({ register, isAuthenticated }) => {
             required
           />
         </div>
-        <div className="field">
+        <div className="field lead">
           <input
             type="text"
             placeholder="Phone Number"
@@ -71,7 +71,7 @@ const Register = ({ register, isAuthenticated }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        <div className="field">
+        <div className="field lead">
           <input
             type="password"
             placeholder="Password"
@@ -81,7 +81,7 @@ const Register = ({ register, isAuthenticated }) => {
             minLength="6"
           />
         </div>
-        <div className="field">
+        <div className="field lead">
           <input
             type="password"
             placeholder="Confirm Password"
@@ -91,9 +91,9 @@ const Register = ({ register, isAuthenticated }) => {
             minLength="6"
           />
         </div>
-        <input type="submit" className="ui button" value="Register" />
+        <input type="submit" className="ui button lead my-2" value="Register" />
       </form>
-      <p className="my-1">
+      <p className="my-1 lead">
         Already have an account? <Link to="/login">Sign In</Link>
       </p>
     </Fragment>

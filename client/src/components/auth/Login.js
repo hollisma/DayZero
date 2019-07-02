@@ -26,12 +26,12 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Sign In</h1>
-      <p className="lead">
+      <h1 className="x-large text-primary">Sign In</h1>
+      <p className="large my-3">
         <i className="fas fa-user" /> Sign Into Your Account
       </p>
       <form className="ui form" onSubmit={e => onSubmit(e)}>
-        <div className="field">
+        <div className="field lead">
           <input
             type="email"
             placeholder="Email Address"
@@ -41,7 +41,7 @@ const Login = ({ login, isAuthenticated }) => {
             required
           />
         </div>
-        <div className="field">
+        <div className="field lead">
           <input
             type="password"
             placeholder="Password"
@@ -51,9 +51,9 @@ const Login = ({ login, isAuthenticated }) => {
             minLength="6"
           />
         </div>
-        <input type="submit" className="ui button" value="Login" />
+        <input type="submit" className="ui button lead my-2" value="Login" />
       </form>
-      <p className="my-1">
+      <p className="my-1 lead">
         Don't have an account? <Link to="/register">Sign Up</Link>
       </p>
     </Fragment>
