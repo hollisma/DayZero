@@ -5,6 +5,10 @@ const ProfileSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "user"
   },
+  college: {
+    type: String,
+    require: true
+  },
   major: {
     type: [String],
     require: true
@@ -12,30 +16,17 @@ const ProfileSchema = new mongoose.Schema({
   minor: {
     type: [String]
   },
-  phone: {
-    type: String
-  },
-  categoriesHave: {
-    type: [String]
-  },
-  categoriesWant: {
+  categories: {
     type: [String]
   },
   bio: {
-    type: String,
-    require: true
-  },
-  time: {
-    // Will change if we use Calendly
     type: String
   },
-  extendedBio: {
-    type: String
-  },
-  coreValues: {
+  values: {
     type: [String]
   },
-  projects: {
+  times: {
+    // Will change if we use Calendly
     type: [String]
   }
 });

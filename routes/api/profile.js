@@ -42,10 +42,10 @@ router.post(
     auth,
     [
       // TODO: this might need to be changed for arrays
-      check("major", "Major is required")
+      check("college", "College is required")
         .not()
         .isEmpty(),
-      check("bio", "Bio is required")
+      check("major", "Major is required")
         .not()
         .isEmpty()
     ]
@@ -58,39 +58,23 @@ router.post(
     }
 
     // Destructure properties from req
-    const {
-      major,
-      minor,
-      phone,
-      categoriesHave,
-      categoriesWant,
-      bio,
-      time,
-      extendedBio,
-      coreValues,
-      projects
-    } = req.body;
+    const { college, major, minor, categories, bio, values, times } = req.body;
 
     // Build profile object
     const profileFields = {};
     profileFields.user = req.user.id;
+    profileFields.college = college ? college : null;
     profileFields.major = major ? major.split(",").map(maj => maj.trim()) : [];
     profileFields.minor = minor ? minor.split(",").map(min => min.trim()) : [];
-    profileFields.phone = phone ? phone : null;
-    profileFields.categoriesHave = categoriesHave
-      ? categoriesHave.split(",").map(cH => cH.trim())
-      : [];
-    profileFields.categoriesWant = categoriesWant
-      ? categoriesWant.split(",").map(cW => cW.trim())
+    profileFields.categories = categories
+      ? categories.split(",").map(category => category.trim())
       : [];
     profileFields.bio = bio ? bio : null;
-    profileFields.time = time ? time : null;
-    profileFields.extendedBio = extendedBio ? extendedBio : null;
-    profileFields.coreValues = coreValues
-      ? coreValues.split(",").map(cV => cV.trim())
+    profileFields.values = values
+      ? values.split(",").map(value => value.trim())
       : [];
-    profileFields.projects = projects
-      ? projects.split(",").map(p => p.trim())
+    profileFields.times = times
+      ? times.sptimelit(",").map(time => time.trim())
       : [];
 
     try {
