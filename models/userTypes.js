@@ -1,4 +1,6 @@
-export const GUEST = "GUEST";
-export const REGISTERED = "REGISTERED";
-export const PROFILED = "PROFILED";
-export const MET = "MET";
+module.exports = {
+  GUEST: "GUEST",
+  REGISTERED: "REGISTERED",
+  PROFILED: "PROFILED",
+  MET: "MET"
+};

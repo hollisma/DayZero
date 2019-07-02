@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-import { GUEST } from "./userTypes";
+const { GUEST } = require("./userTypes");
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -18,9 +18,8 @@ const UserSchema = new mongoose.Schema({
     type: String,
     require: true
   },
-  password: {
+  user_type: {
     type: String,
-    require: true,
     default: GUEST
   },
   avatar: {

@@ -7,6 +7,7 @@ const config = require("config");
 const { check, validationResult } = require("express-validator/check");
 
 const User = require("../../models/User");
+const { REGISTERED } = require("../../models/userTypes");
 
 /**
  * @route   POST api/users
@@ -32,7 +33,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, password } = req.body;
+    const { name, email, phone_number, password } = req.body;
 
     try {
       // Check if user already exists
@@ -54,7 +55,9 @@ router.post(
       user = new User({
         name,
         email,
+        phone_number,
         password,
+        user_type: REGISTERED,
         avatar
       });
 
