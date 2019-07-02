@@ -44,6 +44,10 @@ body {
   font-size: 1.5rem !important;
   margin-bottom: 1rem;
 }
+.medium {
+  font-size: 1rem !important;
+  margin-bottom: 1rem;
+}
 .text-primary {
   color: var(--primary-color) !important;
 }
