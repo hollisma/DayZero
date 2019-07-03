@@ -5,17 +5,25 @@ import { connect } from "react-redux";
 
 const PrivateRoute = ({
   component: Component,
-  auth: { isAuthenticated, loading },
+  auth: { isAuthenticated, loading, user },
+  access,
   ...rest
 }) => {
+  if (access == null) access = [];
+
+  const userTypeIncluded =
+    user &&
+    (access.some(currentType => user.user_type === currentType) ||
+      access.length == 0);
+
   return (
     <Route
       {...rest}
       render={props =>
-        !isAuthenticated && !loading ? (
-          <Redirect to="login" />
-        ) : (
+        (isAuthenticated && userTypeIncluded) || loading ? (
           <Component {...props} />
+        ) : (
+          <Redirect to="login" />
         )
       }
     />
@@ -23,7 +31,8 @@ const PrivateRoute = ({
 };
 
 PrivateRoute.propTypes = {
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  access: PropTypes.array
 };
 
 const mapStateToProps = state => ({
