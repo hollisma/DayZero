@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { login } from "../../actions/auth";
 import PropTypes from "prop-types";
+import { getDefaultRoute } from "../routing/default_types";
+import { GUEST } from "../../actions/types";
 
-const Login = ({ login, isAuthenticated }) => {
+const Login = ({ login, auth: { isAuthenticated, user } }) => {
   const [formData, setFromData] = useState({
     email: "",
     password: ""
@@ -21,7 +23,8 @@ const Login = ({ login, isAuthenticated }) => {
   };
 
   if (isAuthenticated) {
-    return <Redirect to="dashboard" />;
+    const userType = user ? user.user_type : GUEST;
+    return <Redirect to={getDefaultRoute(userType)} />;
   }
 
   return (
@@ -62,11 +65,11 @@ const Login = ({ login, isAuthenticated }) => {
 
 Login.propTypes = {
   login: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  auth: state.auth
 });
 
 export default connect(
