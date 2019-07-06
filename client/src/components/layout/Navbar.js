@@ -31,9 +31,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </a>
       </li>
       <li className="item">
-        <a href="#profile" className="reg">
+        <Link to="/edit-profile" className="reg">
           Profile
-        </a>
+        </Link>
       </li>
       <li className="item">
         <Link onClick={logout} to="/" className="text-secondary">

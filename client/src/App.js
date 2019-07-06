@@ -53,7 +53,7 @@ const App = () => {
               <PrivateRoute
                 exact
                 path="/edit-profile"
-                access={[PROFILED]}
+                access={[REGISTERED, PROFILED, MET]}
                 component={EditProfile}
               />
               <PrivateRoute

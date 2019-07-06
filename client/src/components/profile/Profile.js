@@ -6,11 +6,7 @@ import EditProfile from "./EditProfile";
 import PropTypes from "prop-types";
 import { getCurrentProfile } from "../../actions/profile";
 
-const Profile = ({
-  getCurrentProfile,
-  profile: { profile, loading },
-  auth
-}) => {
+const Profile = ({ getCurrentProfile, profile: { profile, loading } }) => {
   useEffect(() => {
     getCurrentProfile();
   }, [getCurrentProfile]);
@@ -24,13 +20,11 @@ const Profile = ({
 
 Profile.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  profile: state.profile,
-  auth: state.auth
+  profile: state.profile
 });
 
 export default connect(
