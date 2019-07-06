@@ -45,7 +45,7 @@ export const register = ({ name, email, password }) => async dispatch => {
   const body = JSON.stringify({ name, email, password });
 
   try {
-    const res_token = await axios.post("/api/auth", body, config);
+    const res_token = await axios.post("/api/users", body, config);
     localStorage.setItem("token", res_token.data.token);
     setAuthToken(localStorage.token);
 

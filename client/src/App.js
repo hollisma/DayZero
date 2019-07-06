@@ -6,7 +6,8 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import Profile from "./components/profile/Profile";
-import CreateProfile from "./components/profile/Profile";
+import CreateProfile from "./components/profile/CreateProfile";
+import EditProfile from "./components/profile/EditProfile";
 import PrivateRoute from "./components/routing/PrivateRoute";
 // Redux
 import { Provider } from "react-redux";
@@ -46,7 +47,14 @@ const App = () => {
               <PrivateRoute
                 exact
                 path="/create-profile"
+                access={[REGISTERED]}
                 component={CreateProfile}
+              />
+              <PrivateRoute
+                exact
+                path="/edit-profile"
+                access={[PROFILED]}
+                component={EditProfile}
               />
               <PrivateRoute
                 exact

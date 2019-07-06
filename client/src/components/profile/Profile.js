@@ -2,10 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 import CreateProfile from "./CreateProfile";
-import ProfileEducation from "./ProfileEducation";
-import ProfileTopics from "./ProfileTopics";
-import ProfileValues from "./ProfileValues";
-import ProfileBio from "./ProfileBio";
+import EditProfile from "./EditProfile";
 import PropTypes from "prop-types";
 import { getCurrentProfile } from "../../actions/profile";
 
@@ -20,18 +17,7 @@ const Profile = ({
 
   return (
     <Fragment>
-      {loading ? (
-        <Spinner />
-      ) : profile ? (
-        <div>
-          <ProfileEducation />
-          <ProfileTopics />
-          <ProfileValues />
-          <ProfileBio />
-        </div>
-      ) : (
-        <CreateProfile />
-      )}
+      {loading ? <Spinner /> : profile ? <EditProfile /> : <CreateProfile />}
     </Fragment>
   );
 };
