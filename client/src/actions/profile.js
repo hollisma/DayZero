@@ -1,10 +1,9 @@
 import axios from "axios";
+import { GET_PROFILE, PROFILE_ERROR } from "./types";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
-
-import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE } from "./types";
 
 export const getCurrentProfile = () => async dispatch => {
   try {

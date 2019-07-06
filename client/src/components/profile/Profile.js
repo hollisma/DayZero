@@ -1,29 +1,50 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
+import CreateProfile from "./CreateProfile";
 import ProfileEducation from "./ProfileEducation";
 import ProfileTopics from "./ProfileTopics";
 import ProfileValues from "./ProfileValues";
 import ProfileBio from "./ProfileBio";
 import PropTypes from "prop-types";
+import { getCurrentProfile } from "../../actions/profile";
 
 const Profile = ({
-  getProfileById,
+  getCurrentProfile,
   profile: { profile, loading },
-  auth,
-  match
+  auth
 }) => {
+  useEffect(() => {
+    getCurrentProfile();
+  }, [getCurrentProfile]);
+
   return (
     <Fragment>
-      <div>
-        <ProfileEducation />
-        <ProfileTopics />
-        <ProfileValues />
-        <ProfileBio />
-      </div>
+      {profile ? (
+        <div>
+          <ProfileEducation />
+          <ProfileTopics />
+          <ProfileValues />
+          <ProfileBio />
+        </div>
+      ) : (
+        <CreateProfile />
+      )}
     </Fragment>
   );
 };
 
-Profile.propTypes = {};
+Profile.propTypes = {
+  getCurrentProfile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
+};
 
-export default Profile;
+const mapStateToProps = state => ({
+  profile: state.profile,
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  getCurrentProfile
+)(Profile);
