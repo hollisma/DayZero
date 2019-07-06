@@ -28,6 +28,25 @@ export const createProfile = (
   edit = false
 ) => async dispatch => {
   try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+
+    const res = await axios.post("/api/profile", formData, config);
+
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data
+    });
+
+    // Could throw a success SWAL or use an integrated thing on the SWAL website
+
+    // If creating profile for first time, redirect to dashboard
+    if (!edit) {
+      history.push("/dashboard");
+    }
   } catch (err) {
     const errors = err.response.data.errors;
 
