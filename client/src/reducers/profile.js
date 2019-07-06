@@ -1,19 +1,18 @@
-import axios from "axios";
+import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE } from "../actions/types";
 
-import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE } from "./types";
+const initialState = { profile: null, profiles: [], loading: true, error: {} };
 
-export const getCurrentProfile = () => async dispatch => {
-  try {
-    const res = await axios.get("/api/profile/me");
-
-    dispatch({
-      type: GET_PROFILE,
-      payload: res.data
-    });
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, state: err.response.status }
-    });
+export default function(state = initialState, action) {
+  const { type, payload } = action;
+  switch (type) {
+    case GET_PROFILE:
+      return {
+        ...state,
+        profile: payload,
+        loading: false
+      };
+    default:
+      return state;
+      break;
   }
-};
+}
