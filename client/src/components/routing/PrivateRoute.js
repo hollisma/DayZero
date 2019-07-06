@@ -15,8 +15,6 @@ const PrivateRoute = ({
 
   const userType = user ? user.user_type : GUEST;
   var defaultRoute = getDefaultRoute(userType);
-  console.log("defaultRoute", defaultRoute);
-  console.log("user", user);
 
   const userTypeIncluded =
     access.some(currentType => userType === currentType) || access.length === 0;

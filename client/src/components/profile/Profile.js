@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
+import Spinner from "../layout/Spinner";
 import CreateProfile from "./CreateProfile";
 import ProfileEducation from "./ProfileEducation";
 import ProfileTopics from "./ProfileTopics";
@@ -19,7 +20,9 @@ const Profile = ({
 
   return (
     <Fragment>
-      {profile ? (
+      {loading ? (
+        <Spinner />
+      ) : profile ? (
         <div>
           <ProfileEducation />
           <ProfileTopics />
@@ -46,5 +49,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  getCurrentProfile
+  { getCurrentProfile }
 )(Profile);

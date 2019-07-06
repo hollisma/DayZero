@@ -6,6 +6,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import Profile from "./components/profile/Profile";
+import CreateProfile from "./components/profile/Profile";
 import PrivateRoute from "./components/routing/PrivateRoute";
 // Redux
 import { Provider } from "react-redux";
@@ -30,7 +31,7 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Fragment>
-          <Navbar />
+          <Navbar id="navbar" />
           <Route exact path="/" component={Landing} />
           <section className="ui top-container">
             <Switch>
@@ -41,6 +42,11 @@ const App = () => {
                 path="/profile"
                 access={[REGISTERED, PROFILED, MET]}
                 component={Profile}
+              />
+              <PrivateRoute
+                exact
+                path="/create-profile"
+                component={CreateProfile}
               />
               <PrivateRoute
                 exact
