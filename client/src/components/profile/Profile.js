@@ -1,3 +1,9 @@
+/**
+ *
+ * This component is not being used. The getCurrentProfile is called after the fragment loads so profile is always null.
+ *
+ */
+
 import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
@@ -9,10 +15,11 @@ import { getCurrentProfile } from "../../actions/profile";
 const Profile = ({ getCurrentProfile, profile: { profile, loading } }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, [getCurrentProfile]);
+  }, [getCurrentProfile, profile]);
 
   return (
     <Fragment>
+      {console.log("profile", profile)}
       {loading ? <Spinner /> : profile ? <EditProfile /> : <CreateProfile />}
     </Fragment>
   );

@@ -5,7 +5,7 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
-import Profile from "./components/profile/Profile";
+// import Profile from "./components/profile/Profile";
 import CreateProfile from "./components/profile/CreateProfile";
 import EditProfile from "./components/profile/EditProfile";
 import PrivateRoute from "./components/routing/PrivateRoute";
@@ -38,12 +38,12 @@ const App = () => {
             <Switch>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
-              <PrivateRoute
+              {/* <PrivateRoute
                 exact
                 path="/profile"
                 access={[REGISTERED, PROFILED, MET]}
                 component={Profile}
-              />
+              /> */}
               <PrivateRoute
                 exact
                 path="/create-profile"

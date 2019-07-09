@@ -29,7 +29,7 @@ const EditProfile = ({
       categories:
         loading || !profile.categories ? "" : profile.categories.join(", "),
       bio: loading || !profile.bio ? "" : profile.bio,
-      values: loading || !profile.values ? "" : profile.values
+      values: loading || !profile.values ? "" : profile.values.join(", ")
     });
   }, [loading, getCurrentProfile]);
 
@@ -46,7 +46,7 @@ const EditProfile = ({
 
   return (
     <Fragment>
-      <h1 className="larger text-primary">Create Your Profile</h1>
+      <h1 className="larger text-primary">Edit Your Profile</h1>
       <p className="lead my-2">
         <i className="fas fa-user" />
         Tell us about yourself!
@@ -111,7 +111,7 @@ const EditProfile = ({
         </div>
 
         <input type="submit" className="ui button my-1" />
-        <button className="ui button my-1" onClick={history.goBack()}>
+        <button className="ui button my-1" onClick={() => history.goBack()}>
           Go Back
         </button>
       </form>
