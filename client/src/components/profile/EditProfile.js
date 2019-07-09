@@ -1,9 +1,8 @@
 import React, { useState, Fragment, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
-import { getDefaultRoute } from "../routing/default_types";
 
 const EditProfile = ({
   profile: { profile, loading },
