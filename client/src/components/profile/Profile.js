@@ -19,7 +19,6 @@ const Profile = ({ getCurrentProfile, profile: { profile, loading } }) => {
 
   return (
     <Fragment>
-      {console.log("profile", profile)}
       {loading ? <Spinner /> : profile ? <EditProfile /> : <CreateProfile />}
     </Fragment>
   );
