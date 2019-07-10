@@ -9,6 +9,7 @@ module.exports = (req, res, next) => {
 
   // Check if no token
   if (!token) {
+    console.log("ajsdpofi");
     return res.status(401).json({ msg: "No token, authorization denied" });
   }
 

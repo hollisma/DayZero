@@ -23,13 +23,18 @@ const EditProfile = ({
     getCurrentProfile();
 
     setFormData({
-      college: loading || !profile.college ? "" : profile.college,
-      major: loading || !profile.major ? "" : profile.major.join(", "),
-      minor: loading || !profile.minor ? "" : profile.minor.join(", "),
+      college: loading || !profile || !profile.college ? "" : profile.college,
+      major:
+        loading || !profile || !profile.major ? "" : profile.major.join(", "),
+      minor:
+        loading || !profile || !profile.minor ? "" : profile.minor.join(", "),
       categories:
-        loading || !profile.categories ? "" : profile.categories.join(", "),
-      bio: loading || !profile.bio ? "" : profile.bio,
-      values: loading || !profile.values ? "" : profile.values.join(", ")
+        loading || !profile || !profile.categories
+          ? ""
+          : profile.categories.join(", "),
+      bio: loading || !profile || !profile.bio ? "" : profile.bio,
+      values:
+        loading || !profile || !profile.values ? "" : profile.values.join(", ")
     });
   }, [loading, getCurrentProfile]);
 
@@ -53,6 +58,7 @@ const EditProfile = ({
       </p>
       <small>* = required field</small>
       <form className="ui form" onSubmit={e => onSubmit(e)}>
+        <p>College</p>
         <div className="field">
           <input
             type="text"
@@ -63,6 +69,7 @@ const EditProfile = ({
             required
           />
         </div>
+        <p>College</p>
         <div className="field">
           <input
             type="text"
@@ -73,6 +80,7 @@ const EditProfile = ({
             required
           />
         </div>
+        <p>College</p>
         <div className="field">
           <input
             type="text"
