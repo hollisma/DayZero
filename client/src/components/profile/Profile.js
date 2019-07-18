@@ -1,6 +1,8 @@
 /**
  *
  * This component is not being used. The getCurrentProfile is called after the fragment loads so profile is always null.
+ * EditProfile and CreateProfile are used instead of this component.
+ * This component can be used if we want to route to a general profile component instead of two separate ones.
  *
  */
 
@@ -10,7 +12,7 @@ import Spinner from "../../layout/Spinner";
 import CreateProfile from "./CreateProfile";
 import EditProfile from "./EditProfile";
 import PropTypes from "prop-types";
-import { getCurrentProfile } from "../../../actions/profile";
+import { getCurrentProfile } from "../../actions/profile";
 
 const Profile = ({ getCurrentProfile, profile: { profile, loading } }) => {
   useEffect(() => {
