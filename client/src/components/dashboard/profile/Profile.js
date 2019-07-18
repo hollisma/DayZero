@@ -6,11 +6,11 @@
 
 import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
-import Spinner from "../layout/Spinner";
+import Spinner from "../../layout/Spinner";
 import CreateProfile from "./CreateProfile";
 import EditProfile from "./EditProfile";
 import PropTypes from "prop-types";
-import { getCurrentProfile } from "../../actions/profile";
+import { getCurrentProfile } from "../../../actions/profile";
 
 const Profile = ({ getCurrentProfile, profile: { profile, loading } }) => {
   useEffect(() => {

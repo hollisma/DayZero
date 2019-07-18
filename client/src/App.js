@@ -1,13 +1,13 @@
 import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
-import Landing from "./components/layout/Landing";
+import Landing from "./components/landing/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
-// import Profile from "./components/profile/Profile";
-import CreateProfile from "./components/profile/CreateProfile";
-import EditProfile from "./components/profile/EditProfile";
+// import Profile from "./components/dashboard/profile/Profile";
+import CreateProfile from "./components/dashboard/profile/CreateProfile";
+import EditProfile from "./components/dashboard/profile/EditProfile";
 import PrivateRoute from "./components/routing/PrivateRoute";
 // Redux
 import { Provider } from "react-redux";
