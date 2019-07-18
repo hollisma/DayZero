@@ -119,7 +119,7 @@ const EditProfile = ({
         </div>
 
         <input type="submit" className="ui button my-1" />
-        <button className="ui button my-1" onClick={() => history.goBack()}>
+        <button className="ui button m-1" onClick={() => history.goBack()}>
           Go Back
         </button>
       </form>
