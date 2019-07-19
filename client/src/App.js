@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
@@ -9,6 +10,19 @@ import Dashboard from './components/dashboard/Dashboard';
 import CreateProfile from './components/profile/CreateProfile';
 import EditProfile from './components/profile/EditProfile';
 import PrivateRoute from './components/routing/PrivateRoute';
+=======
+import React, { Fragment, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navbar from "./components/layout/Navbar";
+import Landing from "./components/landing/Landing";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
+import Dashboard from "./components/dashboard/Dashboard";
+// import Profile from "./components/profile/Profile";
+import CreateProfile from "./components/profile/CreateProfile";
+import Settings from "./components/dashboard/settings/Settings";
+import PrivateRoute from "./components/routing/PrivateRoute";
+>>>>>>> 3e0187a8a12c3734db9b2970ef9679b6148de800
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -52,9 +66,13 @@ const App = () => {
               />
               <PrivateRoute
                 exact
+<<<<<<< HEAD
                 path='/edit-profile'
+=======
+                path="/settings"
+>>>>>>> 3e0187a8a12c3734db9b2970ef9679b6148de800
                 access={[REGISTERED, PROFILED, MET]}
-                component={EditProfile}
+                component={Settings}
               />
               <PrivateRoute
                 exact

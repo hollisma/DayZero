@@ -2,7 +2,7 @@ import React, { useState, Fragment, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { createProfile, getCurrentProfile } from "../../actions/profile";
+import { createProfile, getCurrentProfile } from "../../../actions/profile";
 
 const EditProfile = ({
   profile: { profile, loading },
@@ -119,7 +119,7 @@ const EditProfile = ({
         </div>
 
         <input type="submit" className="ui button my-1" />
-        <button className="ui button my-1" onClick={() => history.goBack()}>
+        <button className="ui button m-1" onClick={() => history.goBack()}>
           Go Back
         </button>
       </form>

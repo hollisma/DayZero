@@ -19,11 +19,6 @@ const PrivateRoute = ({
   const userTypeIncluded =
     access.some(currentType => userType === currentType) || access.length === 0;
 
-  console.log(
-    "(!isAuthenticated || !userTypeIncluded) && !loading",
-    (!isAuthenticated || !userTypeIncluded) && !loading
-  );
-
   return (
     <Route
       {...rest}

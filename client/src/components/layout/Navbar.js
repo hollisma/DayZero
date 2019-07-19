@@ -26,14 +26,14 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </a>
       </li>
       <li className="item">
+        <Link to="/settings" className="reg">
+          Settings
+        </Link>
+      </li>
+      <li className="item">
         <a href="#calendar" className="reg">
           Calendar
         </a>
-      </li>
-      <li className="item">
-        <Link to="/edit-profile" className="reg">
-          Profile
-        </Link>
       </li>
       <li className="item">
         <Link onClick={logout} to="/" className="text-secondary">
@@ -62,7 +62,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       </li>
       <li className="item">
         <Link to="/Register" className="text-secondary">
-          Sign In
+          Register
         </Link>
       </li>
     </ul>
