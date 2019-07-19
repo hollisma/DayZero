@@ -1,5 +1,5 @@
 {
-  "mongoURI": "mongodb+srv://hollis66:hollis66@dayzero-wtafw.mongodb.net/test?retryWrites=true&w=majority",
+  "mongoURI": "mongodb+srv://ninjawearingnike:cofm1111@dayzero-wtafw.mongodb.net/test?retryWrites=true&w=majority",
   "jwtSecret": "thisissecret",
   "adminEmail": "h@gmail.com"
 }

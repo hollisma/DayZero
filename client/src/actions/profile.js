@@ -1,13 +1,13 @@
-import axios from "axios";
-import { GET_PROFILE, PROFILE_ERROR } from "./types";
+import axios from 'axios';
+import { GET_PROFILE, PROFILE_ERROR } from './types';
 
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 const MySwal = withReactContent(Swal);
 
 export const getCurrentProfile = () => async dispatch => {
   try {
-    const res = await axios.get("/api/profile/me");
+    const res = await axios.get('/api/profile/me');
 
     dispatch({
       type: GET_PROFILE,
@@ -29,11 +29,11 @@ export const createProfile = (
   try {
     const config = {
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json'
       }
     };
 
-    const res = await axios.post("/api/profile", formData, config);
+    const res = await axios.post('/api/profile', formData, config);
 
     dispatch({
       type: GET_PROFILE,
@@ -44,14 +44,14 @@ export const createProfile = (
 
     // If creating profile for first time, redirect to dashboard
     if (!edit) {
-      history.push("/dashboard");
+      history.push('/dashboard');
     }
   } catch (err) {
     const errors = err.response.data.errors;
 
     if (errors) {
       errors.forEach(error =>
-        MySwal.fire({ title: "Passwords do not match", type: "error" })
+        MySwal.fire({ title: 'Passwords do not match', type: 'error' })
       );
     }
 
