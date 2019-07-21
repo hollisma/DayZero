@@ -6,7 +6,7 @@ const auth = require("../../middleware/auth");
 // Models
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
-const { PROFILED } = require("../../models/userTypes");
+const { PROFILED, SMS } = require("../../models/types");
 
 /**
  * @route   GET api/profile/me
@@ -85,7 +85,7 @@ router.post(
     profileFields.times = times
       ? times.sptimelit(",").map(time => time.trim())
       : [];
-    profileFields.comm_preference = comm_preference ? comm_preference : false;
+    profileFields.comm_preference = comm_preference ? comm_preference : SMS;
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });

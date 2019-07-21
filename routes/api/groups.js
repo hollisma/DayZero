@@ -6,7 +6,7 @@ const admin = require("../../middleware/admin");
 // Models
 const User = require("../../models/User");
 const Group = require("../../models/Group");
-const { MET } = require("../../models/userTypes");
+const { MET } = require("../../models/types");
 
 /**
  * @route   GET api/groups

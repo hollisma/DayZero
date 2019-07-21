@@ -7,7 +7,7 @@ const config = require("config");
 const { check, validationResult } = require("express-validator/check");
 
 const User = require("../../models/User");
-const { REGISTERED } = require("../../models/userTypes");
+const { REGISTERED } = require("../../models/types");
 
 /**
  * @route   POST api/users

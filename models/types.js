@@ -4,5 +4,8 @@ module.exports = {
   PROFILED: "PROFILED",
   MET: "MET",
   INACTIVE: "INACTIVE",
-  DELETED: "DELETED"
+  DELETED: "DELETED",
+
+  SMS: "SMS",
+  EMAIL: "EMAIL"
 };

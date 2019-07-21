@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { GUEST } = require("./userTypes");
+const { GUEST } = require("./types");
 
 const UserSchema = new mongoose.Schema({
   name: {
