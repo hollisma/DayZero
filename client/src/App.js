@@ -38,23 +38,11 @@ const App = () => {
             <Switch>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
-              {/* <PrivateRoute
-                exact
-                path="/profile"
-                access={[REGISTERED, PROFILED, MET]}
-                component={Profile}
-              /> */}
               <PrivateRoute
                 exact
                 path="/create-profile"
                 access={[REGISTERED]}
                 component={CreateProfile}
-              />
-              <PrivateRoute
-                exact
-                path="/settings"
-                access={[REGISTERED, PROFILED, MET]}
-                component={Settings}
               />
               <PrivateRoute
                 exact

@@ -1,6 +1,6 @@
 import { GET_PROFILE, PROFILE_ERROR } from "../actions/types";
 
-const initialState = { profile: null, profiles: [], loading: true, error: {} };
+const initialState = { profile: null, loading: true, error: {} };
 
 export default function(state = initialState, action) {
   const { type, payload } = action;
@@ -15,6 +15,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         error: payload,
+        profile: null,
         loading: false
       };
     default:
