@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const ProfileSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'user'
+    ref: "user"
   },
   college: {
     type: String,
@@ -30,9 +30,8 @@ const ProfileSchema = new mongoose.Schema({
     type: [String]
   },
   comm_preference: {
-    // true if sms, false if email. default sms
-    type: Boolean
+    type: String
   }
 });
 
-module.exports = Profile = mongoose.model('profile', ProfileSchema);
+module.exports = Profile = mongoose.model("profile", ProfileSchema);

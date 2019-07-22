@@ -6,7 +6,7 @@ const auth = require("../../middleware/auth");
 const User = require("../../models/User");
 const Group = require("../../models/Group");
 const Feedback = require("../../models/Feedback");
-const MET = require("../../models/userTypes");
+const MET = require("../../models/types");
 
 /**
  * @route   POST api/feedback
