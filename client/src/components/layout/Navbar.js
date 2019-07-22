@@ -22,17 +22,17 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <ul className="right menu">
       <li className="item">
         <a href="#group" className="text-primary">
-          Group
+          Your Day Zeros
         </a>
       </li>
       <li className="item">
-        <Link to="/settings" className="reg">
+        <Link to="#settings" className="reg">
           Settings
         </Link>
       </li>
       <li className="item">
-        <a href="#calendar" className="reg">
-          Calendar
+        <a href="#" className="reg">
+          How It Works
         </a>
       </li>
       <li className="item">
