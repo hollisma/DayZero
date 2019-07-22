@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Section1 = () => {
   return (
-    <div id="first" className="chunk">
+    <div id="home" className="chunk">
       <div className="ui vertical stripe segment">
         <h1>Meeting interesting people just got a whole lot easier</h1>
         <p>Now Available At: </p>

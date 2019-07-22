@@ -2,7 +2,7 @@ import React from "react";
 
 const Section2 = () => {
   return (
-    <p id="second" className="blu chunk">
+    <p id="howitworks" className="blu chunk">
       <p className="ui vertical stripe segment">
         <h1>How Day Zero Works</h1>
         <p className="ui middle aligned stackable grid container">
