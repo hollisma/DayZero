@@ -14,3 +14,6 @@ export const PROFILED = "PROFILED";
 export const MET = "MET";
 export const INACTIVE = "INACTIVE";
 export const DELETED = "DELETED";
+
+export const SMS = "SMS";
+export const EMAIL = "EMAIL';";

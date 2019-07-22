@@ -1,8 +1,8 @@
-import React, { useState, Fragment, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { createProfile, getCurrentProfile } from '../../../actions/profile';
+import React, { useState, Fragment, useEffect } from "react";
+import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { createProfile, getCurrentProfile } from "../../../actions/profile";
 
 const EditProfile = ({
   profile: { profile, loading },
@@ -11,47 +11,36 @@ const EditProfile = ({
   history
 }) => {
   const [formData, setFormData] = useState({
-    college: '',
-    major: '',
-    minor: '',
-    categories: '',
-    bio: '',
-    values: '',
-    comm_preference: ''
+    college: "",
+    major: "",
+    minor: "",
+    categories: "",
+    bio: "",
+    values: "",
+    contact: ""
   });
 
   useEffect(() => {
     getCurrentProfile();
 
     setFormData({
-      college: loading || !profile || !profile.college ? '' : profile.college,
+      college: loading || !profile || !profile.college ? "" : profile.college,
       major:
-        loading || !profile || !profile.major ? '' : profile.major.join(', '),
+        loading || !profile || !profile.major ? "" : profile.major.join(", "),
       minor:
-        loading || !profile || !profile.minor ? '' : profile.minor.join(', '),
+        loading || !profile || !profile.minor ? "" : profile.minor.join(", "),
       categories:
         loading || !profile || !profile.categories
-          ? ''
-          : profile.categories.join(', '),
-      bio: loading || !profile || !profile.bio ? '' : profile.bio,
+          ? ""
+          : profile.categories.join(", "),
+      bio: loading || !profile || !profile.bio ? "" : profile.bio,
       values:
-        loading || !profile || !profile.values ? '' : profile.values.join(', '),
-      comm_preference:
-        loading || !profile || !profile.comm_preference
-          ? false
-          : profile.comm_preference
+        loading || !profile || !profile.values ? "" : profile.values.join(", "),
+      contact: loading || !profile || !profile.contact ? "" : profile.contact
     });
   }, [loading, getCurrentProfile]);
 
-  const {
-    college,
-    major,
-    minor,
-    categories,
-    bio,
-    values,
-    comm_preference
-  } = formData;
+  const { college, major, minor, categories, bio, values, contact } = formData;
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -64,84 +53,84 @@ const EditProfile = ({
 
   return (
     <Fragment>
-      <h1 className='larger text-primary'>Edit Your Profile</h1>
-      <p className='lead my-2'>
-        <i className='fas fa-user' />
+      <h1 className="larger text-primary">Edit Your Profile</h1>
+      <p className="lead my-2">
+        <i className="fas fa-user" />
         Tell us about yourself!
       </p>
       <small>* = required field</small>
-      <form className='ui form' onSubmit={e => onSubmit(e)}>
+      <form className="ui form" onSubmit={e => onSubmit(e)}>
         <p>College</p>
-        <div className='field'>
+        <div className="field">
           <input
-            type='text'
-            placeholder='College'
-            name='college'
+            type="text"
+            placeholder="College"
+            name="college"
             value={college}
             onChange={e => onChange(e)}
             required
           />
         </div>
         <p>College</p>
-        <div className='field'>
+        <div className="field">
           <input
-            type='text'
-            placeholder='Major'
-            name='major'
+            type="text"
+            placeholder="Major"
+            name="major"
             value={major}
             onChange={e => onChange(e)}
             required
           />
         </div>
         <p>College</p>
-        <div className='field'>
+        <div className="field">
           <input
-            type='text'
-            placeholder='Minor'
-            name='minor'
+            type="text"
+            placeholder="Minor"
+            name="minor"
             value={minor}
             onChange={e => onChange(e)}
           />
         </div>
-        <div className='field'>
+        <div className="field">
           <input
-            type='text'
-            placeholder='Categories'
-            name='categories'
+            type="text"
+            placeholder="Categories"
+            name="categories"
             value={categories}
             onChange={e => onChange(e)}
           />
         </div>
-        <div className='field'>
+        <div className="field">
           <input
-            type='text'
-            placeholder='Bio'
-            name='bio'
+            type="text"
+            placeholder="Bio"
+            name="bio"
             value={bio}
             onChange={e => onChange(e)}
           />
         </div>
-        <div className='field'>
+        <div className="field">
           <input
-            type='text'
-            placeholder='Values'
-            name='values'
+            type="text"
+            placeholder="Values"
+            name="values"
             value={values}
             onChange={e => onChange(e)}
           />
         </div>
         <p>Communication Preference</p>
-        <div className='field'>
+        <div className="field">
           <input
-            type='text'
-            placeholder='Values'
-            name='comm_preference'
-            value={comm_preference}
+            type="text"
+            placeholder="Values"
+            name="contact"
+            value={contact}
             onChange={e => onChange(e)}
           />
         </div>
-        <input type='submit' className='ui button my-1' />
-        <button className='ui button m-1' onClick={() => history.goBack()}>
+        <input type="submit" className="ui button my-1" />
+        <button className="ui button m-1" onClick={() => history.goBack()}>
           Go Back
         </button>
       </form>

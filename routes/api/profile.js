@@ -66,7 +66,7 @@ router.post(
       bio,
       values,
       times,
-      comm_preference
+      contact
     } = req.body;
 
     // Build profile object
@@ -85,7 +85,7 @@ router.post(
     profileFields.times = times
       ? times.sptimelit(",").map(time => time.trim())
       : [];
-    profileFields.comm_preference = comm_preference ? comm_preference : SMS;
+    profileFields.contact = contact ? contact : SMS;
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });

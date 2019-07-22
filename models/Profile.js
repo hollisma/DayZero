@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const SMS = require("./types");
 
 const ProfileSchema = new mongoose.Schema({
   user: {
@@ -29,8 +30,9 @@ const ProfileSchema = new mongoose.Schema({
     // Will change if we use Calendly
     type: [String]
   },
-  comm_preference: {
-    type: String
+  contact: {
+    type: String,
+    default: SMS
   }
 });
 
