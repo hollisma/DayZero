@@ -5,7 +5,4 @@ module.exports = {
   MET: "MET",
   INACTIVE: "INACTIVE",
   DELETED: "DELETED",
-
-  SMS: "SMS",
-  EMAIL: "EMAIL"
 };

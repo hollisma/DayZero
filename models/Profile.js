@@ -30,9 +30,13 @@ const ProfileSchema = new mongoose.Schema({
     // Will change if we use Calendly
     type: [String]
   },
-  contact: {
-    type: String,
-    default: SMS
+  sms: {
+    type: Boolean,
+    default: true
+  },
+  email: {
+    type: Boolean,
+    default: false
   }
 });
 

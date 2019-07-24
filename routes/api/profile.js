@@ -6,7 +6,7 @@ const auth = require("../../middleware/auth");
 // Models
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
-const { PROFILED, SMS } = require("../../models/types");
+const { PROFILED } = require("../../models/types");
 
 /**
  * @route   GET api/profile/me
@@ -66,7 +66,8 @@ router.post(
       bio,
       values,
       times,
-      contact
+      sms,
+      email
     } = req.body;
 
     // Build profile object
@@ -85,7 +86,8 @@ router.post(
     profileFields.times = times
       ? times.sptimelit(",").map(time => time.trim())
       : [];
-    profileFields.contact = contact ? contact : SMS;
+    profileFields.sms = sms;
+    profileFields.email = email;
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });
