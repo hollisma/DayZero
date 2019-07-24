@@ -17,7 +17,8 @@ const EditProfile = ({
     categories: "",
     bio: "",
     values: "",
-    contact: ""
+    sms: true,
+    email: false
   });
 
   useEffect(() => {
@@ -36,14 +37,27 @@ const EditProfile = ({
       bio: loading || !profile || !profile.bio ? "" : profile.bio,
       values:
         loading || !profile || !profile.values ? "" : profile.values.join(", "),
-      contact: loading || !profile || !profile.contact ? "" : profile.contact
+      sms: loading || !profile || !profile.sms ? false : profile.sms,
+      email: loading || !profile || !profile.email ? false : profile.email
     });
   }, [loading, getCurrentProfile]);
 
-  const { college, major, minor, categories, bio, values, contact } = formData;
+  const {
+    college,
+    major,
+    minor,
+    categories,
+    bio,
+    values,
+    sms,
+    email
+  } = formData;
 
   const onChange = e => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const target = e.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+    setFormData({ ...formData, [name]: value });
   };
 
   const onSubmit = e => {
@@ -121,14 +135,22 @@ const EditProfile = ({
         </div>
         <p>Communication Preference</p>
         <div className="field">
+          <small>SMS</small>
           <input
-            type="text"
-            placeholder="Values"
-            name="contact"
-            value={contact}
+            type="checkbox"
+            name="sms"
+            checked={sms}
+            onChange={e => onChange(e)}
+          />
+          <small>Email</small>
+          <input
+            type="checkbox"
+            name="email"
+            checked={email}
             onChange={e => onChange(e)}
           />
         </div>
+
         <input type="submit" className="ui button my-1" />
         <button className="ui button m-1" onClick={() => history.goBack()}>
           Go Back
