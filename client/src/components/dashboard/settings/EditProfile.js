@@ -134,27 +134,35 @@ const EditProfile = ({
           />
         </div>
         <p>Communication Preference</p>
-        <div className="field">
-          <small>SMS</small>
+        <div className="ui field toggle checkbox">
           <input
             type="checkbox"
             name="sms"
             checked={sms}
             onChange={e => onChange(e)}
           />
-          <small>Email</small>
+          <label>SMS</label>
+        </div>
+        <div className="ui field toggle checkbox m-2">
           <input
             type="checkbox"
             name="email"
             checked={email}
             onChange={e => onChange(e)}
           />
+          <label>Email</label>
         </div>
 
-        <input type="submit" className="ui button my-1" />
-        <button className="ui button m-1" onClick={() => history.goBack()}>
+        <button
+          className="ui red basic button m-1 right floated"
+          onClick={() => history.goBack()}
+        >
           Go Back
         </button>
+        <input
+          type="submit"
+          className="ui green basic button my-1 right floated"
+        />
       </form>
     </Fragment>
   );
