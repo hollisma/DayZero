@@ -11,13 +11,27 @@ const CreateProfile = ({ createProfile, history }) => {
     minor: "",
     categories: "",
     bio: "",
-    values: ""
+    values: "",
+    sms: true,
+    email: false
   });
 
-  const { college, major, minor, categories, bio, values } = formData;
+  const {
+    college,
+    major,
+    minor,
+    categories,
+    bio,
+    values,
+    sms,
+    email
+  } = formData;
 
   const onChange = e => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const target = e.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+    setFormData({ ...formData, [name]: value });
   };
 
   const onSubmit = e => {
@@ -87,6 +101,23 @@ const CreateProfile = ({ createProfile, history }) => {
             placeholder="Values"
             name="values"
             value={values}
+            onChange={e => onChange(e)}
+          />
+        </div>
+        <p>Communication Preference</p>
+        <div className="field">
+          <small>SMS</small>
+          <input
+            type="checkbox"
+            name="sms"
+            checked={sms}
+            onChange={e => onChange(e)}
+          />
+          <small>Email</small>
+          <input
+            type="checkbox"
+            name="email"
+            checked={email}
             onChange={e => onChange(e)}
           />
         </div>
