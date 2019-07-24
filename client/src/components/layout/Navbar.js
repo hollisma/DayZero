@@ -14,21 +14,21 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     }
   };
 
-  window.onscroll = function() {
+  window.onscroll = function () {
     handleScroll();
   };
 
   const authLinks = (
     <ul className="right menu">
       <li className="item">
-        <a href="#group" className="text-primary">
+        <a href="/dashboard#group" className="text-primary">
           Your Day Zeros
         </a>
       </li>
       <li className="item">
-        <Link to="#settings" className="reg">
+        <a href="/dashboard#settings" className="reg">
           Settings
-        </Link>
+        </a>
       </li>
       <li className="item">
         <a href="#" className="reg">
