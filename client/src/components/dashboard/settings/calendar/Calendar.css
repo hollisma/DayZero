@@ -12,7 +12,7 @@
   color: #3c454c;
   cursor: pointer;
   position: relative;
-  z-index: 2;
+  z-index: 0;
   transition: color 200ms ease-in;
   overflow: hidden;
 }
@@ -41,7 +41,7 @@
   background-repeat: no-repeat;
   background-position: 2px 3px;
   border-radius: 50%;
-  z-index: 2;
+  z-index: 1;
   position: absolute;
   right: 30px;
   top: 50%;
@@ -76,8 +76,9 @@
   visibility: hidden;
 }
 
-.form {
+.column {
   padding: 0 16px;
+  min-width: 25%;
   max-width: 550px;
   margin: 50px auto;
   font-size: 18px;
@@ -85,17 +86,7 @@
   line-height: 36px;
 }
 
-/* body {
-  background-color: #d1d7dc;
-  font-family: "Fira Sans", sans-serif;
-} */
-
-/* *,
-*::before,
-*::after {
-  box-sizing: inherit;
+.options {
+  display: flex;
+  overflow-x: scroll;
 }
-
-html {
-  box-sizing: border-box;
-} */
