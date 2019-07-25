@@ -76,14 +76,21 @@
   visibility: hidden;
 }
 
+.column .text {
+  justify-content: center;
+  padding: 16px;
+}
+
 .column {
-  padding: 0 16px;
+  padding: 20px 16px 8px 16px;
   min-width: 25%;
   max-width: 550px;
-  margin: 50px auto;
+  margin: 20px;
   font-size: 18px;
   font-weight: 600;
+  justify-content: center;
   line-height: 36px;
+  background-image: linear-gradient(to bottom right, #59d8ff77, #ff474777);
 }
 
 .options {
