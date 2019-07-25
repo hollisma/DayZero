@@ -1,6 +1,6 @@
 import React from "react";
-import EditProfile from "./EditProfile";
-import Calendar from "./Calendar";
+import EditProfile from "./profile/EditProfile";
+import Calendar from "./calendar/Calendar";
 
 const Settings = () => {
   return (
