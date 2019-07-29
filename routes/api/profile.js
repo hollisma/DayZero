@@ -83,9 +83,7 @@ router.post(
     profileFields.values = values
       ? values.split(",").map(value => value.trim())
       : [];
-    profileFields.times = times
-      ? times.sptimelit(",").map(time => time.trim())
-      : [];
+    profileFields.times = times || [];
     profileFields.sms = sms;
     profileFields.email = email;
 

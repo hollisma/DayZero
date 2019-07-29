@@ -27,7 +27,6 @@ const ProfileSchema = new mongoose.Schema({
     type: [String]
   },
   times: {
-    // Will change if we use Calendly
     type: [String]
   },
   sms: {

@@ -13,11 +13,11 @@ const CheckboxGroup = ({ day }) => {
       <p className="text">{day}</p>
       <div className="inputGroup">
         <input id={id1} name={id1} type="checkbox" />
-        <label for={id1}>Breakfast</label>
+        <label for={id1}>Lunch</label>
       </div>
       <div className="inputGroup">
         <input id={id2} name={id2} type="checkbox" />
-        <label for={id2}>Lunch</label>
+        <label for={id2}>Afternoon Tea</label>
       </div>
       <div className="inputGroup">
         <input id={id3} name={id3} type="checkbox" />
