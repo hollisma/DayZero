@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import CheckboxGroup from "./CheckboxGroup";
+import moment from "moment";
 import PropTypes from "prop-types";
 
 import "./Calendar.css";
@@ -10,8 +11,8 @@ const Calendar = props => {
   // Create array of Date objects
   const days = new Array(7);
   for (let i = 0; i < days.length; i++) {
-    days[i] = new Date();
-    days[i].setDate(days[0].getDate() + i);
+    days[i] = moment();
+    days[i].add(i, "d");
   }
 
   return (
@@ -19,13 +20,13 @@ const Calendar = props => {
       <h1 className="larger text-primary">Calendar</h1>
       <p>Which times are you available for?</p>
       <div className="options">
-        <CheckboxGroup day={days[0].toString().substring(4, 10)} />
-        <CheckboxGroup day={days[1].toString().substring(4, 10)} />
-        <CheckboxGroup day={days[2].toString().substring(4, 10)} />
-        <CheckboxGroup day={days[3].toString().substring(4, 10)} />
-        <CheckboxGroup day={days[4].toString().substring(4, 10)} />
-        <CheckboxGroup day={days[5].toString().substring(4, 10)} />
-        <CheckboxGroup day={days[6].toString().substring(4, 10)} />
+        <CheckboxGroup day={days[0].format("MMMM D")} />
+        <CheckboxGroup day={days[1].format("MMMM D")} />
+        <CheckboxGroup day={days[2].format("MMMM D")} />
+        <CheckboxGroup day={days[3].format("MMMM D")} />
+        <CheckboxGroup day={days[4].format("MMMM D")} />
+        <CheckboxGroup day={days[5].format("MMMM D")} />
+        <CheckboxGroup day={days[6].format("MMMM D")} />
       </div>
       <div>
         <button
