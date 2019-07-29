@@ -14,15 +14,15 @@ const CheckboxGroup = ({ day }) => {
       <p className="text">{day}</p>
       <div className="inputGroup">
         <input id={id1} name={id1} type="checkbox" />
-        <label>{TIME1}</label>
+        <label htmlFor={id1}>{TIME1}</label>
       </div>
       <div className="inputGroup">
         <input id={id2} name={id2} type="checkbox" />
-        <label>{TIME2}</label>
+        <label htmlFor={id2}>{TIME2}</label>
       </div>
       <div className="inputGroup">
         <input id={id3} name={id3} type="checkbox" />
-        <label>{TIME3}</label>
+        <label htmlFor={id3}>{TIME3}</label>
       </div>
     </form>
   );

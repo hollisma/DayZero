@@ -7,6 +7,7 @@ import "./Calendar.css";
 const Calendar = props => {
   const handleSubmit = () => {};
 
+  // Create array of Date objects
   const days = new Array(7);
   for (let i = 0; i < days.length; i++) {
     days[i] = new Date();
