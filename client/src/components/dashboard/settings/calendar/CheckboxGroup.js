@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { TIME1, TIME2, TIME3 } from "../../../../actions/types";
 
 import "./Calendar.css";
 
@@ -13,15 +14,15 @@ const CheckboxGroup = ({ day }) => {
       <p className="text">{day}</p>
       <div className="inputGroup">
         <input id={id1} name={id1} type="checkbox" />
-        <label for={id1}>Lunch</label>
+        <label>{TIME1}</label>
       </div>
       <div className="inputGroup">
         <input id={id2} name={id2} type="checkbox" />
-        <label for={id2}>Afternoon Tea</label>
+        <label>{TIME2}</label>
       </div>
       <div className="inputGroup">
         <input id={id3} name={id3} type="checkbox" />
-        <label for={id3}>Dinner</label>
+        <label>{TIME3}</label>
       </div>
     </form>
   );

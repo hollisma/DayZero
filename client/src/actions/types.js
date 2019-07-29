@@ -17,3 +17,7 @@ export const DELETED = "DELETED";
 
 export const SMS = "SMS";
 export const EMAIL = "EMAIL';";
+
+export const TIME1 = "Lunch";
+export const TIME2 = "Afternoon Tea";
+export const TIME3 = "Dinner";
