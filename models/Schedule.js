@@ -6,8 +6,8 @@ const ScheduleSchema = new mongoose.Schema({
     ref: "user"
   },
   times: {
-    type: [mongoose.Schema.Types.ObjectId],
-    ref: "schedule_time"
+    date: String,
+    time: String
   }
 });
 
