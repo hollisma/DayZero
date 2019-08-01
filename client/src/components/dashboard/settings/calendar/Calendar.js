@@ -47,14 +47,18 @@ const Calendar = ({
     createSchedule(timeData, history, true);
   };
 
-  //
-
   // Create array of Date objects
   const days = new Array(7);
   for (let i = 0; i < days.length; i++) {
     days[i] = moment();
     days[i].add(i, "d");
   }
+
+  // TODO: pass in filtered times into each checkbox
+  //       need to know how to properly use momentjs to compare dates
+
+  // TODO: implement SCHEDULED user type and create CreateSchedule component
+  //       similar to Create/EditProfile
 
   return (
     <Fragment>
