@@ -25,9 +25,6 @@ const ProfileSchema = new mongoose.Schema({
   values: {
     type: [String]
   },
-  times: {
-    type: [Date]
-  },
   sms: {
     type: Boolean,
     default: true

@@ -81,7 +81,7 @@ router.get("/user/:user_id", async (req, res) => {
       user: req.params.user_id
     }).populate("user", ["name", "avatar"]);
 
-    if (!schedule) return res.status(400).json({ msg: "Profile not found" });
+    if (!schedule) return res.status(400).json({ msg: "Schedule not found" });
 
     res.json(schedule);
   } catch (err) {
