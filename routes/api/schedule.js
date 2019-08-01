@@ -55,7 +55,7 @@ router.post("/", auth, async (req, res) => {
     }
 
     // Create
-    schedule = new Schedule({ times: times });
+    schedule = new Schedule({ times: times, user: req.user.id });
     await schedule.save();
 
     // Set user type to SCHEDULED

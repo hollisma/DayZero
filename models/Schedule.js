@@ -6,8 +6,7 @@ const ScheduleSchema = new mongoose.Schema({
     ref: "user"
   },
   times: {
-    date: String,
-    time: String
+    type: [String]
   }
 });
 

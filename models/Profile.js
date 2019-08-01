@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const SMS = require("./types");
 
 const ProfileSchema = new mongoose.Schema({
   user: {
