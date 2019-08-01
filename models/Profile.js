@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const SMS = require("./types");
 
 const ProfileSchema = new mongoose.Schema({
   user: {
@@ -27,8 +26,7 @@ const ProfileSchema = new mongoose.Schema({
     type: [String]
   },
   times: {
-    // Will change if we use Calendly
-    type: [String]
+    type: [Date]
   },
   sms: {
     type: Boolean,

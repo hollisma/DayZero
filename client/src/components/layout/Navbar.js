@@ -21,7 +21,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul className="right menu">
       <li className="item">
-        <a href="/dashboard#group" className="text-primary">
+        <a href="/dashboard#" className="text-primary">
           Your Day Zeros
         </a>
       </li>
@@ -71,7 +71,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   return (
     <nav className="ui secondary menu navbar" id="navbar">
       <h1 className="item">
-        <Link to={isAuthenticated ? "/dashboard" : "/"}>Day Zero</Link>
+        <Link to={isAuthenticated ? "/dashboard#" : "/#"}>Day Zero</Link>
       </h1>
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>

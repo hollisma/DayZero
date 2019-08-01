@@ -5,6 +5,7 @@ const auth = require("../../middleware/auth");
 
 // Models
 const Profile = require("../../models/Profile");
+const Schedule = require("../../models/Schedule");
 const User = require("../../models/User");
 const { PROFILED } = require("../../models/types");
 
@@ -83,9 +84,7 @@ router.post(
     profileFields.values = values
       ? values.split(",").map(value => value.trim())
       : [];
-    profileFields.times = times
-      ? times.sptimelit(",").map(time => time.trim())
-      : [];
+    profileFields.times = times || [];
     profileFields.sms = sms;
     profileFields.email = email;
 
@@ -170,6 +169,8 @@ router.delete("/", auth, async (req, res) => {
     await Profile.findOneAndRemove({ user: req.user.id });
     // Remove user
     await User.findOneAndRemove({ _id: req.user.id });
+    // Remove schedule
+    await Schedule.findOneAndRemove({ user: req.user.id });
 
     res.json({ msg: "User deleted" });
   } catch (err) {

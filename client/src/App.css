@@ -106,6 +106,30 @@ body {
 .my-3 {
   margin: 3rem 0 !important;
 }
+.my-up {
+  margin: 0.5rem 0 0 0 !important;
+}
+.my-up-1 {
+  margin: 1rem 0 0 0 !important;
+}
+.my-up-2 {
+  margin: 2rem 0 0 0 !important;
+}
+.my-up-3 {
+  margin: 3rem 0 0 0 !important;
+}
+.my-down {
+  margin: 0 0 0.5rem 0 !important;
+}
+.my-down-1 {
+  margin: 0 0 1rem 0 !important;
+}
+.my-down-2 {
+  margin: 0 0 2rem 0 !important;
+}
+.my-down-3 {
+  margin: 0 0 3rem 0 !important;
+}
 
 /* Navbar */
 .navbar {

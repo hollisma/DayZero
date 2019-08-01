@@ -2,7 +2,7 @@ import React, { useState, Fragment, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { createProfile, getCurrentProfile } from "../../../actions/profile";
+import { createProfile, getCurrentProfile } from "../../../../actions/profile";
 
 const EditProfile = ({
   profile: { profile, loading },
@@ -68,7 +68,7 @@ const EditProfile = ({
   return (
     <Fragment>
       <h1 className="larger text-primary">Edit Your Profile</h1>
-      <p className="lead my-2">
+      <p className="lead my-up-1">
         <i className="fas fa-user" />
         Tell us about yourself!
       </p>
