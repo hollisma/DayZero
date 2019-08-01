@@ -1,12 +1,53 @@
-import React, { Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import CheckboxGroup from "./CheckboxGroup";
 import moment from "moment";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import {
+  createSchedule,
+  getCurrentSchedule
+} from "../../../../actions/schedule";
 
 import "./Calendar.css";
 
-const Calendar = props => {
-  const handleSubmit = () => {};
+const Calendar = ({
+  schedule: { schedule, loading },
+  createSchedule,
+  getCurrentSchedule,
+  history
+}) => {
+  const [timeData, setTimeData] = useState({
+    times: []
+  });
+
+  useEffect(() => {
+    getCurrentSchedule();
+
+    setTimeData({
+      times: loading || !schedule || !schedule.times ? [] : schedule.times
+    });
+  }, [loading, getCurrentSchedule]);
+
+  const { times } = timeData;
+
+  const onChange = e => {
+    const checked = e.target.checked;
+    const name = e.target.name;
+    const index = times.indexOf(name);
+    if (index === -1 && checked) {
+      times.push(name);
+    } else if (index > -1 && !checked) {
+      times.splice(index, 1);
+    }
+    setTimeData({ times });
+  };
+
+  const onSubmit = () => {
+    createSchedule(timeData, history, true);
+  };
+
+  //
 
   // Create array of Date objects
   const days = new Array(7);
@@ -20,18 +61,18 @@ const Calendar = props => {
       <h1 className="larger text-primary">Calendar</h1>
       <p>Which times are you available for?</p>
       <div className="options">
-        <CheckboxGroup day={days[0].format("MMMM D")} />
-        <CheckboxGroup day={days[1].format("MMMM D")} />
-        <CheckboxGroup day={days[2].format("MMMM D")} />
-        <CheckboxGroup day={days[3].format("MMMM D")} />
-        <CheckboxGroup day={days[4].format("MMMM D")} />
-        <CheckboxGroup day={days[5].format("MMMM D")} />
-        <CheckboxGroup day={days[6].format("MMMM D")} />
+        <CheckboxGroup day={days[0]} onChange={onChange} />
+        <CheckboxGroup day={days[1]} onChange={onChange} />
+        <CheckboxGroup day={days[2]} onChange={onChange} />
+        <CheckboxGroup day={days[3]} onChange={onChange} />
+        <CheckboxGroup day={days[4]} onChange={onChange} />
+        <CheckboxGroup day={days[5]} onChange={onChange} />
+        <CheckboxGroup day={days[6]} onChange={onChange} />
       </div>
       <div>
         <button
           className="ui green basic button my-1 right floated"
-          onClick={() => handleSubmit()}
+          onClick={() => onSubmit()}
         >
           Submit
         </button>
@@ -40,6 +81,17 @@ const Calendar = props => {
   );
 };
 
-Calendar.propTypes = {};
+Calendar.propTypes = {
+  createSchedule: PropTypes.func.isRequired,
+  getCurrentSchedule: PropTypes.func.isRequired,
+  schedule: PropTypes.object.isRequired
+};
 
-export default Calendar;
+const mapStateToProps = state => ({
+  schedule: state.schedule
+});
+
+export default connect(
+  mapStateToProps,
+  { createSchedule, getCurrentSchedule }
+)(withRouter(Calendar));

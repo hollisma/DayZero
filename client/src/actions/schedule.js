@@ -50,15 +50,12 @@ export const createSchedule = (
       history.push("/dashboard");
     }
   } catch (err) {
-    const errors = err.response.data.errors;
+    if (err.response.status === 400) {
+      MySwal.fire({ title: err.response.statusText, type: "error" });
+    }
 
-    if (errors) {
-      if (err.response.status === 400) {
-        MySwal.fire({ title: err.response.statusText, type: "error" });
-      }
-  
-      dispatch({
-        type: SCHEDULE_ERROR
-      });
+    dispatch({
+      type: SCHEDULE_ERROR
+    });
   }
 };
