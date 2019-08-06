@@ -1,17 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
 import { TIME1, TIME2, TIME3 } from "../../../../actions/types";
 
 import "./Calendar.css";
 
 const CheckboxGroup = ({ day, onChange }) => {
+  day = moment().add(day, "d").format("MM-DD-YYYY");
   const id1 = day + "," + TIME1;
   const id2 = day + "," + TIME2;
   const id3 = day + "," + TIME3;
 
   return (
     <form className="column">
-      <p className="text">{day.format("MM D")}</p>
+      <p className="text">{moment(day).format("MMM D")}</p>
       <div className="inputGroup">
         <input
           id={id1}

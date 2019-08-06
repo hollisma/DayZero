@@ -40,6 +40,7 @@ const Calendar = ({
     } else if (index > -1 && !checked) {
       times.splice(index, 1);
     }
+    console.log(times)
     setTimeData({ times });
   };
 
@@ -47,12 +48,13 @@ const Calendar = ({
     createSchedule(timeData, history, true);
   };
 
-  // Create array of Date objects
-  const days = new Array(7);
-  for (let i = 0; i < days.length; i++) {
-    days[i] = moment();
-    days[i].add(i, "d");
-  }
+  // // Create array of days
+  // const days = new Array(7);
+  // for (let i = 0; i < days.length; i++) {
+  //   days[i] = moment();
+  //   days[i].add(i, "d").format("MM DD YYYY");
+  //   console.log('hello')
+  // }
 
   // TODO: pass in filtered times into each checkbox
   //       need to know how to properly use momentjs to compare dates
@@ -65,13 +67,13 @@ const Calendar = ({
       <h1 className="larger text-primary">Calendar</h1>
       <p>Which times are you available for?</p>
       <div className="options">
-        <CheckboxGroup day={days[0]} onChange={onChange} />
-        <CheckboxGroup day={days[1]} onChange={onChange} />
-        <CheckboxGroup day={days[2]} onChange={onChange} />
-        <CheckboxGroup day={days[3]} onChange={onChange} />
-        <CheckboxGroup day={days[4]} onChange={onChange} />
-        <CheckboxGroup day={days[5]} onChange={onChange} />
-        <CheckboxGroup day={days[6]} onChange={onChange} />
+        <CheckboxGroup day={0} onChange={onChange} />
+        <CheckboxGroup day={1} onChange={onChange} />
+        <CheckboxGroup day={2} onChange={onChange} />
+        <CheckboxGroup day={3} onChange={onChange} />
+        <CheckboxGroup day={4} onChange={onChange} />
+        <CheckboxGroup day={5} onChange={onChange} />
+        <CheckboxGroup day={6} onChange={onChange} />
       </div>
       <div>
         <button
