@@ -3,8 +3,9 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile } from "../../actions/profile";
+import { createSchedule } from "../../actions/schedule";
 
-const CreateProfile = ({ createProfile, history }) => {
+const CreateProfile = ({ createProfile, createSchedule, history }) => {
   const [formData, setFormData] = useState({
     college: "",
     major: "",
@@ -37,6 +38,9 @@ const CreateProfile = ({ createProfile, history }) => {
   const onSubmit = e => {
     e.preventDefault();
     createProfile(formData, history);
+    console.log("after create profile");
+    createSchedule({ times: [] }, history);
+    console.log("after create schedule");
   };
 
   return (
@@ -140,10 +144,11 @@ const CreateProfile = ({ createProfile, history }) => {
 };
 
 CreateProfile.propTypes = {
-  createProfile: PropTypes.func.isRequired
+  createProfile: PropTypes.func.isRequired,
+  createSchedule: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
-  { createProfile }
+  { createProfile, createSchedule }
 )(withRouter(CreateProfile));

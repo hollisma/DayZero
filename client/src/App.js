@@ -15,7 +15,7 @@ import store from "./store";
 import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
 // User types
-import { REGISTERED, PROFILED, MET } from "./actions/types";
+import { REGISTERED, PROFILED, SCHEDULED, MET } from "./actions/types";
 
 import "./App.css";
 
@@ -47,7 +47,7 @@ const App = () => {
               <PrivateRoute
                 exact
                 path="/dashboard"
-                access={[PROFILED, MET]}
+                access={[PROFILED, SCHEDULED, MET]}
                 component={Dashboard}
               />
             </Switch>

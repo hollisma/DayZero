@@ -13,6 +13,7 @@ export const SCHEDULE_ERROR = "SCHEDULE_ERROR";
 export const GUEST = "GUEST";
 export const REGISTERED = "REGISTERED";
 export const PROFILED = "PROFILED";
+export const SCHEDULED = "SCHEDULED";
 export const MET = "MET";
 export const INACTIVE = "INACTIVE";
 export const DELETED = "DELETED";

@@ -11,6 +11,8 @@ export const getDefaultRoute = userType => {
       return REGISTERED_DEFAULT;
     case PROFILED:
       return PROFILED_DEFAULT;
+    case REGISTERED:
+      return REGISTERED_DEFAULT;
     case MET:
       return MET_DEFAULT;
     default:

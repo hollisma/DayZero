@@ -25,7 +25,7 @@ export const getCurrentSchedule = () => async dispatch => {
 };
 
 export const createSchedule = (
-  timeData,
+  times,
   history,
   edit = false
 ) => async dispatch => {
@@ -36,7 +36,7 @@ export const createSchedule = (
       }
     };
 
-    const res = await axios.post("/api/schedule", timeData, config);
+    const res = await axios.post("/api/schedule", times, config);
 
     dispatch({
       type: GET_SCHEDULE,
