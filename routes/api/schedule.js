@@ -20,9 +20,10 @@ router.get("/me", auth, async (req, res) => {
     );
 
     if (!schedule) {
-      return res
-        .status(400)
-        .json({ msg: "There is no schedule for this user" });
+      // return res
+      //   .status(400)
+      //   .json({ msg: "There is no schedule for this user" });
+      return res.json({});
     }
 
     res.json(schedule);

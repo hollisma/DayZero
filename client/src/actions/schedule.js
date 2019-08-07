@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_SCHEDULE, SCHEDULE_ERROR } from "./types";
+import { GET_SCHEDULE, CHANGE_SCHEDULE, SCHEDULE_ERROR } from "./types";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -50,7 +50,7 @@ export const createSchedule = (
       history.push("/dashboard");
     }
   } catch (err) {
-    if (err.response.status === 400) {
+    if (err && err.response && err.response.status === 400) {
       MySwal.fire({ title: err.response.statusText, type: "error" });
     }
 
@@ -59,3 +59,12 @@ export const createSchedule = (
     });
   }
 };
+
+export const changeSchedule = (
+  schedule
+) => async dispatch  => {
+  dispatch({
+    type: CHANGE_SCHEDULE, 
+    payload: schedule
+  })
+}

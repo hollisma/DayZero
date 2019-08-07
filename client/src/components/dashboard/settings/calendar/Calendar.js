@@ -13,6 +13,7 @@ import "./Calendar.css";
 
 const Calendar = ({
   // schedule: { schedule, loading },
+  schedule: { schedule },
   createSchedule,
   // getCurrentSchedule,
   history
@@ -44,9 +45,8 @@ const Calendar = ({
   //   setTimeData({ times });
   // };
 
-  const OnSubmit = () => {
-    const sched = useSelector(state => state.schedule);
-    createSchedule({ times: sched }, history, true);
+  const onSubmit = () => {
+    createSchedule({ times: schedule }, history, true);
   };
 
   // // Create array of days
@@ -79,7 +79,7 @@ const Calendar = ({
       <div>
         <button
           className="ui green basic button my-1 right floated"
-          onClick={() => OnSubmit()}
+          onClick={() => onSubmit()}
         >
           Submit
         </button>

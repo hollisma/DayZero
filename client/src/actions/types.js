@@ -8,6 +8,7 @@ export const LOGOUT = "LOGOUT";
 export const GET_PROFILE = "GET_PROFILE";
 export const PROFILE_ERROR = "PROFILE_ERROR";
 export const GET_SCHEDULE = "GET_SCHEDULE";
+export const CHANGE_SCHEDULE = "CHANGE_SCHEDULE";
 export const SCHEDULE_ERROR = "SCHEDULE_ERROR";
 
 export const GUEST = "GUEST";
