@@ -6,6 +6,11 @@ import { TIME1, TIME2, TIME3 } from "../../../../actions/types";
 import "./Calendar.css";
 
 const CheckboxGroup = ({ day, onChange }) => {
+  const onChange = () => {
+    // TODO: Connect this component with Redux state
+    // TODO: Create action for reducer to change state.schedule
+  };
+
   day = moment().add(day, "d").format("MM-DD-YYYY");
   const id1 = day + "," + TIME1;
   const id2 = day + "," + TIME2;

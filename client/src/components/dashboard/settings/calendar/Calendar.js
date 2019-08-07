@@ -3,7 +3,7 @@ import CheckboxGroup from "./CheckboxGroup";
 import moment from "moment";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import {
   createSchedule,
   getCurrentSchedule
@@ -12,40 +12,41 @@ import {
 import "./Calendar.css";
 
 const Calendar = ({
-  schedule: { schedule, loading },
+  // schedule: { schedule, loading },
   createSchedule,
-  getCurrentSchedule,
+  // getCurrentSchedule,
   history
 }) => {
-  const [timeData, setTimeData] = useState({
-    times: []
-  });
+  // const [timeData, setTimeData] = useState({
+  //   times: []
+  // });
 
-  useEffect(() => {
-    getCurrentSchedule();
+  // useEffect(() => {
+  //   getCurrentSchedule();
 
-    setTimeData({
-      times: loading || !schedule || !schedule.times ? [] : schedule.times
-    });
-  }, [loading, getCurrentSchedule]);
+  //   setTimeData({
+  //     times: loading || !schedule || !schedule.times ? [] : schedule.times
+  //   });
+  // }, [loading, getCurrentSchedule]);
 
-  const { times } = timeData;
+  // const { times } = timeData;
 
-  const onChange = e => {
-    const checked = e.target.checked;
-    const name = e.target.name;
-    const index = times.indexOf(name);
-    if (index === -1 && checked) {
-      times.push(name);
-    } else if (index > -1 && !checked) {
-      times.splice(index, 1);
-    }
-    console.log(times)
-    setTimeData({ times });
-  };
+  // const onChange = e => {
+  //   const checked = e.target.checked;
+  //   const name = e.target.name;
+  //   const index = times.indexOf(name);
+  //   if (index === -1 && checked) {
+  //     times.push(name);
+  //   } else if (index > -1 && !checked) {
+  //     times.splice(index, 1);
+  //   }
+  //   console.log(times)
+  //   setTimeData({ times });
+  // };
 
-  const onSubmit = () => {
-    createSchedule(timeData, history, true);
+  const OnSubmit = () => {
+    const sched = useSelector(state => state.schedule);
+    createSchedule({ times: sched }, history, true);
   };
 
   // // Create array of days
@@ -67,18 +68,18 @@ const Calendar = ({
       <h1 className="larger text-primary">Calendar</h1>
       <p>Which times are you available for?</p>
       <div className="options">
-        <CheckboxGroup day={0} onChange={onChange} />
-        <CheckboxGroup day={1} onChange={onChange} />
-        <CheckboxGroup day={2} onChange={onChange} />
-        <CheckboxGroup day={3} onChange={onChange} />
-        <CheckboxGroup day={4} onChange={onChange} />
-        <CheckboxGroup day={5} onChange={onChange} />
-        <CheckboxGroup day={6} onChange={onChange} />
+        <CheckboxGroup day={0} />
+        <CheckboxGroup day={1} />
+        <CheckboxGroup day={2} />
+        <CheckboxGroup day={3} />
+        <CheckboxGroup day={4} />
+        <CheckboxGroup day={5} />
+        <CheckboxGroup day={6} />
       </div>
       <div>
         <button
           className="ui green basic button my-1 right floated"
-          onClick={() => onSubmit()}
+          onClick={() => OnSubmit()}
         >
           Submit
         </button>
