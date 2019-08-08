@@ -51,7 +51,7 @@ export const createProfile = (
 
     // If creating profile for first time, redirect to dashboard
     if (!edit) {
-      
+      window.location.href = "/dashboard";
     }
   } catch (err) {
     const errors = err.response.data.errors;
