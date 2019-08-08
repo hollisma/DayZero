@@ -41,7 +41,18 @@ export const createSchedule = (
       payload: res.data
     });
 
-    // Could throw a success SWAL or use a snackbar
+    // Throw toast
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000
+    });
+    
+    Toast.fire({
+      type: "success",
+      title: "Schedule Updated"
+    })
 
   } catch (err) {
     if (err && err.response && err.response.status === 400) {

@@ -153,12 +153,9 @@ const EditProfile = ({
           <label>Email</label>
         </div>
 
-        <button
-          className="ui red basic button m-1 right floated"
-          onClick={() => history.goBack()}
-        >
-          Go Back
-        </button>
+        <a href="/" className="ui red basic button m-1 right floated">
+          Go back
+        </a>
         <input
           type="submit"
           className="ui green basic button my-1 right floated"

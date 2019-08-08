@@ -17,8 +17,6 @@ const CheckboxGroup = ({
   const id2 = day + "," + TIME2;
   const id3 = day + "," + TIME3;
 
-  console.log(schedule);
-
   let arr = Object.keys(schedule).map((k) => schedule[k]);
   let scheduleSet = schedule ? new Set(arr) : new Set();
 

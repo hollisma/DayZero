@@ -47,12 +47,24 @@ export const createProfile = (
       payload: res.data
     });
 
-    // Could throw a success SWAL or use an integrated thing on the SWAL website
-
     // If creating profile for first time, redirect to dashboard
     if (!edit) {
       window.location.href = "/dashboard";
-    }
+    } 
+    let msg = edit ? "Profile Updated" : "Profile Created";
+
+    // Throw toast
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000
+    });
+    
+    Toast.fire({
+      type: "success",
+      title: msg
+    })
   } catch (err) {
     const errors = err.response.data.errors;
 
