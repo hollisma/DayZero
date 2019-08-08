@@ -26,7 +26,7 @@ router.get("/me", auth, async (req, res) => {
       return res.json({});
     }
 
-    res.json(schedule);
+    res.json(schedule.times);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

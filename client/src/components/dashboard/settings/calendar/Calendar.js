@@ -11,13 +11,14 @@ import {
 import "./Calendar.css";
 
 const Calendar = ({
-  schedule: { schedule },
+  schedule: { schedule, loading },
   createSchedule,
-  history
+  getCurrentSchedule
 }) => {
+  if (loading) getCurrentSchedule();
 
   const onSubmit = () => {
-    createSchedule({ times: schedule }, history, true);
+    createSchedule({ times: schedule });
   };
 
   return (

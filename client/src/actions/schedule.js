@@ -25,8 +25,7 @@ export const getCurrentSchedule = () => async dispatch => {
 };
 
 export const createSchedule = (
-  times,
-  edit = false
+  times
 ) => async dispatch => {
   try {
     const config = {
@@ -44,9 +43,6 @@ export const createSchedule = (
 
     // Could throw a success SWAL or use a snackbar
 
-    // If creating schedule for first time, redirect to dashboard
-    if (!edit) {
-    }
   } catch (err) {
     if (err && err.response && err.response.status === 400) {
       MySwal.fire({ title: err.response.statusText, type: "error" });
