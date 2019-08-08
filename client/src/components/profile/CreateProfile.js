@@ -37,7 +37,7 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    createSchedule({ times: [] });
+    // createSchedule({ times: [] });
     createProfile(formData);
   };
 

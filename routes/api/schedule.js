@@ -64,7 +64,7 @@ router.post("/", auth, async (req, res) => {
       $set: { user_type: SCHEDULED }
     });
 
-    res.json(schedule);
+    res.json(schedule.times);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
@@ -84,7 +84,7 @@ router.get("/user/:user_id", async (req, res) => {
 
     if (!schedule) return res.status(400).json({ msg: "Schedule not found" });
 
-    res.json(schedule);
+    res.json(schedule.times);
   } catch (err) {
     console.error(err.message);
     if (err.kind == "ObjectId") {
