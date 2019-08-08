@@ -8,9 +8,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const handleScroll = () => {
     const navbar = document.getElementById("navbar");
     if (document.documentElement.scrollTop > 1) {
-      navbar.classList.add("scrolled");
+      if (navbar) navbar.classList.add("scrolled");
     } else {
-      navbar.classList.remove("scrolled");
+      if (navbar) navbar.classList.remove("scrolled");
     }
   };
 
@@ -31,7 +31,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </a>
       </li>
       <li className="item">
-        <a href="#" className="reg">
+        <a href="/#howitworks" className="reg">
           How It Works
         </a>
       </li>

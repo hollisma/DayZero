@@ -52,7 +52,7 @@ router.post("/", auth, async (req, res) => {
         { new: true }
       );
 
-      return res.json(schedule);
+      return res.json(schedule.times);
     }
 
     // Create

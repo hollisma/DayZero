@@ -10,19 +10,15 @@ import "./Calendar.css";
 const CheckboxGroup = ({ 
   day, 
   changeSchedule, 
-  schedule: {schedule, loading }
+  schedule: { schedule }
 }) => {
   day = moment().add(day, "d").format("MM-DD-YYYY");
   const id1 = day + "," + TIME1;
   const id2 = day + "," + TIME2;
   const id3 = day + "," + TIME3;
 
-  console.log(typeof schedule, schedule)
-  let scheduleSet = schedule && !loading ? new Set(schedule) : new Set();
-  
-  // TODO: New set is being created each time, so it's not storing the state...
-  //       Or something like that...
-  // TODO: Also, after submitting, the response is stored as 'schedule', but it's an object with a bunch of other junk
+  let arr = Object.keys(schedule).map((k) => schedule[k]);
+  let scheduleSet = schedule ? new Set(arr) : new Set();
 
   const onChange = (e) => {
     if (e.target.checked && !scheduleSet.has(e.target.name)) {
