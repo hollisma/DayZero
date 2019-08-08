@@ -26,7 +26,6 @@ export const getCurrentSchedule = () => async dispatch => {
 
 export const createSchedule = (
   times,
-  history,
   edit = false
 ) => async dispatch => {
   try {
@@ -47,7 +46,6 @@ export const createSchedule = (
 
     // If creating schedule for first time, redirect to dashboard
     if (!edit) {
-      history.push("/dashboard");
     }
   } catch (err) {
     if (err && err.response && err.response.status === 400) {

@@ -2,10 +2,10 @@ import React from "react";
 
 const Section2 = () => {
   return (
-    <p id="howitworks" className="blu chunk">
-      <p className="ui vertical stripe segment">
+    <div id="howitworks" className="blu chunk">
+      <div className="ui vertical stripe segment">
         <h1>How Day Zero Works</h1>
-        <p className="ui middle aligned stackable grid container">
+        <div className="ui middle aligned stackable grid container">
           <img src={require("../../img/three-group")} alt="" />
           <p>
             Tell us what kind of people you'd like to meet. Entrepreneurs?
@@ -20,9 +20,9 @@ const Section2 = () => {
             Based on your interests, Day Zero will automatically match you with
             three other people to have a meal or coffee!
           </p>
-        </p>
-      </p>
-    </p>
+        </div>
+      </div>
+    </div>
   );
 };
 

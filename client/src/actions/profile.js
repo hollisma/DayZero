@@ -31,7 +31,6 @@ export const getCurrentProfile = () => async dispatch => {
 
 export const createProfile = (
   formData,
-  history,
   edit = false
 ) => async dispatch => {
   try {
@@ -52,7 +51,7 @@ export const createProfile = (
 
     // If creating profile for first time, redirect to dashboard
     if (!edit) {
-      history.push("/dashboard");
+      
     }
   } catch (err) {
     const errors = err.response.data.errors;

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { createProfile } from "../../actions/profile";
 import { createSchedule } from "../../actions/schedule";
 
-const CreateProfile = ({ createProfile, createSchedule, history }) => {
+const CreateProfile = ({ createProfile, createSchedule }) => {
   const [formData, setFormData] = useState({
     college: "",
     major: "",
@@ -37,9 +37,9 @@ const CreateProfile = ({ createProfile, createSchedule, history }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    createProfile(formData, history);
+    createProfile(formData);
     console.log("after create profile");
-    createSchedule({ times: [] }, history);
+    createSchedule({ times: [] });
     console.log("after create schedule");
   };
 
@@ -128,12 +128,9 @@ const CreateProfile = ({ createProfile, createSchedule, history }) => {
           <label>Email</label>
         </div>
 
-        <button
-          className="ui red basic button m-1 right floated"
-          onClick={() => history.goBack()}
-        >
-          Go Back
-        </button>
+        <a href="/" className="ui red basic button m-1 right floated">
+          Go back
+        </a>
         <input
           type="submit"
           className="ui green basic button my-1 right floated"
