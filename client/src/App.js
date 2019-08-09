@@ -34,7 +34,7 @@ const App = () => {
         <Fragment>
           <Navbar id="navbar" />
           <Route exact path="/" component={Landing} />
-          <section className="ui top-container">
+          {/* <section> */}
             <Switch>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
@@ -51,7 +51,7 @@ const App = () => {
                 component={Dashboard}
               />
             </Switch>
-          </section>
+          {/* </section> */}
         </Fragment>
       </Router>
     </Provider>

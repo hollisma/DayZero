@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -41,7 +41,7 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
   };
 
   return (
-    <Fragment>
+    <div className="ui top-container">
       <h1 className="larger text-primary">Create Your Profile</h1>
       <p className="lead my-2">
         <i className="fas fa-user" />
@@ -133,7 +133,7 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
           className="ui green basic button my-1 right floated"
         />
       </form>
-    </Fragment>
+    </div>
   );
 };
 

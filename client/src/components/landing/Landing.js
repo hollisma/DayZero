@@ -8,10 +8,8 @@ const Landing = () => {
     <section id="landing" className="landing">
       <Section1 />
 
-      {/* Second section */}
       <Section2 />
 
-      {/* Third section */}
       <Section3 />
     </section>
   );

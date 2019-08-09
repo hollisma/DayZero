@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { login } from "../../actions/auth";
@@ -28,7 +28,7 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
   }
 
   return (
-    <Fragment>
+    <div className="ui top-container">
       <h1 className="larger text-primary">Sign In</h1>
       <p className="lead my-2">
         <i className="fas fa-user" /> Sign Into Your Account
@@ -59,7 +59,7 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign Up</Link>
       </p>
-    </Fragment>
+    </div>
   );
 };
 

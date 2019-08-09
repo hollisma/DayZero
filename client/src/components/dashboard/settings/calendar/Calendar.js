@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import CheckboxGroup from "./CheckboxGroup";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -22,7 +22,7 @@ const Calendar = ({
   };
 
   return (
-    <Fragment>
+    <div className="chunk">
       <h1 className="larger text-primary">Calendar</h1>
       <p>Which times are you available for?</p>
       <div className="options">
@@ -42,7 +42,7 @@ const Calendar = ({
           Submit
         </button>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

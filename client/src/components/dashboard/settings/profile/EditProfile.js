@@ -66,7 +66,7 @@ const EditProfile = ({
   };
 
   return (
-    <Fragment>
+    <div className="ui top-container">
       <h1 className="larger text-primary">Edit Your Profile</h1>
       <p className="lead my-up-1">
         <i className="fas fa-user" />
@@ -161,7 +161,7 @@ const EditProfile = ({
           className="ui green basic button my-1 right floated"
         />
       </form>
-    </Fragment>
+    </div>
   );
 };
 

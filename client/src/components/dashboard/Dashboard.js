@@ -4,7 +4,7 @@ import Group from "./group/Group";
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="dashboard">
       <Group />
       <Settings />
     </div>

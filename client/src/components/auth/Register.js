@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { register } from '../../actions/auth';
@@ -36,7 +36,7 @@ const Register = ({ register, isAuthenticated }) => {
   }
 
   return (
-    <Fragment>
+    <div className="ui top-container">
       <h1 className='larger text-primary'>Sign Up</h1>
       <p className='lead my-2'>
         <i className='fas fa-user' /> Create Your Account
@@ -96,7 +96,7 @@ const Register = ({ register, isAuthenticated }) => {
       <p className='my-1'>
         Already have an account? <Link to='/login'>Sign In</Link>
       </p>
-    </Fragment>
+    </div>
   );
 };
 
