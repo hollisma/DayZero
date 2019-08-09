@@ -22,7 +22,7 @@ const Calendar = ({
   };
 
   return (
-    <div className="chunk">
+    <div className="calendar chunk">
       <h1 className="larger text-primary">Calendar</h1>
       <p>Which times are you available for?</p>
       <div className="options">

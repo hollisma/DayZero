@@ -4,7 +4,7 @@ import Calendar from "./calendar/Calendar";
 
 const Settings = () => {
   return (
-    <div id="settings">
+    <div id="settings" className="settings">
       <Calendar />
       <EditProfile />
     </div>
