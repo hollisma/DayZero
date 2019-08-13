@@ -7,7 +7,6 @@ import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 // import Profile from "./components/profile/Profile";
 import CreateProfile from "./components/profile/CreateProfile";
-import Settings from "./components/dashboard/settings/Settings";
 import PrivateRoute from "./components/routing/PrivateRoute";
 // Redux
 import { Provider } from "react-redux";
@@ -35,22 +34,22 @@ const App = () => {
           <Navbar id="navbar" />
           <Route exact path="/" component={Landing} />
           {/* <section> */}
-            <Switch>
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
-              <PrivateRoute
-                exact
-                path="/create-profile"
-                access={[REGISTERED]}
-                component={CreateProfile}
-              />
-              <PrivateRoute
-                exact
-                path="/dashboard"
-                access={[PROFILED, SCHEDULED, MET]}
-                component={Dashboard}
-              />
-            </Switch>
+          <Switch>
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <PrivateRoute
+              exact
+              path="/create-profile"
+              access={[REGISTERED]}
+              component={CreateProfile}
+            />
+            <PrivateRoute
+              exact
+              path="/dashboard"
+              access={[PROFILED, SCHEDULED, MET]}
+              component={Dashboard}
+            />
+          </Switch>
           {/* </section> */}
         </Fragment>
       </Router>

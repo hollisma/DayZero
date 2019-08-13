@@ -1,6 +1,6 @@
 import { GET_GROUP, GROUP_ERROR } from "../actions/types";
 
-const initialState = { group: {}, loading: true };
+const initialState = { members: [], active: false, date: null, loading: true };
 
 export default function(state = initialState, action) {
   const { type, payload } = action;
@@ -8,13 +8,17 @@ export default function(state = initialState, action) {
     case GET_GROUP:
       return {
         ...state,
-        group: payload,
+        members: payload.members,
+        active: payload.active,
+        date: payload.date,
         loading: false
       };
     case GROUP_ERROR:
       return {
         ...state,
-        group: null,
+        members: [],
+        active: false,
+        date: null,
         loading: false
       };
     default:

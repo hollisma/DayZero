@@ -9,10 +9,10 @@ const MySwal = withReactContent(Swal);
 export const getCurrentGroup = () => async dispatch => {
   try {
     const res = await axios.get("/api/groups");
-    console.log("res", res);
+
     dispatch({
       type: GET_GROUP,
-      payload: res.data.members
+      payload: res.data
     });
   } catch (err) {
     if (err.response.status === 400) {

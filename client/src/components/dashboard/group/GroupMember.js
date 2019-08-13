@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const GroupMember = props => {
-  return <div>hi</div>;
+const GroupMember = ({ member_id }) => {
+  return <div>{member_id || "Searching..."}</div>;
 };
 
-GroupMember.propTypes = {};
+GroupMember.propTypes = {
+  member_id: PropTypes.string.isRequired
+};
 
 export default GroupMember;
