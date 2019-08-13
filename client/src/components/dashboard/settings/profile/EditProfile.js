@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -40,6 +40,7 @@ const EditProfile = ({
       sms: loading || !profile || !profile.sms ? false : profile.sms,
       email: loading || !profile || !profile.email ? false : profile.email
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading, getCurrentProfile]);
 
   const {

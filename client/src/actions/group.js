@@ -5,13 +5,14 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 
-export const getCurrentSchedule = () => async dispatch => {
+// Return an array of IDs of the group members
+export const getCurrentGroup = () => async dispatch => {
   try {
-    const res = await axios.get("/api/group");
-
+    const res = await axios.get("/api/groups");
+    console.log("res", res);
     dispatch({
       type: GET_GROUP,
-      payload: res.data
+      payload: res.data.members
     });
   } catch (err) {
     if (err.response.status === 400) {

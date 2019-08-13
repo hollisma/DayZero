@@ -1,8 +1,12 @@
 import React from "react";
 import GroupMember from "./GroupMember";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getCurrentGroup } from "../../../actions/group";
 
-const Group = props => {
+const Group = ({ group: { group, loading }, getCurrentGroup }) => {
+  if (loading) getCurrentGroup();
+
   return (
     <div id="group" className="group">
       <h1 className="larger text-primary">Group</h1>
@@ -17,6 +21,16 @@ const Group = props => {
   );
 };
 
-Group.propTypes = {};
+Group.propTypes = {
+  getCurrentGroup: PropTypes.func.isRequired,
+  group: PropTypes.object.isRequired
+};
 
-export default Group;
+const mapStateToProps = state => ({
+  group: state.group
+});
+
+export default connect(
+  mapStateToProps,
+  { getCurrentGroup }
+)(Group);

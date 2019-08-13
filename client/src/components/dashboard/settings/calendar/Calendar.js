@@ -1,6 +1,5 @@
 import React from "react";
 import CheckboxGroup from "./CheckboxGroup";
-import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {
@@ -22,7 +21,7 @@ const Calendar = ({
   };
 
   return (
-    <div className="calendar chunk">
+    <div id="calendar" className="calendar chunk">
       <h1 className="larger text-primary">Calendar</h1>
       <p>Which times are you available for?</p>
       <div className="options">
@@ -59,4 +58,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { createSchedule, getCurrentSchedule }
-)(withRouter(Calendar));
+)(Calendar);
