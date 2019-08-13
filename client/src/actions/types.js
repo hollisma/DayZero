@@ -10,6 +10,8 @@ export const PROFILE_ERROR = "PROFILE_ERROR";
 export const GET_SCHEDULE = "GET_SCHEDULE";
 export const CHANGE_SCHEDULE = "CHANGE_SCHEDULE";
 export const SCHEDULE_ERROR = "SCHEDULE_ERROR";
+export const GET_GROUP = "GET_GROUP";
+export const GROUP_ERROR = "GROUP_ERROR";
 
 export const GUEST = "GUEST";
 export const REGISTERED = "REGISTERED";

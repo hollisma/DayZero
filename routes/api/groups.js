@@ -19,7 +19,8 @@ router.get("/", auth, async (req, res) => {
 
     // Check if user is in group
     if (!user.group) {
-      return res.status(400).json({ msg: "User is not in a group" });
+      // return res.status(400).json({ msg: "User is not in a group" });
+      return res.json({});
     }
 
     const group = await Group.findById(user.group);
