@@ -17,16 +17,20 @@ const Group = ({
     getMembersProfiles(members);
   }
 
+  let memberComponents = membersData.map((m, i) => (
+    <GroupMember
+      member_id={m.user ? m.user._id : "-1"}
+      college={m.college}
+      major={m.major}
+      key={i}
+    />
+  ));
+
   return (
     <div id="group" className="group">
       <h1 className="larger text-primary">Group</h1>
       <p>Here's your group: </p>
-      <div className="group-icons">
-        <GroupMember member_id={members[0]} />
-        <GroupMember member_id={members[1]} />
-        <GroupMember member_id={members[2]} />
-        <GroupMember member_id={members[3]} />
-      </div>
+      <div className="group-icons">{memberComponents}</div>
     </div>
   );
 };

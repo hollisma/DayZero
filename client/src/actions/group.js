@@ -21,7 +21,8 @@ export const getCurrentGroup = () => async dispatch => {
       payload: res.data
     });
   } catch (err) {
-    if (err.response.status === 400) {
+    console.error(err);
+    if (err.response && err.response.status === 400) {
       MySwal.fire({ title: err.response.statusText, type: "error" });
     }
 
