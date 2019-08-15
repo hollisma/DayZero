@@ -2,14 +2,19 @@ import React from "react";
 import GroupMember from "./GroupMember";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getCurrentGroup } from "../../../actions/group";
+import { getCurrentGroup, getMembersProfiles } from "../../../actions/group";
 
-const Group = ({ group: { members, loading }, getCurrentGroup }) => {
-  if (loading) getCurrentGroup();
+const Group = ({
+  group: { members, membersData, loading, membersLoading },
+  getCurrentGroup,
+  getMembersProfiles
+}) => {
+  if (loading) {
+    getCurrentGroup();
+  }
 
-  // 4 is the number of people per group
-  while (members.length < 4) {
-    members.push("");
+  if (!loading && membersLoading) {
+    getMembersProfiles(members);
   }
 
   return (
@@ -28,6 +33,7 @@ const Group = ({ group: { members, loading }, getCurrentGroup }) => {
 
 Group.propTypes = {
   getCurrentGroup: PropTypes.func.isRequired,
+  getMembersProfiles: PropTypes.func.isRequired,
   group: PropTypes.object.isRequired
 };
 
@@ -37,5 +43,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getCurrentGroup }
+  { getCurrentGroup, getMembersProfiles }
 )(Group);

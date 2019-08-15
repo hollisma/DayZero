@@ -29,10 +29,7 @@ export const getCurrentProfile = () => async dispatch => {
   }
 };
 
-export const createProfile = (
-  formData,
-  edit = false
-) => async dispatch => {
+export const createProfile = (formData, edit = false) => async dispatch => {
   try {
     const config = {
       headers: {
@@ -50,7 +47,7 @@ export const createProfile = (
     // If creating profile for first time, redirect to dashboard
     if (!edit) {
       window.location.href = "/dashboard";
-    } 
+    }
     let msg = edit ? "Profile Updated" : "Profile Created";
 
     // Throw toast
@@ -60,11 +57,11 @@ export const createProfile = (
       showConfirmButton: false,
       timer: 3000
     });
-    
+
     Toast.fire({
       type: "success",
       title: msg
-    })
+    });
   } catch (err) {
     const errors = err.response.data.errors;
 

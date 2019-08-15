@@ -1,6 +1,13 @@
-import { GET_GROUP, GROUP_ERROR } from "../actions/types";
+import { GET_GROUP, GROUP_ERROR, LOAD_MEMBERS } from "../actions/types";
 
-const initialState = { members: [], active: false, date: null, loading: true };
+const initialState = {
+  members: [],
+  membersData: [],
+  active: false,
+  date: null,
+  loading: true,
+  membersLoading: true
+};
 
 export default function(state = initialState, action) {
   const { type, payload } = action;
@@ -13,13 +20,21 @@ export default function(state = initialState, action) {
         date: payload.date,
         loading: false
       };
+    case LOAD_MEMBERS:
+      return {
+        ...state,
+        membersData: payload,
+        membersLoading: false
+      };
     case GROUP_ERROR:
       return {
         ...state,
         members: [],
+        membersData: {},
         active: false,
         date: null,
-        loading: false
+        loading: false,
+        membersLoading: false
       };
     default:
       return state;

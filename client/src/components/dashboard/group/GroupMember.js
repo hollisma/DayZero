@@ -6,7 +6,7 @@ const GroupMember = ({ member_id }) => {
 };
 
 GroupMember.propTypes = {
-  member_id: PropTypes.string.isRequired
+  // member_id: PropTypes.string.isRequired
 };
 
 export default GroupMember;
