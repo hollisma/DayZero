@@ -49,6 +49,7 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
       </p>
       <small>* = required field</small>
       <form className="ui form" onSubmit={e => onSubmit(e)}>
+        <p>College</p>
         <div className="field">
           <input
             type="text"
@@ -59,6 +60,7 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
             required
           />
         </div>
+        <p>Major</p>
         <div className="field">
           <input
             type="text"
@@ -69,6 +71,7 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
             required
           />
         </div>
+        <p>Minor</p>
         <div className="field">
           <input
             type="text"
@@ -78,6 +81,7 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
             onChange={e => onChange(e)}
           />
         </div>
+        <p>Categories you're interested in</p>
         <div className="field">
           <input
             type="text"
@@ -87,6 +91,7 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
             onChange={e => onChange(e)}
           />
         </div>
+        <p>Tell us a little about yourself</p>
         <div className="field">
           <input
             type="text"
@@ -96,6 +101,7 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
             onChange={e => onChange(e)}
           />
         </div>
+        <p>Values</p>
         <div className="field">
           <input
             type="text"

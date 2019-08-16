@@ -86,7 +86,7 @@ const EditProfile = ({
             required
           />
         </div>
-        <p>College</p>
+        <p>Major</p>
         <div className="field">
           <input
             type="text"
@@ -97,7 +97,7 @@ const EditProfile = ({
             required
           />
         </div>
-        <p>College</p>
+        <p>Minor</p>
         <div className="field">
           <input
             type="text"
@@ -107,6 +107,7 @@ const EditProfile = ({
             onChange={e => onChange(e)}
           />
         </div>
+        <p>Categories you're interested in</p>
         <div className="field">
           <input
             type="text"
@@ -116,6 +117,7 @@ const EditProfile = ({
             onChange={e => onChange(e)}
           />
         </div>
+        <p>Tell us a little about yourself</p>
         <div className="field">
           <input
             type="text"
@@ -125,6 +127,7 @@ const EditProfile = ({
             onChange={e => onChange(e)}
           />
         </div>
+        <p>Values</p>
         <div className="field">
           <input
             type="text"
