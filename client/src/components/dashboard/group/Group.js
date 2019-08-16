@@ -23,6 +23,7 @@ const Group = ({
       membersData.map((m, i) => (
         <GroupMember
           member_id={m.user ? m.user._id : "-1"}
+          name={m.user ? m.user.name : ""}
           college={m.college}
           major={m.major}
           key={i}

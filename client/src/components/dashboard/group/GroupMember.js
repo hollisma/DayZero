@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-const GroupMember = ({ member_id, college, major }) => {
+const GroupMember = ({ member_id, name, college, major }) => {
+  console.log("member_id", member_id);
   let res = "";
-  // let [id, setId] = useState(member_id);
-  // let [col, setCol] = useState(college);
-  // let [maj, setMaj] = useState(major);
-  // useEffect(() => {
-  //   setId(member_id);
-  //   setCol(college);
-  //   setMaj(major);
-  // }, [member_id, college, major]);
-  res += member_id + " " + college + " " + major;
-  // res += id + " " + col + " " + maj;
+  if (member_id !== "-1") {
+    res = (
+      <span>
+        <b>{name}</b> is at <b>{college}</b> studying <b>{major}</b>
+      </span>
+    );
+  }
 
   return <div>{res || "Searching..."}</div>;
 };
