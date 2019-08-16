@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { getCurrentGroup, getMembersProfiles } from "../../../actions/group";
 import Spinner from "../../layout/Spinner";
 
+import "./Group.css";
+
 const Group = ({
   group: { members, membersData, loading, membersLoading },
   getCurrentGroup,
@@ -24,6 +26,7 @@ const Group = ({
         <GroupMember
           member_id={m.user ? m.user._id : "-1"}
           name={m.user ? m.user.name : ""}
+          avatar={m.user ? m.user.avatar : ""}
           college={m.college}
           major={m.major}
           key={i}
@@ -37,7 +40,7 @@ const Group = ({
     <div id="group" className="group">
       <h1 className="larger text-primary">Group</h1>
       <p>Here's your group: </p>
-      <div className="group-icons">{memberComponents}</div>
+      <div className="group-container">{memberComponents}</div>
     </div>
   );
 };
