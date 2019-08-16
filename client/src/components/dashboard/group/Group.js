@@ -3,6 +3,7 @@ import GroupMember from "./GroupMember";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentGroup, getMembersProfiles } from "../../../actions/group";
+import Spinner from "../../layout/Spinner";
 
 const Group = ({
   group: { members, membersData, loading, membersLoading },
@@ -17,14 +18,19 @@ const Group = ({
     getMembersProfiles(members);
   }
 
-  let memberComponents = membersData.map((m, i) => (
-    <GroupMember
-      member_id={m.user ? m.user._id : "-1"}
-      college={m.college}
-      major={m.major}
-      key={i}
-    />
-  ));
+  let memberComponents =
+    !loading && !membersLoading ? (
+      membersData.map((m, i) => (
+        <GroupMember
+          member_id={m.user ? m.user._id : "-1"}
+          college={m.college}
+          major={m.major}
+          key={i}
+        />
+      ))
+    ) : (
+      <Spinner />
+    );
 
   return (
     <div id="group" className="group">

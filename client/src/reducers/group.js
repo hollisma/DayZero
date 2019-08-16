@@ -9,7 +9,7 @@ const initialState = {
   membersLoading: true
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case GET_GROUP:
@@ -30,7 +30,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         members: [],
-        membersData: {},
+        membersData: [],
         active: false,
         date: null,
         loading: false,

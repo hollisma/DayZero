@@ -38,15 +38,20 @@ export const getMembersProfiles = members => async dispatch => {
     members.forEach(async (m, i) => {
       if (!m) {
         profileData[i] = {};
+
+        dispatch({
+          type: LOAD_MEMBERS,
+          payload: profileData
+        });
       } else {
         const res = await axios.get("/api/profile/user/" + m);
         profileData[i] = res.data;
-      }
-    });
 
-    dispatch({
-      type: LOAD_MEMBERS,
-      payload: profileData
+        dispatch({
+          type: LOAD_MEMBERS,
+          payload: profileData
+        });
+      }
     });
   } catch (err) {
     console.error(err);
