@@ -1,5 +1,16 @@
 {
   "mongoURI": "mongodb+srv://ninjawearingnike:cofm1111@dayzero-wtafw.mongodb.net/test?retryWrites=true&w=majority",
   "jwtSecret": "bigsecrecy",
-  "adminEmail": "h@gmail.com"
+  "adminEmail": "h@gmail.com",
+  "facebookAuth": {
+    "clientID": "2462105280515856",
+    "clientSecret": "22d5f532549b8aa98464077fe7a2ab5c",
+    "callbackURL":  "http://localhost:4000/api/auth/facebook/callback",
+    "profileURL": "https://graph.facebook.com/v2.5/me?fields=first_name,last_name,email"
+  },
+  "googleAuth": {
+    "clientID": "180938353723-9hta22di8il58vngo81t79is1h04gru7.apps.googleusercontent.com",
+    "clientSecret": "A_3q6oRowTzfKVNMe9yGqGNg",
+    "callbackURL": "http://localhost:4000/auth/google/callback"
+  }
 }

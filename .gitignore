@@ -1,4 +1,4 @@
 node_modules/
-config/default.json
+*default.json
 .vs-code/
-client/src/config.config.json
+*config.json
