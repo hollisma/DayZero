@@ -5,7 +5,7 @@ import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 import ExampleProfile from "../profile/ExampleProfile";
 
-import "./Register.css";
+import "./auth.css";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";

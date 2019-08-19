@@ -5,6 +5,9 @@ import { login } from "../../actions/auth";
 import PropTypes from "prop-types";
 import { getDefaultRoute } from "../routing/default_types";
 import { GUEST } from "../../actions/types";
+import ExampleProfile from "../profile/ExampleProfile";
+
+import "./auth.css";
 
 const Login = ({ login, auth: { isAuthenticated, user } }) => {
   const [formData, setFromData] = useState({
@@ -28,37 +31,45 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
   }
 
   return (
-    <div className="ui top-container">
-      <h1 className="larger text-primary">Sign In</h1>
-      <p className="lead my-2">
-        <i className="fas fa-user" /> Sign Into Your Account
-      </p>
-      <form className="ui form" onSubmit={e => onSubmit(e)}>
-        <div className="field">
-          <input
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            value={email}
-            onChange={e => onChange(e)}
-            required
-          />
-        </div>
-        <div className="field">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={e => onChange(e)}
-            minLength="6"
-          />
-        </div>
-        <input type="submit" className="ui button my-1" value="Login" />
-      </form>
-      <p className="my-1">
-        Don't have an account? <Link to="/register">Sign Up</Link>
-      </p>
+    <div className="ui top-container bigger-top-container">
+      <div className="left-container">
+        <h3>Sixty seconds to signup</h3>
+        <h3>Grab meals with people who share your passions</h3>
+        <ExampleProfile fileName="max_kim.png" />
+        <ExampleProfile fileName="max_kim.png" />
+      </div>
+      <div className="right-container">
+        <h1 className="larger text-primary">Sign In</h1>
+        <p className="lead my-2">
+          <i className="fas fa-user" /> Sign Into Your Account
+        </p>
+        <form className="ui form" onSubmit={e => onSubmit(e)}>
+          <div className="field">
+            <input
+              type="email"
+              placeholder="Email Address"
+              name="email"
+              value={email}
+              onChange={e => onChange(e)}
+              required
+            />
+          </div>
+          <div className="field">
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={password}
+              onChange={e => onChange(e)}
+              minLength="6"
+            />
+          </div>
+          <input type="submit" className="ui button my-1" value="Login" />
+        </form>
+        <p className="my-1">
+          Don't have an account? <Link to="/register">Sign Up</Link>
+        </p>
+      </div>
     </div>
   );
 };
