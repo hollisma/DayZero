@@ -1,5 +1,5 @@
 {
   "mongoURI": "mongodb+srv://ninjawearingnike:cofm1111@dayzero-wtafw.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "thisissecret",
+  "jwtSecret": "bigsecrecy",
   "adminEmail": "h@gmail.com"
 }

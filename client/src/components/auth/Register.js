@@ -4,6 +4,9 @@ import { Link, Redirect } from "react-router-dom";
 import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 import ExampleProfile from "../profile/ExampleProfile";
+import FacebookLogin from "react-facebook-login";
+import { GoogleLogin } from "react-google-login";
+import config from "../../config/config.json";
 
 import "./auth.css";
 
@@ -50,6 +53,18 @@ const Register = ({ register, isAuthenticated }) => {
     return <Redirect to="dashboard" />;
   }
 
+  const onFailure = error => {
+    alert(error);
+  };
+
+  const facebookResponse = e => {
+    console.log(e);
+  };
+
+  const googleResponse = e => {
+    console.log(e);
+  };
+
   return (
     <div className="ui top-container bigger-top-container">
       <div className="left-container">
@@ -59,6 +74,18 @@ const Register = ({ register, isAuthenticated }) => {
         <ExampleProfile fileName="max_kim.png" />
       </div>
       <div className="right-container">
+        <FacebookLogin
+          appId={config.FACEBOOK_APP_ID}
+          autoLoad={false}
+          fields="name,email,picture"
+          callback={facebookResponse}
+        />
+        <GoogleLogin
+          clientId={config.GOOGLE_CLIENT_ID}
+          buttonText="Login"
+          onSuccess={googleResponse}
+          onFailure={onFailure}
+        />
         <h1 className="larger text-primary">Sign Up</h1>
         <p className="lead my-2">
           <i className="fas fa-user" /> Create Your Account
