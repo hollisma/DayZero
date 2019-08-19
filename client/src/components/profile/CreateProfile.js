@@ -49,7 +49,7 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
       </p>
       <small>* = required field</small>
       <form className="ui form" onSubmit={e => onSubmit(e)}>
-        <p>College</p>
+        <p>College *</p>
         <div className="field">
           <input
             type="text"
@@ -60,7 +60,7 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
             required
           />
         </div>
-        <p>Major</p>
+        <p>Major *</p>
         <div className="field">
           <input
             type="text"

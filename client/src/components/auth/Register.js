@@ -5,6 +5,10 @@ import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 import ExampleProfile from "../profile/ExampleProfile";
 
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
+
 const Register = ({ register, isAuthenticated }) => {
   const [formData, setFromData] = useState({
     name: "",
@@ -20,7 +24,24 @@ const Register = ({ register, isAuthenticated }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    register({ name, email, phone_number, password });
+    if (!name) {
+      MySwal.fire({
+        title: "Please enter your name",
+        type: "error"
+      });
+    } else if (!email) {
+      MySwal.fire({
+        title: "Please enter your email",
+        type: "error"
+      });
+    } else if (password.length < 6) {
+      MySwal.fire({
+        title: "Password must be at least 6 characters",
+        type: "error"
+      });
+    } else {
+      register({ name, email, phone_number, password });
+    }
   };
 
   if (isAuthenticated) {
@@ -41,7 +62,6 @@ const Register = ({ register, isAuthenticated }) => {
             name="name"
             value={name}
             onChange={e => onChange(e)}
-            required
           />
         </div>
         <div className="field">
@@ -51,7 +71,6 @@ const Register = ({ register, isAuthenticated }) => {
             name="email"
             value={email}
             onChange={e => onChange(e)}
-            required
           />
         </div>
         <div className="field">
@@ -70,7 +89,6 @@ const Register = ({ register, isAuthenticated }) => {
             name="password"
             value={password}
             onChange={e => onChange(e)}
-            minLength="6"
           />
         </div>
         <input type="submit" className="ui button my-1" value="Register" />
