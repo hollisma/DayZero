@@ -9,6 +9,10 @@ import ExampleProfile from "../profile/ExampleProfile";
 
 import "./auth.css";
 
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
+
 const Login = ({ login, auth: { isAuthenticated, user } }) => {
   const [formData, setFromData] = useState({
     email: "",
@@ -22,7 +26,19 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    login(email, password);
+    if (!email) {
+      MySwal.fire({
+        title: "Please enter your email",
+        type: "error"
+      });
+    } else if (!password) {
+      MySwal.fire({
+        title: "Please enter your password",
+        type: "error"
+      });
+    } else {
+      login(email, password);
+    }
   };
 
   if (isAuthenticated) {
@@ -51,7 +67,6 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
               name="email"
               value={email}
               onChange={e => onChange(e)}
-              required
             />
           </div>
           <div className="field">
@@ -61,7 +76,6 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
               name="password"
               value={password}
               onChange={e => onChange(e)}
-              minLength="6"
             />
           </div>
           <input type="submit" className="ui button my-1" value="Login" />
