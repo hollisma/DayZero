@@ -2,12 +2,13 @@ import React from "react";
 
 import "./ExampleProfile.css";
 
-const ExampleProfile = () => {
+const ExampleProfile = ({ fileName }) => {
+  console.log("fileName", fileName);
   return (
     <div>
       <div className="outer">
         <img
-          src={require("../../img/max_kim.png")}
+          src={require(`../../img/${fileName}`)}
           alt="Max Kim"
           className="circular-pic"
         />

@@ -55,8 +55,8 @@ const Register = ({ register, isAuthenticated }) => {
       <div className="left-container">
         <h3>Sixty seconds to signup</h3>
         <h3>Grab meals with people who share your passions</h3>
-        <ExampleProfile />
-        <ExampleProfile />
+        <ExampleProfile fileName="max_kim.png" />
+        <ExampleProfile fileName="max_kim.png" />
       </div>
       <div className="right-container">
         <h1 className="larger text-primary">Sign Up</h1>
