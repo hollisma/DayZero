@@ -5,6 +5,8 @@ import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 import ExampleProfile from "../profile/ExampleProfile";
 
+import "./Register.css";
+
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
@@ -49,55 +51,61 @@ const Register = ({ register, isAuthenticated }) => {
   }
 
   return (
-    <div className="ui top-container">
-      <h1 className="larger text-primary">Sign Up</h1>
-      <p className="lead my-2">
-        <i className="fas fa-user" /> Create Your Account
-      </p>
-      <form className="ui form" onSubmit={e => onSubmit(e)}>
-        <div className="field">
-          <input
-            type="text"
-            placeholder="Name"
-            name="name"
-            value={name}
-            onChange={e => onChange(e)}
-          />
-        </div>
-        <div className="field">
-          <input
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            value={email}
-            onChange={e => onChange(e)}
-          />
-        </div>
-        <div className="field">
-          <input
-            type="text"
-            placeholder="Phone Number"
-            name="phone_number"
-            value={phone_number}
-            onChange={e => onChange(e)}
-          />
-        </div>
-        <div className="field">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={e => onChange(e)}
-          />
-        </div>
-        <input type="submit" className="ui button my-1" value="Register" />
-      </form>
-      <p className="my-1">
-        Already have an account? <Link to="/login">Sign In</Link>
-      </p>
-      <ExampleProfile />
-      <ExampleProfile />
+    <div className="ui top-container bigger-top-container">
+      <div className="left-container">
+        <h3>Sixty seconds to signup</h3>
+        <h3>Grab meals with people who share your passions</h3>
+        <ExampleProfile />
+        <ExampleProfile />
+      </div>
+      <div className="right-container">
+        <h1 className="larger text-primary">Sign Up</h1>
+        <p className="lead my-2">
+          <i className="fas fa-user" /> Create Your Account
+        </p>
+        <form className="ui form" onSubmit={e => onSubmit(e)}>
+          <div className="field">
+            <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              value={name}
+              onChange={e => onChange(e)}
+            />
+          </div>
+          <div className="field">
+            <input
+              type="email"
+              placeholder="Email Address"
+              name="email"
+              value={email}
+              onChange={e => onChange(e)}
+            />
+          </div>
+          <div className="field">
+            <input
+              type="text"
+              placeholder="Phone Number"
+              name="phone_number"
+              value={phone_number}
+              onChange={e => onChange(e)}
+            />
+          </div>
+          <div className="field">
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={password}
+              onChange={e => onChange(e)}
+            />
+          </div>
+          <input type="submit" className="ui button my-1" value="Register" />
+        </form>
+        <p className="my-1">
+          Already have an account? <Link to="/login">Sign In</Link>
+        </p>
+      </div>
     </div>
   );
 };

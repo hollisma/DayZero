@@ -1,0 +1,30 @@
+.bigger-top-container {
+  display: flex;
+  margin: 175px 140px !important;
+  max-width: none !important;
+  justify-content: center !important;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  /* border: 5px solid #44444499; */
+  width: 60%;
+}
+.left-container > h3 {
+  margin: 5px;
+  font-size: 28px;
+  font-weight: 100;
+}
+.left-container > h3:last-of-type {
+  margin-bottom: 20px;
+}
+
+.right-container {
+  border: 5px solid #44444499;
+  padding: 40px;
+  min-width: 200px;
+  width: 400px;
+}
