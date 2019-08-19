@@ -5,31 +5,22 @@ import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 import ExampleProfile from "../profile/ExampleProfile";
 
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-const MySwal = withReactContent(Swal);
-
 const Register = ({ register, isAuthenticated }) => {
   const [formData, setFromData] = useState({
     name: "",
     email: "",
     phone_number: "",
-    password: "",
-    password2: ""
+    password: ""
   });
 
-  const { name, email, phone_number, password, password2 } = formData;
+  const { name, email, phone_number, password } = formData;
 
   const onChange = e =>
     setFromData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = e => {
     e.preventDefault();
-    if (password !== password2) {
-      MySwal.fire({ title: "Passwords do not match", type: "error" });
-    } else {
-      register({ name, email, phone_number, password });
-    }
+    register({ name, email, phone_number, password });
   };
 
   if (isAuthenticated) {
@@ -78,16 +69,6 @@ const Register = ({ register, isAuthenticated }) => {
             placeholder="Password"
             name="password"
             value={password}
-            onChange={e => onChange(e)}
-            minLength="6"
-          />
-        </div>
-        <div className="field">
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            name="password2"
-            value={password2}
             onChange={e => onChange(e)}
             minLength="6"
           />
