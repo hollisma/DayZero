@@ -1,0 +1,30 @@
+.outer {
+  background-color: yellow;
+  width: 400px;
+  height: 154px;
+  border-radius: 100px;
+  border: 2px solid #777777bb;
+}
+
+.name {
+  position: relative;
+  left: 210px;
+  padding: 5px;
+  padding-top: 10px;
+  font-size: 24px;
+}
+
+.about {
+  position: relative;
+  left: 160px;
+  text-align: center;
+  width: 200px;
+}
+
+.circular-pic {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-color: blue;
+  border-radius: 100px;
+}
