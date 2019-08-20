@@ -1,18 +1,19 @@
 import React from "react";
-import FacebookLogin from "react-facebook-login";
+// import FacebookLogin from "react-facebook-login";
 import { GoogleLogin } from "react-google-login";
 import config from "../../config/config.json";
-import { googleLogin, facebookLogin } from "../../actions/auth";
+import { googleLogin } from "../../actions/auth";
+// import { googleLogin, facebookLogin } from "../../actions/auth";
 
 const GFLogins = () => {
   const onFailure = error => {
     alert(error);
   };
 
-  const facebookResponse = response => {
-    console.log(response);
-    facebookLogin(response);
-  };
+  // const facebookResponse = response => {
+  //   console.log(response);
+  //   facebookLogin(response);
+  // };
 
   const googleResponse = response => {
     console.log(response);
@@ -21,12 +22,12 @@ const GFLogins = () => {
 
   return (
     <div>
-      <FacebookLogin
+      {/* <FacebookLogin
         appId={config.FACEBOOK_APP_ID}
         autoLoad={false}
         fields="name,email,picture"
         callback={facebookResponse}
-      />
+      /> */}
       <GoogleLogin
         clientId={config.GOOGLE_CLIENT_ID}
         buttonText="Login"

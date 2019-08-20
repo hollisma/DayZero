@@ -82,4 +82,23 @@ router.post(
   }
 );
 
+/**
+ * @route   POST api/auth/google
+ * @desc    Authenticate user via google token
+ * @access  Private
+ */
+router.post("/google", auth, async (req, res) => {
+  try {
+    passport.use(
+      new GoogleTokenStrategy({
+        clientID: config.googleAuth.clientID,
+        clientSecret: config.googleAuth.clientSecret
+      })
+    );
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ msg: "Server Error" });
+  }
+});
+
 module.exports = router;

@@ -10,13 +10,16 @@ connectDB();
 // Init middleware
 app.use(express.json({ extended: false }));
 
-// var corsOption = {
-//   origin: true,
-//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//   credentials: true,
-//   exposedHeaders: ["x-auth-token"]
-// };
-// app.use(cors(corsOption));
+var corsOption = {
+  origin: true,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  exposedHeaders: ["x-auth-token"]
+};
+app.use(cors(corsOption));
+
+// uncomment after putting favicon in /public
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 // Define routes
 app.use("/api/auth", require("./routes/api/auth.js"));
