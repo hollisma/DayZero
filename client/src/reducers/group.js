@@ -1,4 +1,4 @@
-import { GET_GROUP, GROUP_ERROR, LOAD_MEMBERS } from "../actions/types";
+import { GET_GROUP, GROUP_ERROR, LOAD_MEMBERS, LOGOUT } from "../actions/types";
 
 const initialState = {
   members: [],
@@ -9,7 +9,7 @@ const initialState = {
   membersLoading: true
 };
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case GET_GROUP:
@@ -27,6 +27,7 @@ export default function (state = initialState, action) {
         membersLoading: false
       };
     case GROUP_ERROR:
+    case LOGOUT:
       return {
         ...state,
         members: [],

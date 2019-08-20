@@ -1,4 +1,4 @@
-import { GET_PROFILE, PROFILE_ERROR } from "../actions/types";
+import { GET_PROFILE, PROFILE_ERROR, LOGOUT } from "../actions/types";
 
 const initialState = { profile: null, loading: true, error: {} };
 
@@ -12,6 +12,7 @@ export default function(state = initialState, action) {
         loading: false
       };
     case PROFILE_ERROR:
+    case LOGOUT:
       return {
         ...state,
         error: payload,

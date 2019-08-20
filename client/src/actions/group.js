@@ -10,7 +10,7 @@ export const getCurrentGroup = () => async dispatch => {
   try {
     const res = await axios.get("/api/groups");
 
-    let members = res.data.members;
+    let members = res.data.members || [];
     // 4 is the number of people per group
     while (members.length < 4) {
       members.push("");
@@ -35,23 +35,19 @@ export const getCurrentGroup = () => async dispatch => {
 export const getMembersProfiles = members => async dispatch => {
   try {
     let profileData = [{}, {}, {}, {}];
+    members = members || [];
     members.forEach(async (m, i) => {
       if (!m) {
         profileData[i] = {};
-
-        dispatch({
-          type: LOAD_MEMBERS,
-          payload: profileData
-        });
       } else {
         const res = await axios.get("/api/profile/user/" + m);
         profileData[i] = res.data;
-
-        dispatch({
-          type: LOAD_MEMBERS,
-          payload: profileData
-        });
       }
+    });
+
+    dispatch({
+      type: LOAD_MEMBERS,
+      payload: profileData
     });
   } catch (err) {
     console.error(err);

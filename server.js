@@ -1,5 +1,6 @@
 const express = require("express");
 const connectDB = require("./config/db");
+const cors = require("cors");
 
 const app = express();
 
@@ -9,8 +10,13 @@ connectDB();
 // Init middleware
 app.use(express.json({ extended: false }));
 
-// Placeholder for frontend while backend is being developed
-app.get("/", (req, res) => res.send("API Running..."));
+// var corsOption = {
+//   origin: true,
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   credentials: true,
+//   exposedHeaders: ["x-auth-token"]
+// };
+// app.use(cors(corsOption));
 
 // Define routes
 app.use("/api/auth", require("./routes/api/auth.js"));

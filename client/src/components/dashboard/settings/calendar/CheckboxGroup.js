@@ -7,23 +7,21 @@ import { TIME1, TIME2, TIME3 } from "../../../../actions/types";
 
 import "./Calendar.css";
 
-const CheckboxGroup = ({ 
-  day, 
-  changeSchedule, 
-  schedule: { schedule }
-}) => {
-  day = moment().add(day, "d").format("MM-DD-YYYY");
+const CheckboxGroup = ({ day, changeSchedule, schedule: { schedule } }) => {
+  day = moment()
+    .add(day, "d")
+    .format("MM-DD-YYYY");
   const id1 = day + "," + TIME1;
   const id2 = day + "," + TIME2;
   const id3 = day + "," + TIME3;
 
-  let arr = Object.keys(schedule).map((k) => schedule[k]);
+  let arr = schedule ? Object.keys(schedule).map(k => schedule[k]) : [];
   let scheduleSet = schedule ? new Set(arr) : new Set();
 
-  const onChange = (e) => {
+  const onChange = e => {
     if (e.target.checked && !scheduleSet.has(e.target.name)) {
       scheduleSet.add(e.target.name);
-    } 
+    }
     if (!e.target.checked && scheduleSet.has(e.target.name)) {
       scheduleSet.delete(e.target.name);
     }
@@ -77,4 +75,7 @@ const mapStateToProps = state => ({
   schedule: state.schedule
 });
 
-export default connect(mapStateToProps, { changeSchedule })(CheckboxGroup);
+export default connect(
+  mapStateToProps,
+  { changeSchedule }
+)(CheckboxGroup);
