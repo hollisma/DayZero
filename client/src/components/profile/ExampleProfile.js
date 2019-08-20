@@ -3,7 +3,6 @@ import React from "react";
 import "./ExampleProfile.css";
 
 const ExampleProfile = ({ fileName }) => {
-  console.log("fileName", fileName);
   return (
     <div>
       <div className="outer">
