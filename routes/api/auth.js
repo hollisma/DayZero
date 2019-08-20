@@ -5,6 +5,9 @@ const jwt = require("jsonwebtoken");
 const auth = require("../../middleware/auth");
 const config = require("config");
 const { check, validationResult } = require("express-validator/check");
+const GoogleTokenStrategy = require("passport-google-token").Strategy;
+const passport = require("passport");
+require("../passport")();
 
 const User = require("../../models/User");
 
@@ -85,20 +88,28 @@ router.post(
 /**
  * @route   POST api/auth/google
  * @desc    Authenticate user via google token
- * @access  Private
+ * @access  Public
  */
-router.post("/google", auth, async (req, res) => {
-  try {
-    passport.use(
-      new GoogleTokenStrategy({
-        clientID: config.googleAuth.clientID,
-        clientSecret: config.googleAuth.clientSecret
-      })
+router.post(
+  "/google",
+  passport.authenticate("google-token", { session: false }),
+  (req, res, next) => {
+    if (!req.user) {
+      return res.send(401, "User Not Authorized");
+    }
+
+    jwt.sign(
+      payload,
+      config.get("jwtSecret"),
+      { expiresIn: 3600000 },
+      (err, token) => {
+        if (err) throw err;
+        res.json({ token });
+      }
     );
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ msg: "Server Error" });
+
+    next();
   }
-});
+);
 
 module.exports = router;

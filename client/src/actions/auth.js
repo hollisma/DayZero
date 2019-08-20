@@ -123,13 +123,13 @@ export const googleLogin = response => dispatch => {
     mode: "cors",
     cache: "default"
   };
-  fetch("http://localhost:4000/api/auth/google", options).then(r => {
-    const token = r.headers.get("x-auth-token");
-    r.json().then(user => {
-      if (token) {
-        localStorage.setItem("token", token);
-        setAuthToken(localStorage.token);
+  fetch("http://localhost:5000/api/auth/google", options).then(r => {
+    const token = r.data.token;
+    if (token) {
+      localStorage.setItem("token", token);
+      setAuthToken(localStorage.token);
 
+      axios.get("/api/auth").then(user => {
         dispatch({
           type: REGISTER_SUCCESS,
           payload: {
@@ -137,8 +137,8 @@ export const googleLogin = response => dispatch => {
             token
           }
         });
-      }
-    });
+      });
+    }
   });
 };
 
