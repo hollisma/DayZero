@@ -9,6 +9,7 @@
 
 .name {
   position: relative;
+  top: -150px;
   left: 210px;
   padding: 5px;
   padding-top: 10px;
@@ -17,13 +18,14 @@
 
 .about {
   position: relative;
+  top: -155px;
   left: 160px;
   text-align: center;
   width: 200px;
 }
 
 .circular-pic {
-  position: absolute;
+  position: relative;
   width: 150px;
   height: 150px;
   background-color: blue;
