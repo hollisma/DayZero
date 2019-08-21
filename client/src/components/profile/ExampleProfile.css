@@ -9,16 +9,19 @@
 
 .name {
   position: relative;
-  top: -150px;
+  top: -161px;
   left: 210px;
   padding: 5px;
   padding-top: 10px;
   font-size: 24px;
 }
+.name.carina {
+  left: 188px;
+}
 
 .about {
   position: relative;
-  top: -155px;
+  top: -165px;
   left: 160px;
   text-align: center;
   width: 200px;
@@ -26,8 +29,13 @@
 
 .circular-pic {
   position: relative;
-  width: 150px;
-  height: 150px;
+  left: -9px;
+  top: -5px;
+  width: 160px;
+  height: 160px;
   background-color: blue;
   border-radius: 100px;
+}
+.circular-pic.carina {
+  left: -11px;
 }
