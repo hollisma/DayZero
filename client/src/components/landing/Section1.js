@@ -8,8 +8,16 @@ const Section1 = () => {
         <h1>Meeting interesting people just got a whole lot easier</h1>
         <p>Now Available At: </p>
         <div className="images">
-          <img src={require("../../img/stanford")} alt="" />
-          <img src={require("../../img/princeton")} alt="" />
+          <img
+            src={require("../../img/stanford")}
+            className="stanford"
+            alt=""
+          />
+          <img
+            src={require("../../img/princeton")}
+            className="princeton"
+            alt=""
+          />
         </div>
         <button className="ui button basic blue big">
           <Link to="/register">FIND YOUR DAY ZEROS</Link>
