@@ -1,10 +1,17 @@
-import { REGISTERED, PROFILED, SCHEDULED, MET } from "../../actions/types";
+import {
+  REGISTERED,
+  PROFILED,
+  SCHEDULED,
+  GROUPED,
+  MET
+} from "../../actions/types";
 
 const GUEST_DEFAULT = "/login";
 const REGISTERED_DEFAULT = "/create-profile";
 const PROFILED_DEFAULT = "/dashboard#calendar";
 const SCHEDULED_DEFAULT = "/dashboard#";
-const MET_DEFAULT = "/dashboard";
+const GROUPED_DEFAULT = "/dashboard#";
+const MET_DEFAULT = "/dashboard#";
 
 export const getDefaultRoute = userType => {
   switch (userType) {
@@ -14,6 +21,8 @@ export const getDefaultRoute = userType => {
       return PROFILED_DEFAULT;
     case SCHEDULED:
       return SCHEDULED_DEFAULT;
+    case GROUPED:
+      return GROUPED_DEFAULT;
     case MET:
       return MET_DEFAULT;
     default:
