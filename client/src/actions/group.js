@@ -36,14 +36,18 @@ export const getMembersProfiles = members => async dispatch => {
   try {
     let profileData = [{}, {}, {}, {}];
     members = members || [];
-    members.forEach(async (m, i) => {
+
+    let i = 0;
+    for await (const m of members) {
+      console.log(m);
       if (!m) {
         profileData[i] = {};
       } else {
         const res = await axios.get("/api/profile/user/" + m);
         profileData[i] = res.data;
       }
-    });
+      i++;
+    }
 
     dispatch({
       type: LOAD_MEMBERS,

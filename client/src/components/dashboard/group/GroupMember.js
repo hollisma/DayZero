@@ -16,7 +16,7 @@ const GroupMember = ({ member_id, name, avatar, college, major }) => {
   let res = "";
   if (member_id !== "-1") {
     res = (
-      <span className="gruop-member-info">
+      <span className="group-member-info">
         <b>{name}</b> is at <b>{college}</b> studying <b>{major}</b>
       </span>
     );
