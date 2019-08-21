@@ -4,11 +4,19 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentGroup, getMembersProfiles } from "../../../actions/group";
 import Spinner from "../../layout/Spinner";
+import {
+  GUEST,
+  PROFILED,
+  SCHEDULED,
+  GROUPED,
+  MET
+} from "../../../actions/types";
 
 import "./Group.css";
 
 const Group = ({
   group: { members, membersData, loading, membersLoading },
+  auth: { user },
   getCurrentGroup,
   getMembersProfiles
 }) => {
@@ -36,10 +44,24 @@ const Group = ({
       <Spinner />
     );
 
+  const userType = user ? user.user_type : GUEST;
+
   return (
     <div id="group" className="group">
       <h1 className="larger text-primary">Group</h1>
-      <p>Here's your group: </p>
+      {userType === PROFILED ? (
+        <p>
+          Put in some times so that other people know when they can meet you
+        </p>
+      ) : userType === SCHEDULED ? (
+        <p>Finding other people that you'll love talking to...</p>
+      ) : userType === GROUPED ? (
+        <p>Here's your group: </p>
+      ) : userType === MET ? (
+        <p>Fill out the feedback form here!</p>
+      ) : (
+        <p>Have a question? Contant us at dayzero@gmail.com</p>
+      )}
       <div className="group-container">{memberComponents}</div>
     </div>
   );
@@ -52,7 +74,8 @@ Group.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  group: state.group
+  group: state.group,
+  auth: state.auth
 });
 
 export default connect(
