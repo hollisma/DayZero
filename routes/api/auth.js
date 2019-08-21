@@ -98,6 +98,12 @@ router.post(
       return res.send(401, "User Not Authorized");
     }
 
+    const payload = {
+      user: {
+        id: req.user.id
+      }
+    };
+
     jwt.sign(
       payload,
       config.get("jwtSecret"),

@@ -112,34 +112,58 @@ export const login = (email, password) => async dispatch => {
   }
 };
 
-export const googleLogin = response => dispatch => {
-  const tokenBlob = new Blob(
-    [JSON.stringify({ access_token: response.accessToken }, null, 2)],
-    { type: "application/json" }
-  );
-  const options = {
-    method: "POST",
-    body: tokenBlob,
-    mode: "cors",
-    cache: "default"
-  };
-  fetch("http://localhost:5000/api/auth/google", options).then(r => {
-    const token = r.data.token;
-    if (token) {
-      localStorage.setItem("token", token);
-      setAuthToken(localStorage.token);
+const helper = response => dispatch => {
+  console.log("helper", response);
 
-      axios.get("/api/auth").then(user => {
-        dispatch({
-          type: REGISTER_SUCCESS,
-          payload: {
-            user,
-            token
-          }
-        });
-      });
-    }
-  });
+  dispatch({});
+};
+
+// export const glogin = response => async dispatch => {
+export const glogin = response => {
+  console.log("before");
+  helper(response);
+  console.log("after");
+  // const config = {
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   },
+  //   cache: "default"
+  // };
+
+  // const body = JSON.stringify({ access_token: response.accessToken });
+
+  // try {
+  //   const res = await axios.post("/api/auth/google", body, config);
+  //   const token = res.data.token;
+  //   // if (token) {
+  //   localStorage.setItem("token", token);
+  //   setAuthToken(localStorage.token);
+
+  //   const user = await axios.get("/api/auth");
+  //   dispatch({
+  //     type: REGISTER_SUCCESS,
+  //     payload: {
+  //       user,
+  //       token
+  //     }
+  //   });
+  //   // }
+  // } catch (err) {
+  //   const errors = err.response.data.errors;
+
+  //   if (errors) {
+  //     errors.forEach(error =>
+  //       MySwal.fire({
+  //         title: error.msg,
+  //         type: "error"
+  //       })
+  //     );
+  //   }
+
+  //   dispatch({
+  //     type: REGISTER_FAIL
+  //   });
+  // }
 };
 
 // export const facebookLogin = response => dispatch => {

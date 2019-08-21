@@ -2,11 +2,12 @@ import React from "react";
 // import FacebookLogin from "react-facebook-login";
 import { GoogleLogin } from "react-google-login";
 import config from "../../config/config.json";
-import { googleLogin } from "../../actions/auth";
+import { glogin } from "../../actions/auth";
 // import { googleLogin, facebookLogin } from "../../actions/auth";
 
 const GFLogins = () => {
   const onFailure = error => {
+    console.log("google error");
     alert(error);
   };
 
@@ -17,7 +18,7 @@ const GFLogins = () => {
 
   const googleResponse = response => {
     console.log(response);
-    googleLogin(response);
+    glogin(response);
   };
 
   return (

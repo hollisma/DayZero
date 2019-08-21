@@ -4,7 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 import ExampleProfile from "../profile/ExampleProfile";
-import GFLogin from "./GFLogins";
+// import GFLogin from "./GFLogins";
 
 import "./auth.css";
 
@@ -60,7 +60,7 @@ const Register = ({ register, isAuthenticated }) => {
         <ExampleProfile fileName="max_kim.png" />
       </div>
       <div className="right-container">
-        <GFLogin />
+        {/* <GFLogin /> */}
         <h1 className="larger text-primary">Sign Up</h1>
         <p className="lead my-2">
           <i className="fas fa-user" /> Create Your Account
