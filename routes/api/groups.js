@@ -6,7 +6,7 @@ const admin = require("../../middleware/admin");
 // Models
 const User = require("../../models/User");
 const Group = require("../../models/Group");
-const { MET } = require("../../models/types");
+const { SCHEDULED, GROUPED, MET } = require("../../models/types");
 
 /**
  * @route   GET api/groups
@@ -51,7 +51,7 @@ router.post("/", auth, async (req, res) => {
     await group.save();
 
     // Add group to user
-    const newGroup = { group: group._id };
+    const newGroup = { group: group._id, user_type: GROUPED };
     await User.findByIdAndUpdate(req.user.id, { $set: newGroup });
 
     res.json(group);
@@ -87,7 +87,7 @@ router.put("/add/:group_id", auth, async (req, res) => {
     });
 
     // Add group to user
-    const newGroup = { group: group._id };
+    const newGroup = { group: group._id, user_type: GROUPED };
     await User.findByIdAndUpdate(req.user.id, { $set: newGroup });
 
     const resultGroup = await Group.findById(req.params.group_id);
@@ -118,7 +118,7 @@ router.put("/remove/:group_id", auth, async (req, res) => {
     groupArr = groupArr.filter(member => member != req.user.id);
 
     // Update members of group
-    const newMembers = { members: groupArr };
+    const newMembers = { members: groupArr, user_type: SCHEDULED };
     await Group.findOneAndUpdate(req.params.group_id, {
       $set: newMembers
     });
