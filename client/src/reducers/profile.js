@@ -12,12 +12,18 @@ export default function(state = initialState, action) {
         loading: false
       };
     case PROFILE_ERROR:
-    case LOGOUT:
       return {
         ...state,
         error: payload,
         profile: null,
         loading: false
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        error: payload,
+        profile: null,
+        loading: true
       };
     default:
       return state;

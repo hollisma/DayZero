@@ -22,11 +22,16 @@ export default function(state = initialState, action) {
         schedule: payload
       };
     case SCHEDULE_ERROR:
-    case LOGOUT:
       return {
         ...state,
         schedule: null,
         loading: false
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        schedule: null,
+        loading: true
       };
     default:
       return state;

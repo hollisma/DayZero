@@ -27,7 +27,6 @@ export default function(state = initialState, action) {
         membersLoading: false
       };
     case GROUP_ERROR:
-    case LOGOUT:
       return {
         ...state,
         members: [],
@@ -36,6 +35,16 @@ export default function(state = initialState, action) {
         date: null,
         loading: false,
         membersLoading: false
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        members: [],
+        membersData: [],
+        active: false,
+        date: null,
+        loading: true,
+        membersLoading: true
       };
     default:
       return state;
