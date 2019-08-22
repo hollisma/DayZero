@@ -277,21 +277,13 @@ body {
 }
 
 .calendar {
-  margin: 100px;
-  padding: 50px 100px;
+  margin: 0px;
+  height: 100vh;
+  padding: 5% 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.group {
-  margin: 100px;
-  padding: 50px 100px 50px 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  background-color: lightblue;
 }

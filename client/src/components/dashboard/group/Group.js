@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import GroupMember from "./GroupMember";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -68,9 +69,9 @@ const Group = ({
         <Fragment>
           <p>Fill out the feedback form here!</p>
           <button className="ui button basic blue big">
-            <a href="/dashboard#calendar" className="reg">
-              Calendar
-            </a>
+            <Link to="/feedback" className="reg">
+              Feedback
+            </Link>
           </button>
         </Fragment>
       ) : (

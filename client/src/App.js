@@ -7,6 +7,7 @@ import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 // import Profile from "./components/profile/Profile";
 import CreateProfile from "./components/profile/CreateProfile";
+import Feedback from "./components/feedback/Feedback";
 import PrivateRoute from "./components/routing/PrivateRoute";
 // Redux
 import { Provider } from "react-redux";
@@ -48,6 +49,12 @@ const App = () => {
               path="/dashboard"
               access={[PROFILED, SCHEDULED, GROUPED, MET]}
               component={Dashboard}
+            />
+            <PrivateRoute
+              exact
+              path="/feedback"
+              access={[MET]}
+              component={Feedback}
             />
           </Switch>
           {/* </section> */}
