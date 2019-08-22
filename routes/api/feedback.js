@@ -29,16 +29,6 @@ router.post("/", auth, async (req, res) => {
       return res.status(400).json({ msg: "User has not met with a group yet" });
     }
 
-    const receiver = await User.findById(receiver_id);
-    if (!receiver.group) {
-      return res.status(400).json({ msg: "Receiver is not in a group" });
-    }
-    if (receiver.user_type !== MET) {
-      return res
-        .status(400)
-        .json({ msg: "Receiver has not met with a group yet" });
-    }
-
     const group = await Group.findById(user.group);
     if (group.active) {
       return res.status(400).json({ msg: "User's group has not met yet" });
@@ -47,7 +37,7 @@ router.post("/", auth, async (req, res) => {
     // Build feedback object
     const feedbackFields = {};
     feedbackFields.user = req.user.id;
-    feedbackFields.receiver = receiver;
+    feedbackFields.receiver = receiver_id;
     feedbackFields.group = group;
     feedbackFields.rating = rating ? rating : null;
     feedbackFields.binary = binary ? binary : null;

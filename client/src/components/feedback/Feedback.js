@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import axios from "axios";
 import { getCurrentGroup, getMembersProfiles } from "../../actions/group";
 import ReceiverFeedback from "./ReceiverFeedback";
 
@@ -13,14 +14,17 @@ const Feedback = ({
   getMembersProfiles
 }) => {
   const [r1, setR1] = useState({
+    receiver_id: null,
     rating: null,
     binary: null
   });
   const [r2, setR2] = useState({
+    receiver_id: null,
     rating: null,
     binary: null
   });
   const [r3, setR3] = useState({
+    receiver_id: null,
     rating: null,
     binary: null
   });
@@ -33,10 +37,27 @@ const Feedback = ({
     getMembersProfiles(members);
   }
 
-  const onSubmit = () => {
-    console.log("r1", r1);
-    console.log("r2", r2);
-    console.log("r3", r3);
+  const onSubmit = async () => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+
+    try {
+      if (r1.receiver_id) {
+        await axios.post("/api/feedback", r1, config);
+      }
+      if (r2.receiver_id) {
+        await axios.post("/api/feedback", r2, config);
+      }
+      if (r3.receiver_id) {
+        await axios.post("/api/feedback", r3, config);
+      }
+      await axios.put("/api/feedback/finish");
+    } catch (err) {
+      console.log(err.response);
+    }
   };
 
   let count = 0;
@@ -46,6 +67,7 @@ const Feedback = ({
       <ReceiverFeedback
         name={m.user.name}
         setStateCallback={setStates[count++]}
+        receiver_id={m.user._id}
         key={i}
       />
     ) : null
