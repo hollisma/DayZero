@@ -51,8 +51,8 @@ router.post("/", auth, async (req, res) => {
     await group.save();
 
     // Add group to user
-    const newGroup = { group: group._id, user_type: GROUPED };
-    await User.findByIdAndUpdate(req.user.id, { $set: newGroup });
+    const newUserAttrs = { group: group._id, user_type: GROUPED };
+    await User.findByIdAndUpdate(req.user.id, { $set: newUserAttrs });
 
     res.json(group);
   } catch (err) {
@@ -87,8 +87,8 @@ router.put("/add/:group_id", auth, async (req, res) => {
     });
 
     // Add group to user
-    const newGroup = { group: group._id, user_type: GROUPED };
-    await User.findByIdAndUpdate(req.user.id, { $set: newGroup });
+    const newUserAttrs = { group: group._id, user_type: GROUPED };
+    await User.findByIdAndUpdate(req.user.id, { $set: newUserAttrs });
 
     const resultGroup = await Group.findById(req.params.group_id);
     res.json(resultGroup);
@@ -118,14 +118,14 @@ router.put("/remove/:group_id", auth, async (req, res) => {
     groupArr = groupArr.filter(member => member != req.user.id);
 
     // Update members of group
-    const newMembers = { members: groupArr, user_type: SCHEDULED };
+    const newMembers = { members: groupArr };
     await Group.findOneAndUpdate(req.params.group_id, {
       $set: newMembers
     });
 
     // Remove group from user
-    const newGroup = { group: null };
-    await User.findByIdAndUpdate(req.user.id, { $set: newGroup });
+    const newUserAttrs = { group: null, user_type: SCHEDULED };
+    await User.findByIdAndUpdate(req.user.id, { $set: newUserAttrs });
 
     const resultGroup = await Group.findById(req.params.group_id);
     res.json(resultGroup);

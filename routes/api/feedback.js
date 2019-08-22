@@ -5,8 +5,9 @@ const auth = require("../../middleware/auth");
 // Models
 const User = require("../../models/User");
 const Group = require("../../models/Group");
+const Schedule = require("../../models/Schedule");
 const Feedback = require("../../models/Feedback");
-const { MET } = require("../../models/types");
+const { PROFILED, MET } = require("../../models/types");
 
 /**
  * @route   POST api/feedback
@@ -54,6 +55,32 @@ router.post("/", auth, async (req, res) => {
     const feedback = new Feedback(feedbackFields);
     await feedback.save();
     res.json(feedback);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+/**
+ * @route   PUT api/feedback/finish
+ * @desc    Finish submitting feedback
+ * @access  Private
+ */
+router.put("/finish", auth, async (req, res) => {
+  try {
+    // Set user.user_type to PROFILED and group to null
+    let user = await User.findById(req.user.id);
+    const newUserAttrs = { group: null, user_type: PROFILED };
+    await User.findByIdAndUpdate(req.user.id, { $set: newUserAttrs });
+
+    // Reset user schedule
+    await Schedule.findOneAndUpdate(
+      { user: req.user.id },
+      { $set: { times: [] } }
+    );
+
+    user = await User.findById(req.user.id);
+    res.json(user);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server error");
