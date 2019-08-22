@@ -1,4 +1,7 @@
 TODO: 
+  ReceiverFeedback questions and state 
+    need onChange={()=>setStateCallback({ 
+      rating: state.rating, binary: state.binary })
 
 BUGS:
   signing in with google after signing in regularly

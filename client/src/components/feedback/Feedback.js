@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getCurrentGroup } from "../../actions/group";
+import { getCurrentGroup, getMembersProfiles } from "../../actions/group";
 import ReceiverFeedback from "./ReceiverFeedback";
 
 import "./Feedback.css";
 
 const Feedback = ({
-  group: { members, loading },
+  group: { members, membersData, loading, membersLoading },
   auth: { user },
-  getCurrentGroup
+  getCurrentGroup,
+  getMembersProfiles
 }) => {
   const [r1, setR1] = useState({
     rating: null,
@@ -23,10 +24,13 @@ const Feedback = ({
     rating: null,
     binary: null
   });
-  const setStates = [setR1, setR2, setR3];
 
   if (loading) {
     getCurrentGroup();
+  }
+
+  if (!loading && membersLoading) {
+    getMembersProfiles(members);
   }
 
   const onSubmit = () => {
@@ -35,9 +39,15 @@ const Feedback = ({
     console.log("r3", r3);
   };
 
-  const Receivers = members.map((m, i) =>
-    m && i !== 0 ? (
-      <ReceiverFeedback setStateCallback={setStates[i - 1]} key={m} />
+  let count = 0;
+  const setStates = [setR1, setR2, setR3];
+  const Receivers = membersData.map((m, i) =>
+    m.user && m.user.name !== user.name ? (
+      <ReceiverFeedback
+        name={m.user.name}
+        setStateCallback={setStates[count++]}
+        key={i}
+      />
     ) : null
   );
 
@@ -53,6 +63,7 @@ const Feedback = ({
 
 Feedback.propTypes = {
   getCurrentGroup: PropTypes.func.isRequired,
+  getMembersProfiles: PropTypes.func.isRequired,
   group: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
 };
@@ -64,5 +75,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getCurrentGroup }
+  { getCurrentGroup, getMembersProfiles }
 )(Feedback);

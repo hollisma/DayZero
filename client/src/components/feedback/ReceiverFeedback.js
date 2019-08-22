@@ -1,10 +1,12 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 
-const ReceiverFeedback = ({ setStateCallback }) => {
+const ReceiverFeedback = ({ name, setStateCallback }) => {
   return (
     <Fragment>
-      <div>member person</div>
+      <div>member person: {name}</div>
+
+      {/* TODO: replace button with actual rating/binary questions */}
       <button onClick={() => setStateCallback({ rating: 5, binary: true })}>
         click me
       </button>
@@ -12,6 +14,8 @@ const ReceiverFeedback = ({ setStateCallback }) => {
   );
 };
 
-ReceiverFeedback.propTypes = {};
+ReceiverFeedback.propTypes = {
+  setStateCallback: PropTypes.func.isRequired
+};
 
 export default ReceiverFeedback;
