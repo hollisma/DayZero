@@ -39,7 +39,6 @@ export const getMembersProfiles = members => async dispatch => {
 
     let i = 0;
     for await (const m of members) {
-      console.log(m);
       if (!m) {
         profileData[i] = {};
       } else {
