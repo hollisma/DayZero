@@ -1,5 +1,9 @@
 TODO: 
 
+BUGS:
+  signing in with google after signing in regularly
+  signing in with google leads to login page instead of dashboard
+
 ---------------------------------------------------------------------------------------------------
 AWS
 

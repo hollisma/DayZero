@@ -60,8 +60,8 @@ const Register = ({ register, isAuthenticated }) => {
         <ExampleProfile firstName="carina" />
       </div>
       <div className="right-container">
-        <GFLogin />
         <h1 className="larger text-primary">Sign Up</h1>
+        <GFLogin />
         <p className="lead my-2">
           <i className="fas fa-user" /> Create Your Account
         </p>

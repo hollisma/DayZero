@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import { getDefaultRoute } from "../routing/default_types";
 import { GUEST } from "../../actions/types";
 import ExampleProfile from "../profile/ExampleProfile";
+import GFLogin from "./GFLogins";
 
 import "./auth.css";
 
@@ -56,6 +57,7 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
       </div>
       <div className="right-container">
         <h1 className="larger text-primary">Sign In</h1>
+        <GFLogin />
         <p className="lead my-2">
           <i className="fas fa-user" /> Sign Into Your Account
         </p>
