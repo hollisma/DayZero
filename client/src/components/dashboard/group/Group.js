@@ -85,7 +85,8 @@ const Group = ({
 Group.propTypes = {
   getCurrentGroup: PropTypes.func.isRequired,
   getMembersProfiles: PropTypes.func.isRequired,
-  group: PropTypes.object.isRequired
+  group: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

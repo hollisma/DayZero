@@ -5,7 +5,11 @@ import { getCurrentGroup } from "../../actions/group";
 
 import "./Feedback.css";
 
-const Feedback = ({ group: { members, loading }, auth: { user } }) => {
+const Feedback = ({
+  group: { members, loading },
+  auth: { user },
+  getCurrentGroup
+}) => {
   if (loading) {
     console.log("hi");
     getCurrentGroup();
@@ -26,6 +30,7 @@ const Feedback = ({ group: { members, loading }, auth: { user } }) => {
 };
 
 Feedback.propTypes = {
+  getCurrentGroup: PropTypes.func.isRequired,
   group: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
 };
@@ -35,4 +40,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(Feedback);
+export default connect(
+  mapStateToProps,
+  { getCurrentGroup }
+)(Feedback);
