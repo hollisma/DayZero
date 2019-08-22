@@ -1,5 +1,13 @@
 TODO: 
-redux and frontend
+
+---------------------------------------------------------------------------------------------------
+AWS
+
+things that might need AWS:
+  making sure users' calendars update
+  updating groups
+  matching users
+
 
 ---------------------------------------------------------------------------------------------------
 GENERAL

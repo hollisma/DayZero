@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import GroupMember from "./GroupMember";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -50,15 +50,29 @@ const Group = ({
     <div id="group" className="group">
       <h1 className="larger text-primary">Group</h1>
       {userType === PROFILED ? (
-        <p>
-          Put in some times so that other people know when they can meet you
-        </p>
+        <Fragment>
+          <p>
+            Put in some times so that other people know when they can meet you:
+          </p>
+          <button className="ui button basic blue big">
+            <a href="/dashboard#calendar" className="reg">
+              Calendar
+            </a>
+          </button>
+        </Fragment>
       ) : userType === SCHEDULED ? (
         <p>Finding other people that you'll love talking to...</p>
       ) : userType === GROUPED ? (
         <p>Here's your group: </p>
       ) : userType === MET ? (
-        <p>Fill out the feedback form here!</p>
+        <Fragment>
+          <p>Fill out the feedback form here!</p>
+          <button className="ui button basic blue big">
+            <a href="/dashboard#calendar" className="reg">
+              Calendar
+            </a>
+          </button>
+        </Fragment>
       ) : (
         <p>Have a question? Contant us at dayzero@gmail.com</p>
       )}
