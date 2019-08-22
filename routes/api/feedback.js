@@ -6,7 +6,7 @@ const auth = require("../../middleware/auth");
 const User = require("../../models/User");
 const Group = require("../../models/Group");
 const Feedback = require("../../models/Feedback");
-const MET = require("../../models/types");
+const { MET } = require("../../models/types");
 
 /**
  * @route   POST api/feedback
@@ -15,9 +15,11 @@ const MET = require("../../models/types");
  */
 router.post("/", auth, async (req, res) => {
   // Destructure properties from req
-  const { q1, q2, q3, q4, q5 } = req.body;
+  const { receiver_id, rating, binary } = req.body;
 
   try {
+    // TODO: handle if feedback between two users in a group already exists
+
     const user = await User.findById(req.user.id);
     if (!user.group) {
       return res.status(400).json({ msg: "User is not in a group" });
@@ -25,6 +27,17 @@ router.post("/", auth, async (req, res) => {
     if (user.user_type !== MET) {
       return res.status(400).json({ msg: "User has not met with a group yet" });
     }
+
+    const receiver = await User.findById(receiver_id);
+    if (!receiver.group) {
+      return res.status(400).json({ msg: "Receiver is not in a group" });
+    }
+    if (receiver.user_type !== MET) {
+      return res
+        .status(400)
+        .json({ msg: "Receiver has not met with a group yet" });
+    }
+
     const group = await Group.findById(user.group);
     if (group.active) {
       return res.status(400).json({ msg: "User's group has not met yet" });
@@ -33,12 +46,10 @@ router.post("/", auth, async (req, res) => {
     // Build feedback object
     const feedbackFields = {};
     feedbackFields.user = req.user.id;
-    feedbackFields.group = user.group;
-    feedbackFields.q1 = q1 ? q1 : null;
-    feedbackFields.q2 = q2 ? q2 : null;
-    feedbackFields.q3 = q3 ? q3 : null;
-    feedbackFields.q4 = q4 ? q4 : null;
-    feedbackFields.q5 = q5 ? q5 : null;
+    feedbackFields.receiver = receiver;
+    feedbackFields.group = group;
+    feedbackFields.rating = rating ? rating : null;
+    feedbackFields.binary = binary ? binary : null;
 
     const feedback = new Feedback(feedbackFields);
     await feedback.save();

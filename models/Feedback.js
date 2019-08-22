@@ -6,6 +6,11 @@ const FeedbackSchema = new mongoose.Schema({
     ref: "user",
     require: true
   },
+  receiver: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
+    require: true
+  },
   group: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "group",
@@ -15,20 +20,11 @@ const FeedbackSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  q1: {
-    type: String
+  rating: {
+    type: Number
   },
-  q2: {
-    type: String
-  },
-  q3: {
-    type: String
-  },
-  q4: {
-    type: String
-  },
-  q5: {
-    type: String
+  binary: {
+    type: Boolean
   }
 });
 
