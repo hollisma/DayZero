@@ -19,7 +19,6 @@ const GFLogins = ({ glogin }) => {
   // };
 
   const googleResponse = response => {
-    console.log(response);
     glogin(response);
   };
 
