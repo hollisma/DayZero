@@ -112,58 +112,48 @@ export const login = (email, password) => async dispatch => {
   }
 };
 
-const helper = response => dispatch => {
-  console.log("helper", response);
+export const glogin = response => async dispatch => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    cache: "default"
+  };
 
-  dispatch({});
-};
+  const body = JSON.stringify({ access_token: response.accessToken });
 
-// export const glogin = response => async dispatch => {
-export const glogin = response => {
-  console.log("before");
-  helper(response);
-  console.log("after");
-  // const config = {
-  //   headers: {
-  //     "Content-Type": "application/json"
-  //   },
-  //   cache: "default"
-  // };
+  try {
+    const res = await axios.post("/api/auth/google", body, config);
+    const token = res.data.token;
+    // if (token) {
+    localStorage.setItem("token", token);
+    setAuthToken(localStorage.token);
 
-  // const body = JSON.stringify({ access_token: response.accessToken });
+    const user = await axios.get("/api/auth");
+    dispatch({
+      type: REGISTER_SUCCESS,
+      payload: {
+        user,
+        token
+      }
+    });
+    // }
+  } catch (err) {
+    const errors = err.response.data.errors;
 
-  // try {
-  //   const res = await axios.post("/api/auth/google", body, config);
-  //   const token = res.data.token;
-  //   // if (token) {
-  //   localStorage.setItem("token", token);
-  //   setAuthToken(localStorage.token);
+    if (errors) {
+      errors.forEach(error =>
+        MySwal.fire({
+          title: error.msg,
+          type: "error"
+        })
+      );
+    }
 
-  //   const user = await axios.get("/api/auth");
-  //   dispatch({
-  //     type: REGISTER_SUCCESS,
-  //     payload: {
-  //       user,
-  //       token
-  //     }
-  //   });
-  //   // }
-  // } catch (err) {
-  //   const errors = err.response.data.errors;
-
-  //   if (errors) {
-  //     errors.forEach(error =>
-  //       MySwal.fire({
-  //         title: error.msg,
-  //         type: "error"
-  //       })
-  //     );
-  //   }
-
-  //   dispatch({
-  //     type: REGISTER_FAIL
-  //   });
-  // }
+    dispatch({
+      type: REGISTER_FAIL
+    });
+  }
 };
 
 // export const facebookLogin = response => dispatch => {
