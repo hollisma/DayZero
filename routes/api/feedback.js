@@ -39,8 +39,8 @@ router.post("/", auth, async (req, res) => {
     feedbackFields.user = req.user.id;
     feedbackFields.receiver = receiver_id;
     feedbackFields.group = group;
-    feedbackFields.rating = rating ? rating : null;
-    feedbackFields.binary = binary ? binary : null;
+    feedbackFields.rating = rating || null;
+    feedbackFields.binary = binary != null ? binary : null;
 
     const feedback = new Feedback(feedbackFields);
     await feedback.save();
