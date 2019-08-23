@@ -7,6 +7,10 @@ import ReceiverFeedback from "./ReceiverFeedback";
 
 import "./Feedback.css";
 
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
+
 const Feedback = ({
   group: { members, membersData, loading, membersLoading },
   auth: { user },
@@ -39,12 +43,15 @@ const Feedback = ({
 
   const onSubmit = async () => {
     // Check if any properties are null
-    let passed = false;
+    let passed = true;
     propertyCheck: for (let s of states) {
       for (let p of Object.keys(s)) {
         if (s[p] == null) {
-          console.log(`error in ${s} at ${p}`);
-          passed = true;
+          MySwal.fire({
+            title: "Please fill out all areas",
+            type: "error"
+          });
+          passed = false;
           break propertyCheck;
         }
       }

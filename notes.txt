@@ -1,8 +1,7 @@
 TODO: 
-  ReceiverFeedback questions and state 
-    need onChange={()=>setStateCallback({ 
-      rating: state.rating, binary: state.binary })
   redirect after submit feedback
+  make the feedback prettier
+  implement uploading of profile pictures
 
 BUGS:
   signing in with google after signing in regularly
