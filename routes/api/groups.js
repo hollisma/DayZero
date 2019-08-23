@@ -107,7 +107,7 @@ router.put("/remove/:group_id", auth, async (req, res) => {
   try {
     // Get new array of members
     const group = await Group.findById(req.params.group_id);
-    var groupArr = group.members;
+    var groupArr = group.members.map(m => m.toJSON());
     if (!groupArr.includes(req.user.id)) {
       return res.status(400).json({ msg: "User is not in the group" });
     }
