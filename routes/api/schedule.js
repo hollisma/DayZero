@@ -51,13 +51,11 @@ router.post("/", auth, async (req, res) => {
         { times: times },
         { new: true }
       );
-
-      return res.json(schedule.times);
+    } else {
+      // Create
+      schedule = new Schedule({ times: times, user: req.user.id });
+      await schedule.save();
     }
-
-    // Create
-    schedule = new Schedule({ times: times, user: req.user.id });
-    await schedule.save();
 
     // Set user type to SCHEDULED
     await User.findByIdAndUpdate(req.user.id, {

@@ -70,9 +70,9 @@ router.put("/add/:group_id", auth, async (req, res) => {
   try {
     // Get new array of members
     const group = await Group.findById(req.params.group_id);
-    var groupArr = group.members;
+    var groupArr = group.members.map(m => m.toJSON());
     if (groupArr.includes(req.user.id)) {
-      return res.status(400).json({ msg: "User is already in a group" });
+      return res.status(400).json({ msg: "User is already in the group" });
     }
     const user = await User.findById(req.user.id);
     if (user.group) {
@@ -81,9 +81,9 @@ router.put("/add/:group_id", auth, async (req, res) => {
     groupArr.push(req.user.id);
 
     // Update members of group
-    const newMembers = { members: groupArr };
-    await Group.findOneAndUpdate(req.params.group_id, {
-      $set: newMembers
+    // const newMembers = { members: groupArr };
+    await Group.findByIdAndUpdate(req.params.group_id, {
+      $set: { members: groupArr }
     });
 
     // Add group to user

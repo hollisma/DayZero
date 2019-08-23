@@ -2,6 +2,7 @@ TODO:
   ReceiverFeedback questions and state 
     need onChange={()=>setStateCallback({ 
       rating: state.rating, binary: state.binary })
+  redirect after submit feedback
 
 BUGS:
   signing in with google after signing in regularly
