@@ -38,38 +38,52 @@ const Feedback = ({
   }
 
   const onSubmit = async () => {
-    const config = {
-      headers: {
-        "Content-Type": "application/json"
+    // Check if any properties are null
+    let passed = false;
+    propertyCheck: for (let s of states) {
+      for (let p of Object.keys(s)) {
+        if (s[p] == null) {
+          console.log(`error in ${s} at ${p}`);
+          passed = true;
+          break propertyCheck;
+        }
       }
-    };
+    }
 
-    console.log(r1);
-    console.log(r2);
-    console.log(r3);
-    // try {
-    //   if (r1.receiver_id) {
-    //     await axios.post("/api/feedback", r1, config);
-    //   }
-    //   if (r2.receiver_id) {
-    //     await axios.post("/api/feedback", r2, config);
-    //   }
-    //   if (r3.receiver_id) {
-    //     await axios.post("/api/feedback", r3, config);
-    //   }
-    //   await axios.put("/api/feedback/finish");
-    // } catch (err) {
-    //   console.log(err.response);
-    // }
+    if (passed) {
+      const config = {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      };
+
+      try {
+        if (r1.receiver_id) {
+          await axios.post("/api/feedback", r1, config);
+        }
+        if (r2.receiver_id) {
+          await axios.post("/api/feedback", r2, config);
+        }
+        if (r3.receiver_id) {
+          await axios.post("/api/feedback", r3, config);
+        }
+        await axios.put("/api/feedback/finish");
+      } catch (err) {
+        console.log(err.response);
+      }
+    }
   };
 
   let count = 0;
+  const states = [r1, r2, r3];
   const setStates = [setR1, setR2, setR3];
   const Receivers = membersData.map((m, i) =>
     m.user && m.user.name !== user.name ? (
       <ReceiverFeedback
         name={m.user.name}
-        setStateCallback={setStates[count++]}
+        setStateCallback={setStates[count]}
+        rating={states[count].rating}
+        binary={states[count++].binary}
         receiver_id={m.user._id}
         key={i}
       />
