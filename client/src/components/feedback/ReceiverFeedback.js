@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import SimpleStarRating from "./SimpleStarRating/SimpleStarRating";
+import StarRatingComponent from "react-star-rating-component";
 import PropTypes from "prop-types";
 
 const ReceiverFeedback = ({ name, receiver_id, setStateCallback }) => {
@@ -14,16 +14,14 @@ const ReceiverFeedback = ({ name, receiver_id, setStateCallback }) => {
     });
   };
 
-  let r = new SimpleStarRating(document.getElementById("rating" + receiver_id));
-
   return (
     <Fragment>
       <div>member person: {name}</div>
-      <span
-        id={"rating" + receiver_id}
-        class="rating"
-        data-stars="15"
-        data-default-rating="10.5"
+      <StarRatingComponent
+        name={"rating" + receiver_id}
+        starCount={10}
+        value={rating}
+        onStarClick={rating => setRating(rating)}
       />
 
       {/* TODO: replace button with actual rating/binary questions */}
