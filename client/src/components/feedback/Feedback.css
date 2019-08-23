@@ -8,3 +8,23 @@
   justify-content: center;
   text-align: center;
 }
+
+.receiver-feedback {
+  display: flex;
+  flex-direction: row;
+  margin: 24px;
+  justify-content: center;
+  align-items: center;
+}
+.receiver-feedback .member {
+  font-size: 18px;
+  margin: 20px;
+}
+.receiver-feedback .rating {
+  font-size: 36px;
+  margin: 20px;
+}
+.receiver-feedback .binary {
+  font-size: 20px;
+  margin: 20px;
+}
