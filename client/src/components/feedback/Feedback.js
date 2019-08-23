@@ -44,20 +44,23 @@ const Feedback = ({
       }
     };
 
-    try {
-      if (r1.receiver_id) {
-        await axios.post("/api/feedback", r1, config);
-      }
-      if (r2.receiver_id) {
-        await axios.post("/api/feedback", r2, config);
-      }
-      if (r3.receiver_id) {
-        await axios.post("/api/feedback", r3, config);
-      }
-      await axios.put("/api/feedback/finish");
-    } catch (err) {
-      console.log(err.response);
-    }
+    console.log(r1);
+    console.log(r2);
+    console.log(r3);
+    // try {
+    //   if (r1.receiver_id) {
+    //     await axios.post("/api/feedback", r1, config);
+    //   }
+    //   if (r2.receiver_id) {
+    //     await axios.post("/api/feedback", r2, config);
+    //   }
+    //   if (r3.receiver_id) {
+    //     await axios.post("/api/feedback", r3, config);
+    //   }
+    //   await axios.put("/api/feedback/finish");
+    // } catch (err) {
+    //   console.log(err.response);
+    // }
   };
 
   let count = 0;
