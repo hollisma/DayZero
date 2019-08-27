@@ -131,12 +131,13 @@ export const glogin = response => async dispatch => {
 
     const user = await axios.get("/api/auth");
     dispatch({
-      type: REGISTER_SUCCESS,
+      type: LOGIN_SUCCESS,
       payload: {
         user,
         token
       }
     });
+    window.location.href = "/dashboard";
     // }
   } catch (err) {
     const errors = err.response.data.errors;
