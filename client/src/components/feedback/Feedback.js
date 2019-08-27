@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 import { getCurrentGroup, getMembersProfiles } from "../../actions/group";
 import ReceiverFeedback from "./ReceiverFeedback";
+import { loadUser } from "../../actions/auth";
 
 import "./Feedback.css";
 
@@ -45,14 +46,16 @@ const Feedback = ({
     // Check if any properties are null
     let passed = true;
     propertyCheck: for (let s of states) {
-      for (let p of Object.keys(s)) {
-        if (s[p] == null) {
-          MySwal.fire({
-            title: "Please fill out all areas",
-            type: "error"
-          });
-          passed = false;
-          break propertyCheck;
+      if (s.receiver_id) {
+        for (let p of Object.keys(s)) {
+          if (s[p] == null) {
+            MySwal.fire({
+              title: "Please fill out all areas",
+              type: "error"
+            });
+            passed = false;
+            break propertyCheck;
+          }
         }
       }
     }
@@ -75,6 +78,8 @@ const Feedback = ({
           await axios.post("/api/feedback", r3, config);
         }
         await axios.put("/api/feedback/finish");
+
+        window.location.href = "/dashboard";
       } catch (err) {
         console.log(err.response);
       }
