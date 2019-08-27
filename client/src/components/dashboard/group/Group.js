@@ -35,7 +35,7 @@ const Group = ({
         <GroupMember
           member_id={m.user ? m.user._id : "-1"}
           name={m.user ? m.user.name : ""}
-          avatar={m.user ? m.user.avatar : ""}
+          email={m.user ? m.user.email : ""}
           college={m.college}
           major={m.major}
           key={i}

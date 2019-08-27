@@ -1,18 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Avatar from "react-avatar";
 
-const GroupMember = ({ member_id, name, avatar, college, major }) => {
-  let pic = (
-    <img
-      className="avatar"
-      src={
-        avatar ||
-        "//www.gravatar.com/avatar/73745bceffd75a7e5a1203d9f0e9fe44?s=200&r=pg&d=mm"
-      }
-      alt=""
-    />
-  );
-
+const GroupMember = ({ member_id, name, email, college, major }) => {
   let res = "";
   if (member_id !== "-1") {
     res = (
@@ -24,7 +14,7 @@ const GroupMember = ({ member_id, name, avatar, college, major }) => {
 
   return (
     <div className="group-member">
-      {pic}
+      <Avatar email={email} name={name} size="100" round className="avatar" />
       {res || "Searching..."}
     </div>
   );
