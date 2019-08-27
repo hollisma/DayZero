@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import axios from "axios";
 import { getCurrentGroup, getMembersProfiles } from "../../actions/group";
 import ReceiverFeedback from "./ReceiverFeedback";
-import { loadUser } from "../../actions/auth";
 
 import "./Feedback.css";
 
@@ -93,6 +92,7 @@ const Feedback = ({
     m.user && m.user.name !== user.name ? (
       <ReceiverFeedback
         name={m.user.name}
+        email={m.user.email}
         setStateCallback={setStates[count]}
         rating={states[count].rating}
         binary={states[count++].binary}

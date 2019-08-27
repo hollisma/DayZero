@@ -1,9 +1,11 @@
 import React from "react";
 import StarRatingComponent from "react-star-rating-component";
 import PropTypes from "prop-types";
+import Avatar from "react-avatar";
 
 const ReceiverFeedback = ({
   name,
+  email,
   receiver_id,
   rating,
   binary,
@@ -19,7 +21,10 @@ const ReceiverFeedback = ({
 
   return (
     <div className="receiver-feedback">
-      <div className="member">member person: {name}</div>
+      <div className="info">
+        <Avatar email={email} name={name} size="100" round />
+        <div className="member">{name}</div>
+      </div>
       <div className="rating">
         <StarRatingComponent
           name={"rating" + receiver_id}

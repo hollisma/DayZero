@@ -12,13 +12,14 @@
 .receiver-feedback {
   display: flex;
   flex-direction: row;
-  margin: 24px;
+  margin: 12px;
   justify-content: center;
   align-items: center;
 }
 .receiver-feedback .member {
-  font-size: 18px;
-  margin: 20px;
+  font-size: 24px;
+  margin: 10px;
+  font-weight: 700;
 }
 .receiver-feedback .rating {
   font-size: 36px;
