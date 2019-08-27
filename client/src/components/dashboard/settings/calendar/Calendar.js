@@ -6,18 +6,31 @@ import {
   createSchedule,
   getCurrentSchedule
 } from "../../../../actions/schedule";
+import { PROFILED, SCHEDULED } from "../../../../actions/types";
 
 import "./Calendar.css";
 
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
+
 const Calendar = ({
   schedule: { schedule, loading },
+  auth: { user },
   createSchedule,
   getCurrentSchedule
 }) => {
   if (loading) getCurrentSchedule();
 
   const onSubmit = () => {
-    createSchedule({ times: schedule });
+    if (user.user_type !== PROFILED && user.user_type !== SCHEDULED) {
+      MySwal.fire({
+        title: "Please fill out the feedback form",
+        type: "info"
+      });
+    } else {
+      createSchedule({ times: schedule });
+    }
   };
 
   return (
@@ -48,11 +61,13 @@ const Calendar = ({
 Calendar.propTypes = {
   createSchedule: PropTypes.func.isRequired,
   getCurrentSchedule: PropTypes.func.isRequired,
-  schedule: PropTypes.object.isRequired
+  schedule: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  schedule: state.schedule
+  schedule: state.schedule,
+  auth: state.auth
 });
 
 export default connect(
