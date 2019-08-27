@@ -30,13 +30,15 @@ const ReceiverFeedback = ({
       </div>
       <div className="binary">
         <button
-          className="ui green button"
+          className={
+            "ui green button " + ((binary == null || !binary) && "basic")
+          }
           onClick={() => updateParent(null, true)}
         >
           Yes
         </button>
         <button
-          className="ui red button"
+          className={"ui red button " + ((binary == null || binary) && "basic")}
           onClick={() => updateParent(null, false)}
         >
           No

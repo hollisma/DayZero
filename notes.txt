@@ -2,6 +2,7 @@ TODO:
   redirect after submit feedback
   make the feedback prettier
   implement uploading of profile pictures
+  reimplement rendering of avatars -- build Propic component with user_id as a prop
 
 BUGS:
   signing in with google after signing in regularly
