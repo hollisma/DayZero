@@ -57,7 +57,9 @@ module.exports = function() {
               }
             },
             $setOnInsert: {
-              user_type: REGISTERED
+              user_type: REGISTERED,
+              group: null,
+              date: new Date()
             }
           },
           { upsert: true, new: true },
@@ -90,7 +92,9 @@ module.exports = function() {
               }
             },
             $setOnInsert: {
-              user_type: REGISTERED
+              user_type: REGISTERED,
+              group: null,
+              date: new Date()
             }
           },
           { upsert: true, new: true },
