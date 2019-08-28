@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken");
 const auth = require("../../middleware/auth");
 const config = require("config");
 const { check, validationResult } = require("express-validator/check");
-const GoogleTokenStrategy = require("passport-google-token").Strategy;
 const passport = require("passport");
 require("../passport")();
 
@@ -55,6 +54,12 @@ router.post(
           .status(400)
           .json({ errors: [{ msg: "Invalid credentials" }] });
 
+      // Check if user registered with facebook or google
+      if (!user.password)
+        return res.status(400).json({
+          errors: [{ msg: "Try logging in with Google or Facebook" }]
+        });
+
       // Check if email matches password
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch)
@@ -93,6 +98,39 @@ router.post(
 router.post(
   "/google",
   passport.authenticate("google-token", { session: false }),
+  (req, res, next) => {
+    if (!req.user) {
+      return res.send(401, "User Not Authorized");
+    }
+
+    const payload = {
+      user: {
+        id: req.user.id
+      }
+    };
+
+    jwt.sign(
+      payload,
+      config.get("jwtSecret"),
+      { expiresIn: 3600000 },
+      (err, token) => {
+        if (err) throw err;
+        res.json({ token });
+      }
+    );
+
+    next();
+  }
+);
+
+/**
+ * @route   POST api/auth/facebook
+ * @desc    Authenticate user via facebook token
+ * @access  Public
+ */
+router.post(
+  "/facebook",
+  passport.authenticate("facebook-token", { session: false }),
   (req, res, next) => {
     if (!req.user) {
       return res.send(401, "User Not Authorized");

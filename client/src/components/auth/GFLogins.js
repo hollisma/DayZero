@@ -3,11 +3,10 @@ import { connect } from "react-redux";
 import FacebookLogin from "react-facebook-login";
 import { GoogleLogin } from "react-google-login";
 import config from "../../config/config.json";
-// import { glogin } from "../../actions/auth";
 import { glogin, fblogin } from "../../actions/auth";
 import PropTypes from "prop-types";
 
-const GFLogins = ({ glogin }) => {
+const GFLogins = ({ glogin, fblogin }) => {
   const onFailure = error => {
     console.log("google error");
     console.log(error);
@@ -30,7 +29,6 @@ const GFLogins = ({ glogin }) => {
         autoLoad={false}
         fields="name,email,picture"
         callback={facebookResponse}
-        version="3.1"
       />
       <GoogleLogin
         clientId={config.GOOGLE_CLIENT_ID}

@@ -125,7 +125,7 @@ export const glogin = response => async dispatch => {
   try {
     const res = await axios.post("/api/auth/google", body, config);
     const token = res.data.token;
-    // if (token) {
+
     localStorage.setItem("token", token);
     setAuthToken(localStorage.token);
 
@@ -138,7 +138,6 @@ export const glogin = response => async dispatch => {
       }
     });
     window.location.href = "/dashboard";
-    // }
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -157,33 +156,48 @@ export const glogin = response => async dispatch => {
   }
 };
 
-export const fblogin = response => dispatch => {
-  // const tokenBlob = new Blob(
-  //   [JSON.stringify({ access_token: response.accessToken }, null, 2)],
-  //   { type: "application/json" }
-  // );
-  // const options = {
-  //   method: "POST",
-  //   body: tokenBlob,
-  //   mode: "cors",
-  //   cache: "default"
-  // };
-  // fetch("http://localhost:4000/api/auth/facebook", options).then(r => {
-  //   const token = r.headers.get("x-auth-token");
-  //   r.json().then(user => {
-  //     if (token) {
-  //       localStorage.setItem("token", token);
-  //       setAuthToken(localStorage.token);
-  //       dispatch({
-  //         type: REGISTER_SUCCESS,
-  //         payload: {
-  //           user,
-  //           token
-  //         }
-  //       });
-  //     }
-  //   });
-  // });
+export const fblogin = response => async dispatch => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json"
+    },
+    cache: "default"
+  };
+
+  const body = JSON.stringify({ access_token: response.accessToken });
+
+  try {
+    const res = await axios.post("/api/auth/facebook", body, config);
+    const token = res.data.token;
+
+    localStorage.setItem("token", token);
+    setAuthToken(localStorage.token);
+
+    const user = await axios.get("/api/auth");
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: {
+        user,
+        token
+      }
+    });
+    window.location.href = "/dashboard";
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach(error =>
+        MySwal.fire({
+          title: error.msg,
+          type: "error"
+        })
+      );
+    }
+
+    dispatch({
+      type: REGISTER_FAIL
+    });
+  }
 };
 
 // Logout / Clear Profile

@@ -41,6 +41,13 @@ const UserSchema = new mongoose.Schema({
       token: String
     },
     select: false
+  },
+  facebookProvider: {
+    type: {
+      id: String,
+      token: String
+    },
+    select: false
   }
 });
 
