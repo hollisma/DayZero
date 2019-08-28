@@ -14,7 +14,7 @@ module.exports = function() {
         clientSecret: config.get("googleAuth").clientSecret
       },
       (accessToken, refreshToken, profile, done) =>
-        // TODO: fix here -- when creating a new user, date and group aren't added
+        // TODO: fix here -- says "Cannot POST /api/auth/google"
 
         // User.findOne(
         //   {
