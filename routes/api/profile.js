@@ -18,7 +18,7 @@ router.get("/me", auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({ user: req.user.id }).populate(
       "user",
-      ["name", "avatar"]
+      ["name", "email"]
     );
 
     if (!profile) {
@@ -124,7 +124,7 @@ router.post(
  * */
 router.get("/", async (req, res) => {
   try {
-    const profiles = await Profile.find().populate("user", ["name", "avatar"]);
+    const profiles = await Profile.find().populate("user", ["name", "email"]);
     res.json(profiles);
   } catch (err) {
     console.error(err.message);

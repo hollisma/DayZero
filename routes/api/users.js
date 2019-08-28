@@ -44,12 +44,12 @@ router.post(
           .json({ errors: [{ msg: "User already exists" }] });
       }
 
-      // Get Gravatar profile
-      const avatar = gravatar.url(email, {
-        s: "200", // size
-        r: "pg", // rating
-        d: "mm"
-      });
+      // // Get Gravatar profile
+      // const avatar = gravatar.url(email, {
+      //   s: "200", // size
+      //   r: "pg", // rating
+      //   d: "mm"
+      // });
 
       // Create user
       user = new User({
@@ -57,8 +57,8 @@ router.post(
         email,
         phone_number,
         password,
-        user_type: REGISTERED,
-        avatar
+        user_type: REGISTERED
+        // avatar
       });
 
       // Encrypt password
