@@ -1,8 +1,9 @@
 TODO: 
+  fix google login -- not sure how it broke
+  figure out how to host the server - digitalocean, heroku, aws
   implement uploading of profile pictures
   reimplement rendering of avatars -- build Propic component with user_id as a prop
     update ReceiverFeedback, EditProfile
-  figure out how to host the server - digitalocean, heroku, aws
 
 BUGS:
 

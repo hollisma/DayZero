@@ -99,6 +99,7 @@ router.post(
   "/google",
   passport.authenticate("google-token", { session: false }),
   (req, res, next) => {
+    // return res.send(407, "ribbit");
     if (!req.user) {
       return res.send(401, "User Not Authorized");
     }

@@ -18,7 +18,7 @@ const GFLogins = ({ glogin, fblogin }) => {
   };
 
   const googleResponse = response => {
-    // console.log(response);
+    console.log(response);
     glogin(response);
   };
 

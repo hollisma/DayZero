@@ -20,20 +20,23 @@ const UserSchema = new mongoose.Schema({
   },
   user_type: {
     type: String,
-    default: GUEST
+    default: GUEST,
+    require
   },
   avatar: {
     type: String
   },
   date: {
     type: Date,
-    default: Date.now
+    default: Date.now,
+    require
   },
   group: {
     // Use this to refer to another model
     type: mongoose.Schema.Types.ObjectId,
     ref: "group",
-    default: null
+    default: null,
+    require
   },
   googleProvider: {
     type: {

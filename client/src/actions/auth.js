@@ -139,16 +139,20 @@ export const glogin = response => async dispatch => {
     });
     window.location.href = "/dashboard";
   } catch (err) {
-    const errors = err.response.data.errors;
+    if (err && err.response && err.response.data) {
+      const errors = err.response.data.errors;
 
-    if (errors) {
-      errors.forEach(error =>
-        MySwal.fire({
-          title: error.msg,
-          type: "error"
-        })
-      );
+      if (errors) {
+        errors.forEach(error =>
+          MySwal.fire({
+            title: error.msg,
+            type: "error"
+          })
+        );
+      }
     }
+
+    console.log(err);
 
     dispatch({
       type: REGISTER_FAIL

@@ -14,6 +14,35 @@ module.exports = function() {
         clientSecret: config.get("googleAuth").clientSecret
       },
       (accessToken, refreshToken, profile, done) =>
+        // TODO: fix here -- when creating a new user, date and group aren't added
+
+        // User.findOne(
+        //   {
+        //     email: profile.emails[0].value
+        //   },
+        //   (err, user) => {
+        //     if (!user) {
+        //       let newUser = new User({
+        //         name: profile.displayName,
+        //         email: profile.emails[0].value,
+        //         user_type: REGISTERED,
+        //         googleProvider: {
+        //           id: profile.id,
+        //           token: accessToken
+        //         }
+        //       });
+
+        //       newUser.save((error, savedUser) => {
+        //         if (error) {
+        //           console.log(error);
+        //         }
+        //         return done(error, savedUser);
+        //       });
+        //     } else {
+        //       return done(err, user);
+        //     }
+        //   }
+        // )
         User.findOneAndUpdate(
           {
             email: profile.emails[0].value
@@ -34,8 +63,6 @@ module.exports = function() {
           { upsert: true, new: true },
           (err, doc) => {
             if (err) console.log(err);
-            if (!doc.user_type) {
-            }
             return done(err, doc);
           }
         )
@@ -69,8 +96,6 @@ module.exports = function() {
           { upsert: true, new: true },
           (err, doc) => {
             if (err) console.log(err);
-            if (!doc.user_type) {
-            }
             return done(err, doc);
           }
         )
