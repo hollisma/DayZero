@@ -1,0 +1,41 @@
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 2rem;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  border-bottom: solid 1px var(--primary-color);
+  opacity: 0.9;
+  height: 85px;
+  transition: all 0.4s ease-out;
+  -webkit-transition: all 0.4s ease-out;
+}
+.grey {
+  background: grey !important;
+}
+.scrolled {
+  height: 60px;
+  background-color: #999 !important;
+}
+.navbar a {
+  color: black;
+  padding: 0.45rem;
+  margin: 0 0.25rem;
+}
+.navbar ul {
+  display: flex;
+}
+.navbar .reg:hover {
+  color: lightcoral;
+}
+.navbar h1 {
+  font-size: 2.2rem;
+}
+.navbar li {
+  color: #444;
+  font-size: 1.2rem;
+}

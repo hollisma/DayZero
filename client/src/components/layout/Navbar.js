@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
 
+import "./Navbar.css";
+
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const handleScroll = () => {
     const navbar = document.getElementById("navbar");
@@ -14,7 +16,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     }
   };
 
-  window.onscroll = function () {
+  window.onscroll = function() {
     handleScroll();
   };
 
