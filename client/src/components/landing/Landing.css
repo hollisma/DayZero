@@ -1,0 +1,97 @@
+
+.landing {
+  position: relative;
+  /* background: url("./img/landing_background.jpg") no-repeat center center/cover; */
+  height: 100vh;
+}
+.landing .chunk {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.landing .blu {
+  background: lightblue;
+}
+.landing h1 {
+  font-size: 3rem;
+  padding-bottom: 0rem;
+}
+.landing p {
+  font-size: 1.5rem !important;
+  margin-top: 3rem;
+}
+.landing img {
+  /* max-width: 65%; */
+  margin: 0.5rem;
+}
+
+/* First section */
+#home h1 {
+  margin-top: 6rem;
+}
+#home .images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#home .stanford {
+  position: relative;
+  margin: 0px;
+  height: 16rem;
+  width: 25rem;
+}
+#home .princeton {
+  position: relative;
+  top: -7px;
+  width: 25rem;
+  height: 7rem;
+}
+
+/* Second section */
+#howitworks h1 {
+  margin-bottom: 3rem;
+  font-size: 3rem;
+}
+#howitworks .grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-auto-rows: minmax(7rem, auto);
+  grid-gap: 0rem;
+  align-items: center;
+  justify-items: start;
+  justify-content: start !important;
+}
+#howitworks p {
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+.howitworks-table {
+  justify-items: center !important;
+}
+.svg-rocket {
+  max-height: 130px;
+  min-height: 130px;
+}
+.svg-calendar {
+  max-width: 200px;
+  min-width: 200px;
+}
+.svg-people {
+  max-width: 165px;
+  min-width: 165px;
+}
+
+/* Third section */
+#faq h2 {
+  font-size: 2rem !important;
+  padding: 1rem;
+}
+#faq p {
+  margin-bottom: 4rem;
+}
