@@ -18,7 +18,7 @@
   background: grey !important;
 }
 .scrolled {
-  height: 100px;
+  height: 80px;
   background-color: #999 !important;
 }
 .scrolled .img-logo {
@@ -47,7 +47,7 @@
   font-size: 1.4rem;
 }
 .img-logo {
-  min-width: 100px;
-  max-width: 100px;
+  min-width: 110px;
+  max-width: 110px;
   background-color: #fff !important;
 }
