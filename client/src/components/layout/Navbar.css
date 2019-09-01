@@ -10,7 +10,7 @@
   top: 0;
   border-bottom: solid 1px var(--primary-color);
   opacity: 0.9;
-  height: 85px;
+  height: 125px;
   transition: all 0.4s ease-out;
   -webkit-transition: all 0.4s ease-out;
 }
@@ -18,13 +18,20 @@
   background: grey !important;
 }
 .scrolled {
-  height: 60px;
+  height: 100px;
   background-color: #999 !important;
+}
+.scrolled .img-logo {
+  min-height: 80px;
+  min-width: 80px;
+  max-height: 80px;
+  max-width: 80px;
+  background-color: #fff !important;
 }
 .navbar a {
   color: black;
-  padding: 0.45rem;
-  margin: 0 0.25rem;
+  padding: 0.25rem;
+  /* margin: 0 0.25rem; */
 }
 .navbar ul {
   display: flex;
@@ -37,5 +44,10 @@
 }
 .navbar li {
   color: #444;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+}
+.img-logo {
+  min-width: 100px;
+  max-width: 100px;
+  background-color: #fff !important;
 }

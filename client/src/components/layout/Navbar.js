@@ -73,7 +73,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   return (
     <nav className="ui secondary menu navbar" id="navbar">
       <h1 className="item">
-        <Link to={isAuthenticated ? "/dashboard#" : "/#"}>Day Zero</Link>
+        <Link to={isAuthenticated ? "/dashboard#" : "/#"}>
+          <img
+            src={require("../../img/Logo.png")}
+            className="img-logo"
+            alt="Day Zero"
+          />
+        </Link>
       </h1>
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
