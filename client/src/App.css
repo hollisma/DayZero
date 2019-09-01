@@ -206,8 +206,8 @@ body {
   margin-top: 3rem;
 }
 .landing img {
-  max-width: 65%;
-  margin: 1.5rem;
+  /* max-width: 65%; */
+  margin: 0.5rem;
 }
 
 /* First section */
@@ -291,4 +291,24 @@ body {
   justify-content: center;
   text-align: center;
   background-color: lightblue;
+}
+
+.howitworks-table {
+  justify-items: center !important;
+}
+
+.svg-rocket {
+  max-height: 130px;
+  min-height: 130px;
+}
+
+.svg-calendar {
+  max-width: 200px;
+  min-width: 200px;
+
+}
+
+.svg-people {
+  max-width: 165px;
+  min-width: 165px;
 }
