@@ -3,6 +3,8 @@ package-lock.json
 *default.json
 .vs-code/
 *config.json
+*#*#
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
