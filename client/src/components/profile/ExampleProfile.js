@@ -8,7 +8,7 @@ const ExampleProfile = ({ firstName }) => {
       {firstName === "max" ? (
         <div className="outer">
           <img
-            src={require("../../img/max_kim.png")}
+            src={require("../../img/max.png")}
             alt="Max Kim"
             className="circular-pic"
           />
@@ -22,7 +22,7 @@ const ExampleProfile = ({ firstName }) => {
       ) : (
         <div className="outer">
           <img
-            src={require("../../img/carina_lewis.png")}
+            src={require("../../img/carina.png")}
             alt="Carina Lewis"
             className="circular-pic carina"
           />
