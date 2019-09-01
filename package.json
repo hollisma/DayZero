@@ -50,7 +50,6 @@
   "bugs": {
     "url": "https://github.com/hollisma/DayZero/issues"
   },
-  "homepage": "https://github.com/hollisma/DayZero#readme",
   "devDependencies": {
     "concurrently": "^4.1.1",
     "nodemon": "^1.19.1"

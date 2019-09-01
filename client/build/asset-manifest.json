@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7be0b479.chunk.css",
+    "main.js": "/static/js/main.65a5317b.chunk.js",
+    "main.js.map": "/static/js/main.65a5317b.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.e2f15f02.chunk.js": "/static/js/2.e2f15f02.chunk.js",
+    "static/js/2.e2f15f02.chunk.js.map": "/static/js/2.e2f15f02.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.e3df29b393ec199af8bce80d46339a72.js": "/precache-manifest.e3df29b393ec199af8bce80d46339a72.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.7be0b479.chunk.css.map": "/static/css/main.7be0b479.chunk.css.map",
+    "static/media/carina_lewis.png": "/static/media/carina_lewis.8b491678.png",
+    "static/media/max_kim.png": "/static/media/max_kim.2b62f27c.png",
+    "static/media/princeton": "/static/media/princeton.4bd39f56.bin",
+    "static/media/stanford": "/static/media/stanford.f3814fe2.bin",
+    "static/media/three-group": "/static/media/three-group.c99435c7.bin"
+  }
+}
