@@ -2,12 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import Avatar from "react-avatar";
 
-const GroupMember = ({ member_id, name, email, college, major }) => {
+const GroupMember = ({ member_id, name, email, major, bio }) => {
   let res = "";
   if (member_id !== "-1") {
     res = (
       <span className="group-member-info">
-        <b>{name}</b> is at <b>{college}</b> studying <b>{major}</b>
+        <div className="group-member-info">
+          <b>{name}</b> is studying <b>{major}</b>.
+        </div>
+        <div>Here's a bit about them: {bio}</div>
       </span>
     );
   }

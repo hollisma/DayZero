@@ -36,8 +36,8 @@ const Group = ({
           member_id={m.user ? m.user._id : "-1"}
           name={m.user ? m.user.name : ""}
           email={m.user ? m.user.email : ""}
-          college={m.college}
           major={m.major}
+          bio={m.bio}
           key={i}
         />
       ))
