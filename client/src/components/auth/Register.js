@@ -37,6 +37,12 @@ const Register = ({ register, isAuthenticated }) => {
         title: "Please enter your email",
         type: "error"
       });
+    } else if (!isSchoolEmail(email)) {
+      MySwal.fire({
+        title:
+          "Please enter your school email (@princeton.edu or @stanford.edu)",
+        type: "error"
+      });
     } else if (password.length < 6) {
       MySwal.fire({
         title: "Password must be at least 6 characters",
@@ -45,6 +51,20 @@ const Register = ({ register, isAuthenticated }) => {
     } else {
       register({ name, email, phone_number, password });
     }
+  };
+
+  const isSchoolEmail = email => {
+    let extension = email.split("@")[1];
+    let validExtensions = ["princeton.edu", "stanford.edu"];
+
+    for (let ext of validExtensions) {
+      console.log(extension, ext);
+      if (extension === ext) {
+        return true;
+      }
+    }
+
+    return false;
   };
 
   if (isAuthenticated) {
