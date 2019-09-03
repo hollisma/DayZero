@@ -3,9 +3,10 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile } from "../../actions/profile";
-import { createSchedule } from "../../actions/schedule";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
-const CreateProfile = ({ createProfile, createSchedule }) => {
+const CreateProfile = ({ createProfile }) => {
   const [formData, setFormData] = useState({
     college: "",
     major: "",
@@ -13,6 +14,7 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
     categories: "",
     bio: "",
     values: "",
+    phone_number: "",
     sms: true,
     email: false
   });
@@ -24,6 +26,7 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
     categories,
     bio,
     values,
+    phone_number,
     sms,
     email
   } = formData;
@@ -33,6 +36,10 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const onPhoneChange = e => {
+    setFormData({ ...formData, phone_number: e });
   };
 
   const onSubmit = e => {
@@ -111,6 +118,13 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
             onChange={e => onChange(e)}
           />
         </div>
+        <p>Phone Number</p>
+        <PhoneInput
+          placeholder="Enter phone number"
+          country="US"
+          value={phone_number}
+          onChange={e => onPhoneChange(e)}
+        />
         <p>Communication Preference</p>
         <div className="ui field toggle checkbox">
           <input
@@ -121,7 +135,7 @@ const CreateProfile = ({ createProfile, createSchedule }) => {
           />
           <label>SMS</label>
         </div>
-        <div className="ui field toggle checkbox m-2">
+        <div className="ui field toggle checkbox mx-2 my">
           <input
             type="checkbox"
             name="email"
@@ -150,5 +164,5 @@ CreateProfile.propTypes = {
 
 export default connect(
   null,
-  { createProfile, createSchedule }
+  { createProfile }
 )(withRouter(CreateProfile));

@@ -3,6 +3,8 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../../../actions/profile";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 const EditProfile = ({
   profile: { profile, loading },
@@ -17,6 +19,7 @@ const EditProfile = ({
     categories: "",
     bio: "",
     values: "",
+    phone_number: "",
     sms: true,
     email: false
   });
@@ -37,6 +40,10 @@ const EditProfile = ({
       bio: loading || !profile || !profile.bio ? "" : profile.bio,
       values:
         loading || !profile || !profile.values ? "" : profile.values.join(", "),
+      phone_number:
+        loading || !profile || !profile.phone_number
+          ? ""
+          : profile.phone_number,
       sms: loading || !profile || !profile.sms ? false : profile.sms,
       email: loading || !profile || !profile.email ? false : profile.email
     });
@@ -50,15 +57,20 @@ const EditProfile = ({
     categories,
     bio,
     values,
+    phone_number,
     sms,
     email
   } = formData;
 
   const onChange = e => {
     const target = e.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
+    let value = target.type === "checkbox" ? target.checked : target.value;
+    let name = target.name;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const onPhoneChange = e => {
+    setFormData({ ...formData, phone_number: e });
   };
 
   const onSubmit = e => {
@@ -75,7 +87,7 @@ const EditProfile = ({
       </p>
       <small>* = required field</small>
       <form className="ui form" onSubmit={e => onSubmit(e)}>
-        <p>College</p>
+        <p>College *</p>
         <div className="field">
           <input
             type="text"
@@ -86,7 +98,7 @@ const EditProfile = ({
             required
           />
         </div>
-        <p>Major</p>
+        <p>Major *</p>
         <div className="field">
           <input
             type="text"
@@ -137,6 +149,13 @@ const EditProfile = ({
             onChange={e => onChange(e)}
           />
         </div>
+        <p>Phone Number</p>
+        <PhoneInput
+          placeholder="Enter phone number"
+          country="US"
+          value={phone_number}
+          onChange={e => onPhoneChange(e)}
+        />
         <p>Communication Preference</p>
         <div className="ui field toggle checkbox">
           <input
@@ -147,7 +166,7 @@ const EditProfile = ({
           />
           <label>SMS</label>
         </div>
-        <div className="ui field toggle checkbox m-2">
+        <div className="ui field toggle checkbox mx-2 my">
           <input
             type="checkbox"
             name="email"
