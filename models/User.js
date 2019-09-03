@@ -11,21 +11,24 @@ const UserSchema = new mongoose.Schema({
     require: true,
     unique: true
   },
-  phone_number: {
-    type: String
-  },
   password: {
     type: String,
     require: true
   },
+  phone_number: {
+    type: String
+  },
+  comm_sms: {
+    type: Boolean,
+    default: true
+  },
+  comm_email: {
+    type: Boolean,
+    default: false
+  },
   user_type: {
     type: String,
     default: GUEST,
-    require
-  },
-  date: {
-    type: Date,
-    default: Date.now,
     require
   },
   group: {
@@ -48,6 +51,11 @@ const UserSchema = new mongoose.Schema({
       token: String
     },
     select: false
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+    require
   }
 });
 

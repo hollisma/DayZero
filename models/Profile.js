@@ -24,14 +24,6 @@ const ProfileSchema = new mongoose.Schema({
   },
   values: {
     type: [String]
-  },
-  sms: {
-    type: Boolean,
-    default: true
-  },
-  email: {
-    type: Boolean,
-    default: false
   }
 });
 
