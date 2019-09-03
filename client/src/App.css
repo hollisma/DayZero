@@ -99,41 +99,61 @@ body {
 .m-3 {
   margin: 3rem !important;
 }
+.mx {
+  margin-left: 0.5rem !important;
+  margin-right: 0.5rem !important
+}
+.mx-1 {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important
+}
+.mx-2 {
+  margin-left: 2rem !important;
+  margin-right: 2rem !important
+}
+.mx-3 {
+  margin-left: 3rem !important;
+  margin-right: 3rem !important
+}
 .my {
-  margin: 0.5rem 0 !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
 }
 .my-1 {
-  margin: 1rem 0 !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
 }
 .my-2 {
-  margin: 2rem 0 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
 }
 .my-3 {
-  margin: 3rem 0 !important;
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
 }
 .my-up {
-  margin: 0.5rem 0 0 0 !important;
+  margin-top: 0.5rem !important;
 }
 .my-up-1 {
-  margin: 1rem 0 0 0 !important;
+  margin-top: 1rem !important;
 }
 .my-up-2 {
-  margin: 2rem 0 0 0 !important;
+  margin-top: 2rem !important;
 }
 .my-up-3 {
-  margin: 3rem 0 0 0 !important;
+  margin-top: 3rem !important;
 }
 .my-down {
-  margin: 0 0 0.5rem 0 !important;
+  margin-bottom: 0.5rem !important;
 }
 .my-down-1 {
-  margin: 0 0 1rem 0 !important;
+  margin-bottom: 1rem !important;
 }
 .my-down-2 {
-  margin: 0 0 2rem 0 !important;
+  margin-bottom: 2rem !important;
 }
 .my-down-3 {
-  margin: 0 0 3rem 0 !important;
+  margin-bottom: 3rem !important;
 }
 
 /* Vertical Stripe */

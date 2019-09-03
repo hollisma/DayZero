@@ -16,11 +16,10 @@ const Register = ({ register, isAuthenticated }) => {
   const [formData, setFromData] = useState({
     name: "",
     email: "",
-    phone_number: "",
     password: ""
   });
 
-  const { name, email, phone_number, password } = formData;
+  const { name, email, password } = formData;
 
   const onChange = e =>
     setFromData({ ...formData, [e.target.name]: e.target.value });
@@ -49,7 +48,7 @@ const Register = ({ register, isAuthenticated }) => {
         type: "error"
       });
     } else {
-      register({ name, email, phone_number, password });
+      register({ name, email, password });
     }
   };
 
@@ -101,15 +100,6 @@ const Register = ({ register, isAuthenticated }) => {
               placeholder="Email Address"
               name="email"
               value={email}
-              onChange={e => onChange(e)}
-            />
-          </div>
-          <div className="field">
-            <input
-              type="text"
-              placeholder="Phone Number"
-              name="phone_number"
-              value={phone_number}
               onChange={e => onChange(e)}
             />
           </div>
