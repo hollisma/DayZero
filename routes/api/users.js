@@ -32,7 +32,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, phone_number, password } = req.body;
+    const { name, email, password } = req.body;
 
     try {
       // Check if user already exists
@@ -54,7 +54,6 @@ router.post(
       user = new User({
         name,
         email,
-        phone_number,
         password,
         user_type: REGISTERED
         // avatar
@@ -83,6 +82,48 @@ router.post(
           res.json({ token });
         }
       );
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).json({ msg: "Server Error" });
+    }
+  }
+);
+
+/**
+ * @route   PUT api/users
+ * @desc    Update user
+ * @access  Public
+ * */
+router.post(
+  "/",
+  [
+    check("name", "Name is required")
+      .not()
+      .isEmpty()
+  ],
+  async (req, res) => {
+    // Go through validation checks
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { name, email, phone_number, comm_phone, comm_email } = req.body;
+
+    try {
+      // Check if user already exists
+      var user = await User.findOne({ email });
+      if (!user) {
+        return res.status(400).json({ errors: [{ msg: "User not found" }] });
+      }
+
+      user = await user.findOneAndupdate(
+        { email },
+        { $set: { name, phone_number, comm_phone, comm_email } },
+        { new: true }
+      );
+
+      return res.json(user);
     } catch (err) {
       console.error(err.message);
       res.status(500).json({ msg: "Server Error" });

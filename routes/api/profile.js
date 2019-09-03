@@ -18,7 +18,7 @@ router.get("/me", auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({ user: req.user.id }).populate(
       "user",
-      ["name", "email"]
+      ["name", "email", "phone_number"]
     );
 
     if (!profile) {
@@ -59,16 +59,7 @@ router.post(
     }
 
     // Destructure properties from req
-    const {
-      college,
-      major,
-      minor,
-      categories,
-      bio,
-      values,
-      sms,
-      email
-    } = req.body;
+    const { college, major, minor, categories, bio, want_to_meet } = req.body;
 
     // Build profile object
     const profileFields = {};
@@ -80,11 +71,7 @@ router.post(
       ? categories.split(",").map(category => category.trim())
       : [];
     profileFields.bio = bio ? bio : null;
-    profileFields.values = values
-      ? values.split(",").map(value => value.trim())
-      : [];
-    profileFields.sms = sms;
-    profileFields.email = email;
+    profileFields.want_to_meet = want_to_meet ? want_to_meet : null;
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });
@@ -124,7 +111,11 @@ router.post(
  * */
 router.get("/", async (req, res) => {
   try {
-    const profiles = await Profile.find().populate("user", ["name", "email"]);
+    const profiles = await Profile.find().populate("user", [
+      "name",
+      "email",
+      "phone_number"
+    ]);
     res.json(profiles);
   } catch (err) {
     console.error(err.message);
@@ -141,7 +132,7 @@ router.get("/user/:user_id", async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.params.user_id
-    }).populate("user", ["name", "email"]);
+    }).populate("user", ["name", "email", "phone_number"]);
 
     if (!profile) return res.status(400).json({ msg: "Profile not found" });
 

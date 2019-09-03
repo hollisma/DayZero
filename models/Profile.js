@@ -22,8 +22,8 @@ const ProfileSchema = new mongoose.Schema({
   bio: {
     type: String
   },
-  values: {
-    type: [String]
+  want_to_meet: {
+    type: String
   }
 });
 
