@@ -10,12 +10,12 @@
   background-color: lightblue;
 }
 
-.column .text {
+.calendar .column .text {
   justify-content: center;
   padding: 16px;
 }
 
-.column {
+.calendar .column {
   padding: 20px 16px 8px 16px;
   min-width: 275px;
   max-width: 300px;
