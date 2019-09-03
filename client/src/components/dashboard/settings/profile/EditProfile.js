@@ -7,7 +7,8 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 const EditProfile = ({
-  profile: { profile, loading },
+  profile: { profile, loading: profile_loading },
+  auth: { user, loading: user_loading },
   createProfile,
   getCurrentProfile,
   history
@@ -18,7 +19,7 @@ const EditProfile = ({
     minor: "",
     categories: "",
     bio: "",
-    values: "",
+    want_to_meet: "",
     phone_number: "",
     sms: true,
     email: false
@@ -28,38 +29,48 @@ const EditProfile = ({
     getCurrentProfile();
 
     setFormData({
-      college: loading || !profile || !profile.college ? "" : profile.college,
+      name: user_loading || !user || !user.name ? "" : user.name,
+      email: user_loading || !user || !user.email ? "" : user.email,
+      college:
+        profile_loading || !profile || !profile.college ? "" : profile.college,
       major:
-        loading || !profile || !profile.major ? "" : profile.major.join(", "),
+        profile_loading || !profile || !profile.major
+          ? ""
+          : profile.major.join(", "),
       minor:
-        loading || !profile || !profile.minor ? "" : profile.minor.join(", "),
+        profile_loading || !profile || !profile.minor
+          ? ""
+          : profile.minor.join(", "),
       categories:
-        loading || !profile || !profile.categories
+        profile_loading || !profile || !profile.categories
           ? ""
           : profile.categories.join(", "),
-      bio: loading || !profile || !profile.bio ? "" : profile.bio,
-      values:
-        loading || !profile || !profile.values ? "" : profile.values.join(", "),
-      phone_number:
-        loading || !profile || !profile.phone_number
+      bio: profile_loading || !profile || !profile.bio ? "" : profile.bio,
+      want_to_meet:
+        profile_loading || !profile || !profile.want_to_meet
           ? ""
-          : profile.phone_number,
-      sms: loading || !profile || !profile.sms ? false : profile.sms,
-      email: loading || !profile || !profile.email ? false : profile.email
+          : profile.want_to_meet,
+      phone_number:
+        user_loading || !user || !user.phone_number ? "" : user.phone_number,
+      comm_sms: user_loading || !user || !user.comm_sms ? false : user.comm_sms,
+      comm_email:
+        user_loading || !user || !user.comm_email ? false : user.comm_email
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loading, getCurrentProfile]);
+  }, [profile_loading, user_loading, getCurrentProfile]);
 
   const {
+    name,
+    email,
     college,
     major,
     minor,
     categories,
     bio,
-    values,
+    want_to_meet,
     phone_number,
-    sms,
-    email
+    comm_sms,
+    comm_email
   } = formData;
 
   const onChange = e => {
@@ -87,7 +98,29 @@ const EditProfile = ({
       </p>
       <small>* = required field</small>
       <form className="ui form" onSubmit={e => onSubmit(e)}>
-        <p>College *</p>
+        <p>* Name</p>
+        <div className="field">
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            value={name}
+            onChange={e => onChange(e)}
+            required
+          />
+        </div>
+        <p>Email (cannot change)</p>
+        <div className="field">
+          <input
+            type="text"
+            placeholder="email"
+            name="email"
+            value={email}
+            disabled
+            required
+          />
+        </div>
+        <p>* College</p>
         <div className="field">
           <input
             type="text"
@@ -98,7 +131,7 @@ const EditProfile = ({
             required
           />
         </div>
-        <p>Major *</p>
+        <p>* Major</p>
         <div className="field">
           <input
             type="text"
@@ -129,7 +162,9 @@ const EditProfile = ({
             onChange={e => onChange(e)}
           />
         </div>
-        <p>Tell us a little about yourself</p>
+        <p>
+          Tell us a little about yourself: hobbies, interests, work, anything!
+        </p>
         <div className="field">
           <input
             type="text"
@@ -139,13 +174,15 @@ const EditProfile = ({
             onChange={e => onChange(e)}
           />
         </div>
-        <p>Values</p>
+        <p>
+          In a couple sentences, describe the type of people you want to meet
+        </p>
         <div className="field">
           <input
             type="text"
-            placeholder="Values"
-            name="values"
-            value={values}
+            placeholder="I want to meet people who are yada yada yada"
+            name="want_to_meet"
+            value={want_to_meet}
             onChange={e => onChange(e)}
           />
         </div>
@@ -160,17 +197,17 @@ const EditProfile = ({
         <div className="ui field toggle checkbox">
           <input
             type="checkbox"
-            name="sms"
-            checked={sms}
+            name="comm_sms"
+            checked={comm_sms}
             onChange={e => onChange(e)}
           />
-          <label>SMS</label>
+          <label>Text</label>
         </div>
         <div className="ui field toggle checkbox mx-2 my">
           <input
             type="checkbox"
-            name="email"
-            checked={email}
+            name="comm_email"
+            checked={comm_email}
             onChange={e => onChange(e)}
           />
           <label>Email</label>
@@ -195,7 +232,8 @@ EditProfile.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  profile: state.profile
+  profile: state.profile,
+  auth: state.auth
 });
 
 export default connect(
