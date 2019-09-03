@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const { check, validationResult } = require("express-validator/check");
+const auth = require("../../middleware/auth");
 
 const User = require("../../models/User");
 const { REGISTERED } = require("../../models/types");
@@ -96,6 +97,7 @@ router.post(
  * */
 router.put(
   "/",
+  auth,
   [
     check("name", "Name is required")
       .not()
@@ -117,7 +119,7 @@ router.put(
         return res.status(400).json({ errors: [{ msg: "User not found" }] });
       }
 
-      user = await user.findOneAndupdate(
+      user = await User.findOneAndUpdate(
         { email },
         { $set: { name, phone_number, comm_phone, comm_email } },
         { new: true }

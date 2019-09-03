@@ -1,5 +1,5 @@
 import axios from "axios";
-import { USER_UPDATED, GET_PROFILE, PROFILE_ERROR } from "./types";
+import { AUTH_ERROR, USER_UPDATED, GET_PROFILE, PROFILE_ERROR } from "./types";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -29,7 +29,7 @@ export const getCurrentProfile = () => async dispatch => {
   }
 };
 
-export const updateUser = formData => async dispatch => {
+export const updateUser = userData => async dispatch => {
   try {
     const config = {
       headers: {
@@ -37,7 +37,7 @@ export const updateUser = formData => async dispatch => {
       }
     };
 
-    const res = await axios.put("/api/users", formData, config);
+    const res = await axios.put("/api/users", userData, config);
 
     dispatch({
       type: USER_UPDATED,
@@ -45,13 +45,13 @@ export const updateUser = formData => async dispatch => {
     });
   } catch (err) {
     dispatch({
-      type: PROFILE_ERROR,
+      type: AUTH_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
 };
 
-export const createProfile = (formData, edit = false) => async dispatch => {
+export const createProfile = (profileData, edit = false) => async dispatch => {
   try {
     const config = {
       headers: {
@@ -59,7 +59,7 @@ export const createProfile = (formData, edit = false) => async dispatch => {
       }
     };
 
-    const res = await axios.post("/api/profile", formData, config);
+    const res = await axios.post("/api/profile", profileData, config);
 
     dispatch({
       type: GET_PROFILE,

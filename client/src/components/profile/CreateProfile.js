@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { createProfile } from "../../actions/profile";
+import { updateUser, createProfile } from "../../actions/profile";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
-const CreateProfile = ({ auth: { user, loading }, createProfile }) => {
+const CreateProfile = ({
+  auth: { user, loading },
+  updateUser,
+  createProfile
+}) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,6 +27,7 @@ const CreateProfile = ({ auth: { user, loading }, createProfile }) => {
 
   useEffect(() => {
     setFormData({
+      ...formData,
       name: loading || !user || !user.name ? "" : user.name,
       email: loading || !user || !user.email ? "" : user.email
     });
@@ -54,7 +59,18 @@ const CreateProfile = ({ auth: { user, loading }, createProfile }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    createProfile(formData);
+
+    let userData = {
+      name: formData.name,
+      email: formData.email,
+      phone_number,
+      comm_sms,
+      comm_email
+    };
+    let profileData = { college, major, minor, categories, bio, want_to_meet };
+
+    updateUser(userData);
+    createProfile(profileData);
   };
 
   return (
@@ -172,8 +188,8 @@ const CreateProfile = ({ auth: { user, loading }, createProfile }) => {
 };
 
 CreateProfile.propTypes = {
-  createProfile: PropTypes.func.isRequired,
-  createSchedule: PropTypes.func.isRequired
+  updateUser: PropTypes.func.isRequired,
+  createProfile: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -182,5 +198,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { createProfile }
+  { updateUser, createProfile }
 )(withRouter(CreateProfile));

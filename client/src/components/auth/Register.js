@@ -57,7 +57,6 @@ const Register = ({ register, isAuthenticated }) => {
     let validExtensions = ["princeton.edu", "stanford.edu"];
 
     for (let ext of validExtensions) {
-      console.log(extension, ext);
       if (extension === ext) {
         return true;
       }

@@ -2,17 +2,24 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { createProfile, getCurrentProfile } from "../../../../actions/profile";
+import {
+  updateUser,
+  createProfile,
+  getCurrentProfile
+} from "../../../../actions/profile";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 const EditProfile = ({
   profile: { profile, loading: profile_loading },
   auth: { user, loading: user_loading },
+  updateUser,
   createProfile,
   getCurrentProfile
 }) => {
   const [formData, setFormData] = useState({
+    name: "",
+    email: "",
     college: "",
     major: "",
     minor: "",
@@ -20,8 +27,8 @@ const EditProfile = ({
     bio: "",
     want_to_meet: "",
     phone_number: "",
-    sms: true,
-    email: false
+    comm_sms: true,
+    comm_email: false
   });
 
   useEffect(() => {
@@ -85,7 +92,12 @@ const EditProfile = ({
 
   const onSubmit = e => {
     e.preventDefault();
-    createProfile(formData, true);
+
+    let userData = { name, email, phone_number, comm_sms, comm_email };
+    let profileData = { college, major, minor, categories, bio, want_to_meet };
+
+    updateUser(userData);
+    createProfile(profileData, true);
   };
 
   return (
@@ -225,6 +237,7 @@ const EditProfile = ({
 };
 
 EditProfile.propTypes = {
+  updateUser: PropTypes.func.isRequired,
   createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired
@@ -237,5 +250,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { createProfile, getCurrentProfile }
+  { updateUser, createProfile, getCurrentProfile }
 )(withRouter(EditProfile));
