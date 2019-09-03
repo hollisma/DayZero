@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -6,8 +6,10 @@ import { createProfile } from "../../actions/profile";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
-const CreateProfile = ({ createProfile }) => {
+const CreateProfile = ({ auth: { user, loading }, createProfile }) => {
   const [formData, setFormData] = useState({
+    name: "",
+    email: "",
     college: "",
     major: "",
     minor: "",
@@ -15,9 +17,17 @@ const CreateProfile = ({ createProfile }) => {
     bio: "",
     values: "",
     phone_number: "",
-    sms: true,
-    email: false
+    comm_sms: true,
+    comm_email: false
   });
+
+  useEffect(() => {
+    setFormData({
+      name: loading || !user || !user.name ? "" : user.name,
+      email: loading || !user || !user.email ? "" : user.email
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading]);
 
   const {
     college,
@@ -25,10 +35,10 @@ const CreateProfile = ({ createProfile }) => {
     minor,
     categories,
     bio,
-    values,
+    want_to_meet,
     phone_number,
-    sms,
-    email
+    comm_sms,
+    comm_email
   } = formData;
 
   const onChange = e => {
@@ -56,7 +66,7 @@ const CreateProfile = ({ createProfile }) => {
       </p>
       <small>* = required field</small>
       <form className="ui form" onSubmit={e => onSubmit(e)}>
-        <p>College *</p>
+        <p>* College</p>
         <div className="field">
           <input
             type="text"
@@ -67,7 +77,7 @@ const CreateProfile = ({ createProfile }) => {
             required
           />
         </div>
-        <p>Major *</p>
+        <p>* Major</p>
         <div className="field">
           <input
             type="text"
@@ -98,7 +108,9 @@ const CreateProfile = ({ createProfile }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        <p>Tell us a little about yourself</p>
+        <p>
+          Tell us a little about yourself: hobbies, interests, work, anything!
+        </p>
         <div className="field">
           <input
             type="text"
@@ -108,13 +120,15 @@ const CreateProfile = ({ createProfile }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        <p>Values</p>
+        <p>
+          In a couple sentences, describe the type of people you want to meet
+        </p>
         <div className="field">
           <input
             type="text"
-            placeholder="Values"
-            name="values"
-            value={values}
+            placeholder="I want to meet people who are yada yada yada"
+            name="want_to_meet"
+            value={want_to_meet}
             onChange={e => onChange(e)}
           />
         </div>
@@ -129,17 +143,17 @@ const CreateProfile = ({ createProfile }) => {
         <div className="ui field toggle checkbox">
           <input
             type="checkbox"
-            name="sms"
-            checked={sms}
+            name="comm_sms"
+            checked={comm_sms}
             onChange={e => onChange(e)}
           />
-          <label>SMS</label>
+          <label>Text</label>
         </div>
         <div className="ui field toggle checkbox mx-2 my">
           <input
             type="checkbox"
-            name="email"
-            checked={email}
+            name="comm_email"
+            checked={comm_email}
             onChange={e => onChange(e)}
           />
           <label>Email</label>
@@ -162,7 +176,11 @@ CreateProfile.propTypes = {
   createSchedule: PropTypes.func.isRequired
 };
 
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { createProfile }
 )(withRouter(CreateProfile));
