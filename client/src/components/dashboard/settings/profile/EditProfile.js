@@ -10,8 +10,7 @@ const EditProfile = ({
   profile: { profile, loading: profile_loading },
   auth: { user, loading: user_loading },
   createProfile,
-  getCurrentProfile,
-  history
+  getCurrentProfile
 }) => {
   const [formData, setFormData] = useState({
     college: "",
@@ -86,7 +85,7 @@ const EditProfile = ({
 
   const onSubmit = e => {
     e.preventDefault();
-    createProfile(formData, history, true);
+    createProfile(formData, true);
   };
 
   return (

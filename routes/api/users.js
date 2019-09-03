@@ -94,7 +94,7 @@ router.post(
  * @desc    Update user
  * @access  Public
  * */
-router.post(
+router.put(
   "/",
   [
     check("name", "Name is required")

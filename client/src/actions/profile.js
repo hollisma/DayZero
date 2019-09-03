@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_PROFILE, PROFILE_ERROR } from "./types";
+import { USER_UPDATED, GET_PROFILE, PROFILE_ERROR } from "./types";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -25,6 +25,28 @@ export const getCurrentProfile = () => async dispatch => {
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, state: err.response.status }
+    });
+  }
+};
+
+export const updateUser = formData => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+
+    const res = await axios.put("/api/users", formData, config);
+
+    dispatch({
+      type: USER_UPDATED,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
 };
@@ -63,14 +85,6 @@ export const createProfile = (formData, edit = false) => async dispatch => {
       title: msg
     });
   } catch (err) {
-    const errors = err.response.data.errors;
-
-    if (errors) {
-      errors.forEach(() =>
-        MySwal.fire({ title: "Passwords do not match", type: "error" })
-      );
-    }
-
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
