@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import moment from "moment";
 import { connect } from "react-redux";
 import { changeSchedule } from "../../../../actions/schedule";
-import { TIME1, TIME2, TIME3 } from "../../../../actions/types";
+import { TIME1, TIME2, TIME3 } from "../../../../utils/consts";
 
 import "./Calendar.css";
 

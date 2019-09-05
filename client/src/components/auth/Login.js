@@ -4,7 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import { login } from "../../actions/auth";
 import PropTypes from "prop-types";
 import { getDefaultRoute } from "../routing/default_types";
-import { GUEST } from "../../actions/types";
+import { GUEST } from "../../utils/consts";
 import ExampleProfile from "../profile/ExampleProfile";
 import GFLogin from "./GFLogins";
 

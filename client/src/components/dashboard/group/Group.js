@@ -11,7 +11,7 @@ import {
   SCHEDULED,
   GROUPED,
   MET
-} from "../../../actions/types";
+} from "../../../utils/consts";
 
 import "./Group.css";
 

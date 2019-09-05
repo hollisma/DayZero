@@ -15,7 +15,7 @@ import store from "./store";
 import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
 // User types
-import { REGISTERED, PROFILED, SCHEDULED, GROUPED, MET } from "./actions/types";
+import { REGISTERED, PROFILED, SCHEDULED, GROUPED, MET } from "./utils/consts";
 
 import "./App.css";
 

@@ -4,7 +4,7 @@ import {
   SCHEDULED,
   GROUPED,
   MET
-} from "../../actions/types";
+} from "../../utils/consts";
 
 const GUEST_DEFAULT = "/login";
 const REGISTERED_DEFAULT = "/create-profile";

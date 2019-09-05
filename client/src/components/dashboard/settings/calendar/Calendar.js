@@ -6,7 +6,7 @@ import {
   createSchedule,
   getCurrentSchedule
 } from "../../../../actions/schedule";
-import { PROFILED, SCHEDULED } from "../../../../actions/types";
+import { PROFILED, SCHEDULED } from "../../../../utils/consts";
 
 import "./Calendar.css";
 

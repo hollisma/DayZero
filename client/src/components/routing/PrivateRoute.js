@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getDefaultRoute } from "../routing/default_types";
-import { GUEST } from "../../actions/types";
+import { GUEST } from "../../utils/consts";
 
 const PrivateRoute = ({
   component: Component,
