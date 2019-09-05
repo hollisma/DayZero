@@ -9,8 +9,7 @@ import {
 } from "../../actions/profile";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-
-const allCategories = ["Technology", "Startups", "Food"];
+import { CATEGORIES } from "../../utils/consts";
 
 const EditProfile = ({
   profile: { profile, loading: profile_loading },
@@ -102,10 +101,14 @@ const EditProfile = ({
     createProfile(profileData, true);
   };
 
-  const categoryButtons = allCategories.map(cat => {
+  const categoryButtons = CATEGORIES.map(cat => {
     return (
       <button
-        className={"ui green button " + (!categories.includes(cat) && "basic")}
+        className={
+          "ui green button category-button " +
+          (categories.includes(cat) ? "" : "basic")
+        }
+        style={{ margin: "5px" }}
         onClick={e => {
           e.preventDefault();
           if (categories.includes(cat)) {
