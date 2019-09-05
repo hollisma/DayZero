@@ -24,11 +24,11 @@ app.use(cors(corsOption));
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.get("/*", function (req, res) {
-    res.sendFile(path.join(__dirname, "client/public/index.html"), function (err) {
-	if (err) {
-	    res.status(500).send(err);
-	}
-    };
+  res.sendFile(path.join(__dirname, "client/public/index.html"), function (err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  })
 });
 
 // Define routes
