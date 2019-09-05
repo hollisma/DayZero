@@ -29,23 +29,23 @@ const Group = ({
     getMembersProfiles(members);
   }
 
-  let memberComponents =
-    !loading && !membersLoading ? (
-      membersData.map((m, i) => (
-        <GroupMember
-          member_id={m.user ? m.user._id : "-1"}
-          name={m.user ? m.user.name : ""}
-          avatar={
-            m.user ? m.user.avatar : "https://i.stack.imgur.com/dr5qp.jpg"
-          }
-          major={m.major}
-          bio={m.bio}
-          key={i}
-        />
-      ))
-    ) : (
-      <Spinner />
-    );
+  // let memberComponents =
+  //   !loading && !membersLoading ? (
+  //     membersData.map((m, i) => (
+  //       <GroupMember
+  //         member_id={m.user ? m.user._id : "-1"}
+  //         name={m.user ? m.user.name : ""}
+  //         avatar={
+  //           m.user ? m.user.avatar : "https://i.stack.imgur.com/dr5qp.jpg"
+  //         }
+  //         major={m.major}
+  //         bio={m.bio}
+  //         key={i}
+  //       />
+  //     ))
+  //   ) : (
+  //     <Spinner />
+  //   );
 
   const userType = user ? user.user_type : GUEST;
 
@@ -79,7 +79,68 @@ const Group = ({
       ) : (
         <p>Have a question? Contant us at dayzero@gmail.com</p>
       )}
-      <div className="group-container">{memberComponents}</div>
+      {!loading && !membersLoading ? (
+        <div className="group-container ui equal width grid">
+          <div className="row">
+            <div className="column group-member-flex">
+              <GroupMember
+                member_id={membersData[0].user ? membersData[0].user._id : "-1"}
+                name={membersData[0].user ? membersData[0].user.name : ""}
+                avatar={
+                  membersData[0].user
+                    ? membersData[0].user.avatar
+                    : "https://i.stack.imgur.com/dr5qp.jpg"
+                }
+                major={membersData[0].major}
+                bio={membersData[0].bio}
+              />
+            </div>
+            <div className="column group-member-flex">
+              <GroupMember
+                member_id={membersData[1].user ? membersData[1].user._id : "-1"}
+                name={membersData[1].user ? membersData[1].user.name : ""}
+                avatar={
+                  membersData[1].user
+                    ? membersData[1].user.avatar
+                    : "https://i.stack.imgur.com/dr5qp.jpg"
+                }
+                major={membersData[1].major}
+                bio={membersData[1].bio}
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="column group-member-flex">
+              <GroupMember
+                member_id={membersData[2].user ? membersData[2].user._id : "-1"}
+                name={membersData[2].user ? membersData[2].user.name : ""}
+                avatar={
+                  membersData[2].user
+                    ? membersData[2].user.avatar
+                    : "https://i.stack.imgur.com/dr5qp.jpg"
+                }
+                major={membersData[2].major}
+                bio={membersData[2].bio}
+              />
+            </div>
+            <div className="column group-member-flex">
+              <GroupMember
+                member_id={membersData[3].user ? membersData[3].user._id : "-1"}
+                name={membersData[3].user ? membersData[3].user.name : ""}
+                avatar={
+                  membersData[3].user
+                    ? membersData[3].user.avatar
+                    : "https://i.stack.imgur.com/dr5qp.jpg"
+                }
+                major={membersData[3].major}
+                bio={membersData[3].bio}
+              />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <Spinner />
+      )}
     </div>
   );
 };

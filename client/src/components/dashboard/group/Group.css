@@ -1,6 +1,7 @@
 .group {
-  margin: 100px;
+  margin: 100px 0;
   padding: 50px 0px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,6 +11,7 @@
 
 .group-container {
   width: 100%;
+  max-width: 1200px;
   height: 100%;
   /* background-color: blue; */
   display: flex;
@@ -25,7 +27,8 @@
   /* padding: 10px; */
   /* background-color: red; */
   margin: 30px 15px;
-  min-width: 500px;
+  min-width: 200px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,4 +43,10 @@
 
 .group-member-info {
   margin: 5px;
+}
+
+.group-member-flex {
+  display: flex !important;
+  justify-content: center;
+  align-items: flex-start;
 }
