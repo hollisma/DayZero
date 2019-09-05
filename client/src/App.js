@@ -2,20 +2,12 @@ import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/landing/Landing";
-import Register from "./components/auth/Register";
-import Login from "./components/auth/Login";
-import Dashboard from "./components/dashboard/Dashboard";
-// import Profile from "./components/profile/Profile";
-import CreateProfile from "./components/profile/CreateProfile";
-import Feedback from "./components/feedback/Feedback";
-import PrivateRoute from "./components/routing/PrivateRoute";
+import Routes from "./components/routing/Routes";
 // Redux
 import { Provider } from "react-redux";
 import store from "./store";
 import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
-// User types
-import { REGISTERED, PROFILED, SCHEDULED, GROUPED, MET } from "./utils/consts";
 
 import "./App.css";
 
@@ -33,31 +25,10 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar id="navbar" />
-          <Route exact path="/" component={Landing} />
-          {/* <section> */}
           <Switch>
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-            <PrivateRoute
-              exact
-              path="/create-profile"
-              access={[REGISTERED]}
-              component={CreateProfile}
-            />
-            <PrivateRoute
-              exact
-              path="/dashboard"
-              access={[PROFILED, SCHEDULED, GROUPED, MET]}
-              component={Dashboard}
-            />
-            <PrivateRoute
-              exact
-              path="/feedback"
-              access={[MET]}
-              component={Feedback}
-            />
+            <Route exact path="/" component={Landing} />
+            <Route component={Routes} />
           </Switch>
-          {/* </section> */}
         </Fragment>
       </Router>
     </Provider>
