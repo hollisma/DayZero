@@ -10,7 +10,7 @@ const GroupMember = ({ member_id, name, avatar, major, bio }) => {
         <div className="group-member-info">
           <b>{name}</b> is studying <b>{major}</b>.
         </div>
-        <div>Here's a bit about them: {bio}</div>
+        {bio ? <div>Here's a bit about them: {bio}</div> : null}
       </span>
     );
   }

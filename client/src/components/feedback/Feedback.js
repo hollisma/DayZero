@@ -92,7 +92,7 @@ const Feedback = ({
     m.user && m.user.name !== user.name ? (
       <ReceiverFeedback
         name={m.user.name}
-        email={m.user.email}
+        avatar={m.user.avatar}
         setStateCallback={setStates[count]}
         rating={states[count].rating}
         binary={states[count++].binary}
