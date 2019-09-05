@@ -64,14 +64,12 @@ router.post(
     // Build profile object
     const profileFields = {};
     profileFields.user = req.user.id;
-    profileFields.college = college ? college : null;
+    profileFields.college = college || null;
     profileFields.major = major ? major.split(",").map(maj => maj.trim()) : [];
     profileFields.minor = minor ? minor.split(",").map(min => min.trim()) : [];
-    profileFields.categories = categories
-      ? categories.split(",").map(category => category.trim())
-      : [];
-    profileFields.bio = bio ? bio : null;
-    profileFields.want_to_meet = want_to_meet ? want_to_meet : null;
+    profileFields.categories = categories || [];
+    profileFields.bio = bio || null;
+    profileFields.want_to_meet = want_to_meet || null;
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });

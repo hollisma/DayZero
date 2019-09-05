@@ -6,6 +6,8 @@ import { updateUser, createProfile } from "../../actions/profile";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
+const allCategories = ["Technology", "Startups", "Food"];
+
 const CreateProfile = ({
   auth: { user, loading },
   updateUser,
@@ -17,7 +19,7 @@ const CreateProfile = ({
     college: "",
     major: "",
     minor: "",
-    categories: "",
+    categories: [],
     bio: "",
     values: "",
     phone_number: "",
@@ -79,6 +81,35 @@ const CreateProfile = ({
     createProfile(profileData);
   };
 
+  const categoryButtons = allCategories.map(cat => {
+    return (
+      <button
+        className={"ui green button " + (!categories.includes(cat) && "basic")}
+        onClick={e => {
+          e.preventDefault();
+          if (categories.includes(cat)) {
+            let temp = categories;
+            temp.splice(categories.indexOf(cat), 1);
+            setFormData({
+              ...formData,
+              categories: temp
+            });
+          } else {
+            let temp = categories;
+            temp.push(cat);
+            setFormData({
+              ...formData,
+              categories: temp
+            });
+          }
+        }}
+        key={cat}
+      >
+        {cat}
+      </button>
+    );
+  });
+
   return (
     <div className="ui top-container">
       <h1 className="larger text-primary">Create Your Profile</h1>
@@ -131,15 +162,7 @@ const CreateProfile = ({
         <div className="row">
           <div className="column">
             <p>Categories you're interested in</p>
-            <div className="field">
-              <input
-                type="text"
-                placeholder="Categories"
-                name="categories"
-                value={categories}
-                onChange={e => onChange(e)}
-              />
-            </div>
+            <div className="field">{categoryButtons}</div>
           </div>
         </div>
         <div className="row">

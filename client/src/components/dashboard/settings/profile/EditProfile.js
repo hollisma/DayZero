@@ -10,6 +10,8 @@ import {
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
+const allCategories = ["Technology", "Startups", "Food"];
+
 const EditProfile = ({
   profile: { profile, loading: profile_loading },
   auth: { user, loading: user_loading },
@@ -23,7 +25,7 @@ const EditProfile = ({
     college: "",
     major: "",
     minor: "",
-    categories: "",
+    categories: [],
     bio: "",
     want_to_meet: "",
     phone_number: "",
@@ -49,8 +51,8 @@ const EditProfile = ({
           : profile.minor.join(", "),
       categories:
         profile_loading || !profile || !profile.categories
-          ? ""
-          : profile.categories.join(", "),
+          ? []
+          : profile.categories,
       bio: profile_loading || !profile || !profile.bio ? "" : profile.bio,
       want_to_meet:
         profile_loading || !profile || !profile.want_to_meet
@@ -99,6 +101,35 @@ const EditProfile = ({
     updateUser(userData);
     createProfile(profileData, true);
   };
+
+  const categoryButtons = allCategories.map(cat => {
+    return (
+      <button
+        className={"ui green button " + (!categories.includes(cat) && "basic")}
+        onClick={e => {
+          e.preventDefault();
+          if (categories.includes(cat)) {
+            let temp = categories;
+            temp.splice(categories.indexOf(cat), 1);
+            setFormData({
+              ...formData,
+              categories: temp
+            });
+          } else {
+            let temp = categories;
+            temp.push(cat);
+            setFormData({
+              ...formData,
+              categories: temp
+            });
+          }
+        }}
+        key={cat}
+      >
+        {cat}
+      </button>
+    );
+  });
 
   return (
     <div className="ui top-container">
@@ -180,15 +211,7 @@ const EditProfile = ({
         <div className="row">
           <div className="column">
             <p>Categories you're interested in</p>
-            <div className="field">
-              <input
-                type="text"
-                placeholder="Categories"
-                name="categories"
-                value={categories}
-                onChange={e => onChange(e)}
-              />
-            </div>
+            <div className="field">{categoryButtons}</div>
           </div>
         </div>
         <div className="row">
