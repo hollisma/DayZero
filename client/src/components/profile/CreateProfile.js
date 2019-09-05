@@ -6,6 +6,8 @@ import { updateUser, createProfile } from "../../actions/profile";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { CATEGORIES } from "../../utils/consts";
+import AvatarEdit from "react-avatar-edit";
+import Avatar from "react-avatar";
 
 const CreateProfile = ({
   auth: { user, loading },
@@ -15,6 +17,7 @@ const CreateProfile = ({
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    avatar: "",
     college: "",
     major: "",
     minor: "",
@@ -31,6 +34,7 @@ const CreateProfile = ({
       ...formData,
       name: loading || !user || !user.name ? "" : user.name,
       email: loading || !user || !user.email ? "" : user.email,
+      avatar: loading || !user || !user.avatar ? "" : user.avatar,
       college:
         loading || !user || !user.email
           ? ""
@@ -42,6 +46,7 @@ const CreateProfile = ({
   }, [loading]);
 
   const {
+    avatar,
     college,
     major,
     minor,
@@ -70,6 +75,7 @@ const CreateProfile = ({
     let userData = {
       name: formData.name,
       email: formData.email,
+      avatar,
       phone_number,
       comm_sms,
       comm_email
@@ -122,6 +128,36 @@ const CreateProfile = ({
       </p>
       <small>* = required field</small>
       <form className="ui form equal width grid" onSubmit={e => onSubmit(e)}>
+        <div className="row">
+          <div className="column">
+            <p>Current Profile Picture</p>
+            <Avatar
+              className="avatar"
+              size="100"
+              round
+              src={user && user.avatar}
+            />
+          </div>
+          <div className="column">
+            <AvatarEdit
+              width={200}
+              height={150}
+              onCrop={pic => {
+                setFormData({
+                  ...formData,
+                  avatar: pic
+                });
+              }}
+              onClose={() => {
+                setFormData({
+                  ...formData,
+                  avatar: user && user.avatar
+                });
+              }}
+              src={avatar}
+            />
+          </div>
+        </div>
         <div className="row">
           <div className="column">
             <p>* College</p>

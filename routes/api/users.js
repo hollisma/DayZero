@@ -55,6 +55,7 @@ router.post(
       user = new User({
         name,
         email,
+        avatar: "https://i.stack.imgur.com/dr5qp.jpg",
         password,
         user_type: REGISTERED
         // avatar
@@ -110,7 +111,14 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, phone_number, comm_phone, comm_email } = req.body;
+    const {
+      name,
+      email,
+      avatar,
+      phone_number,
+      comm_phone,
+      comm_email
+    } = req.body;
 
     try {
       // Check if user already exists
@@ -121,7 +129,7 @@ router.put(
 
       user = await User.findOneAndUpdate(
         { email },
-        { $set: { name, phone_number, comm_phone, comm_email } },
+        { $set: { name, avatar, phone_number, comm_phone, comm_email } },
         { new: true }
       );
 

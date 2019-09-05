@@ -11,6 +11,9 @@ const UserSchema = new mongoose.Schema({
     require: true,
     unique: true
   },
+  avatar: {
+    type: String
+  },
   password: {
     type: String,
     require: true

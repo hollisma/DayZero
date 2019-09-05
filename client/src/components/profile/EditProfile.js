@@ -10,6 +10,8 @@ import {
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { CATEGORIES } from "../../utils/consts";
+import AvatarEdit from "react-avatar-edit";
+import Avatar from "react-avatar";
 
 const EditProfile = ({
   profile: { profile, loading: profile_loading },
@@ -21,6 +23,7 @@ const EditProfile = ({
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    avatar: "",
     college: "",
     major: "",
     minor: "",
@@ -38,6 +41,7 @@ const EditProfile = ({
     setFormData({
       name: user_loading || !user || !user.name ? "" : user.name,
       email: user_loading || !user || !user.email ? "" : user.email,
+      avatar: user_loading || !user || !user.avatar ? "" : user.avatar,
       college:
         profile_loading || !profile || !profile.college ? "" : profile.college,
       major:
@@ -69,6 +73,7 @@ const EditProfile = ({
   const {
     name,
     email,
+    avatar,
     college,
     major,
     minor,
@@ -94,7 +99,7 @@ const EditProfile = ({
   const onSubmit = e => {
     e.preventDefault();
 
-    let userData = { name, email, phone_number, comm_sms, comm_email };
+    let userData = { name, email, avatar, phone_number, comm_sms, comm_email };
     let profileData = { college, major, minor, categories, bio, want_to_meet };
 
     updateUser(userData);
@@ -156,8 +161,6 @@ const EditProfile = ({
                 required
               />
             </div>
-          </div>
-          <div className="column">
             <p>Email (cannot change)</p>
             <div className="field">
               <input
@@ -169,6 +172,46 @@ const EditProfile = ({
                 required
               />
             </div>
+          </div>
+          <div className="column">
+            <p>Current Profile Picture</p>
+            <Avatar
+              className="avatar"
+              size="100"
+              round
+              src={user && user.avatar}
+            />
+            <button
+              style={{ margin: "20px" }}
+              className="ui button"
+              onClick={e => {
+                setFormData({
+                  ...formData,
+                  avatar: "https://i.stack.imgur.com/dr5qp.jpg"
+                });
+              }}
+            >
+              Reset
+            </button>
+          </div>
+          <div className="column">
+            <AvatarEdit
+              width={200}
+              height={150}
+              onCrop={pic => {
+                setFormData({
+                  ...formData,
+                  avatar: pic
+                });
+              }}
+              onClose={() => {
+                setFormData({
+                  ...formData,
+                  avatar: user && user.avatar
+                });
+              }}
+              src={avatar}
+            />
           </div>
         </div>
         <div className="row">

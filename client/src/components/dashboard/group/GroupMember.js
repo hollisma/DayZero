@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Avatar from "react-avatar";
 
-const GroupMember = ({ member_id, name, email, major, bio }) => {
+const GroupMember = ({ member_id, name, avatar, major, bio }) => {
   let res = "";
   if (member_id !== "-1") {
     res = (
@@ -17,40 +17,7 @@ const GroupMember = ({ member_id, name, email, major, bio }) => {
 
   return (
     <div className="group-member">
-      <Avatar
-        email={email}
-        name={name}
-        size="100"
-        round
-        className="avatar"
-        // color={
-        //   "#" +
-        //   (function co(lor) {
-        //     return (lor += [
-        //       0,
-        //       1,
-        //       2,
-        //       3,
-        //       4,
-        //       5,
-        //       6,
-        //       7,
-        //       8,
-        //       9,
-        //       "a",
-        //       "b",
-        //       "c",
-        //       "d",
-        //       "e",
-        //       "f"
-        //     ][Math.floor(Math.random() * 16)]) && lor.length === 6
-        //       ? lor
-        //       : co(lor);
-        //   })("")
-        // }
-        color="#ffffff"
-        src="https://i.stack.imgur.com/dr5qp.jpg"
-      />
+      <Avatar className="avatar" size="100" round src={avatar} />
       {res || "Searching..."}
     </div>
   );
