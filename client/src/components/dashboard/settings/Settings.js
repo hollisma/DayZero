@@ -1,5 +1,5 @@
 import React from "react";
-import EditProfile from "./profile/EditProfile";
+import EditProfile from "../../profile/EditProfile";
 import Calendar from "./calendar/Calendar";
 
 const Settings = () => {

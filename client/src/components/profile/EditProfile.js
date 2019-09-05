@@ -6,7 +6,7 @@ import {
   updateUser,
   createProfile,
   getCurrentProfile
-} from "../../../../actions/profile";
+} from "../../actions/profile";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
