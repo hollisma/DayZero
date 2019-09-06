@@ -11,6 +11,9 @@ connectDB();
 // Init middleware
 app.use(express.json({ extended: false }));
 app.use(express.static(path.join(__dirname, "client/build")));
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "client/build"));
+});
 
 var corsOption = {
   origin: true,
