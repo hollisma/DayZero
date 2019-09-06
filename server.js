@@ -11,9 +11,6 @@ connectDB();
 // Init middleware
 app.use(express.json({ extended: false }));
 app.use(express.static(path.join(__dirname, "client/build")));
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "client/build"));
-});
 
 var corsOption = {
   origin: true,
@@ -41,6 +38,10 @@ app.use("/api/profile", require("./routes/api/profile.js"));
 app.use("/api/schedule", require("./routes/api/schedule.js"));
 app.use("/api/groups", require("./routes/api/groups.js"));
 app.use("/api/feedback", require("./routes/api/feedback.js"));
+
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
 
 // Looks at environment variables for port. Useful when deploying to heroku
 const PORT = process.env.PORT || 5000;
