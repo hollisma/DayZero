@@ -75,7 +75,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <h1 className="item">
         <Link to={isAuthenticated ? "/dashboard#" : "/#"}>
           <img
-            src={require("../../img/Logo.png")}
+            src={require("../../img/logo.svg")}
             className="img-logo"
             alt="Day Zero"
           />
