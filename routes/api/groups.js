@@ -147,14 +147,16 @@ router.put("/admin/:group_id", admin, async (req, res) => {
   try {
     var group = await Group.findById(req.params.group_id);
 
+    if (!group.active) {
+      return res.status(400).json({ msg: "Group already met" });
+    }
+
     // Build group object
     const groupFields = {};
     // Add members nonsafely
-    var newMembers = [];
     groupFields.members = group.members;
     members.forEach(member => {
       if (!groupFields.members.includes(member)) {
-        newMembers.push(member);
         groupFields.members.push(member);
       }
     });
@@ -163,19 +165,22 @@ router.put("/admin/:group_id", admin, async (req, res) => {
     }
     // Add time & active
     groupFields.time = time ? time : group.time;
-    groupFields.active = typeof active == typeof true ? active : group.active;
+    groupFields.active = active != null ? active : group.active;
 
     // Update group
-    await Group.findByIdAndUpdate(req.params.group_id, {
-      $set: groupFields
-    });
+    group = await Group.findByIdAndUpdate(
+      req.params.group_id,
+      { $set: groupFields },
+      { new: true }
+    );
 
     // Add group to user
-    newMembers.forEach(async member => {
-      await User.findByIdAndUpdate(member, { group: req.params.group_id });
+    await members.forEach(async member => {
+      await User.findByIdAndUpdate(member, {
+        group: req.params.group_id,
+        user_type: GROUPED
+      });
     });
-
-    group = await Group.findById(req.params.group_id);
 
     res.json(group);
   } catch (err) {
