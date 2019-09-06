@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require("express-validator/check");
 const auth = require("../../middleware/auth");
+const admin = require("../../middleware/admin");
 
 // Models
 const Profile = require("../../models/Profile");
@@ -103,17 +104,17 @@ router.post(
 );
 
 /**
- * @route   GET api/profile
+ * @route   GET api/profile/admin
  * @desc    Get all profiles
- * @access  Public
+ * @access  Admin
  * */
-router.get("/", async (req, res) => {
+router.get("/admin", admin, async (req, res) => {
   try {
     const profiles = await Profile.find().populate("user", [
       "name",
       "email",
-      "avatar",
-      "phone_number"
+      "phone_number",
+      "user_type"
     ]);
     res.json(profiles);
   } catch (err) {
