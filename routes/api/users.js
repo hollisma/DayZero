@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const config = require("config");
 const { check, validationResult } = require("express-validator/check");
 const auth = require("../../middleware/auth");
+const admin = require("../../middleware/admin");
 
 const User = require("../../models/User");
 const { REGISTERED } = require("../../models/types");
@@ -140,5 +141,25 @@ router.put(
     }
   }
 );
+
+/**
+ * @route   GET api/users/admin
+ * @desc    Get all users
+ * @access  Admin
+ * */
+router.get("/admin", admin, async (req, res) => {
+  try {
+    const users = await User.find();
+    for (let u of users) {
+      u.profile = await Profile.findOne({ user: u.id });
+      u.schedule = await Schedule.findOne({ user: u.id });
+    }
+
+    res.json(users);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
 
 module.exports = router;
