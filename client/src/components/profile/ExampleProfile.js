@@ -1,35 +1,36 @@
-import React from "react";
+import React from 'react';
 
-import "./profile.css";
+import './profile.css';
 
 const ExampleProfile = ({ firstName }) => {
   return (
     <div>
-      {firstName === "max" ? (
-        <div className="outer">
+      {firstName === 'dan' ? (
+        <div className='lower'>
           <img
-            src={require("../../img/max.png")}
-            alt="Max Kim"
-            className="circular-pic"
+            src={require('../../img/dan.svg')}
+            alt='Dan Kim'
+            className='circular-pic'
           />
-
-          <div className="name">Max Kim</div>
-          <div className="about">
-            Max is the founder of a virtual reality gaming company and wants to
-            meet passionate entrepreneurs.
+          <div className='name'>Dan Kim</div>
+          <div className='about dan'>
+            Dan aspires to be the best cellist of this generation but enjoys
+            music of all kinds, having produced multiple rap albums as well. He
+            wants to meet other icons at Princeton who enjoy creating art.
           </div>
         </div>
       ) : (
-        <div className="outer">
+        <div className='upper'>
           <img
-            src={require("../../img/carina.png")}
-            alt="Carina Lewis"
-            className="circular-pic carina"
+            src={require('../../img/carina.svg')}
+            alt='Carina Lewis'
+            className='circular-pic'
           />
-          <div className="name carina">Carina Lewis</div>
-          <div className="about">
-            Carina is studying Philosophy and wants to meet people who are
-            interested in foreign policy and moral philosophy!
+          <div className='name carina'>Carina Lewis</div>
+          <div className='about'>
+            Carina is a CS junior and founder of three companies. She recently
+            fell in love with yoga and wants to meet people who are as
+            passionate about mindfulness and tech as she is.
           </div>
         </div>
       )}

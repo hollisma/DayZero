@@ -1,26 +1,28 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import Login from '../auth/Login';
+import { Link } from 'react-router-dom';
 
 const Section1 = () => {
   return (
-    <div id="home" className="chunk">
-      <div className="ui vertical stripe segment">
-        <h1>Meeting interesting people just got a whole lot easier</h1>
-        <p>Now Available At: </p>
-        <div className="images">
+    <div id='home' className='chunk'>
+      <div className='ui vertical stripe segment'>
+        <h2>Sixty seconds to register.</h2>
+        <h2>Grab meals with people who share your passions.</h2>
+        <p>Only Available At: </p>
+        <div className='images'>
           <img
-            src={require("../../img/stanford")}
-            className="stanford"
-            alt=""
+            src={require('../../img/stanford.svg')}
+            className='stanford'
+            alt=''
           />
           <img
-            src={require("../../img/princeton")}
-            className="princeton"
-            alt=""
+            src={require('../../img/princeton.svg')}
+            className='princeton'
+            alt=''
           />
         </div>
-        <button className="ui button basic blue big">
-          <Link to="/register">FIND YOUR DAY ZEROS</Link>
+        <button className='ui button basic blue big'>
+          <Link to='/register'>FIND YOUR DAY ZEROS</Link>
         </button>
       </div>
     </div>

@@ -25,7 +25,7 @@
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "mongodb": "^3.3.0-beta2",
-    "mongoose": "^5.6.5",
+    "mongoose": "^5.6.13",
     "passport": "^0.4.0",
     "passport-facebook-token": "^3.3.0",
     "passport-google-token": "^0.1.2",
@@ -53,7 +53,7 @@
     "url": "https://github.com/hollisma/DayZero/issues"
   },
   "devDependencies": {
-    "concurrently": "^4.1.1",
-    "nodemon": "^1.19.1"
+    "concurrently": "^4.1.2",
+    "nodemon": "^1.19.2"
   }
 }
