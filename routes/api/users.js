@@ -8,6 +8,8 @@ const auth = require("../../middleware/auth");
 const admin = require("../../middleware/admin");
 
 const User = require("../../models/User");
+const Profile = require("../../models/Profile");
+const Schedule = require("../../models/Schedule");
 const { REGISTERED } = require("../../models/types");
 
 /**
@@ -149,12 +151,23 @@ router.put(
  * */
 router.get("/admin", admin, async (req, res) => {
   try {
-    const users = await User.find();
-    for (let u of users) {
-      u.profile = await Profile.findOne({ user: u.id });
-      u.schedule = await Schedule.findOne({ user: u.id });
-    }
+    let users = await User.find().select("-avatar");
+    // let getUsers = users.map(async u => {
+    //   u.profile = await Profile.findOne({ user: u.id });
+    //   u.schedule = await Schedule.findOne({ user: u.id });
+    //   console.log(u);
+    //   return u;
+    // });
 
+    // users = await Promise.all(getUsers);
+
+    // for (let u of users) {
+    //   u.profile = await Profile.findOne({ user: u.id });
+    //   u.schedule = await Schedule.findOne({ user: u.id });
+    // }
+
+    // console.log(users);
+    // console.log(getUsers);
     res.json(users);
   } catch (err) {
     console.error(err.message);
