@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const auth = require("../../middleware/auth");
+const admin = require("../../middleware/admin");
 
 // Models
 const Schedule = require("../../models/Schedule");
@@ -88,6 +89,21 @@ router.get("/user/:user_id", async (req, res) => {
     if (err.kind == "ObjectId") {
       return res.status(400).json({ msg: "Schedule not found" });
     }
+    res.status(500).send("Server Error");
+  }
+});
+
+/**
+ * @route   GET api/schedule/admin
+ * @desc    Get all users
+ * @access  Admin
+ * */
+router.get("/admin", admin, async (req, res) => {
+  try {
+    let schedules = await Schedule.find();
+    res.json(schedules);
+  } catch (err) {
+    console.error(err.message);
     res.status(500).send("Server Error");
   }
 });
