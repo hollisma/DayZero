@@ -95,7 +95,7 @@ router.get("/user/:user_id", async (req, res) => {
 
 /**
  * @route   GET api/schedule/admin
- * @desc    Get all users
+ * @desc    Get all schedules
  * @access  Admin
  * */
 router.get("/admin", admin, async (req, res) => {

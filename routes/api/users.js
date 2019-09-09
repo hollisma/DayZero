@@ -159,15 +159,15 @@ router.get("/admin", admin, async (req, res) => {
     //   return u;
     // });
 
-    // users = await Promise.all(getUsers);
+    // const response = await Promise.all(getUsers);
 
     // for (let u of users) {
     //   u.profile = await Profile.findOne({ user: u.id });
     //   u.schedule = await Schedule.findOne({ user: u.id });
     // }
 
-    // console.log(users);
-    // console.log(getUsers);
+    // console.log("big poopy butt");
+    // console.log(response);
     res.json(users);
   } catch (err) {
     console.error(err.message);
