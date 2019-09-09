@@ -32,15 +32,24 @@ def categories(id):
 def times(id):
   return usersDict[id]['schedule']['times']
 
-def similarities(id1, id2): 
+def sharedCategories(id1, id2): 
   c1 = categories(id1)
   c2 = categories(id2)
   common = []
-  for c in c2: 
-    if c in c1: 
+  for c in c1: 
+    if c in c2: 
+      common.append(c)
+  return common
+
+def sharedTimes(id1, id2): 
+  t1 = times(id1)
+  t2 = times(id2)
+  common = []
+  for c in t1: 
+    if c in t2: 
       common.append(c)
   return common
 
 ids = list(usersDict.keys())
 
-print(similarities(ids[0], ids[1]))
+print(sharedTimes(ids[0], ids[1]))
