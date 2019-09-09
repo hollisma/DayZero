@@ -69,5 +69,5 @@ for id1 in ids:
       if numSharedCategories >= k_matching_threshold:
         match(id1, id2)
       else: 
-        totalSharedCategories[numSharedCategories] = 1 if !totalSharedCategories[numSharedCategories] else totalSharedCategories[numSharedCategories] + 1
+        totalSharedCategories[numSharedCategories] = 1 if numSharedCategories not in list(totalSharedCategories.keys()) else totalSharedCategories[numSharedCategories] + 1
         
