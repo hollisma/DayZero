@@ -78,7 +78,7 @@ const Register = ({ register, isAuthenticated }) => {
         <ExampleProfile firstName='dan' />
       </div>
       <div className='right-container'>
-        <h1 className='larger text-primary'>Sign Up</h1>
+        <p className='register title'>Find your day zeros in 60 seconds.</p>
         <GFLogin />
         <p className='lead my-2'>
           <i className='fas fa-user' /> Create Your Account

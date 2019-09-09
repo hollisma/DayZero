@@ -1,3 +1,39 @@
+.bigger-top-container {
+  display: flex;
+  margin: 175px 140px !important;
+  max-width: none !important;
+  justify-content: center !important;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  /* border: 5px solid #44444499; */
+  width: 60%;
+}
+.left-container > h3 {
+  margin: 5px;
+  font-size: 28px;
+  font-weight: 100;
+}
+.left-container > h3:last-of-type {
+  margin-bottom: 20px;
+}
+
+.right-container {
+  border: 5px solid #44444499;
+  padding: 40px;
+  min-width: 200px;
+  width: 400px;
+}
+
+.register.title {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+}
 
 .landing {
   position: relative;
@@ -14,9 +50,13 @@
   justify-content: center;
   text-align: center;
 }
-.landing .blu {
-  background: lightblue;
+.landing .light.yellow {
+  background: #fff7e7;
 }
+.landing .dark.yellow {
+  background: #fff0d2;
+}
+
 .landing h1 {
   font-size: 3rem;
   padding-bottom: 0rem;
@@ -31,25 +71,30 @@
 }
 
 /* First section */
-#home h1 {
+h1 {
   margin-top: 6rem;
 }
-#home .images {
+.images {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#home .stanford {
+.available {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.stanford {
   position: relative;
   margin: 0px;
-  height: 16rem;
-  width: 25rem;
+  height: 25%;
+  width: 25%;
 }
-#home .princeton {
+.princeton {
   position: relative;
   top: -7px;
-  width: 25rem;
-  height: 7rem;
+  width: 25%;
+  height: 25%;
 }
 
 /* Second section */
@@ -88,10 +133,20 @@
 }
 
 /* Third section */
-#faq h2 {
+#faq h1 {
+  position: relative;
   font-size: 2rem !important;
+  padding: 1rem;
+  right: 500px;
+  top: 300px;
+}
+#faq h2 {
+  font-size: 1.5rem !important;
   padding: 1rem;
 }
 #faq p {
   margin-bottom: 4rem;
+}
+.question {
+  font-style: italic;
 }

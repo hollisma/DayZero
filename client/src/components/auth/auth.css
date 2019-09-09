@@ -28,3 +28,9 @@
   min-width: 200px;
   width: 400px;
 }
+
+.register.title {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+}
