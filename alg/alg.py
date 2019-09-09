@@ -25,4 +25,21 @@ for u in users:
   usersDict[u] = dict()
   usersDict[u]['profile'] = list(filter(lambda p: True if p['user']['id'] == u else False, profiles))[0]
   usersDict[u]['schedule'] = list(filter(lambda s: True if s['user'] == u else False, schedules))[0]
-print(usersDict)
+
+def categories(id):
+  return usersDict[id]['profile']['categories']
+
+def times(id):
+  return usersDict[id]['schedule']['times']
+
+ids = list(usersDict.keys())
+print(times(ids[0]))
+
+# def similarities(c1, c2): 
+#   common = []
+#   for c in c2: 
+#     if c in c1: 
+#       common.append(c)
+#   return common
+
+# similarities(ids[0], ids[1])
