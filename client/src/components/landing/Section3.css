@@ -1,0 +1,45 @@
+/* Third section */
+#faq h1 {
+  position: relative;
+  font-size: 2rem !important;
+  padding: 1rem;
+  right: 500px;
+  top: 300px;
+}
+#faq h2 {
+  font-size: 1.5rem !important;
+  padding: 1rem;
+}
+
+#faq h1 {
+  position: relative;
+  padding: 1rem;
+  margin-left: 7rem;
+  font-size: 2.5rem;
+}
+#faq .grid {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  grid-auto-rows: minmax(7rem, auto);
+  grid-gap: 0rem;
+  align-items: center;
+  justify-items: start;
+  justify-content: start !important;
+}
+#faq p {
+  position: relative;
+  margin-left: -50px;
+  background-color: #ffffff;
+  font-size: 1rem;
+  border-radius: 20px;
+}
+.faq-table {
+  justify-items: center !important;
+}
+
+#faq p {
+  margin-bottom: 4rem;
+}
+.question {
+  font-style: italic;
+}
