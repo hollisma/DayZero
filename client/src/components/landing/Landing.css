@@ -4,7 +4,7 @@
   height: 100vh;
 }
 .landing .chunk {
-  height: 100%;
+  height: 80%;
   width: 100%;
   margin: auto;
   display: flex;
@@ -20,14 +20,6 @@
   background: #fff0d2;
 }
 
-.landing h1 {
-  font-size: 3rem;
-  padding-bottom: 0rem;
-}
-.landing p {
-  font-size: 1.5rem !important;
-  margin-top: 3rem;
-}
 .landing img {
   /* max-width: 65%; */
   margin: 0.5rem;
@@ -72,29 +64,34 @@ h1 {
   padding: 1rem;
   margin-left: 7rem;
   font-size: 2.5rem;
+  text-align: center;
 }
 #howitworks .grid {
   display: grid;
-  grid-template-columns: 35% 65%;
+  grid-template-columns: 25% 75%;
   grid-auto-rows: minmax(7rem, auto);
   grid-gap: 0rem;
   align-items: center;
   justify-items: start;
   justify-content: start !important;
 }
+
 #howitworks p {
   position: relative;
-  margin-left: -50px;
   background-color: #ffffff;
-  font-size: 1rem;
+  font-size: 1.2rem;
   border-radius: 20px;
 }
+
 .howitworks-table {
+  position: relative;
+  display: flex;
   justify-items: center !important;
 }
 .svg-rocket {
   max-height: 70px;
   min-height: 70px;
+  padding-left: 50%;
 }
 .svg-calendar {
   max-width: 120px;
@@ -106,39 +103,35 @@ h1 {
 }
 
 /* Third section */
-#faq h2 {
-  font-size: 1.5rem !important;
-  padding: 5rem;
-}
-
-#faq h1 {
+#faq .title {
   position: relative;
   padding: 1rem;
   margin-left: 7rem;
   font-size: 2.5rem;
+  text-align: center;
 }
+
 #faq .grid {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 20% 80%;
   grid-auto-rows: minmax(7rem, auto);
   grid-gap: 0rem;
-  align-items: center;
+  align-items: left;
   justify-items: start;
   justify-content: start !important;
 }
-#faq p {
-  margin-left: 15rem;
-  padding-left: 0rem;
-  font-size: 2rem;
+
+#faq h2 {
+  font-size: 1.5rem !important;
+  font-style: italic;
 }
-.faq-table {
-  justify-items: center !important;
-  width: 20rem;
+
+#faq .answer {
+  position: relative;
+  margin-left: -50px;
+  font-size: 1.25rem;
 }
 
 .question {
   font-style: italic;
-  padding-left: 3rem;
-  margin-left: 20rem;
-  margin-right: 10rem;
 }
