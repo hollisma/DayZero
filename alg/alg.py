@@ -2,22 +2,20 @@ import requests
 import json
 
 k_matching_threshold = 1
+headers = { 'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ3MTI0NTFhMGFhYjA0YjM3OGU3MzRlIn0sImlhdCI6MTU2ODI1MTMyMywiZXhwIjoxNTY4NjExMzIzfQ._sOmm27tWjGs14GC9IC0nhq7GdbJqr4bSpc98S3LABw'}
 
 url = 'http://localhost:5000/api/users/admin'
-headers = { 'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ3MTI0NTFhMGFhYjA0YjM3OGU3MzRlIn0sImlhdCI6MTU2Nzc4Mzc4OCwiZXhwIjoxNTY4MTQzNzg4fQ.k_KmGOCq8SSX5dFtwZv9Fq7xZ-vWenhg1QnD1bplepA'}
 response = requests.get(url, headers=headers)
 users = json.loads(response.text)
 users = list(filter(lambda u: True if u['user_type'] == 'SCHEDULED' else False, users))
 users = list(map(lambda u: u['_id'], users))
 
 url = 'http://localhost:5000/api/schedule/admin'
-headers = { 'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ3MTI0NTFhMGFhYjA0YjM3OGU3MzRlIn0sImlhdCI6MTU2Nzc4Mzc4OCwiZXhwIjoxNTY4MTQzNzg4fQ.k_KmGOCq8SSX5dFtwZv9Fq7xZ-vWenhg1QnD1bplepA'}
 response = requests.get(url, headers=headers)
 schedules = json.loads(response.text)
 schedules = list(filter(lambda s: True if s['user'] in users else False, schedules))
 
 url = 'http://localhost:5000/api/profile/admin'
-headers = { 'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ3MTI0NTFhMGFhYjA0YjM3OGU3MzRlIn0sImlhdCI6MTU2Nzc4Mzc4OCwiZXhwIjoxNTY4MTQzNzg4fQ.k_KmGOCq8SSX5dFtwZv9Fq7xZ-vWenhg1QnD1bplepA'}
 response = requests.get(url, headers=headers)
 profiles = json.loads(response.text)
 profiles = list(filter(lambda p: True if p['user']['id'] in users else False, profiles))
@@ -60,10 +58,10 @@ ids = list(usersDict.keys())
 print(getSharedTimes(ids[0], ids[1]))
 
 totalSharedCategories = dict()
-for id1 in ids:
-  for id2 in ids: 
+for i, id1 in enumerate(ids):
+  for j, id2 in enumerate(ids): 
     sharedTimes = getSharedTimes(id1, id2)
-    if id1 != id2 and sharedTimes:
+    if j >= i and id1 != id2 and sharedTimes:
       sharedCategories = getSharedCategories(id1, id2)
       numSharedCategories = len(sharedCategories)
       if numSharedCategories >= k_matching_threshold:
