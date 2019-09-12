@@ -1,10 +1,9 @@
 import React from "react";
-import "./Section3.css";
 
 const Section3 = () => {
   return (
     <div id="faq" className="dark yellow chunk">
-      <div className="ui two column stackable center aligned grid">
+      <div className="ui two column stackable container center aligned grid">
         <h1 className="title">FAQ</h1>
         <div>
           <h2 className="question">Why groups of four?</h2>

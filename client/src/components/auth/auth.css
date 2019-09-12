@@ -1,6 +1,8 @@
 .bigger-top-container {
   display: flex;
-  margin: 175px 140px !important;
+  flex: 90%;
+  margin-top: 12rem;
+  margin: 155px 100px 60px 100px !important;
   max-width: none !important;
   justify-content: center !important;
 }
@@ -11,11 +13,12 @@
   /* justify-content: center; */
   align-items: center;
   /* border: 5px solid #44444499; */
-  width: 60%;
+  flex: 60%;
+  padding-right: 100px;
 }
 .left-container > h3 {
   margin: 5px;
-  font-size: 28px;
+  font-size: 25px;
   font-weight: 100;
 }
 .left-container > h3:last-of-type {
@@ -23,9 +26,7 @@
 }
 
 .right-container {
-  border: 5px solid #44444499;
-  min-width: 200px;
-  width: 400px;
+  background-image: url("../../img/landing_page_picture.jpg");
 }
 
 .register.title {
@@ -34,6 +35,30 @@
   font-weight: 700;
 }
 
+.images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.available {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin: auto;
+  padding-top: 10px;
+}
+
+.stanford {
+  position: relative;
+  height: 25%;
+  width: 25%;
+}
+.princeton {
+  position: relative;
+  top: -7px;
+  width: 25%;
+  height: 25%;
+}
 .already {
   font-size: 1rem;
 }
