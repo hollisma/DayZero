@@ -12,7 +12,7 @@ const ExampleProfile = ({ firstName }) => {
             alt="Dan Kim"
             className="circular-pic"
           />
-          <div className="name">Dan Kim</div>
+          <div className="name">Daniel Kim</div>
           <div className="about dan">
             Dan aspires to be one of the best cellists of his generation but
             enjoys music of all kinds, having produced multiple rap albums as

@@ -23,7 +23,8 @@ const Section2 = () => {
             alt=""
           />
           <p>
-            Set your calendar for the times you're free to grab a meal of coffee
+            Set your calendar for the times you're free to grab a meal of
+            coffee.
           </p>
           <img
             src={require("../../img/people.svg")}
@@ -31,8 +32,8 @@ const Section2 = () => {
             alt=""
           />
           <p>
-            Based on your interests, Day Zero will automatically match you with
-            three other people to have a meal or coffee!
+            Based on your interests and available times, Day Zero will put you
+            in a group SMS so you guys can work out the specifics!
           </p>
         </div>
       </div>

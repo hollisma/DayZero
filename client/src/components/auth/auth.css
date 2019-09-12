@@ -24,9 +24,10 @@
 .left-container > h3:last-of-type {
   margin-bottom: 20px;
 }
-
 .right-container {
-  background-image: url("../../img/landing_page_picture.jpg");
+  background-color: azure;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  border-radius: 20px;
 }
 
 .register.title {
@@ -56,8 +57,8 @@
 .princeton {
   position: relative;
   top: -7px;
-  width: 25%;
-  height: 25%;
+  width: 37%;
+  height: 37%;
 }
 .already {
   font-size: 1rem;

@@ -14,13 +14,17 @@
   text-align: center;
 }
 .landing .light.yellow {
-  background: #fff7e7;
+  background-image: url("../../img/landing_page_picture.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 10px;
 }
 .landing .dark.yellow {
   background: #fff0d2;
 }
 
-/* First section */
+/* First section CLASSNAME=RIGHT FLOATED CONTENT */
 
 /* Second section */
 #howitworks h1 {
