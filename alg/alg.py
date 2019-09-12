@@ -1,7 +1,7 @@
 import requests
 import json
 
-k_matching_threshold = 1
+k_matching_threshold = 3
 headers = { 'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ3MTI0NTFhMGFhYjA0YjM3OGU3MzRlIn0sImlhdCI6MTU2ODI1MTMyMywiZXhwIjoxNTY4NjExMzIzfQ._sOmm27tWjGs14GC9IC0nhq7GdbJqr4bSpc98S3LABw'}
 
 url = 'http://localhost:5000/api/users/admin'
@@ -55,17 +55,34 @@ def match(id1, id2):
 
 ids = list(usersDict.keys())
 
-print(getSharedTimes(ids[0], ids[1]))
+# keys are ids, values are dicts with keys as ids and values as number of categories they share
+potentialMatches = dict()
 
-totalSharedCategories = dict()
+# go through all users and find matches
 for i, id1 in enumerate(ids):
   for j, id2 in enumerate(ids): 
     sharedTimes = getSharedTimes(id1, id2)
+
+    # if ids are different and there are sharedTimes
+    # j >= i is optimization
     if j >= i and id1 != id2 and sharedTimes:
       sharedCategories = getSharedCategories(id1, id2)
       numSharedCategories = len(sharedCategories)
+
+      # automatch if number of shared categories are above a threshold
       if numSharedCategories >= k_matching_threshold:
         match(id1, id2)
       else: 
-        totalSharedCategories[numSharedCategories] = 1 if numSharedCategories not in list(totalSharedCategories.keys()) else totalSharedCategories[numSharedCategories] + 1
+
+        # add id2 to id1 dictionary of potential matches
+        if id1 not in list(potentialMatches.keys()) or id2 not in list(potentialMatches[id1].keys()):
+          potentialMatches[id1] = dict({ id2: numSharedCategories })
+        else: 
+          potentialMatches[id1][id2] + 1
+        if id2 not in list(potentialMatches.keys()) or id1 not in list(potentialMatches[id2].keys()): 
+          potentialMatches[id2] = dict({ id1: numSharedCategories })
+        else: 
+          potentialMatches[id2][id1] + 1
+
+        print(potentialMatches)
         
