@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import Landing from "../landing/Landing";
 import Register from "../auth/Register";
 import Login from "../auth/Login";
 import Dashboard from "../dashboard/Dashboard";
@@ -19,6 +20,7 @@ import {
 const Routes = () => {
   return (
     <Switch>
+      <Route exact path="/" component={Landing} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/login" component={Login} />
       <PrivateRoute
