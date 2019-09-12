@@ -51,14 +51,16 @@ def getSharedTimes(id1, id2):
   return common
 
 def match(id1, id2):
-  print('match!:', id1, id2)
+  matches[id1] = [id2] if id1 not in list(matches.keys()) else matches[id1].append(id2)
+  matches[id2] = [id1] if id2 not in list(matches.keys()) else matches[id2].append(id1)
 
 ids = list(usersDict.keys())
 
 # keys are ids, values are dicts with keys as ids and values as number of categories they share
+matches = dict()
 potentialMatches = dict()
 
-# go through all users and find matches
+# go through all users, find automatches, and create potentialMatches
 for i, id1 in enumerate(ids):
   for j, id2 in enumerate(ids): 
     sharedTimes = getSharedTimes(id1, id2)
@@ -83,5 +85,6 @@ for i, id1 in enumerate(ids):
       potentialMatches[id1][id2] = numSharedCategories
       potentialMatches[id2][id1] = numSharedCategories
 
-print(potentialMatches)
+print('potential matches: \n', potentialMatches, '\n')
+print('matches: \n', matches, '\n')
         
