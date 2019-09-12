@@ -51,7 +51,7 @@ def getSharedTimes(id1, id2):
   return common
 
 def match(id1, id2):
-  print(id1, id2)
+  print('match!:', id1, id2)
 
 ids = list(usersDict.keys())
 
@@ -72,17 +72,16 @@ for i, id1 in enumerate(ids):
       # automatch if number of shared categories are above a threshold
       if numSharedCategories >= k_matching_threshold:
         match(id1, id2)
-      else: 
 
-        # add id2 to id1 dictionary of potential matches
-        if id1 not in list(potentialMatches.keys()) or id2 not in list(potentialMatches[id1].keys()):
-          potentialMatches[id1] = dict({ id2: numSharedCategories })
-        else: 
-          potentialMatches[id1][id2] + 1
-        if id2 not in list(potentialMatches.keys()) or id1 not in list(potentialMatches[id2].keys()): 
-          potentialMatches[id2] = dict({ id1: numSharedCategories })
-        else: 
-          potentialMatches[id2][id1] + 1
+      # create sub-dict if necessary
+      if id1 not in list(potentialMatches.keys()):
+        potentialMatches[id1] = dict()
+      if id2 not in list(potentialMatches.keys()):
+        potentialMatches[id2] = dict()
 
-        print(potentialMatches)
+      # include undirected weighted link
+      potentialMatches[id1][id2] = numSharedCategories
+      potentialMatches[id2][id1] = numSharedCategories
+
+print(potentialMatches)
         
