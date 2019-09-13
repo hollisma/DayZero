@@ -6,6 +6,8 @@ import config from "../../config/config.json";
 import { glogin, fblogin } from "../../actions/auth";
 import PropTypes from "prop-types";
 
+import "./auth.css";
+
 const GFLogins = ({ glogin, fblogin }) => {
   const onFailure = error => {
     console.log("google error");
@@ -23,7 +25,7 @@ const GFLogins = ({ glogin, fblogin }) => {
   };
 
   return (
-    <div>
+    <div className="social-logins">
       <FacebookLogin
         appId={config.FACEBOOK_APP_ID}
         autoLoad={false}
