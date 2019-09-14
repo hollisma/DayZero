@@ -1,6 +1,7 @@
 TODO: 
   fix google login -- not sure how it broke
   fix /dashboard when not logged in
+  fix register link in navbar and signup/signin links
 
 BUGS:
 
