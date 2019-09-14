@@ -17,7 +17,7 @@ import "./Group.css";
 
 const Group = ({
   group: { members, membersData, loading, membersLoading },
-  auth: { user },
+  auth: { user, isAuthenticated },
   getCurrentGroup,
   getMembersProfiles
 }) => {
@@ -79,7 +79,7 @@ const Group = ({
       ) : (
         <p>Have a question? Contant us at dayzero@gmail.com</p>
       )}
-      {!loading && !membersLoading ? (
+      {!loading && !membersLoading && isAuthenticated ? (
         <div className="group-container ui equal width grid">
           <div className="row">
             <div className="column group-member-flex">

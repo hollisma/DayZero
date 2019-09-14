@@ -1,6 +1,6 @@
 TODO: 
   fix google login -- not sure how it broke
-  fix /dashboard when not logged in
+  when not authenticated, go to '/dashboard' and group will render for a quick moment
   fix register link in navbar and signup/signin links
 
 BUGS:
