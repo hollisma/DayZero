@@ -1,4 +1,8 @@
+.group-member {
+  background: white;
+  width: 100%;
+}
 .group-member-info {
   margin: 5px;
-  text-align: center;
+  text-align: left;
 }
