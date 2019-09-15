@@ -38,9 +38,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </a>
       </li>
       <li className="item">
-        <Link onClick={logout} to="/" className="text-secondary">
+        <a onClick={logout} href="/#" className="text-secondary">
           <i className="fas fa-sign-out-alt" /> Logout
-        </Link>
+        </a>
       </li>
     </ul>
   );
@@ -48,7 +48,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul className="right menu">
       <li className="item">
-        <a href="/#home" className="text-primary">
+        <a href="/#" className="text-primary">
           Home
         </a>
       </li>
@@ -73,13 +73,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   return (
     <nav className="ui secondary menu navbar" id="navbar">
       <h1 className="item">
-        <Link to={isAuthenticated ? "/dashboard#" : "/#"}>
+        <a href={isAuthenticated ? "/dashboard#" : "/#"}>
           <img
             src={require("../../img/logo.svg")}
             className="img-logo"
             alt="Day Zero"
           />
-        </Link>
+        </a>
       </h1>
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>

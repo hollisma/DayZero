@@ -51,8 +51,12 @@ def getSharedTimes(id1, id2):
   return common
 
 def match(id1, id2):
-  matches[id1] = [id2] if id1 not in list(matches.keys()) else matches[id1].append(id2)
-  matches[id2] = [id1] if id2 not in list(matches.keys()) else matches[id2].append(id1)
+  if id1 not in matches.keys():
+    matches[id1] = []
+  if id2 not in matches.keys():
+    matches[id2] = []
+  matches[id1].append(id2)
+  matches[id2].append(id1)
 
 ids = list(usersDict.keys())
 
@@ -67,12 +71,13 @@ for i, id1 in enumerate(ids):
 
     # if ids are different and there are sharedTimes
     # j >= i is optimization
-    if j >= i and id1 != id2 and sharedTimes:
+
+    # if j >= i and id1 != id2 and sharedTimes:
+    if j >= i and id1 != id2:
       sharedCategories = getSharedCategories(id1, id2)
-      numSharedCategories = len(sharedCategories)
 
       # automatch if number of shared categories are above a threshold
-      if numSharedCategories >= k_matching_threshold:
+      if len(sharedCategories) >= k_matching_threshold:
         match(id1, id2)
 
       # create sub-dict if necessary
@@ -82,9 +87,27 @@ for i, id1 in enumerate(ids):
         potentialMatches[id2] = dict()
 
       # include undirected weighted link
-      potentialMatches[id1][id2] = numSharedCategories
-      potentialMatches[id2][id1] = numSharedCategories
+      potentialMatches[id1][id2] = sharedCategories
+      potentialMatches[id2][id1] = sharedCategories
 
 print('potential matches: \n', potentialMatches, '\n')
 print('matches: \n', matches, '\n')
+
+for u in usersDict:
+  print(u)
         
+###############################################################################
+# TODO
+# 
+# Step 1: make schema and endpoints to create and update compatibility tables
+# 
+# Should probably make it so that every time a new user is added, they're 
+# given a dict with a list of all other users and the new user's compatibility 
+# with all the other users. This compatibility score is also added to the 
+# existing user's dict.
+# 
+# Then at the start of the day, go through the times and match people with high
+# scores. 
+# 
+# 
+###############################################################################

@@ -17,7 +17,7 @@ import "./Group.css";
 
 const Group = ({
   group: { members, membersData, loading, membersLoading },
-  auth: { user },
+  auth: { user, isAuthenticated },
   getCurrentGroup,
   getMembersProfiles
 }) => {
@@ -71,13 +71,23 @@ const Group = ({
             </button>
           </Fragment>
         ) : userType === SCHEDULED ? (
-          <p>
-            One sec...we're trying to find people that you'll love talking to.
-            Once the group of four is complete, we will put everyone in a group
-            chat so you guys can decide the specific time and place to meet.
-          </p>
+          <Fragment>
+            <p>
+              One sec...we're trying to find people that you'll love talking to.
+              Once the group of four is complete, we will put everyone in a
+              group chat so you guys can decide the specific time and place to
+              meet.
+            </p>
+            <button className="ui button basic blue big">
+              <a href="/dashboard#calendar" className="reg">
+                Calendar
+              </a>
+            </button>
+          </Fragment>
+        ) : userType === SCHEDULED ? (
+          <p>Finding other people that you'll love talking to...</p>
         ) : userType === GROUPED ? (
-          <p>Learn about your matches!</p>
+          <p>Here's your group: </p>
         ) : userType === MET ? (
           <Fragment>
             <p>Fill out the feedback form here!</p>
@@ -90,7 +100,7 @@ const Group = ({
         ) : (
           <p>Have a question? Contant us at dayzero@gmail.com</p>
         )}
-        {!loading && !membersLoading ? (
+        {!loading && !membersLoading && isAuthenticated ? (
           <div className="group-container ui equal width grid">
             <div className="row">
               <div className="column group-member-flex">
