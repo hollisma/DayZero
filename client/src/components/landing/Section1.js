@@ -73,7 +73,7 @@ const Section1 = ({ register, isAuthenticated }) => {
     <div className="ui top-container bigger-top-container">
       <div className="left-container">
         <h3 id="header">Sixty seconds to register.</h3>
-        <h3 id="header">Grab meals with people who share your passions.</h3>
+        <h3 id="header">Grab meals with peers who share your passions.</h3>
         <ExampleProfile firstName="carina" />
         <ExampleProfile firstName="dan" />
       </div>

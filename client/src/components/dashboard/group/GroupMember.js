@@ -2,15 +2,25 @@ import React from "react";
 import PropTypes from "prop-types";
 import Avatar from "react-avatar";
 
-const GroupMember = ({ member_id, name, avatar, major, bio }) => {
+import "./GroupMember.css";
+
+const GroupMember = ({ member_id, name, avatar, major, bio, want_to_meet }) => {
   let res = "";
   if (member_id !== "-1") {
     res = (
       <span className="group-member-info">
         <div className="group-member-info">
-          <b>{name}</b> is studying <b>{major}</b>.
+          <p>{name}</p>
+          <p>
+            <b>Wants to meet:</b> {want_to_meet}
+          </p>
         </div>
-        {bio ? <div>Here's a bit about them: {bio}</div> : null}
+        {bio ? (
+          <div>
+            <b>About: </b>
+            {bio}
+          </div>
+        ) : null}
       </span>
     );
   }

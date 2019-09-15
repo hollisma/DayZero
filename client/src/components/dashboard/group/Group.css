@@ -1,5 +1,4 @@
 .group {
-  margin: 100px 0;
   padding: 50px 0px;
   width: 100%;
   display: flex;
@@ -41,12 +40,12 @@
   margin-bottom: 20px;
 }
 
-.group-member-info {
-  margin: 5px;
-}
-
 .group-member-flex {
   display: flex !important;
   justify-content: center;
   align-items: flex-start;
+}
+
+.section-header {
+  color: black;
 }

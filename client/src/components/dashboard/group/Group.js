@@ -50,97 +50,117 @@ const Group = ({
   const userType = user ? user.user_type : GUEST;
 
   return (
-    <div id="group" className="group">
-      <h1 className="larger text-primary">Group</h1>
-      {userType === PROFILED ? (
-        <Fragment>
+    <div className="ui top-container">
+      <h1 className="section-header">Your Group</h1>
+      <p>
+        Below are all your matches! Once the group of four is complete, we will
+        put everyone in a group chat so you guys can decide the specific time
+        and place to meet.
+      </p>
+      <div id="group" className="group">
+        {userType === PROFILED ? (
+          <Fragment>
+            <p>
+              Put in some times so that other people know when they can meet
+              you:
+            </p>
+            <button className="ui button basic blue big">
+              <a href="/dashboard#calendar" className="reg">
+                Calendar
+              </a>
+            </button>
+          </Fragment>
+        ) : userType === SCHEDULED ? (
           <p>
-            Put in some times so that other people know when they can meet you:
+            One sec...we're trying to find people that you'll love talking to.
+            Once the group of four is complete, we will put everyone in a group
+            chat so you guys can decide the specific time and place to meet.
           </p>
-          <button className="ui button basic blue big">
-            <a href="/dashboard#calendar" className="reg">
-              Calendar
-            </a>
-          </button>
-        </Fragment>
-      ) : userType === SCHEDULED ? (
-        <p>Finding other people that you'll love talking to...</p>
-      ) : userType === GROUPED ? (
-        <p>Here's your group: </p>
-      ) : userType === MET ? (
-        <Fragment>
-          <p>Fill out the feedback form here!</p>
-          <button className="ui button basic blue big">
-            <Link to="/feedback" className="reg">
-              Feedback
-            </Link>
-          </button>
-        </Fragment>
-      ) : (
-        <p>Have a question? Contant us at dayzero@gmail.com</p>
-      )}
-      {!loading && !membersLoading ? (
-        <div className="group-container ui equal width grid">
-          <div className="row">
-            <div className="column group-member-flex">
-              <GroupMember
-                member_id={membersData[0].user ? membersData[0].user._id : "-1"}
-                name={membersData[0].user ? membersData[0].user.name : ""}
-                avatar={
-                  membersData[0].user
-                    ? membersData[0].user.avatar
-                    : "https://i.stack.imgur.com/dr5qp.jpg"
-                }
-                major={membersData[0].major}
-                bio={membersData[0].bio}
-              />
+        ) : userType === GROUPED ? (
+          <p>Learn about your matches!</p>
+        ) : userType === MET ? (
+          <Fragment>
+            <p>Fill out the feedback form here!</p>
+            <button className="ui button basic blue big">
+              <Link to="/feedback" className="reg">
+                Feedback
+              </Link>
+            </button>
+          </Fragment>
+        ) : (
+          <p>Have a question? Contant us at dayzero@gmail.com</p>
+        )}
+        {!loading && !membersLoading ? (
+          <div className="group-container ui equal width grid">
+            <div className="row">
+              <div className="column group-member-flex">
+                <GroupMember
+                  member_id={
+                    membersData[0].user ? membersData[0].user._id : "-1"
+                  }
+                  name={membersData[0].user ? membersData[0].user.name : ""}
+                  avatar={
+                    membersData[0].user
+                      ? membersData[0].user.avatar
+                      : "https://i.stack.imgur.com/dr5qp.jpg"
+                  }
+                  major={membersData[0].major}
+                  bio={membersData[0].bio}
+                />
+              </div>
+              <div className="column group-member-flex">
+                <GroupMember
+                  member_id={
+                    membersData[1].user ? membersData[1].user._id : "-1"
+                  }
+                  name={membersData[1].user ? membersData[1].user.name : ""}
+                  avatar={
+                    membersData[1].user
+                      ? membersData[1].user.avatar
+                      : "https://i.stack.imgur.com/dr5qp.jpg"
+                  }
+                  major={membersData[1].major}
+                  bio={membersData[1].bio}
+                />
+              </div>
             </div>
-            <div className="column group-member-flex">
-              <GroupMember
-                member_id={membersData[1].user ? membersData[1].user._id : "-1"}
-                name={membersData[1].user ? membersData[1].user.name : ""}
-                avatar={
-                  membersData[1].user
-                    ? membersData[1].user.avatar
-                    : "https://i.stack.imgur.com/dr5qp.jpg"
-                }
-                major={membersData[1].major}
-                bio={membersData[1].bio}
-              />
+            <div className="row">
+              <div className="column group-member-flex">
+                <GroupMember
+                  member_id={
+                    membersData[2].user ? membersData[2].user._id : "-1"
+                  }
+                  name={membersData[2].user ? membersData[2].user.name : ""}
+                  avatar={
+                    membersData[2].user
+                      ? membersData[2].user.avatar
+                      : "https://i.stack.imgur.com/dr5qp.jpg"
+                  }
+                  major={membersData[2].major}
+                  bio={membersData[2].bio}
+                />
+              </div>
+              <div className="column group-member-flex">
+                <GroupMember
+                  member_id={
+                    membersData[3].user ? membersData[3].user._id : "-1"
+                  }
+                  name={membersData[3].user ? membersData[3].user.name : ""}
+                  avatar={
+                    membersData[3].user
+                      ? membersData[3].user.avatar
+                      : "https://i.stack.imgur.com/dr5qp.jpg"
+                  }
+                  major={membersData[3].major}
+                  bio={membersData[3].bio}
+                />
+              </div>
             </div>
           </div>
-          <div className="row">
-            <div className="column group-member-flex">
-              <GroupMember
-                member_id={membersData[2].user ? membersData[2].user._id : "-1"}
-                name={membersData[2].user ? membersData[2].user.name : ""}
-                avatar={
-                  membersData[2].user
-                    ? membersData[2].user.avatar
-                    : "https://i.stack.imgur.com/dr5qp.jpg"
-                }
-                major={membersData[2].major}
-                bio={membersData[2].bio}
-              />
-            </div>
-            <div className="column group-member-flex">
-              <GroupMember
-                member_id={membersData[3].user ? membersData[3].user._id : "-1"}
-                name={membersData[3].user ? membersData[3].user.name : ""}
-                avatar={
-                  membersData[3].user
-                    ? membersData[3].user.avatar
-                    : "https://i.stack.imgur.com/dr5qp.jpg"
-                }
-                major={membersData[3].major}
-                bio={membersData[3].bio}
-              />
-            </div>
-          </div>
-        </div>
-      ) : (
-        <Spinner />
-      )}
+        ) : (
+          <Spinner />
+        )}
+      </div>
     </div>
   );
 };
