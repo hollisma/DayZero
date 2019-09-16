@@ -1,5 +1,5 @@
 .group {
-  padding: 50px 0px;
+  padding: 25px 0px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -18,34 +18,8 @@
   justify-content: center;
 }
 
-.group-member {
-  /* min-width: 100px; */
-  /* min-height: 100px; */
-  /* border-radius: 50px; */
-  /* margin: 20px 100px; */
-  /* padding: 10px; */
-  /* background-color: red; */
-  margin: 30px 15px;
-  min-width: 200px;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  margin-bottom: 20px;
-}
-
-.group-member-flex {
-  display: flex !important;
-  justify-content: center;
-  align-items: flex-start;
-}
-
 .section-header {
+  position: relative;
+  padding-top: 10%;
   color: black;
 }

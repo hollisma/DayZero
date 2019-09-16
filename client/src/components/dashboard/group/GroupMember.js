@@ -8,29 +8,28 @@ const GroupMember = ({ member_id, name, avatar, major, bio, want_to_meet }) => {
   let res = "";
   if (member_id !== "-1") {
     res = (
-      <span className="group-member-info">
-        <div className="group-member-info">
-          <p>{name}</p>
+      <div className="group-member-info">
+        <div className="name-pic">
+          <Avatar className="avatar" size="100" round src={avatar} />
+          <p id="name">{name}</p>
+        </div>
+        <div className="info">
+          <p>Major: {major}</p>
           <p>
             <b>Wants to meet:</b> {want_to_meet}
           </p>
+          {bio ? (
+            <div>
+              <b>About: </b>
+              {bio}
+            </div>
+          ) : null}
         </div>
-        {bio ? (
-          <div>
-            <b>About: </b>
-            {bio}
-          </div>
-        ) : null}
-      </span>
+      </div>
     );
   }
 
-  return (
-    <div className="group-member">
-      <Avatar className="avatar" size="100" round src={avatar} />
-      {res || "Searching..."}
-    </div>
-  );
+  return <div className="group-member">{res || "Searching..."}</div>;
 };
 
 GroupMember.propTypes = {

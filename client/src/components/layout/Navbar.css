@@ -4,6 +4,7 @@
   align-items: center;
   padding: 0rem 2rem;
   position: fixed;
+  background-color: white !important;
   z-index: 1;
   width: 100%;
   top: 0;

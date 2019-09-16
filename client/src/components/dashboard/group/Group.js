@@ -50,7 +50,7 @@ const Group = ({
   const userType = user ? user.user_type : GUEST;
 
   return (
-    <div className="ui top-container">
+    <div className="ui container">
       <h1 className="section-header">Your Group</h1>
       <p>
         Below are all your matches! Once the group of four is complete, we will
@@ -102,6 +102,30 @@ const Group = ({
         )}
         {!loading && !membersLoading && isAuthenticated ? (
           <div className="group-container ui equal width grid">
+            <GroupMember
+              member_id={membersData[3].user ? membersData[3].user._id : "-1"}
+              name={membersData[3].user ? membersData[3].user.name : ""}
+              avatar={
+                membersData[3].user
+                  ? membersData[3].user.avatar
+                  : "https://i.stack.imgur.com/dr5qp.jpg"
+              }
+              major={membersData[3].major}
+              bio={membersData[3].bio}
+              want_to_meet={membersData[3].want_to_meet}
+            />
+            <GroupMember
+              member_id={membersData[3].user ? membersData[3].user._id : "-1"}
+              name={membersData[3].user ? membersData[3].user.name : ""}
+              avatar={
+                membersData[3].user
+                  ? membersData[3].user.avatar
+                  : "https://i.stack.imgur.com/dr5qp.jpg"
+              }
+              major={membersData[3].major}
+              bio={membersData[3].bio}
+              want_to_meet={membersData[3].want_to_meet}
+            />
             <div className="row">
               <div className="column group-member-flex">
                 <GroupMember

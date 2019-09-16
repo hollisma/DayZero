@@ -140,8 +140,8 @@ const EditProfile = ({
   });
 
   return (
-    <div className="ui top-container">
-      <h1 className="larger text-primary">Edit Your Profile</h1>
+    <div className="ui container">
+      <h1 className="section-header">Edit Your Profile</h1>
       <p className="lead my-up-1">
         <i className="fas fa-user" />
         Tell us about yourself!
