@@ -35,7 +35,7 @@ const Calendar = ({
 
   return (
     <div className="ui container">
-      <h1 className="section-header">Calendar</h1>
+      <h1 className="calendar-header">Calendar</h1>
       <p>
         Which times are you available for? You must fill out this section in
         order for us to match you. After matching you with a group, we will put

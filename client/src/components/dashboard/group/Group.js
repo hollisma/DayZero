@@ -51,7 +51,7 @@ const Group = ({
 
   return (
     <div className="ui container">
-      <h1 className="section-header">Your Group</h1>
+      <h1 className="group-header">Your Group</h1>
       <p>
         Below are all your matches! Once the group of four is complete, we will
         put everyone in a group chat so you guys can decide the specific time
@@ -111,6 +111,7 @@ const Group = ({
                   : "https://i.stack.imgur.com/dr5qp.jpg"
               }
               major={membersData[3].major}
+              minor={membersData[3].minor}
               bio={membersData[3].bio}
               want_to_meet={membersData[3].want_to_meet}
             />
@@ -123,6 +124,7 @@ const Group = ({
                   : "https://i.stack.imgur.com/dr5qp.jpg"
               }
               major={membersData[3].major}
+              minor={membersData[3].minor}
               bio={membersData[3].bio}
               want_to_meet={membersData[3].want_to_meet}
             />

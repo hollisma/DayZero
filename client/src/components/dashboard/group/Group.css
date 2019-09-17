@@ -18,8 +18,14 @@
   justify-content: center;
 }
 
-.section-header {
+.group-header {
   position: relative;
   padding-top: 10%;
+  color: black;
+}
+
+.edit-profile-header {
+  position: relative;
+  padding-top: 5%;
   color: black;
 }

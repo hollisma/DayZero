@@ -113,3 +113,9 @@
   cursor: pointer;
   visibility: hidden;
 }
+
+.calendar-header {
+  position: relative;
+  padding-top: 5%;
+  color: black;
+}

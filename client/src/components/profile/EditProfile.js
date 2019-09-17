@@ -141,7 +141,7 @@ const EditProfile = ({
 
   return (
     <div className="ui container">
-      <h1 className="section-header">Edit Your Profile</h1>
+      <h1 className="edit-profile-header">Edit Your Profile</h1>
       <p className="lead my-up-1">
         <i className="fas fa-user" />
         Tell us about yourself!

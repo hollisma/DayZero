@@ -4,7 +4,15 @@ import Avatar from "react-avatar";
 
 import "./GroupMember.css";
 
-const GroupMember = ({ member_id, name, avatar, major, bio, want_to_meet }) => {
+const GroupMember = ({
+  member_id,
+  name,
+  avatar,
+  major,
+  minor,
+  bio,
+  want_to_meet
+}) => {
   let res = "";
   if (member_id !== "-1") {
     res = (
@@ -14,7 +22,10 @@ const GroupMember = ({ member_id, name, avatar, major, bio, want_to_meet }) => {
           <p id="name">{name}</p>
         </div>
         <div className="info">
-          <p>Major: {major}</p>
+          <p id="academics">
+            <b>Major:</b> {major + "\xa0" + "\xa0"}
+            <b>Minor:</b> {minor}
+          </p>
           <p>
             <b>Wants to meet:</b> {want_to_meet}
           </p>
