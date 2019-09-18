@@ -90,7 +90,7 @@ const CreateProfile = ({
     return (
       <button
         className={
-          "ui green button category-button " +
+          "ui blue button category-button " +
           (categories.includes(cat) ? "" : "basic")
         }
         style={{ margin: "5px" }}
@@ -121,7 +121,7 @@ const CreateProfile = ({
 
   return (
     <div className="ui top-container">
-      <h1 className="larger text-primary">Create Your Profile</h1>
+      <h1>Create Your Profile</h1>
       <p className="lead my-2">
         <i className="fas fa-user" />
         Tell us about yourself!
@@ -200,38 +200,29 @@ const CreateProfile = ({
         </div>
         <div className="row">
           <div className="column">
-            <p>Categories you're interested in</p>
+            <p>
+              What topics do you enjoy talking about or want to learn more
+              about?
+            </p>
             <div className="field">{categoryButtons}</div>
           </div>
         </div>
         <div className="row">
           <div className="column">
             <p>
-              Tell us a little about yourself: hobbies, interests, work,
-              anything!
+              In 2-3 sentences, describe the type of person you want to meet
+              through Day Zero. This will be shown to your matches for them to
+              know you better.
             </p>
             <div className="field">
               <textarea
                 className="big-input"
-                placeholder="Bio"
-                name="bio"
-                value={bio}
-                onChange={e => onChange(e)}
-                rows="4"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="column">
-            <p>
-              In a couple sentences, describe the type of people you want to
-              meet
-            </p>
-            <div className="field">
-              <textarea
-                className="big-input"
-                placeholder="I want to meet people who are yada yada yada"
+                placeholder="I want to meet people who are deeply optimistic and passionate 
+                about their work, whether it be entrepreneurship, music, physics, 
+                volunteering, or anything else. I approach my passions with a hunger and 
+                want to be inspired by similar people who share that drive to become 
+                great. I appreciate people who are thoughtful and willing to challenge
+                their own beliefs."
                 name="want_to_meet"
                 value={want_to_meet}
                 onChange={e => onChange(e)}
@@ -240,17 +231,44 @@ const CreateProfile = ({
             </div>
           </div>
         </div>
+        <div className="row">
+          <div className="column">
+            <p>
+              In 2-4 sentences, tell us about your hobbies, internships, and
+              interests. This will be shown to your matches for them to know you
+              better.
+            </p>
+            <div className="field">
+              <textarea
+                className="big-input"
+                placeholder="I co-founded a national entrepreneurship publication that 
+                interviews entrepreneurs called Profiles In Entrepreneurship. This past 
+                summer I worked at an AI-focused venture capital firm in China, where I 
+                met some of China's top entrepreneurs and learned a lot about the Chinese 
+                entrepreneurial ecosystem. In my free time I also build websites, play 
+                basketball, and enjoy talking about religion and philosophy. I'm also 
+                working on a startup a called Day Zero to help college students meet 
+                like-minded and interesting people."
+                name="bio"
+                value={bio}
+                onChange={e => onChange(e)}
+                rows="4"
+              />
+            </div>
+          </div>
+        </div>
         <div className="column">
-          <p>Phone Number</p>
+          <p>* Phone Number</p>
           <PhoneInput
             placeholder="Enter phone number"
             country="US"
             value={phone_number}
             onChange={e => onPhoneChange(e)}
+            required
           />
         </div>
         <div className="column">
-          <p>Communication Preference</p>
+          <p>How should we notify you when you've been matched?</p>
           <div className="ui field toggle checkbox">
             <input
               type="checkbox"

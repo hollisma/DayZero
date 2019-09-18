@@ -40,7 +40,12 @@ const GroupMember = ({
     );
   }
 
-  return <div className="group-member">{res || "Searching..."}</div>;
+  return (
+    <div className="group-member">
+      {res ||
+        "We're trying to find you a match! Go do your homework, we'll send you a text when your group has been finalized :)"}
+    </div>
+  );
 };
 
 GroupMember.propTypes = {

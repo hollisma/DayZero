@@ -21,11 +21,13 @@ const Section3 = () => {
           </p>
           <h2 className="question">Why groups of four?</h2>
           <p className="answer">
-            Since the groups are determined algorithmically, users meet in
-            groups of four to ensure that no awkward pairings occur. If people
-            met in groups of two, there's the chance that you won't vibe with
-            the other person, whereas it's highly likely you will find someone
-            you want to meet again in a group of four.
+            Did you know that in order to meet all of the undergrads at
+            Princeton in one year, you would have to meet 21.5 people per day?
+            There's too many of us! Our goal is to help you expand your social
+            circle, so why start with 1-on-1s when there's so much untapped
+            potential (although not to worry, that feature is coming soon)? We
+            chose to go with groups of four because many studies show that four
+            is the optimal number for a group conversation.
           </p>
           <h2 className="question">
             What information will be displayed to other users?
