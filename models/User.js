@@ -41,6 +41,9 @@ const UserSchema = new mongoose.Schema({
     default: null,
     require
   },
+  vibe: {
+    type: Map
+  },
   googleProvider: {
     type: {
       id: String,
