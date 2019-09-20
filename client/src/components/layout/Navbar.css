@@ -1,52 +1,60 @@
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0rem 2rem;
-  position: fixed;
-  background-color: white !important;
-  z-index: 1;
-  width: 100%;
-  top: 0;
-  border-bottom: solid 1px var(--primary-color);
-  opacity: 0.9;
-  height: 90px;
-  transition: all 0.4s ease-out;
-  -webkit-transition: all 0.4s ease-out;
-}
-.grey {
-  background: grey !important;
-}
-.scrolled {
-  height: 60px;
-  background-color: #ffffff !important;
-}
-.img-logo {
-  min-height: 60px;
-  max-height: 60px;
-  width: 80%;
-  margin-top: 0.5rem;
-}
-.scrolled .img-logo {
-  min-height: 55px;
-  max-height: 55px;
-  margin-top: 10px;
-}
-.navbar a {
-  color: black;
-  padding: 0.25rem;
-  /* margin: 0 0.25rem; */
-}
-.navbar ul {
-  display: flex;
-}
-.navbar .reg:hover {
-  color: lightcoral;
-}
-.navbar h1 {
-  font-size: 3.5rem;
-}
-.navbar li {
-  color: #444;
-  font-size: 1.2rem;
+/* For mobile */
+
+/* For desktop */
+@media only screen and (min-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 2rem;
+    position: fixed;
+    background-color: white !important;
+    z-index: 1;
+    width: 100%;
+    top: 0;
+    border-bottom: solid 1px var(--primary-color);
+    opacity: 0.9;
+    height: 12%;
+    transition: all 0.4s ease-out;
+    -webkit-transition: all 0.4s ease-out;
+  }
+  .grey {
+    background: grey !important;
+  }
+  .scrolled {
+    height: 10%;
+    background-color: #ffffff !important;
+  }
+
+  /* When we use %s for two img-logo portions
+   the logo begins to vibrate for some reason */
+  .img-logo {
+    min-height: 60px;
+    max-height: 60px;
+    width: 80%;
+    margin-top: 0.5rem;
+  }
+  .scrolled .img-logo {
+    min-height: 55px;
+    max-height: 55px;
+    margin-top: 10px;
+  }
+  .navbar a {
+    color: black;
+    padding: 0.25%;
+    /* margin: 0 0.25rem; */
+  }
+  .navbar ul {
+    display: flex;
+  }
+  .navbar .reg:hover {
+    color: lightcoral;
+  }
+  .navbar h1 {
+    font-size: 380%;
+  }
+  .navbar li {
+    color: #444;
+    font-size: 120%;
+  }
 }

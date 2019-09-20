@@ -70,52 +70,64 @@ const Register = ({ register, isAuthenticated }) => {
   }
 
   return (
-    <div className="ui top-container bigger-top-container">
-      <div className="left-container">
-        <h3>Sixty seconds to register</h3>
-        <h3>Grab meals with people who share your passions</h3>
-        <ExampleProfile firstName="carina" />
-        <ExampleProfile firstName="dan" />
-      </div>
-      <div className="right-container">
-        <p className="register title">Find your day zeros in 60 seconds.</p>
-        <GFLogin />
-        <p className="lead my-2">
-          <i className="fas fa-user" /> Create Your Account
-        </p>
-        <form className="ui form" onSubmit={e => onSubmit(e)}>
-          <div className="field">
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              value={name}
-              onChange={e => onChange(e)}
-            />
+    <div className="ui top-container">
+      <h3>Sixty seconds to register</h3>
+      <h3>Grab meals with people who share your passions</h3>
+      <ExampleProfile firstName="carina" />
+      <ExampleProfile firstName="dan" />
+      <div id="content desktop">
+        <div className="ui top-container bigger-top-container">
+          <div className="left-container">
+            <h3>Sixty seconds to register</h3>
+            <h3>Grab meals with people who share your passions</h3>
+            <ExampleProfile firstName="carina" />
+            <ExampleProfile firstName="dan" />
           </div>
-          <div className="field">
-            <input
-              type="email"
-              placeholder="Email Address"
-              name="email"
-              value={email}
-              onChange={e => onChange(e)}
-            />
+          <div className="right-container">
+            <p className="register title">Find your day zeros in 60 seconds.</p>
+            <GFLogin />
+            <p className="lead my-2">
+              <i className="fas fa-user" /> Create Your Account
+            </p>
+            <form className="ui form" onSubmit={e => onSubmit(e)}>
+              <div className="field">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  name="name"
+                  value={name}
+                  onChange={e => onChange(e)}
+                />
+              </div>
+              <div className="field">
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  name="email"
+                  value={email}
+                  onChange={e => onChange(e)}
+                />
+              </div>
+              <div className="field">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  value={password}
+                  onChange={e => onChange(e)}
+                />
+              </div>
+              <input
+                type="submit"
+                className="ui button my-1"
+                value="Register"
+              />
+            </form>
+            <p className="already">
+              Already have an account? <Link to="/login">Sign In</Link>
+            </p>
           </div>
-          <div className="field">
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={password}
-              onChange={e => onChange(e)}
-            />
-          </div>
-          <input type="submit" className="ui button my-1" value="Register" />
-        </form>
-        <p className="already">
-          Already have an account? <Link to="/login">Sign In</Link>
-        </p>
+        </div>
       </div>
     </div>
   );
