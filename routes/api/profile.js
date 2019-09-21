@@ -114,7 +114,8 @@ router.get("/admin", admin, async (req, res) => {
       "name",
       "email",
       "phone_number",
-      "user_type"
+      "user_type",
+      "vibe"
     ]);
     res.json(profiles);
   } catch (err) {
