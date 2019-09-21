@@ -1,7 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+/* For mobile phones */
 .landing {
   position: relative;
   /* background: url("./img/landing_background.jpg") no-repeat center center/cover; */
-  height: 100vh;
+  height: 100%;
 }
 .landing .chunk {
   height: 80%;
@@ -24,7 +29,7 @@
   background: #fff0d2;
 }
 
-/* First section CLASSNAME=RIGHT FLOATED CONTENT */
+/* First section */
 
 /* Second section */
 #howitworks h1 {
@@ -103,4 +108,114 @@
   grid-gap: 13%;
   justify-items: start;
   justify-content: start !important;
+}
+
+/* For desktop */
+@media only screen and (min-width: 768px) {
+  .landing {
+    position: relative;
+    /* background: url("./img/landing_background.jpg") no-repeat center center/cover; */
+    height: 100vh;
+  }
+  .landing .chunk {
+    height: 80%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .landing .light.yellow {
+    background-image: url("../../img/landing_page_picture.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-bottom: 10px;
+  }
+  .landing .dark.yellow {
+    background: #fff0d2;
+  }
+
+  /* First section CLASSNAME=RIGHT FLOATED CONTENT */
+
+  /* Second section */
+  #howitworks h1 {
+    position: relative;
+    padding: 1rem;
+    margin-left: 7rem;
+    font-size: 2.2rem;
+    text-align: center;
+  }
+  #howitworks .grid {
+    display: grid;
+    grid-template-columns: 25% 70%;
+    grid-auto-rows: minmax(7rem, auto);
+    grid-gap: 0rem;
+    align-items: center;
+    justify-items: start;
+    justify-content: start !important;
+  }
+
+  #howitworks p {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
+    border-radius: 20px;
+    margin: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .howitworks-table {
+    position: relative;
+    display: flex;
+    justify-items: center !important;
+  }
+  .svg-rocket {
+    max-height: 70px;
+    min-height: 70px;
+    padding-left: 50%;
+  }
+  .svg-calendar {
+    max-width: 120px;
+    min-width: 120px;
+  }
+  .svg-people {
+    max-width: 120px;
+    min-width: 120px;
+  }
+
+  /* Third section */
+  #faq .title {
+    position: relative;
+    padding-top: 100%;
+    padding-left: 60%;
+    font-size: 2.2rem;
+  }
+
+  #faq .question {
+    position: relative;
+    font-size: 18px !important;
+    font-style: italic;
+    text-align: left;
+    margin: auto;
+  }
+
+  #faq .answer {
+    position: relative;
+    font-size: 15px;
+    text-align: left;
+    padding-bottom: 2%;
+  }
+
+  #faq .grid {
+    display: grid;
+    grid-template-columns: 16% 67%;
+    grid-auto-rows: minmax(7rem, auto);
+    grid-gap: 13%;
+    justify-items: start;
+    justify-content: start !important;
+  }
 }

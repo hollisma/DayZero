@@ -1,71 +1,75 @@
-.bigger-top-container {
-  display: flex;
-  flex: 90%;
-  margin-top: 12rem;
-  margin: 155px 100px 60px 100px !important;
-  max-width: none !important;
-  justify-content: center !important;
-}
+/* For mobile */
 
-.left-container {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
-  /* border: 5px solid #44444499; */
-  flex: 60%;
-  padding-right: 100px;
-}
-.left-container > h3 {
-  margin: 5px;
-  font-size: 25px;
-  font-weight: 100;
-}
-.left-container > h3:last-of-type {
-  margin-bottom: 20px;
-}
-.right-container {
-  background-color: #7bbcf9;
-  border: 1px solid black;
-  padding: 2rem 2.5rem 2rem 2.5rem;
-  border-radius: 20px;
-}
-.available {
-  font-size: 1rem;
-  font-weight: 400;
-  text-align: center;
-  margin-bottom: -10px;
-}
-.images {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.stanford {
-  position: relative;
-  height: 25%;
-  width: 25%;
-}
-.princeton {
-  position: relative;
-  top: -7px;
-  width: 37%;
-  height: 37%;
-}
-.register.title {
-  font-size: 20px;
-  text-align: center;
-  font-weight: 700;
-}
-.social-logins {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.button {
-  display: inline-block;
-  white-space: nowrap;
-}
-.already {
-  font-size: 1rem;
+/* For desktop */
+@media only screen and (min-width: 768px) {
+  .bigger-top-container {
+    display: flex;
+    flex: 90%;
+    margin: 11% 7% 4.25% 7% !important;
+    max-width: none !important;
+    justify-content: center !important;
+  }
+
+  .left-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* border: 5px solid #44444499; */
+    flex: 60%;
+    padding-right: 9%;
+  }
+  .left-container > h3 {
+    margin: 1%;
+    font-size: 1.8rem;
+    font-weight: 100;
+  }
+  .left-container > h3:last-of-type {
+    margin-bottom: 4%;
+  }
+  .right-container {
+    background-color: #7bbcf9;
+    border: 1px solid black;
+    padding: 2rem 2.5rem 2rem 2.5rem;
+    border-radius: 20px;
+  }
+  .available {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: -10px;
+  }
+  .images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .stanford {
+    position: relative;
+    height: 25%;
+    width: 25%;
+  }
+  .princeton {
+    position: relative;
+    top: -7px;
+    width: 37%;
+    height: 37%;
+  }
+  .register.title {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 700;
+  }
+  .social-logins {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button {
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .already {
+    font-size: 1rem;
+  }
 }
