@@ -4,39 +4,58 @@ import json
 k_matching_threshold = 3
 headers = { 'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ4NjM1MGM0MjNiMjAxNTc1OWIyYzFiIn0sImlhdCI6MTU2OTA3NjQ5OCwiZXhwIjoxNTY5NDM2NDk4fQ.m5uK_vpyxhuv5njetBoclNrT8bO-qA7jUgTt6ZiLXBQ'}
 
+###################################################################################################
+#  Get information                                                                                #
+###################################################################################################
+
+# Get all users' ids
 url = 'http://localhost:5000/api/users/admin'
 response = requests.get(url, headers=headers)
 users = json.loads(response.text)
-users = list(filter(lambda u: True if u['user_type'] == 'SCHEDULED' else False, users))
+scheduledUsers = list(filter(lambda u: u['user_type'] == 'SCHEDULED', users))
 users = list(map(lambda u: u['_id'], users))
+scheduledUsers = list(map(lambda u: u['_id'], scheduledUsers))
 
+usersDict = dict()
+for u in users:
+  usersDict[u] = dict()
+
+# Get all users' schedules
 url = 'http://localhost:5000/api/schedule/admin'
 response = requests.get(url, headers=headers)
 schedules = json.loads(response.text)
-schedules = list(filter(lambda s: True if s['user'] in users else False, schedules))
+
+for s in schedules:
+  usersDict[s['user']]['schedule'] = s
 
 url = 'http://localhost:5000/api/profile/admin'
 response = requests.get(url, headers=headers)
 profiles = json.loads(response.text)
-profiles = list(filter(lambda p: True if p['user']['id'] in users else False, profiles))
 
-# Create usersDict object
-usersDict = dict()
-for u in users:
-  usersDict[u] = dict()
-  usersDict[u]['profile'] = list(filter(lambda p: True if p['user']['id'] == u else False, profiles))[0]
-  usersDict[u]['schedule'] = list(filter(lambda s: True if s['user'] == u else False, schedules))[0]
+for p in profiles:
+  usersDict[p['user']['id']]['profile'] = p
+
+###################################################################################################
+#  Helper methods                                                                                 #
+###################################################################################################
 
 def categories(id):
+  if 'profile' not in usersDict[id].keys() or 'categories' not in usersDict[id]['profile'].keys():
+    return []
   return usersDict[id]['profile']['categories']
 
 def times(id):
+  if 'schedule' not in usersDict[id].keys() or 'times' not in usersDict[id]['schedule'].keys():
+    return None
   return usersDict[id]['schedule']['times']
 
 def getSharedCategories(id1, id2): 
   c1 = categories(id1)
   c2 = categories(id2)
   common = []
+
+  if c1 is None or c2 is None:
+    return common
   for c in c1: 
     if c in c2: 
       common.append(c)
@@ -59,13 +78,14 @@ def match(id1, id2):
   matches[id1].append(id2)
   matches[id2].append(id1)
 
-ids = list(usersDict.keys())
-
 def computeCompatibilities():
-  for index, id in enumerate(ids):
+  for id in scheduledUsers:
     if 'vibe' not in usersDict[id]['profile']['user'].keys():
-      # Create vibe
-      print(id, "apisjfpsiodjf")
+      # Create vibe 
+      vibe = dict()
+      for id2 in users: 
+        sharedCategories = getSharedCategories(id, id2)
+        # if id2 not in usersDict[id]['profile']['user']
 
 computeCompatibilities()
 
