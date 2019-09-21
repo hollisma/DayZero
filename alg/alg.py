@@ -79,13 +79,29 @@ def match(id1, id2):
   matches[id2].append(id1)
 
 def computeCompatibilities():
+  newUsers = []
   for id in scheduledUsers:
     if 'vibe' not in usersDict[id]['profile']['user'].keys():
-      # Create vibe 
-      vibe = dict()
-      for id2 in users: 
-        sharedCategories = getSharedCategories(id, id2)
-        # if id2 not in usersDict[id]['profile']['user']
+      newUsers.append(id)
+  
+  
+  # Create vibe 
+  for id1 in newUsers:
+    vibe = dict()
+    for id2 in scheduledUsers: 
+      # Make sure id2 is an established user
+      if id2 in newUsers:
+        continue
+      sharedCategories = getSharedCategories(id1, id2)
+
+#TODO add sharedCategories to vibe, then figure out how to update vibe of both users. Might want to edit locally first, then once loop is done mass update. 
+
+
+
+
+
+
+      # if id2 not in usersDict[id]['profile']['user']
 
 computeCompatibilities()
 
