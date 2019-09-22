@@ -19,17 +19,14 @@ const Feedback = ({
 }) => {
   const [r1, setR1] = useState({
     receiver_id: null,
-    rating: null,
     binary: null
   });
   const [r2, setR2] = useState({
     receiver_id: null,
-    rating: null,
     binary: null
   });
   const [r3, setR3] = useState({
     receiver_id: null,
-    rating: null,
     binary: null
   });
 
@@ -94,7 +91,6 @@ const Feedback = ({
         name={m.user.name}
         avatar={m.user.avatar}
         setStateCallback={setStates[count]}
-        rating={states[count].rating}
         binary={states[count++].binary}
         receiver_id={m.user._id}
         key={i}

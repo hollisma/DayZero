@@ -86,9 +86,9 @@ const Group = ({
           </Fragment>
         ) : userType === SCHEDULED ? (
           <p>Finding other people that you'll love talking to...</p>
-        ) : userType === GROUPED ? (
-          <p>Here's your group: </p>
-        ) : userType === MET ? (
+        ) : // ) : userType === GROUPED ? (
+        //   <p>Here's your group: </p>
+        userType === MET ? (
           <Fragment>
             <p>Fill out the feedback form here!</p>
             <button className="ui button basic blue big">

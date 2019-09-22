@@ -7,14 +7,12 @@ const ReceiverFeedback = ({
   name,
   avatar,
   receiver_id,
-  rating,
   binary,
   setStateCallback
 }) => {
   const updateParent = (r, b) => {
     setStateCallback({
       receiver_id: receiver_id,
-      rating: r || rating,
       binary: b != null ? b : binary
     });
   };
@@ -24,14 +22,6 @@ const ReceiverFeedback = ({
       <div className="info">
         <Avatar className="avatar" size="100" round src={avatar} />
         <div className="member">{name}</div>
-      </div>
-      <div className="rating">
-        <StarRatingComponent
-          name={"rating" + receiver_id}
-          starCount={5}
-          value={rating}
-          onStarClick={rating => updateParent(rating)}
-        />
       </div>
       <div className="binary">
         <button
