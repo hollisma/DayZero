@@ -31,13 +31,13 @@
     background-color: #7bbcf9;
     border: 1px solid black;
     padding: 2rem 2.5rem 2rem 2.5rem;
-    border-radius: 20px;
+    border-radius: 4%;
   }
   .available {
     font-size: 1rem;
     font-weight: 400;
     text-align: center;
-    margin-bottom: -10px;
+    margin-bottom: -3%;
   }
   .images {
     display: flex;
@@ -51,12 +51,12 @@
   }
   .princeton {
     position: relative;
-    top: -7px;
+    top: -0.5rem;
     width: 37%;
     height: 37%;
   }
   .register.title {
-    font-size: 20px;
+    font-size: 140%;
     text-align: center;
     font-weight: 700;
   }

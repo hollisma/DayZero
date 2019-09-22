@@ -64,7 +64,7 @@ const Group = ({
               Put in some times so that other people know when they can meet
               you. You will NOT be matched unless you fill this in.
             </p>
-            <button className="ui button basic blue big">
+            <button className="ui button basic blue">
               <a href="/dashboard#calendar" className="reg">
                 Calendar
               </a>
