@@ -13,11 +13,11 @@ const ExampleProfile = ({ firstName }) => {
             className="circular-pic"
           />
           <div className="name">Daniel Kim</div>
-          <div className="about dan">
-            Dan aspires to be one of the best cellists of his generation but
-            enjoys music of all kinds, having produced multiple rap albums as
-            well. He wants to meet other icons at Princeton who enjoy creating
-            art.
+          <div className="about">
+            Dan aspires to be one of the best dancers of his generation but
+            enjoys art forms of all kinds, having also produced multiple rap
+            albums. He wants to meet other icons at Princeton who enjoy
+            expressing themselves creatively.
           </div>
         </div>
       ) : (
@@ -29,9 +29,10 @@ const ExampleProfile = ({ firstName }) => {
           />
           <div className="name carina">Carina Lewis</div>
           <div className="about">
-            Carina is a CS junior and founder of three companies. She recently
-            fell in love with yoga and wants to meet people who are as
-            passionate about mindfulness and tech as she is.
+            Carina is a CS junior and founder of RocketJump, a solar-powered
+            jetpack startup. She recently fell in love with yoga and wants to
+            meet people who are as passionate about mindfulness and tech as she
+            is.
           </div>
         </div>
       )}

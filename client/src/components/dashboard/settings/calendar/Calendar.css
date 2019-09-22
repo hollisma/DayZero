@@ -12,18 +12,17 @@
 
 .calendar .column .text {
   justify-content: center;
-  padding: 16px;
+  padding: 8%;
 }
 
 .calendar .column {
-  padding: 20px 16px 8px 16px;
+  padding: 1.6rem 1.2rem 0.6rem 1.2rem;
   min-width: 25%;
-  max-width: 300px;
-  margin-bottom: 20px;
-  font-size: 13px;
+  margin-bottom: 2%;
+  font-size: 1rem;
   font-weight: 600;
   justify-content: center;
-  line-height: 36px;
+  line-height: 250%;
   /* background-image: linear-gradient(to bottom right, #59d8ff77, #ff474777); */
   background-color: #fff3da;
 }
@@ -39,11 +38,11 @@
 .inputGroup {
   background-color: #fff;
   display: block;
-  margin: 10px 0;
+  margin: 0.8rem 0rem;
   position: relative;
 }
 .inputGroup label {
-  padding: 12px 30px;
+  padding: 0.8rem 2rem;
   width: 100%;
   display: block;
   text-align: left;
@@ -55,8 +54,8 @@
   overflow: hidden;
 }
 .inputGroup label:before {
-  width: 10px;
-  height: 10px;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   content: "";
   background-color: #befef6;
@@ -70,10 +69,10 @@
   z-index: -1;
 }
 .inputGroup label:after {
-  width: 32px;
-  height: 32px;
+  width: 2.35rem;
+  height: 2.35rem;
   content: "";
-  border: 2px solid #d1d7dc;
+  border: 0.15rem solid #d1d7dc;
   background-color: #fff;
   background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
   background-repeat: no-repeat;
@@ -81,7 +80,7 @@
   border-radius: 50%;
   z-index: 1;
   position: absolute;
-  right: 30px;
+  right: 8%;
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);

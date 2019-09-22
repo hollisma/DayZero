@@ -2,7 +2,7 @@ import React from "react";
 
 const Section2 = () => {
   return (
-    <div id="howitworks" className="light yellow chunk">
+    <div id="howitworks" className="background pic chunk">
       <div className="ui two column stackable center aligned grid">
         <h1 className="title">How Day Zero Works</h1>
         <div className="ui middle aligned stackable grid container howitworks-table">
