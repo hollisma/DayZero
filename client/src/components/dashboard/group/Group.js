@@ -103,19 +103,6 @@ const Group = ({
         {!loading && !membersLoading && isAuthenticated ? (
           <div className="group-container ui equal width grid">
             <GroupMember
-              member_id={membersData[3].user ? membersData[3].user._id : "-1"}
-              name={membersData[3].user ? membersData[3].user.name : ""}
-              avatar={
-                membersData[3].user
-                  ? membersData[3].user.avatar
-                  : "https://i.stack.imgur.com/dr5qp.jpg"
-              }
-              major={membersData[3].major}
-              minor={membersData[3].minor}
-              bio={membersData[3].bio}
-              want_to_meet={membersData[3].want_to_meet}
-            />
-            <GroupMember
               member_id={membersData[0].user ? membersData[0].user._id : "-1"}
               name={membersData[0].user ? membersData[0].user.name : ""}
               avatar={
@@ -153,6 +140,19 @@ const Group = ({
               minor={membersData[2].minor}
               bio={membersData[2].bio}
               want_to_meet={membersData[2].want_to_meet}
+            />
+            <GroupMember
+              member_id={membersData[3].user ? membersData[3].user._id : "-1"}
+              name={membersData[3].user ? membersData[3].user.name : ""}
+              avatar={
+                membersData[3].user
+                  ? membersData[3].user.avatar
+                  : "https://i.stack.imgur.com/dr5qp.jpg"
+              }
+              major={membersData[3].major}
+              minor={membersData[3].minor}
+              bio={membersData[3].bio}
+              want_to_meet={membersData[3].want_to_meet}
             />
           </div>
         ) : (
