@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 import ExampleProfile from "../profile/ExampleProfile";
@@ -64,6 +64,10 @@ const Section1 = ({ register, isAuthenticated }) => {
 
     return false;
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="dashboard" />;
+  }
 
   return (
     <div className="ui top-container bigger-top-container">

@@ -107,7 +107,7 @@ for time in masterSchedule.keys():
         match(u, v)
 
         ##########TODO implement match(u,v) by doing union find or something
-        ##########TODO then find next best groups
+        ##########TODO then find next best groups, maybe implementing a lower threshold
 
   
 
