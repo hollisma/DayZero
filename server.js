@@ -30,6 +30,7 @@ app.use("/api/profile", require("./routes/api/profile.js"));
 app.use("/api/schedule", require("./routes/api/schedule.js"));
 app.use("/api/groups", require("./routes/api/groups.js"));
 app.use("/api/feedback", require("./routes/api/feedback.js"));
+app.use("/api/vibe", require("./routes/api/vibe.js"));
 
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "client/build/index.html"));
