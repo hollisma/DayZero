@@ -1,8 +1,10 @@
 import requests
 import json
+import math
 
 k_matching_threshold = 3
-headers = { 'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ4NjM1MGM0MjNiMjAxNTc1OWIyYzFiIn0sImlhdCI6MTU2OTA3NjQ5OCwiZXhwIjoxNTY5NDM2NDk4fQ.m5uK_vpyxhuv5njetBoclNrT8bO-qA7jUgTt6ZiLXBQ'}
+k_total_categories = 57
+headers = { 'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ4NzBlZjE3YzJhYTQ2MjdmMGYxZjJlIn0sImlhdCI6MTU2OTE5OTM2OSwiZXhwIjoxNTY5NTU5MzY5fQ.O2elJZBhDK9On0STmQBsl9IR0Mwk0o4zRrDe_sGWiGM'}
 
 ###################################################################################################
 #  Get information                                                                                #
@@ -78,27 +80,30 @@ def match(id1, id2):
   matches[id1].append(id2)
   matches[id2].append(id1)
 
+print(usersDict)
+
 def computeCompatibilities():
   newUsers = []
   for id in scheduledUsers:
     if 'vibe' not in usersDict[id]['profile']['user'].keys():
       newUsers.append(id)
   
-  
-  # Create vibe 
+  # Create vibe for each new user
   for id1 in newUsers:
     vibe = dict()
+
+    # Go through scheduled users and compute compatibility
     for id2 in scheduledUsers: 
       # Make sure id2 is an established user
       if id2 in newUsers:
         continue
       sharedCategories = getSharedCategories(id1, id2)
-
+      score = math.log(len(sharedCategories), 2) / math.log(k_total_categories, 2)
+      vibe[id2] = score
+      usersDict[id2]['profile']['user']['vibe'][id1] = score
+    usersDict[id1]['profile']['user']['vibe'] = vibe
+    
 #TODO add sharedCategories to vibe, then figure out how to update vibe of both users. Might want to edit locally first, then once loop is done mass update. 
-
-
-
-
 
 
       # if id2 not in usersDict[id]['profile']['user']
@@ -110,16 +115,13 @@ matches = dict()
 potentialMatches = dict()
 
 # go through all users, find automatches, and create potentialMatches
-for i, id1 in enumerate(ids):
-  for j, id2 in enumerate(ids): 
+for i, id1 in enumerate(scheduledUsers):
+  for j, id2 in enumerate(scheduledUsers): 
     sharedTimes = getSharedTimes(id1, id2)
 
     # if ids are different and there are sharedTimes
-    # j >= i is optimization
-
-    # if j >= i and id1 != id2 and sharedTimes:
-    if j >= i and id1 != id2:
-      sharedCategories = getSharedCategories(id1, id2)
+    if id1 != id2 and sharedTimes:
+      
 
       # automatch if number of shared categories are above a threshold
       if len(sharedCategories) >= k_matching_threshold:
