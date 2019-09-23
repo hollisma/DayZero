@@ -14,6 +14,8 @@ router.post("/", admin, async (req, res) => {
       map: {}
     });
 
+    await vibe.save();
+
     res.json(vibe);
   } catch (err) {
     console.error(err.message);
@@ -43,10 +45,23 @@ router.get("/", admin, async (req, res) => {
  * @access  Admin
  */
 router.put("/", admin, async (req, res) => {
-  const { vibe } = req.body;
+  let { map } = req.body;
 
   try {
-    vibe = await Vibe.findOneAndUpdate({ $set: { map: vibe } }, { new: true });
+    console.log(map);
+    vibe = await Vibe.findOne();
+    // vibe.map = map;
+    // vibe = await vibe.save();
+    // vibe = await Vibe.findByIdAndUpdate(
+    //   vibe._id,
+    //   { $set: { map } },
+    //   { new: true }
+    // );
+    console.log(vibe._id);
+    vibe = await Vibe.findByIdAndUpdate(vibe._id, {
+      $set: { map: map },
+      upsert: true
+    });
 
     res.json(vibe);
   } catch (err) {
@@ -54,3 +69,5 @@ router.put("/", admin, async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
+module.exports = router;
