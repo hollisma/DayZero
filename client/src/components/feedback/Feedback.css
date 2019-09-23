@@ -1,28 +1,53 @@
 .feedback {
-  margin: 0px;
-  height: 50%;
-  padding: 5% 10%;
+  height: 100%;
+  width: 100%;
+  padding: 10% 20%;
   display: flex;
   flex-direction: column;
   align-items: left;
   justify-content: center;
-  text-align: center;
+  text-align: left;
 }
 
 .receiver-feedback {
   display: flex;
   flex-direction: row;
-  margin: 12px;
-  justify-content: center;
-  align-items: center;
+  margin: 1%;
+  justify-content: left;
+  align-items: top;
 }
 .receiver-feedback .member {
-  font-size: 24px;
-  margin: 10px;
+  font-size: 1rem;
+  margin: 1%;
   font-weight: 700;
+  width: 60%;
 }
 
 .receiver-feedback .binary {
-  font-size: 20px;
-  margin: 20px;
+  font-size: 1rem;
+  margin: 0.25rem 0.5rem;
+  text-align: center;
+  padding: 0rem 3rem;
+}
+
+.receiver-feedback .superlike {
+  margin: 0.25rem 0.5rem;
+  padding: 0rem 3rem;
+}
+
+.info {
+  /* display: inline-block; */
+  width: 30%;
+  height: 100%;
+}
+
+.avatar {
+  margin-bottom: 0rem;
+}
+
+#feedback-intro {
+  background-color: #e2f1ff;
+  font-size: 1.15rem;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
 }
