@@ -63,7 +63,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </a>
       </li>
       <li className="item">
-        <Link to="/Register" className="text-secondary">
+        <Link to="/register" className="text-secondary">
           Register
         </Link>
       </li>

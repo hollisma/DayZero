@@ -70,13 +70,13 @@ const Register = ({ register, isAuthenticated }) => {
   }
 
   return (
-    <div className="ui top-container">
-      <h3>Sixty seconds to register</h3>
+    <div className="">
+      {/* <h3>Sixty seconds to register</h3>
       <h3>Grab meals with people who share your passions</h3>
       <ExampleProfile firstName="carina" />
-      <ExampleProfile firstName="dan" />
+      <ExampleProfile firstName="dan" /> */}
       <div id="content desktop">
-        <div className="ui top-container bigger-top-container">
+        <div className="ui bigger-top-container">
           <div className="left-container">
             <h3>Sixty seconds to register</h3>
             <h3>Grab meals with people who share your passions</h3>

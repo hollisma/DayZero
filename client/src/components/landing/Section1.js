@@ -70,15 +70,15 @@ const Section1 = ({ register, isAuthenticated }) => {
   }
 
   return (
-    <div className="ui top-container bigger-top-container">
+    <div className="ui bigger-top-container">
       <div className="left-container">
-        <h3 id="header">Sixty seconds to register.</h3>
-        <h3 id="header">Grab meals with peers who share your passions.</h3>
+        <h3>Sixty seconds to register.</h3>
+        <h3>Grab meals with people who share your passions.</h3>
         <ExampleProfile firstName="carina" />
         <ExampleProfile firstName="dan" />
       </div>
       <div className="right-container">
-        <p className="available">Only available at:</p>
+        {/* <p className="available">Only available at:</p>
         <div className="images">
           <img
             src={require("../../img/stanford.svg")}
@@ -90,7 +90,7 @@ const Section1 = ({ register, isAuthenticated }) => {
             className="princeton"
             alt="princeton logo"
           />
-        </div>
+        </div> */}
         <p className="register title">Find your day zeros in 60 seconds.</p>
         <GFLogin />
         <p className="lead my-2">
