@@ -29,10 +29,11 @@
 
   .name {
     position: relative;
-    /* width: 15rem; */
+    width: 15rem;
     top: -12.5rem;
     left: 48%;
     padding: 0.8%;
+    margin: 0;
     font-size: 1.75rem;
   }
   .name.carina {

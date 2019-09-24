@@ -6,8 +6,9 @@
     display: flex;
     flex: 90%;
     margin: 11% 7% 4.25% 7% !important;
-    max-width: none !important;
+    /* max-width: 1400px !important; */
     justify-content: center !important;
+    align-items: center !important;
   }
 
   .left-container {
@@ -17,21 +18,22 @@
     align-items: center;
     /* border: 5px solid #44444499; */
     flex: 60%;
-    padding-right: 9%;
+    padding-right: 5%;
   }
   .left-container > h3 {
     margin: 1%;
     font-size: 1.8rem;
-    font-weight: 100;
+    font-weight: 300;
   }
   .left-container > h3:last-of-type {
-    margin-bottom: 4%;
+    margin-bottom: 2%;
   }
   .right-container {
-    background-color: #7bbcf9;
+    background-color: #8bccf9;
     border: 1px solid black;
-    padding: 2rem 2.5rem 2rem 2.5rem;
+    padding: 3rem;
     border-radius: 4%;
+    margin-right: 6%;
   }
   .available {
     font-size: 1rem;
