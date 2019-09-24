@@ -21,7 +21,7 @@ const GroupMember = ({
           <Avatar className="avatar" size="100" round src={avatar} />
           <p id="name">{name}</p>
         </div>
-        <div className="info">
+        <div className="information">
           <p id="academics">
             <b>Major:</b> {major + "\xa0" + "\xa0"}
             <b>Minor:</b> {minor}

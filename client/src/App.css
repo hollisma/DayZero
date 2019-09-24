@@ -3,9 +3,20 @@
   font-family: 'Open Sans', sans-serif;
 } */
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap);
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+@import url(
+  https://fonts.googleapis.com/css?family=Roboto:300,
+  400,
+  500,
+  700&display=swap
+);
 * {
-  font-family: 'Roboto';
+  font-family: "San Francisco";
 }
 
 html {
@@ -18,7 +29,7 @@ html {
 }
 
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: "San Francisco" "Raleway", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
@@ -106,19 +117,19 @@ body {
 }
 .mx {
   margin-left: 0.5rem !important;
-  margin-right: 0.5rem !important
+  margin-right: 0.5rem !important;
 }
 .mx-1 {
   margin-left: 1rem !important;
-  margin-right: 1rem !important
+  margin-right: 1rem !important;
 }
 .mx-2 {
   margin-left: 2rem !important;
-  margin-right: 2rem !important
+  margin-right: 2rem !important;
 }
 .mx-3 {
   margin-left: 3rem !important;
-  margin-right: 3rem !important
+  margin-right: 3rem !important;
 }
 .my {
   margin-top: 0.5rem !important;

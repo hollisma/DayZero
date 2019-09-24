@@ -52,11 +52,6 @@ const Group = ({
   return (
     <div className="ui container">
       <h1 className="group-header">Your Group</h1>
-      <p>
-        Below are all your matches! Once the group of four is complete, we will
-        put everyone in a group chat so you guys can decide the specific time
-        and place to meet.
-      </p>
       <div id="group" className="group">
         {userType === PROFILED ? (
           <Fragment>
@@ -98,7 +93,7 @@ const Group = ({
             </button>
           </Fragment>
         ) : (
-          <p>Have a question? Contant us at dayzero@gmail.com</p>
+          <p>Have a question? Contact us at dayzero@gmail.com</p>
         )}
         {!loading && !membersLoading && isAuthenticated ? (
           <div className="group-container ui equal width grid">

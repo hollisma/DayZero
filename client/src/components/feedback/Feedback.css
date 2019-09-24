@@ -20,7 +20,7 @@
   font-size: 1rem;
   margin: 1%;
   font-weight: 700;
-  width: 60%;
+  width: 20rem;
 }
 
 .receiver-feedback .binary {
@@ -37,7 +37,6 @@
 
 .info {
   /* display: inline-block; */
-  width: 30%;
   height: 100%;
 }
 

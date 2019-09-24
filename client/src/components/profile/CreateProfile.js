@@ -288,8 +288,18 @@ const CreateProfile = ({
             <label>Email</label>
           </div>
         </div>
-
         <div className="column">
+          <p>
+            By clicking submit, you agree to accept our{" "}
+            {
+              <a
+                href="https://drive.google.com/file/d/1qv_2QlRe09NeJ1LjRoryaSPxpDuHjMIh/view?usp=sharing"
+                target="_blank"
+              >
+                Terms and Conditions
+              </a>
+            }
+          </p>
           <a href="/" className="ui red basic button m-1 right floated">
             Go back
           </a>
