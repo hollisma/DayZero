@@ -35,24 +35,29 @@ router.get("/", auth, async (req, res) => {
 /**
  * @route   POST api/groups
  * @desc    Make a group
- * @access  Private
+ * @access  Admin
  */
-router.post("/", auth, async (req, res) => {
+router.post("/", admin, async (req, res) => {
   try {
-    const user = await User.findById(req.user.id);
+    const user_ids = req.body.user_ids;
+    for (let i = 0; i < user_ids.length; i++) {
+      const user = await User.findById(user_ids[i]);
 
-    // Check if user is in group
-    if (user.group) {
-      return res.status(400).json({ msg: "User is already in a group" });
+      // Check if user is in group
+      if (user.group) {
+        return res.status(400).json({ msg: "User is already in a group" });
+      }
     }
 
-    // Create group with current user as a member
-    const group = new Group({ members: [req.user.id] });
+    // Create group
+    const group = new Group({ members: user_ids });
     await group.save();
 
     // Add group to user
     const newUserAttrs = { group: group._id, user_type: GROUPED };
-    await User.findByIdAndUpdate(req.user.id, { $set: newUserAttrs });
+    for (let i = 0; i < user_ids.length; i++) {
+      await User.findByIdAndUpdate(user_ids[i], { $set: newUserAttrs });
+    }
 
     res.json(group);
   } catch (err) {
