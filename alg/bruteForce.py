@@ -4,7 +4,14 @@ import math
 
 k_matching_threshold = 3
 k_total_categories = 57
-headers = { 'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ4NzBlZjE3YzJhYTQ2MjdmMGYxZjJlIn0sImlhdCI6MTU2OTE5OTM2OSwiZXhwIjoxNTY5NTU5MzY5fQ.O2elJZBhDK9On0STmQBsl9IR0Mwk0o4zRrDe_sGWiGM'}
+
+url = 'http://localhost:5000/api/auth'
+body = { 'email': 'h@princeton.edu', 'password': 'hhhhhh' }
+response = requests.post(url, json=body)
+response = json.loads(response.text)
+token = response['token']
+
+headers = { 'x-auth-token': token }
 
 ###################################################################################################
 #  Get information                                                                                #
@@ -81,7 +88,6 @@ def getSharedTimes(id1, id2):
   return common
 
 def match(id1, id2):
-  print(id1, id2)
   matches[id1] = id2
   matches[id2] = id1
 
@@ -107,10 +113,6 @@ for time in masterSchedule.keys():
           if len(getSharedCategories(u, v)) > k_matching_threshold:
             match(u, v)
             break
-
-print(matches)
-
-  
 
 
 # for id1 in users:
