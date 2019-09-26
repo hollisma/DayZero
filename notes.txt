@@ -1,8 +1,9 @@
 TODO: 
-  fix google login -- not sure how it broke
+  [SERIOUS] fix google login -- not sure how it broke
   when not authenticated, go to '/dashboard' and group will render for a quick moment
-  fix register link in navbar and signup/signin links
-  [SERIOUS] doesn't redirect after registering
+  when updating calendar while GROUPED, popup says to fill out feedback form instead of asking to 
+wait until group has met
+  determine what we want to do about the sign in/up single pages
 
 BUGS:
 

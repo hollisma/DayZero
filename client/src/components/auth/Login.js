@@ -48,10 +48,10 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
   }
 
   return (
-    <div className="ui top-container bigger-top-container">
+    <div className="ui bigger-top-container">
       <div className="left-container">
-        <h3>Sixty seconds to sign up</h3>
-        <h3>Grab meals with people who share your passions</h3>
+        <h3 id="tagline">Sixty seconds to sign up</h3>
+        <h3 id="tagline">Grab meals with people who share your passions</h3>
         <ExampleProfile firstName="carina" />
         <ExampleProfile firstName="dan" />
       </div>
