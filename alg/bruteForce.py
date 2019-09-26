@@ -32,6 +32,7 @@ schedules = json.loads(response.text)
 for s in schedules:
   usersDict[s['user']]['schedule'] = s
 
+# Get all users' profiles
 url = 'http://localhost:5000/api/profile/admin'
 response = requests.get(url, headers=headers)
 profiles = json.loads(response.text)
@@ -80,12 +81,13 @@ def getSharedTimes(id1, id2):
   return common
 
 def match(id1, id2):
-  if id1 not in matches.keys():
-    matches[id1] = []
-  if id2 not in matches.keys():
-    matches[id2] = []
-  matches[id1].append(id2)
-  matches[id2].append(id1)
+  print(id1, id2)
+  matches[id1] = id2
+  matches[id2] = id1
+
+###################################################################################################
+#  Matching                                                                                       #
+###################################################################################################
 
 masterSchedule = dict()
 for id in users:
@@ -95,19 +97,18 @@ for id in users:
       masterSchedule[t] = []
     masterSchedule[t].append(id)
 
+matches = dict()
 for time in masterSchedule.keys():
   timeUsers = masterSchedule[time]
-  vibe = dict()
   for u in timeUsers:
-    vibe[u] = dict()
-    for v in timeUsers:
-      categories = getSharedCategories(u, v)
-      vibe[u][v] = getSharedCategories(u, v)
-      if len(categoroes) > k_matching_threshold:
-        match(u, v)
+    if u not in matches.keys():
+      for v in timeUsers:
+        if v not in matches.keys() and u != v:
+          if len(getSharedCategories(u, v)) > k_matching_threshold:
+            match(u, v)
+            break
 
-        ##########TODO implement match(u,v) by doing union find or something
-        ##########TODO then find next best groups, maybe implementing a lower threshold
+print(matches)
 
   
 
