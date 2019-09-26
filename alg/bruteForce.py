@@ -91,6 +91,13 @@ def match(id1, id2):
   matches[id1] = id2
   matches[id2] = id1
 
+def createGroup(members):
+  url = 'http://localhost:5000/api/groups'
+  body = { 'user_ids': members}
+  response = requests.post(url, headers=headers, json=body)
+  response = json.loads(response.text)
+  return response
+
 ###################################################################################################
 #  Matching                                                                                       #
 ###################################################################################################
@@ -113,6 +120,13 @@ for time in masterSchedule.keys():
           if len(getSharedCategories(u, v)) > k_matching_threshold:
             match(u, v)
             break
+
+matched = []
+for m in matches.keys():
+  if m not in matched:
+    members = [m, matches[m]]
+    res = createGroup(members)
+    matched.extend(members)
 
 
 # for id1 in users:
