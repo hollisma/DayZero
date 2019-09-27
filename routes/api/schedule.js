@@ -71,6 +71,42 @@ router.post("/", auth, async (req, res) => {
 });
 
 /**
+ * @route   POST api/schedule/admin
+ * @desc    Create or update user schedule
+ * @access  Admin
+ */
+router.post("/admin", admin, async (req, res) => {
+  const { times, user } = req.body;
+
+  try {
+    let schedule = await Schedule.findOne({ user: user });
+
+    if (schedule) {
+      // Update
+      schedule = await Schedule.findOneAndUpdate(
+        { user: user },
+        { times: times },
+        { new: true }
+      );
+    } else {
+      // Create
+      schedule = new Schedule({ times: times, user: user });
+      await schedule.save();
+    }
+
+    // Set user type to SCHEDULED
+    await User.findByIdAndUpdate(user, {
+      $set: { user_type: SCHEDULED }
+    });
+
+    res.json(schedule.times);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+/**
  * @route   GET api/schedule/user/:user_id
  * @desc    Get schedule by user ID
  * @access  Public
