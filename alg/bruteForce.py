@@ -5,7 +5,7 @@ import math
 k_matching_threshold = 3
 k_total_categories = 57
 
-url = 'http://localhost:5000/api/auth'
+url = 'http://52.207.10.226:5000/api/auth'
 body = { 'email': 'h@princeton.edu', 'password': 'hhhhhh' }
 response = requests.post(url, json=body)
 response = json.loads(response.text)
@@ -20,7 +20,7 @@ headers = { 'x-auth-token': token }
 ###################################################################################################
 
 # Get all users' ids
-url = 'http://localhost:5000/api/users/admin'
+url = 'http://52.207.10.226:5000/api/users/admin'
 response = requests.get(url, headers=headers)
 users = json.loads(response.text)
 allUsers = list(map(lambda u: u['_id'], users))
@@ -32,7 +32,7 @@ for u in allUsers:
   usersDict[u] = dict()
 
 # Get all users' schedules
-url = 'http://localhost:5000/api/schedule/admin'
+url = 'http://52.207.10.226:5000/api/schedule/admin'
 response = requests.get(url, headers=headers)
 schedules = json.loads(response.text)
 
@@ -40,14 +40,14 @@ for s in schedules:
   usersDict[s['user']]['schedule'] = s
 
 # Get all users' profiles
-url = 'http://localhost:5000/api/profile/admin'
+url = 'http://52.207.10.226:5000/api/profile/admin'
 response = requests.get(url, headers=headers)
 profiles = json.loads(response.text)
 
 for p in profiles:
   usersDict[p['user']['id']]['profile'] = p
 
-# url = 'http://localhost:5000/api/vibe'
+# url = 'http://52.207.10.226:5000/api/vibe'
 # response = requests.get(url, headers=headers)
 # vibe = json.loads(response.text)
 # print(vibe)
@@ -92,7 +92,7 @@ def match(id1, id2):
   matches[id2] = id1
 
 def createGroup(members):
-  url = 'http://localhost:5000/api/groups'
+  url = 'http://52.207.10.226:5000/api/groups'
   body = { 'user_ids': members}
   response = requests.post(url, headers=headers, json=body)
   response = json.loads(response.text)

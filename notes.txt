@@ -5,6 +5,10 @@ TODO:
 wait until group has met
   determine what we want to do about the sign in/up single pages
   remove current day when signing up for schedule
+  update feedback form for binaries
+  sms group
+  collect year and gender
+  put char limit on bio and want_to_meet
 
 BUGS:
 
