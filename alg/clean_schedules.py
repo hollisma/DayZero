@@ -7,7 +7,7 @@ import json
 now = datetime.now()
 
 # Authentication
-url = 'http://52.207.10.226:5000/api/auth'
+url = 'http://172.31.43.129:5000/api/auth'
 body = { 'email': 'h@princeton.edu', 'password': 'hhhhhh' }
 response = requests.post(url, json=body)
 response = json.loads(response.text)
@@ -15,7 +15,7 @@ token = response['token']
 headers = { 'x-auth-token': token }
 
 # Get all users' schedules
-url = 'http://52.207.10.226:5000/api/schedule/admin'
+url = 'http://172.31.43.129:5000/api/schedule/admin'
 response = requests.get(url, headers=headers)
 schedules = json.loads(response.text)
 
@@ -25,7 +25,7 @@ def toDatetime(t):
     return dt
 
 def updateSchedule(times, user):
-    url = 'http://localhost:5000/api/schedule/admin'
+    url = 'http://172.31.43.129:5000/api/schedule/admin'
     body = { 'times': times, 'user': user }
     response = requests.post(url, json=body, headers=headers)
     response = json.loads(response.text)
