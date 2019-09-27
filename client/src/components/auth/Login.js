@@ -56,11 +56,10 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
         <ExampleProfile firstName="dan" />
       </div>
       <div className="right-container">
-        <h1>Sign In</h1>
-        <GFLogin />
         <p className="lead my-2">
           <i className="fas fa-user" /> Sign Into Your Account
         </p>
+        <GFLogin />
         <form className="ui form" onSubmit={e => onSubmit(e)}>
           <div className="field">
             <input

@@ -19,6 +19,7 @@ const CreateProfile = ({
     email: "",
     avatar: "",
     college: "",
+    year: "",
     major: "",
     minor: "",
     categories: [],
@@ -35,6 +36,7 @@ const CreateProfile = ({
       name: loading || !user || !user.name ? "" : user.name,
       email: loading || !user || !user.email ? "" : user.email,
       avatar: loading || !user || !user.avatar ? "" : user.avatar,
+      year: loading || !user || !user.year ? "" : user.year,
       college:
         loading || !user || !user.email
           ? ""
@@ -48,6 +50,7 @@ const CreateProfile = ({
   const {
     avatar,
     college,
+    year,
     major,
     minor,
     categories,
@@ -80,7 +83,15 @@ const CreateProfile = ({
       comm_sms,
       comm_email
     };
-    let profileData = { college, major, minor, categories, bio, want_to_meet };
+    let profileData = {
+      college,
+      year,
+      major,
+      minor,
+      categories,
+      bio,
+      want_to_meet
+    };
 
     updateUser(userData);
     createProfile(profileData);
@@ -173,6 +184,19 @@ const CreateProfile = ({
             </div>
           </div>
           <div className="column">
+            <p>* Class</p>
+            <div className="field">
+              <input
+                type="text"
+                placeholder="Class of 2021"
+                name="year"
+                value={year}
+                onChange={e => onChange(e)}
+                required
+              />
+            </div>
+          </div>
+          <div className="column">
             <p>* Major</p>
             <div className="field">
               <input
@@ -227,6 +251,7 @@ const CreateProfile = ({
                 value={want_to_meet}
                 onChange={e => onChange(e)}
                 rows="4"
+                maxLength="400"
               />
             </div>
           </div>
@@ -253,6 +278,7 @@ const CreateProfile = ({
                 value={bio}
                 onChange={e => onChange(e)}
                 rows="4"
+                maxLength="400"
               />
             </div>
           </div>

@@ -25,6 +25,7 @@ const EditProfile = ({
     email: "",
     avatar: "",
     college: "",
+    year: "",
     major: "",
     minor: "",
     categories: [],
@@ -44,6 +45,7 @@ const EditProfile = ({
       avatar: user_loading || !user || !user.avatar ? "" : user.avatar,
       college:
         profile_loading || !profile || !profile.college ? "" : profile.college,
+      year: profile_loading || !profile || !profile.year ? "" : profile.year,
       major:
         profile_loading || !profile || !profile.major
           ? ""
@@ -75,6 +77,7 @@ const EditProfile = ({
     email,
     avatar,
     college,
+    year,
     major,
     minor,
     categories,
@@ -100,7 +103,15 @@ const EditProfile = ({
     e.preventDefault();
 
     let userData = { name, email, avatar, phone_number, comm_sms, comm_email };
-    let profileData = { college, major, minor, categories, bio, want_to_meet };
+    let profileData = {
+      college,
+      year,
+      major,
+      minor,
+      categories,
+      bio,
+      want_to_meet
+    };
 
     updateUser(userData);
     createProfile(profileData, true);
@@ -223,6 +234,19 @@ const EditProfile = ({
                 placeholder="College"
                 name="college"
                 value={college}
+                onChange={e => onChange(e)}
+                required
+              />
+            </div>
+          </div>
+          <div className="column">
+            <p>* Class</p>
+            <div className="field">
+              <input
+                type="text"
+                placeholder="Class of 2021"
+                name="year"
+                value={year}
                 onChange={e => onChange(e)}
                 required
               />
