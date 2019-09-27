@@ -4,6 +4,7 @@ TODO:
   when updating calendar while GROUPED, popup says to fill out feedback form instead of asking to 
 wait until group has met
   determine what we want to do about the sign in/up single pages
+  remove current day when signing up for schedule
 
 BUGS:
 
