@@ -9,6 +9,10 @@ const ProfileSchema = new mongoose.Schema({
     type: String,
     require: true
   },
+  year: {
+    type: String,
+    require: true
+  },
   major: {
     type: [String],
     require: true

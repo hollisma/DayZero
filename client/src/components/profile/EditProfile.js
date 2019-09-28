@@ -244,7 +244,7 @@ const EditProfile = ({
             <div className="field">
               <input
                 type="text"
-                placeholder="Class of 2021"
+                placeholder="2023"
                 name="year"
                 value={year}
                 onChange={e => onChange(e)}

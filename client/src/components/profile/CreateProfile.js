@@ -36,7 +36,6 @@ const CreateProfile = ({
       name: loading || !user || !user.name ? "" : user.name,
       email: loading || !user || !user.email ? "" : user.email,
       avatar: loading || !user || !user.avatar ? "" : user.avatar,
-      year: loading || !user || !user.year ? "" : user.year,
       college:
         loading || !user || !user.email
           ? ""
@@ -188,7 +187,7 @@ const CreateProfile = ({
             <div className="field">
               <input
                 type="text"
-                placeholder="Class of 2021"
+                placeholder="2023"
                 name="year"
                 value={year}
                 onChange={e => onChange(e)}

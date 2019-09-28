@@ -47,6 +47,9 @@ router.post(
       check("college", "College is required")
         .not()
         .isEmpty(),
+      check("year", "Class year is required")
+        .not()
+        .isEmpty(),
       check("major", "Major is required")
         .not()
         .isEmpty()
@@ -60,12 +63,21 @@ router.post(
     }
 
     // Destructure properties from req
-    const { college, major, minor, categories, bio, want_to_meet } = req.body;
+    const {
+      college,
+      year,
+      major,
+      minor,
+      categories,
+      bio,
+      want_to_meet
+    } = req.body;
 
     // Build profile object
     const profileFields = {};
     profileFields.user = req.user.id;
     profileFields.college = college || null;
+    profileFields.year = year || null;
     profileFields.major = major ? major.split(",").map(maj => maj.trim()) : [];
     profileFields.minor = minor ? minor.split(",").map(min => min.trim()) : [];
     profileFields.categories = categories || [];
