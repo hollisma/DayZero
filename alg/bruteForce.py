@@ -32,7 +32,7 @@ for u in allUsers:
   usersDict[u] = dict()
 
 # Get all users' schedules
-url = 'http://172.31.43.129:5000/api/schedule/admin'
+url = 'http://172.31.43.129:5000/api/schedule/all/admin'
 response = requests.get(url, headers=headers)
 schedules = json.loads(response.text)
 
