@@ -287,30 +287,6 @@ const EditProfile = ({
         <div className="row">
           <div className="column">
             <p>
-              In 2-3 sentences, describe the type of person you want to meet
-              through Day Zero. This will be shown to your matches for them to
-              know you better.
-            </p>
-            <div className="field">
-              <textarea
-                className="big-input"
-                placeholder="I want to meet people who are deeply optimistic and passionate 
-                about their work, whether it be entrepreneurship, music, physics, 
-                volunteering, or anything else. I approach my passions with a hunger and 
-                want to be inspired by similar people who share that drive to become 
-                great. I appreciate people who are thoughtful and willing to challenge
-                their own beliefs."
-                name="want_to_meet"
-                value={want_to_meet}
-                onChange={e => onChange(e)}
-                rows="4"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="column">
-            <p>
               In 2-4 sentences, tell us about your hobbies, internships, and
               interests. This will be shown to your matches for them to know you
               better.
@@ -328,6 +304,30 @@ const EditProfile = ({
                 like-minded and interesting people."
                 name="bio"
                 value={bio}
+                onChange={e => onChange(e)}
+                rows="4"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="column">
+            <p>
+              In 2-3 sentences, describe the type of person you want to meet
+              through Day Zero. This will be shown to your matches for them to
+              know you better.
+            </p>
+            <div className="field">
+              <textarea
+                className="big-input"
+                placeholder="I want to meet people who are deeply optimistic and passionate 
+                about their work, whether it be entrepreneurship, music, physics, 
+                volunteering, or anything else. I approach my passions with a hunger and 
+                want to be inspired by similar people who share that drive to become 
+                great. I appreciate people who are thoughtful and willing to challenge
+                their own beliefs."
+                name="want_to_meet"
+                value={want_to_meet}
                 onChange={e => onChange(e)}
                 rows="4"
               />

@@ -24,7 +24,7 @@ const CreateProfile = ({
     minor: "",
     categories: [],
     bio: "",
-    values: "",
+    // want_to_meet: "",
     phone_number: "",
     comm_sms: true,
     comm_email: false
@@ -54,7 +54,7 @@ const CreateProfile = ({
     minor,
     categories,
     bio,
-    want_to_meet,
+    // want_to_meet,
     phone_number,
     comm_sms,
     comm_email
@@ -88,8 +88,8 @@ const CreateProfile = ({
       major,
       minor,
       categories,
-      bio,
-      want_to_meet
+      bio
+      // want_to_meet
     };
 
     updateUser(userData);
@@ -230,7 +230,7 @@ const CreateProfile = ({
             <div className="field">{categoryButtons}</div>
           </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="column">
             <p>
               In 2-3 sentences, describe the type of person you want to meet
@@ -254,7 +254,7 @@ const CreateProfile = ({
               />
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="row">
           <div className="column">
             <p>
