@@ -64,6 +64,11 @@ const CreateProfile = ({
     const target = e.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
+
+    if (name === "bio" && value.length > 400) {
+      return;
+    }
+
     setFormData({ ...formData, [name]: value });
   };
 
@@ -277,7 +282,6 @@ const CreateProfile = ({
                 value={bio}
                 onChange={e => onChange(e)}
                 rows="4"
-                maxLength="400"
               />
             </div>
           </div>

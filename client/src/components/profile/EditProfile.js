@@ -92,6 +92,11 @@ const EditProfile = ({
     const target = e.target;
     let value = target.type === "checkbox" ? target.checked : target.value;
     let name = target.name;
+
+    if ((name === "bio" || name === "want_to_meet") && value.length > 400) {
+      return;
+    }
+
     setFormData({ ...formData, [name]: value });
   };
 
