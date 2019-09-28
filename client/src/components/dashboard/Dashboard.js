@@ -4,7 +4,7 @@ import Group from "./group/Group";
 import { generateKeyPair } from "crypto";
 
 const pageBackground = {
-  background: "#F6F6F6"
+  background: "#FAFAFA"
 };
 
 const Dashboard = () => {

@@ -21,7 +21,7 @@ const ReceiverFeedback = ({
   return (
     <div className="receiver-feedback">
       <div className="info">
-        <Avatar className="avatar" size="40%" round src={avatar} />
+        <Avatar className="avatar" size="45%" round src={avatar} />
         <div className="member">{name}</div>
       </div>
       <div className="binary">
