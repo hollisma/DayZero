@@ -22,7 +22,7 @@ const Section3 = () => {
           <h2 className="question">Why groups of four?</h2>
           <p className="answer">
             Did you know that in order to meet all of the undergrads at
-            Princeton in one year, you would have to meet 21.5 people per day?
+            Princeton in one year, you would have to meet 25 people per day?
             There's too many of us! Our goal is to help you expand your social
             circle, so why start with 1-on-1s when there's so much untapped
             potential (although not to worry, that feature is coming soon)? We
