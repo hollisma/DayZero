@@ -6,7 +6,7 @@ import {
   createSchedule,
   getCurrentSchedule
 } from "../../../../actions/schedule";
-import { PROFILED, SCHEDULED } from "../../../../utils/consts";
+import { PROFILED, SCHEDULED, GROUPED, MET } from "../../../../utils/consts";
 
 import "./Calendar.css";
 
@@ -24,10 +24,17 @@ const Calendar = ({
 
   const onSubmit = () => {
     if (user.user_type !== PROFILED && user.user_type !== SCHEDULED) {
-      MySwal.fire({
-        title: "Please fill out the feedback form",
-        type: "info"
-      });
+      if (user.user_type === GROUPED) {
+        MySwal.fire({
+          title: "Please meet with your group first",
+          type: "info"
+        });
+      } else if (user.user_type === MET) {
+        MySwal.fire({
+          title: "Please fill out the feedback form",
+          type: "info"
+        });
+      }
     } else {
       createSchedule({ times: schedule });
     }

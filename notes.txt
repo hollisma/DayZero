@@ -4,13 +4,18 @@ TODO:
   when updating calendar while GROUPED, popup says to fill out feedback form instead of asking to 
 wait until group has met
   determine what we want to do about the sign in/up single pages
-  remove current day when signing up for schedule
   update feedback form for binaries
   sms group
-  collect year and gender
-  put char limit on bio and want_to_meet
 
 BUGS:
+
+---------------------------------------------------------------------------------------------------
+WORKFLOW: 
+  when logged into the EC2 instance, do git pull
+    to change frontend, run 'sudo npm run build' in client folder
+    to change backend (namely routes), run 'pm2 stop 0' then 'pm2 start server.js'
+      this basically just resets the server
+
 
 ---------------------------------------------------------------------------------------------------
 AWS

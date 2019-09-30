@@ -54,7 +54,7 @@ const Register = ({ register, isAuthenticated }) => {
 
   const isSchoolEmail = email => {
     let extension = email.split("@")[1];
-    let validExtensions = ["princeton.edu", "stanford.edu"];
+    let validExtensions = ["princeton.edu"];
 
     for (let ext of validExtensions) {
       if (extension === ext) {
