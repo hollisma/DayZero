@@ -8,7 +8,7 @@
     height: 100vh;
   }
   .landing .chunk {
-    height: 80%;
+    height: 100vh;
     width: 100%;
     margin: auto;
     display: flex;
@@ -19,16 +19,25 @@
   }
   .landing .background.pic {
     background-image: url("../../img/landing_page_picture.svg");
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding-bottom: 0.5%;
+    height: 100vh;
   }
   .landing .dark.yellow {
     background: #fff0d2;
   }
 
   /* First section */
+  #section1 {
+    background-image: url("../../img/polygon.png");
+    background-repeat: no-repeat;
+
+
+    background-size: 300%;
+    background-position: 50% -10%;
+  }
 
   /* Second section */
   #howitworks h1 {

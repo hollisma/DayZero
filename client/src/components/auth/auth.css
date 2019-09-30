@@ -3,9 +3,11 @@
 /* For desktop */
 @media only screen and (min-width: 768px) {
   .bigger-top-container {
+    height: 100vh; 
     display: flex;
     flex: 90%;
-    margin: 11% 7% 4.25% 7% !important;
+    /* margin: 8% 7% 4.25% 7% !important; */
+    /* margin: 0 5% !important; */
     /* max-width: 1400px !important; */
     justify-content: center !important;
     align-items: center !important;

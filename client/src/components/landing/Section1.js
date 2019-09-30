@@ -70,7 +70,7 @@ const Section1 = ({ register, isAuthenticated }) => {
   }
 
   return (
-    <div className="ui bigger-top-container">
+    <div id="section1" className="ui bigger-top-container">
       <div className="left-container">
         <h3 id="tagline">Sixty seconds to register</h3>
         <h3 id="tagline">Grab meals with people who share your passions</h3>
