@@ -1,7 +1,6 @@
 import React from "react";
 import Settings from "./settings/Settings";
 import Group from "./group/Group";
-import { generateKeyPair } from "crypto";
 
 const pageBackground = {
   background: "#FAFAFA"

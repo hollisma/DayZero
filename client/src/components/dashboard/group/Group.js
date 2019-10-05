@@ -79,8 +79,8 @@ const Group = ({
               </a>
             </button>
           </Fragment>
-        ) : userType === SCHEDULED ? (
-          <p>Finding other people that you'll love talking to...</p>
+        ) : userType === GROUPED ? (
+          <p>Here's your group!</p>
         ) : // ) : userType === GROUPED ? (
         //   <p>Here's your group: </p>
         userType === MET ? (

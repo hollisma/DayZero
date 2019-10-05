@@ -47,7 +47,7 @@ const ReceiverFeedback = ({
           <div class="ui red button">
             <i class="heart icon"></i> Like
           </div>
-          <a class="ui basic red left pointing label">1,048</a>
+          <p class="ui basic red left pointing label">1,048</p>
         </div>
       </div>
     </div>

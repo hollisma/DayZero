@@ -23,8 +23,7 @@ const GroupMember = ({
         </div>
         <div className="information">
           <p id="academics">
-            <b>Major:</b> {major + "\xa0" + "\xa0"}
-            <b>Minor:</b> {minor}
+            <b>Major:</b> {major} <b>Minor:</b> {minor}
           </p>
           <p>
             <b>Wants to meet:</b> {want_to_meet}
