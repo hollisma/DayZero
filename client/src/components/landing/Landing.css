@@ -31,11 +31,11 @@
 
   /* First section */
   #section1 {
-    background-image: url("../../img/polygon.png");
+    background-image: url("../../img/Triangle.svg");
     background-repeat: no-repeat;
 
-    background-size: 300%;
-    background-position: 50% -10%;
+    background-size: 400%;
+    background-position: 90% 19%;
   }
 
   /* Second section */
