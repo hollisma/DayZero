@@ -11,7 +11,7 @@
     /* max-width: 1400px !important; */
     justify-content: center !important;
     align-items: center !important;
-    margin-top: 3%;
+    margin-top: 6%;
   }
 
   .left-container {
@@ -61,7 +61,7 @@
     height: 37%;
   }
   .register.title {
-    font-size: 140%;
+    font-size: 120%;
     text-align: center;
     font-weight: 700;
   }
@@ -79,6 +79,6 @@
   }
   #tagline {
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 }

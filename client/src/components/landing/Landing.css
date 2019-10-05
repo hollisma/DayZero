@@ -23,10 +23,11 @@
     background-position: center;
     background-repeat: no-repeat;
     padding-bottom: 0.5%;
-    height: 100vh;
+    height: 80vh;
   }
   .landing .dark.yellow {
     background: #fff0d2;
+    height: 65vh;
   }
 
   /* First section */
@@ -88,8 +89,8 @@
   /* Third section */
   #faq .title {
     position: relative;
-    padding-top: 100%;
-    padding-left: 45%;
+    padding-top: 60%;
+    padding-left: 65%;
     font-size: 2.2rem;
   }
 

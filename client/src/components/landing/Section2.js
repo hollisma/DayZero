@@ -13,9 +13,10 @@ const Section2 = () => {
           />
           <p>
             When you sign up, you tell us what kind of people you'd like to
-            meet. People interested in art? Entrepreneurship? Music? Blockchain?
-            Philosophy? You can select any number of interests and based on
-            these, we will find matches for you.
+            meet. People interested in entrepreneurship? Creative writing?
+            Mental models? Blockchain? You can select any number of interests
+            and based on these, we will people who share the same interets as
+            you.
           </p>
           <img
             src={require("../../img/calendar.svg")}
@@ -23,8 +24,7 @@ const Section2 = () => {
             alt=""
           />
           <p>
-            Set your calendar for the times you're free to grab a meal of
-            coffee.
+            Set your calendar for the times you're free to grab lunch or dinner.
           </p>
           <img
             src={require("../../img/people.svg")}
@@ -32,8 +32,8 @@ const Section2 = () => {
             alt=""
           />
           <p>
-            Based on your interests and available times, Day Zero will put you
-            in a group SMS so you guys can work out the specifics!
+            Based on your interests and available times, Day Zero will connect
+            you with the person who shares the most passions with you!
           </p>
         </div>
       </div>
