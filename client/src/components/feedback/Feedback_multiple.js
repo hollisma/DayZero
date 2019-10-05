@@ -7,6 +7,10 @@ import ReceiverFeedback from "./ReceiverFeedback";
 
 import "./Feedback.css";
 
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
+
 const Feedback = ({
   group: { members, membersData, loading, membersLoading },
   auth: { user },
@@ -14,6 +18,14 @@ const Feedback = ({
   getMembersProfiles
 }) => {
   const [r1, setR1] = useState({
+    receiver_id: null,
+    binary: null
+  });
+  const [r2, setR2] = useState({
+    receiver_id: null,
+    binary: null
+  });
+  const [r3, setR3] = useState({
     receiver_id: null,
     binary: null
   });
@@ -27,31 +39,59 @@ const Feedback = ({
   }
 
   const onSubmit = async () => {
-    const config = {
-      headers: {
-        "Content-Type": "application/json"
+    // Check if any properties are null
+    let passed = true;
+    propertyCheck: for (let s of states) {
+      if (s.receiver_id) {
+        for (let p of Object.keys(s)) {
+          if (s[p] == null) {
+            MySwal.fire({
+              title: "Please fill out all areas",
+              type: "error"
+            });
+            passed = false;
+            break propertyCheck;
+          }
+        }
       }
-    };
+    }
 
-    try {
-      if (r1.receiver_id) {
-        await axios.post("/api/feedback", r1, config);
+    if (passed) {
+      const config = {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      };
+
+      try {
+        if (r1.receiver_id) {
+          await axios.post("/api/feedback", r1, config);
+        }
+        if (r2.receiver_id) {
+          await axios.post("/api/feedback", r2, config);
+        }
+        if (r3.receiver_id) {
+          await axios.post("/api/feedback", r3, config);
+        }
+        await axios.put("/api/feedback/finish");
+
+        window.location.href = "/dashboard";
+      } catch (err) {
+        console.log(err.response);
       }
-      await axios.put("/api/feedback/finish");
-
-      window.location.href = "/dashboard";
-    } catch (err) {
-      console.log(err.response);
     }
   };
 
+  let count = 0;
+  const states = [r1, r2, r3];
+  const setStates = [setR1, setR2, setR3];
   const Receivers = membersData.map((m, i) =>
     m.user && m.user.name !== user.name ? (
       <ReceiverFeedback
         name={m.user.name}
         avatar={m.user.avatar}
-        setStateCallback={setR1}
-        binary={r1.binary}
+        setStateCallback={setStates[count]}
+        binary={states[count++].binary}
         receiver_id={m.user._id}
         key={i}
       />
@@ -61,8 +101,8 @@ const Feedback = ({
   return (
     <div className="feedback">
       <p id="feedback-intro">
-        Hey {user.name}, I hfope you enjoyed meeting your Day Zeros! To make
-        sure you get matched with the people you'd vibe with most, we'd really
+        Hey {user.name}, I hope you enjoyed meeting your Day Zeros! To make sure
+        you get matched with the people you'd vibe with most, we'd really
         appreciate your anonymous feedback. Your Day Zeros won't know what
         responses you gave.
       </p>

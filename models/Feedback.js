@@ -20,6 +20,9 @@ const FeedbackSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  emojis: {
+    type: Map
+  },
   binary: {
     type: Boolean
   }

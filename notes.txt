@@ -6,6 +6,9 @@ wait until group has met
   determine what we want to do about the sign in/up single pages
   update feedback form for binaries
   sms group
+  make sure to clarify that you need to pick x amount of interests
+  calendar button
+  alg - lower threshold, first match faster
 
 BUGS:
 

@@ -16,11 +16,9 @@ const { PROFILED, MET } = require("../../models/types");
  */
 router.post("/", auth, async (req, res) => {
   // Destructure properties from req
-  const { receiver_id, binary } = req.body;
+  const { receiver_id, emojis, binary } = req.body;
 
   try {
-    // TODO: handle if feedback between two users in a group already exists
-
     const user = await User.findById(req.user.id);
     if (!user.group) {
       return res.status(400).json({ msg: "User is not in a group" });
@@ -39,6 +37,7 @@ router.post("/", auth, async (req, res) => {
     feedbackFields.user = req.user.id;
     feedbackFields.receiver = receiver_id;
     feedbackFields.group = group;
+    feedbackFields.emojis = emojis;
     feedbackFields.binary = binary != null ? binary : null;
 
     const feedback = new Feedback(feedbackFields);
