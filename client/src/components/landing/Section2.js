@@ -12,28 +12,24 @@ const Section2 = () => {
             alt=""
           />
           <p>
-            When you sign up, you tell us what kind of people you'd like to
-            meet. People interested in entrepreneurship? Creative writing?
-            Mental models? Blockchain? You can select any number of interests
-            and based on these, we will people who share the same interets as
-            you.
+            Tell us your interests by choosing from a list that spans
+            professional goals, majors, hobbies, lifestyles, etc.
           </p>
           <img
             src={require("../../img/calendar.svg")}
             className="svg-calendar"
             alt=""
           />
-          <p>
-            Set your calendar for the times you're free to grab lunch or dinner.
-          </p>
+          <p>Tell us what days you're free to grab lunch or dinner.</p>
           <img
             src={require("../../img/people.svg")}
             className="svg-people"
             alt=""
           />
           <p>
-            Based on your interests and available times, Day Zero will connect
-            you with the person who shares the most passions with you!
+            Day Zero automatically sends a group text to you and the person who
+            shares the most interests with you so y'all can communicate and
+            figure out where to meet!
           </p>
         </div>
       </div>

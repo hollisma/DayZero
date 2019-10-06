@@ -14,10 +14,10 @@ const ExampleProfile = ({ firstName }) => {
           />
           <div className="name">Daniel Kim</div>
           <div className="about">
-            Dan aspires to be the best dancer of this era and enjoys art of all
-            kinds, having also produced multiple rap albums. He's performed in
-            music videos for Post Malone and Cardi B and is looking for people
-            to collab on future projects with.
+            "I used to think I was the only one who wanted to work in the
+            intersection of music, medicine, and basketball. But through Day
+            Zero, I met a friend who shared those exact interests! We're in
+            different eating clubs so there's a "
           </div>
         </div>
       ) : (

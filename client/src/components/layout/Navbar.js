@@ -66,6 +66,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <a
           href="https://medium.com/@kelvinotcelsius/a-letter-from-the-founders-introducing-day-zero-428b591fc778"
           className="text-secondary"
+          target="_blank"
         >
           Our Letter
         </a>
