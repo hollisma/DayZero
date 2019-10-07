@@ -12,12 +12,10 @@ const ExampleProfile = ({ firstName }) => {
             alt="Dan Kim"
             className="circular-pic"
           />
-          <div className="name">Daniel Kim</div>
           <div className="about">
-            "I used to think I was the only one who wanted to work in the
-            intersection of music, medicine, and basketball. But through Day
-            Zero, I met a friend who shared those exact interests! We're in
-            different eating clubs so there's a "
+            "I used to think there was no one else who shared my interests, but
+            boy was I wrong. The number of people doing cool shit at Princeton
+            is mind-blowing." — Daniel Kim '21
           </div>
         </div>
       ) : (
@@ -27,12 +25,10 @@ const ExampleProfile = ({ firstName }) => {
             alt="Carina Lewis"
             className="circular-pic"
           />
-          <div className="name carina">Carina Lewandowski</div>
           <div className="about">
-            Carina is a CS junior and founder of ShinyRocket, a solar-powered
-            jetpack startup. She's looking for people interested in trying it
-            out! She's passionate about mindfulness, tech, and improving the
-            world through engineering.
+            "After joining TI it was hard to meet new people outside the club,
+            but through Day Zero, I've made great friends I probs would've never
+            met before." — Carina Lewandowski '21
           </div>
         </div>
       )}

@@ -91,11 +91,11 @@ const Section1 = ({ register, isAuthenticated }) => {
             alt="princeton logo"
           />
         </div> */}
-        <p className="register title">Find your day zeros in 60 seconds.</p>
-        <GFLogin />
-        <p className="lead my-2">
-          <i className="fas fa-user" /> Create Your Account
+        <p className="call_to_action">
+          <i className="fas fa-user" /> Signing up takes 60 seconds
         </p>
+        <GFLogin />
+
         <form className="ui form" onSubmit={e => onSubmit(e)}>
           <div className="field">
             <input

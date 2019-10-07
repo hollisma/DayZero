@@ -26,22 +26,21 @@ const GFLogins = ({ glogin, fblogin }) => {
 
   return (
     <div className="social-logins">
-      <div className="button">
-        <FacebookLogin
-          appId={config.FACEBOOK_APP_ID}
-          autoLoad={false}
-          fields="name,email,picture"
-          callback={facebookResponse}
-        />
-      </div>
-      <div class="button">
-        <GoogleLogin
-          clientId={config.GOOGLE_CLIENT_ID}
-          buttonText="Login"
-          onSuccess={googleResponse}
-          onFailure={onFailure}
-        />
-      </div>
+      <FacebookLogin
+        appId={config.FACEBOOK_APP_ID}
+        autoLoad={false}
+        fields="name,email,picture"
+        callback={facebookResponse}
+        cssClass="btnFacebook"
+        textButton="Facebook"
+      />
+      <GoogleLogin
+        clientId={config.GOOGLE_CLIENT_ID}
+        onSuccess={googleResponse}
+        onFailure={onFailure}
+        className="btnGoogle"
+        buttonText="Google"
+      />
     </div>
   );
 };

@@ -6,12 +6,13 @@
     height: 100vh;
     display: flex;
     flex: 90%;
+    padding: 4%;
     /* margin: 8% 7% 4.25% 7% !important; */
     /* margin: 0 5% !important; */
     /* max-width: 1400px !important; */
     justify-content: center !important;
     align-items: center !important;
-    margin-top: 6%;
+    margin-top: 3%;
   }
 
   .left-container {
@@ -34,51 +35,83 @@
   .right-container {
     background-color: #8bccf9;
     border: 1px solid black;
-    padding: 3rem;
     border-radius: 4%;
     margin-right: 6%;
+    width: 30%;
+    padding: 2rem 2rem 2rem 2rem;
   }
-  .available {
+
+  .social-logins {
+    display: flex;
+    align-items: center;
+  }
+
+  .btnFacebook {
+    width: 8rem;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    height: 3.1rem;
+    background: #3b5998;
+    color: white;
+    border: 0px transparent;
+    text-align: center;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+  .btnGoogle {
+    width: 8rem;
+    height: 3.1rem;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    color: white;
+    border: 0px transparent;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+  .btnFacebook:hover {
+    opacity: 0.6;
+  }
+  .btnGoogle:hover {
+    opacity: 0.6;
+  }
+
+  /* .button {
+    display: inline-block;
+    white-space: nowrap;
+    width: 30%;
+  } */
+
+  .already {
+    font-size: 1rem;
+  }
+
+  #tagline {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+
+  .call_to_action {
+    font-size: 1.25rem;
+  }
+
+  /* .available {
     font-size: 1rem;
     font-weight: 400;
     text-align: center;
     margin-bottom: -3%;
-  }
-  .images {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .stanford {
-    position: relative;
-    height: 25%;
-    width: 25%;
-  }
+  } 
+
   .princeton {
     position: relative;
-    top: -0.5rem;
-    width: 37%;
-    height: 37%;
+    text-align: center;
+    width: 35%;
   }
+
   .register.title {
-    font-size: 120%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 110%;
     text-align: center;
     font-weight: 700;
-  }
-  .social-logins {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .button {
-    display: inline-block;
-    white-space: nowrap;
-  }
-  .already {
-    font-size: 1rem;
-  }
-  #tagline {
-    font-weight: 700;
-    font-size: 1.8rem;
-  }
+  } */
 }
