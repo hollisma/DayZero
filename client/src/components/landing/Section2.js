@@ -12,8 +12,8 @@ const Section2 = () => {
             alt=""
           />
           <p>
-            Tell us your interests by choosing from a list that spans
-            professional goals, majors, hobbies, lifestyles, etc.
+            List your passions by choosing from a bunch of interests spanning
+            professional goals, majors, hobbies, lifestyles, and more.
           </p>
           <img
             src={require("../../img/calendar.svg")}
