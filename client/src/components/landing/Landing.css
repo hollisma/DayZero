@@ -17,14 +17,7 @@
     justify-content: center;
     text-align: center;
   }
-  .landing .background.pic {
-    background-image: url("../../img/landing_page_picture.svg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding-bottom: 0.5%;
-    height: 80vh;
-  }
+
   .landing .dark.yellow {
     background: #fff0d2;
     height: 65vh;
@@ -40,6 +33,11 @@
   }
 
   /* Second section */
+  #howitworks {
+    background-color: #f6f6f6;
+    padding: 2rem;
+  }
+
   #howitworks h1 {
     position: relative;
     padding: 1rem;
@@ -47,43 +45,43 @@
     font-size: 2.2rem;
     text-align: center;
   }
-  #howitworks .grid {
-    display: grid;
-    grid-template-columns: 25% 70%;
-    grid-auto-rows: minmax(7rem, auto);
-    grid-gap: 0rem;
+
+  .steps {
+    margin: 3rem 2rem;
+    display: flex;
     align-items: center;
-    justify-items: start;
-    justify-content: start !important;
+  }
+
+  .select_interests {
+    margin-left: 2rem;
+    margin-right: 1rem;
+    vertical-align: middle;
+    width: 43rem;
+    float: left;
+  }
+
+  .select_time {
+    margin-left: 2rem;
+    margin-right: 1rem;
+    vertical-align: middle;
+    width: 43rem;
   }
 
   #howitworks p {
     position: relative;
-    background-color: rgba(255, 255, 255, 0.5);
-    font-size: 1.2rem;
-    border-radius: 2rem;
-    margin: auto;
+    font-size: 1.4rem;
+    margin: 0rem 0.5rem;
     padding-top: 1%;
     padding-bottom: 1%;
+    overflow: auto;
   }
 
-  .howitworks-table {
-    position: relative;
-    display: flex;
-    justify-items: center !important;
-  }
-  .svg-rocket {
-    max-height: 5rem;
-    min-height: 5rem;
-    padding-left: 50%;
-  }
-  .svg-calendar {
-    max-width: 9rem;
-    min-width: 9rem;
-  }
   .svg-people {
-    max-width: 9rem;
-    min-width: 9rem;
+    max-width: 15rem;
+    min-width: 15rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    vertical-align: middle;
   }
 
   /* Third section */
