@@ -14,8 +14,7 @@ export const EMAIL = "EMAIL";
 
 // Time availability
 export const TIME1 = "Lunch";
-export const TIME2 = "Afternoon Coffee";
-export const TIME3 = "Dinner";
+export const TIME2 = "Dinner";
 
 // Categories
 export const CATEGORIES = [
