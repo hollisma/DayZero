@@ -15,8 +15,6 @@ headers = { 'x-auth-token': token }
 # Get all users' schedules
 url = 'http://172.31.43.129:5000/api/schedule/all/admin'
 schedules = requests.get(url, headers=headers).json()
-print(schedules)
-print(headers)
 
 def toDatetime(t):
     nums = t.split(',')[0].split('-')

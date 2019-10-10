@@ -194,8 +194,6 @@ router.put("/admin/:group_id", admin, async (req, res) => {
   }
 });
 
-module.exports = router;
-
 /**
  * @route   PUT api/groups/admin/archive/:group_id
  * @desc    Archive group
@@ -219,6 +217,21 @@ router.put("/admin/archive/:group_id", admin, async (req, res) => {
     group = await Group.findById(req.params.group_id);
 
     res.json(group);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+/**
+ * @route   GET api/groups/admin
+ * @desc    Get all groups
+ * @access  Admin
+ */
+router.get("/admin", admin, async (req, res) => {
+  try {
+    var groups = await Group.find();
+    res.json(groups);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
