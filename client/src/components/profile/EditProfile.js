@@ -7,8 +7,8 @@ import {
   createProfile,
   getCurrentProfile
 } from "../../actions/profile";
-import PhoneInput from "react-phone-number-input";
-import "react-phone-number-input/style.css";
+// import PhoneInput from "react-phone-number-input";
+// import "react-phone-number-input/style.css";
 import { CATEGORIES } from "../../utils/consts";
 import AvatarEdit from "react-avatar-edit";
 import Avatar from "react-avatar";
@@ -29,11 +29,11 @@ const EditProfile = ({
     major: "",
     minor: "",
     categories: [],
-    bio: "",
-    want_to_meet: "",
-    phone_number: "",
-    comm_sms: true,
-    comm_email: false
+    bio: ""
+    // want_to_meet: "",
+    // phone_number: "",
+    // comm_sms: true,
+    // comm_email: false
   });
 
   useEffect(() => {
@@ -58,16 +58,16 @@ const EditProfile = ({
         profile_loading || !profile || !profile.categories
           ? []
           : profile.categories,
-      bio: profile_loading || !profile || !profile.bio ? "" : profile.bio,
-      want_to_meet:
-        profile_loading || !profile || !profile.want_to_meet
-          ? ""
-          : profile.want_to_meet,
-      phone_number:
-        user_loading || !user || !user.phone_number ? "" : user.phone_number,
-      comm_sms: user_loading || !user || !user.comm_sms ? false : user.comm_sms,
-      comm_email:
-        user_loading || !user || !user.comm_email ? false : user.comm_email
+      bio: profile_loading || !profile || !profile.bio ? "" : profile.bio
+      // want_to_meet:
+      //   profile_loading || !profile || !profile.want_to_meet
+      //     ? ""
+      //     : profile.want_to_meet,
+      // phone_number:
+      //   user_loading || !user || !user.phone_number ? "" : user.phone_number,
+      // comm_sms: user_loading || !user || !user.comm_sms ? false : user.comm_sms,
+      // comm_email:
+      //   user_loading || !user || !user.comm_email ? false : user.comm_email
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profile_loading, user_loading, getCurrentProfile]);
@@ -81,11 +81,11 @@ const EditProfile = ({
     major,
     minor,
     categories,
-    bio,
-    want_to_meet,
-    phone_number,
-    comm_sms,
-    comm_email
+    bio
+    // want_to_meet,
+    // phone_number,
+    // comm_sms,
+    // comm_email
   } = formData;
 
   const onChange = e => {
@@ -100,22 +100,23 @@ const EditProfile = ({
     setFormData({ ...formData, [name]: value });
   };
 
-  const onPhoneChange = e => {
-    setFormData({ ...formData, phone_number: e });
-  };
+  // const onPhoneChange = e => {
+  //   setFormData({ ...formData, phone_number: e });
+  // };
 
   const onSubmit = e => {
     e.preventDefault();
 
-    let userData = { name, email, avatar, phone_number, comm_sms, comm_email };
+    // let userData = { name, email, avatar, phone_number, comm_sms, comm_email };
+    let userData = { name, email, avatar };
     let profileData = {
       college,
       year,
       major,
       minor,
       categories,
-      bio,
-      want_to_meet
+      bio
+      // want_to_meet
     };
 
     updateUser(userData);
@@ -231,7 +232,7 @@ const EditProfile = ({
           </div>
         </div>
         <div className="row">
-          <div className="column">
+          {/* <div className="column">
             <p>* College</p>
             <div className="field">
               <input
@@ -243,7 +244,7 @@ const EditProfile = ({
                 required
               />
             </div>
-          </div>
+          </div> */}
           <div className="column">
             <p>* Class</p>
             <div className="field">
@@ -315,7 +316,7 @@ const EditProfile = ({
             </div>
           </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="column">
             <p>
               In 2-3 sentences, describe the type of person you want to meet
@@ -338,8 +339,8 @@ const EditProfile = ({
               />
             </div>
           </div>
-        </div>
-        <div className="column">
+        </div> */}
+        {/* <div className="column">
           <p>Phone Number</p>
           <PhoneInput
             placeholder="Enter phone number"
@@ -347,8 +348,8 @@ const EditProfile = ({
             value={phone_number}
             onChange={e => onPhoneChange(e)}
           />
-        </div>
-        <div className="column">
+        </div> */}
+        {/* <div className="column">
           <p>Communication Preference</p>
           <div className="ui field toggle checkbox">
             <input
@@ -368,7 +369,7 @@ const EditProfile = ({
             />
             <label>Email</label>
           </div>
-        </div>
+        </div> */}
 
         <div className="column">
           <a href="/" className="ui red basic button m-1 right floated">

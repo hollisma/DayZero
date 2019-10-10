@@ -44,9 +44,9 @@ router.post(
     auth,
     [
       // TODO: this might need to be changed for arrays
-      check("college", "College is required")
-        .not()
-        .isEmpty(),
+      // check("college", "College is required")
+      //   .not()
+      //   .isEmpty(),
       check("year", "Class year is required")
         .not()
         .isEmpty(),
@@ -69,8 +69,8 @@ router.post(
       major,
       minor,
       categories,
-      bio,
-      want_to_meet
+      bio
+      // want_to_meet
     } = req.body;
 
     // Build profile object
@@ -82,7 +82,7 @@ router.post(
     profileFields.minor = minor ? minor.split(",").map(min => min.trim()) : [];
     profileFields.categories = categories || [];
     profileFields.bio = bio || null;
-    profileFields.want_to_meet = want_to_meet || null;
+    // profileFields.want_to_meet = want_to_meet || null;
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });

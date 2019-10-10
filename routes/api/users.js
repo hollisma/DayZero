@@ -8,8 +8,6 @@ const auth = require("../../middleware/auth");
 const admin = require("../../middleware/admin");
 
 const User = require("../../models/User");
-const Profile = require("../../models/Profile");
-const Schedule = require("../../models/Schedule");
 const { REGISTERED } = require("../../models/types");
 
 /**
@@ -53,8 +51,8 @@ router.post(
         email,
         avatar: "https://i.stack.imgur.com/dr5qp.jpg",
         password,
-        user_type: REGISTERED,
-        vibe: {}
+        user_type: REGISTERED
+        // vibe: {}
       });
 
       // Encrypt password
