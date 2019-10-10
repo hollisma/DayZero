@@ -41,6 +41,14 @@
     padding: 2rem 2rem 2rem 2rem;
   }
 
+  .triangle-background {
+    background-image: url("../../img/triangle1.svg");
+    background-repeat: no-repeat;
+
+    background-size: 400%;
+    background-position: 90% 19%;
+  }
+
   .social-logins {
     display: flex;
     align-items: center;

@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { getDefaultRoute } from "../routing/default_types";
 import { GUEST } from "../../utils/consts";
 import ExampleProfile from "../profile/ExampleProfile";
-import GFLogin from "./GFLogins";
+// import GFLogin from "./GFLogins";
 
 import "./auth.css";
 
@@ -48,7 +48,7 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
   }
 
   return (
-    <div className="ui bigger-top-container">
+    <div className="triangle-background ui bigger-top-container">
       <div className="left-container">
         <h3 id="tagline">Sixty seconds to sign up</h3>
         <h3 id="tagline">Grab meals with people who share your passions</h3>
@@ -59,7 +59,7 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
         <p className="lead my-2">
           <i className="fas fa-user" /> Sign Into Your Account
         </p>
-        <GFLogin />
+        {/* <GFLogin /> */}
         <form className="ui form" onSubmit={e => onSubmit(e)}>
           <div className="field">
             <input
