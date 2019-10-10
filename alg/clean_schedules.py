@@ -1,12 +1,11 @@
 # run once per day to remove outdated times in schedules
 
-from datetime import datetime
+from datetime import datetime, timedelta
 import requests
 
 now = datetime.now()
 
 # Authentication
-# 172.31.43.129:3---
 url = 'http://172.31.43.129:5000/api/auth'
 body = { 'email': 'h@princeton.edu', 'password': 'hhhhhh' }
 response = requests.post(url, json=body).json()
@@ -33,7 +32,7 @@ def updateSchedule(times, user):
 for schedule in schedules:
     times = schedule['times']
     user = schedule['user']
-    now = datetime.now()
+    tomorrow = datetime.now() + timedelta(days=1)
 
-    times = list(filter(lambda t: toDatetime(t) > now, times))
+    times = list(filter(lambda t: toDatetime(t) > tomorrow, times))
     updateSchedule(times, user)
