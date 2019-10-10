@@ -25,7 +25,7 @@
 
   /* First section */
   #section1 {
-    background-image: url("../../img/Triangle.svg");
+    background-image: url("../../img/triangle1.svg");
     background-repeat: no-repeat;
 
     background-size: 400%;
@@ -34,7 +34,12 @@
 
   /* Second section */
   #howitworks {
-    background-color: #f6f6f6;
+    background-image: url("../../img/section2_backgruond.svg");
+    background-repeat: no-repeat;
+
+    background-size: 100%;
+    background-position: 50%;
+    /* background-color: #f6f6f6; */
     padding: 2rem;
   }
 
@@ -69,6 +74,7 @@
 
   #howitworks p {
     position: relative;
+    /* background-color: white; */
     font-size: 1.4rem;
     margin: 0rem 0.5rem;
     padding-top: 1%;
@@ -80,7 +86,7 @@
     max-width: 15rem;
     min-width: 15rem;
     margin-left: 2rem;
-    margin-right: 2rem;
+    margin-right: 2.5rem;
     vertical-align: middle;
   }
 

@@ -94,7 +94,7 @@ const Section1 = ({ register, isAuthenticated }) => {
         <p className="call_to_action">
           <i className="fas fa-user" /> Signing up takes 60 seconds
         </p>
-        <GFLogin />
+        {/* <GFLogin /> */}
 
         <form className="ui form" onSubmit={e => onSubmit(e)}>
           <div className="field">
