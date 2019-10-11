@@ -89,16 +89,23 @@ def getSharedTimes(id1, id2):
       common.append(c)
   return common
 
-def match(id1, id2):
-  matches[id1] = id2
-  matches[id2] = id1
-
-def createGroup(members):
+# Create a group with the users and the time
+def match(members, time):
   url = host_name + ':5000/api/groups'
-  body = { 'user_ids': members }
+  body = { 'user_ids': members, 'time': time }
   response = requests.post(url, headers=headers, json=body)
   response = json.loads(response.text)
   return response
+
+  # matches[id1] = id2
+  # matches[id2] = id1
+
+# def createGroup(members, time):
+#   url = host_name + ':5000/api/groups'
+#   body = { 'user_ids': members, 'time': time }
+#   response = requests.post(url, headers=headers, json=body)
+#   response = json.loads(response.text)
+#   return response
 
 def toDatetime(t):
     split = t.split(',')
@@ -127,27 +134,29 @@ masterSchedule_sorted_keys = list(masterSchedule.keys())
 masterSchedule_sorted_keys = sorted(masterSchedule_sorted_keys, key=toDatetime)
 
 # Match people with same time slot and shared interests
-matches = dict()
+matches = set()
 # For each time where at least one user is available
 for time in masterSchedule_sorted_keys:
   timeUsers = masterSchedule[time]
   # For every user in this time
   for u in timeUsers:
-    if u not in matches.keys():
+    if u not in matches:
       # For every potential match for the first user
       for v in timeUsers:
-        if v not in matches.keys() and u != v:
+        if v not in matches and u != v:
           if len(getSharedCategories(u, v)) > k_matching_threshold:
-            match(u, v)
+            print(match([u, v], time))
+            matches.add(u)
+            matches.add(v)
             break
 
 # Create groups between matched people
-matched = []
-for m in matches.keys():
-  if m not in matched:
-    members = [m, matches[m]]
-    res = createGroup(members)
-    matched.extend(members)
+# matched = []
+# for m in matches.keys():
+#   if m not in matched:
+#     members = [m, matches[m]]
+#     res = createGroup(members)
+#     matched.extend(members)
 
 
 
