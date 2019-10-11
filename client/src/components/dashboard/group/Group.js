@@ -123,7 +123,7 @@ const Group = ({
               bio={membersData[1].bio}
               want_to_meet={membersData[1].want_to_meet}
             />
-            <GroupMember
+            {/* <GroupMember
               member_id={membersData[2].user ? membersData[2].user._id : "-1"}
               name={membersData[2].user ? membersData[2].user.name : ""}
               avatar={
@@ -148,7 +148,7 @@ const Group = ({
               minor={membersData[3].minor}
               bio={membersData[3].bio}
               want_to_meet={membersData[3].want_to_meet}
-            />
+            /> */}
           </div>
         ) : (
           <Spinner />
