@@ -8,7 +8,7 @@ const GroupSchema = new mongoose.Schema({
     // require: true
   },
   time: {
-    type: Date
+    type: String
   },
   active: {
     type: Boolean,
