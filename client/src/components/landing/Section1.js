@@ -72,7 +72,7 @@ const Section1 = ({ register, isAuthenticated }) => {
   return (
     <div id="section1" className="ui bigger-top-container">
       <div className="left-container">
-        <h3 id="tagline">Sixty seconds to register.</h3>
+        <h3 id="tagline">Thirty seconds to register.</h3>
         <h3 id="tagline">Meet Princeton students who share your passions.</h3>
         <ExampleProfile firstName="carina" />
         <ExampleProfile firstName="dan" />
@@ -92,7 +92,7 @@ const Section1 = ({ register, isAuthenticated }) => {
           />
         </div> */}
         <p className="call_to_action">
-          <i className="fas fa-user" /> Signing up takes 60 seconds
+          <i className="fas fa-user" /> Signing up takes 30 seconds
         </p>
         {/* <GFLogin /> */}
 
@@ -109,7 +109,7 @@ const Section1 = ({ register, isAuthenticated }) => {
           <div className="field">
             <input
               type="email"
-              placeholder="Email Address"
+              placeholder="Princeton Email Address"
               name="email"
               value={email}
               onChange={e => onChange(e)}
