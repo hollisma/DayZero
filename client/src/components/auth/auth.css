@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
 /* For mobile */
 
 /* For desktop */
@@ -25,7 +31,7 @@
   }
   .right-container {
     background-color: #8bccf9;
-    border: 1px solid #707070;
+    border: 1px solid black;
     border-radius: 1rem;
     padding: 2rem 2rem 2rem 2rem;
     width: 40%;
@@ -44,12 +50,18 @@
   }
 
   #tagline {
-    font-weight: 700;
     font-size: 2.5rem;
+    font-family: "San Francisco";
+  }
+
+  .underline {
+    text-decoration: underline;
+    font-family: "San Francisco";
   }
 
   .call_to_action {
     font-size: 1.25rem;
+    font-weight: 700;
   }
 
   .form {
