@@ -1,11 +1,13 @@
 import requests
 import json
 import math
+from datetime import datetime, timedelta
 
 k_matching_threshold = 3
-k_total_categories = 57
+# host_name = 'http://172.31.43.129'
+host_name = 'http://localhost'
 
-url = 'http://172.31.43.129:5000/api/auth'
+url = host_name + ':5000/api/auth'
 body = { 'email': 'h@princeton.edu', 'password': 'hhhhhh' }
 response = requests.post(url, json=body)
 response = json.loads(response.text)
@@ -20,7 +22,7 @@ headers = { 'x-auth-token': token }
 ###################################################################################################
 
 # Get all users' ids
-url = 'http://172.31.43.129:5000/api/users/admin'
+url = host_name + ':5000/api/users/admin'
 response = requests.get(url, headers=headers)
 users = json.loads(response.text)
 allUsers = list(map(lambda u: u['_id'], users))
@@ -32,7 +34,7 @@ for u in allUsers:
   usersDict[u] = dict()
 
 # Get all users' schedules
-url = 'http://172.31.43.129:5000/api/schedule/all/admin'
+url = host_name + ':5000/api/schedule/admin'
 response = requests.get(url, headers=headers)
 schedules = json.loads(response.text)
 
@@ -40,14 +42,14 @@ for s in schedules:
   usersDict[s['user']]['schedule'] = s
 
 # Get all users' profiles
-url = 'http://172.31.43.129:5000/api/profile/admin'
+url = host_name + ':5000/api/profile/admin'
 response = requests.get(url, headers=headers)
 profiles = json.loads(response.text)
 
 for p in profiles:
   usersDict[p['user']['id']]['profile'] = p
 
-# url = 'http://172.31.43.129:5000/api/vibe'
+# url = host_name + ':5000/api/vibe'
 # response = requests.get(url, headers=headers)
 # vibe = json.loads(response.text)
 # print(vibe)
@@ -92,16 +94,26 @@ def match(id1, id2):
   matches[id2] = id1
 
 def createGroup(members):
-  url = 'http://172.31.43.129:5000/api/groups'
-  body = { 'user_ids': members}
+  url = host_name + ':5000/api/groups'
+  body = { 'user_ids': members }
   response = requests.post(url, headers=headers, json=body)
   response = json.loads(response.text)
   return response
+
+def toDatetime(t):
+    split = t.split(',')
+    date = datetime.strptime(split[0], '%m-%d-%Y')
+    if split[1] == 'Lunch': 
+        date = date + timedelta(hours=12)
+    if split[1] == 'Afternoon Coffee': 
+        date = date + timedelta(hours=18)
+    return date
 
 ###################################################################################################
 #  Matching                                                                                       #
 ###################################################################################################
 
+# masterSchedule holds times and users with the time slot
 masterSchedule = dict()
 for id in users:
   times = usersDict[id]['schedule']['times']
@@ -110,23 +122,40 @@ for id in users:
       masterSchedule[t] = []
     masterSchedule[t].append(id)
 
+# Sort keys to make sure earliest times are matched first
+masterSchedule_sorted_keys = list(masterSchedule.keys())
+masterSchedule_sorted_keys = sorted(masterSchedule_sorted_keys, key=toDatetime)
+
+# Match people with same time slot and shared interests
 matches = dict()
-for time in masterSchedule.keys():
+# For each time where at least one user is available
+for time in masterSchedule_sorted_keys:
   timeUsers = masterSchedule[time]
+  # For every user in this time
   for u in timeUsers:
     if u not in matches.keys():
+      # For every potential match for the first user
       for v in timeUsers:
         if v not in matches.keys() and u != v:
           if len(getSharedCategories(u, v)) > k_matching_threshold:
             match(u, v)
             break
 
+# Create groups between matched people
 matched = []
 for m in matches.keys():
   if m not in matched:
     members = [m, matches[m]]
     res = createGroup(members)
     matched.extend(members)
+
+
+
+
+
+
+
+
 
 
 # for id1 in users:

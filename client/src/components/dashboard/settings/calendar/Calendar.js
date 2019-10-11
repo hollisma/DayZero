@@ -51,13 +51,13 @@ const Calendar = ({
       </p>
       <div id="calendar" className="calendar chunk">
         <div className="options">
-          <CheckboxGroup day={0} />
           <CheckboxGroup day={1} />
           <CheckboxGroup day={2} />
           <CheckboxGroup day={3} />
           <CheckboxGroup day={4} />
           <CheckboxGroup day={5} />
           <CheckboxGroup day={6} />
+          <CheckboxGroup day={7} />
         </div>
         <div>
           <button

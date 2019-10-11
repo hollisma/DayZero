@@ -61,8 +61,8 @@ const Feedback = ({
   return (
     <div className="feedback">
       <p id="feedback-intro">
-        Hey {user.name}, I hfope you enjoyed meeting your Day Zeros! To make
-        sure you get matched with the people you'd vibe with most, we'd really
+        Hey {user.name}, I hope you enjoyed meeting your Day Zeros! To make sure
+        you get matched with the people you'd vibe with most, we'd really
         appreciate your anonymous feedback. Your Day Zeros won't know what
         responses you gave.
       </p>

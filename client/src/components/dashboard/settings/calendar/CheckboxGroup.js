@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import moment from "moment";
 import { connect } from "react-redux";
 import { changeSchedule } from "../../../../actions/schedule";
-import { TIME1, TIME2, TIME3 } from "../../../../utils/consts";
+import { TIME1, TIME2 } from "../../../../utils/consts";
 
 import "./Calendar.css";
 
@@ -13,7 +13,6 @@ const CheckboxGroup = ({ day, changeSchedule, schedule: { schedule } }) => {
     .format("MM-DD-YYYY");
   const id1 = day + "," + TIME1;
   const id2 = day + "," + TIME2;
-  const id3 = day + "," + TIME3;
 
   let arr = schedule ? Object.keys(schedule).map(k => schedule[k]) : [];
   let scheduleSet = schedule ? new Set(arr) : new Set();
@@ -50,16 +49,6 @@ const CheckboxGroup = ({ day, changeSchedule, schedule: { schedule } }) => {
           onChange={e => onChange(e)}
         />
         <label htmlFor={id2}>{TIME2}</label>
-      </div>
-      <div className="inputGroup">
-        <input
-          id={id3}
-          name={id3}
-          type="checkbox"
-          checked={scheduleSet.has(id3)}
-          onChange={e => onChange(e)}
-        />
-        <label htmlFor={id3}>{TIME3}</label>
       </div>
     </form>
   );

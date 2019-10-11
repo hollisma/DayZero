@@ -3,8 +3,8 @@ import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { updateUser, createProfile } from "../../actions/profile";
-import PhoneInput from "react-phone-number-input";
-import "react-phone-number-input/style.css";
+// import PhoneInput from "react-phone-number-input";
+// import "react-phone-number-input/style.css";
 import { CATEGORIES } from "../../utils/consts";
 import AvatarEdit from "react-avatar-edit";
 import Avatar from "react-avatar";
@@ -18,16 +18,16 @@ const CreateProfile = ({
     name: "",
     email: "",
     avatar: "",
-    college: "",
+    // college: "",
     year: "",
     major: "",
-    minor: "",
-    categories: [],
-    bio: "",
+    // minor: "",
+    categories: []
+    // bio: "",
     // want_to_meet: "",
-    phone_number: "",
-    comm_sms: true,
-    comm_email: false
+    // phone_number: "",
+    // comm_sms: true,
+    // comm_email: false
   });
 
   useEffect(() => {
@@ -35,29 +35,29 @@ const CreateProfile = ({
       ...formData,
       name: loading || !user || !user.name ? "" : user.name,
       email: loading || !user || !user.email ? "" : user.email,
-      avatar: loading || !user || !user.avatar ? "" : user.avatar,
-      college:
-        loading || !user || !user.email
-          ? ""
-          : user.email.split("@")[1] === "princeton.edu"
-          ? "Princeton University"
-          : "Stanford University"
+      avatar: loading || !user || !user.avatar ? "" : user.avatar
+      // college:
+      //   loading || !user || !user.email
+      //     ? ""
+      //     : user.email.split("@")[1] === "princeton.edu"
+      //     ? "Princeton University"
+      //     : "Stanford University"
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
   const {
     avatar,
-    college,
+    // college,
     year,
     major,
-    minor,
-    categories,
-    bio,
+    // minor,
+    categories
+    // bio,
     // want_to_meet,
-    phone_number,
-    comm_sms,
-    comm_email
+    // phone_number,
+    // comm_sms,
+    // comm_email
   } = formData;
 
   const onChange = e => {
@@ -72,9 +72,9 @@ const CreateProfile = ({
     setFormData({ ...formData, [name]: value });
   };
 
-  const onPhoneChange = e => {
-    setFormData({ ...formData, phone_number: e });
-  };
+  // const onPhoneChange = e => {
+  //   setFormData({ ...formData, phone_number: e });
+  // };
 
   const onSubmit = e => {
     e.preventDefault();
@@ -82,18 +82,18 @@ const CreateProfile = ({
     let userData = {
       name: formData.name,
       email: formData.email,
-      avatar,
-      phone_number,
-      comm_sms,
-      comm_email
+      avatar
+      // phone_number,
+      // comm_sms,
+      // comm_email
     };
     let profileData = {
-      college,
+      // college,
       year,
       major,
-      minor,
-      categories,
-      bio
+      // minor,
+      categories
+      // bio
       // want_to_meet
     };
 
@@ -172,9 +172,7 @@ const CreateProfile = ({
               src={avatar}
             />
           </div>
-        </div>
-        <div className="row">
-          <div className="column">
+          {/* <div className="column">
             <p>* College</p>
             <div className="field">
               <input
@@ -186,7 +184,7 @@ const CreateProfile = ({
                 required
               />
             </div>
-          </div>
+          </div> */}
           <div className="column">
             <p>* Class</p>
             <div className="field">
@@ -199,8 +197,6 @@ const CreateProfile = ({
                 required
               />
             </div>
-          </div>
-          <div className="column">
             <p>* Major</p>
             <div className="field">
               <input
@@ -213,7 +209,7 @@ const CreateProfile = ({
               />
             </div>
           </div>
-          <div className="column">
+          {/* <div className="column">
             <p>Minor (separate by commas)</p>
             <div className="field">
               <input
@@ -224,7 +220,7 @@ const CreateProfile = ({
                 onChange={e => onChange(e)}
               />
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="row">
           <div className="column">
@@ -260,7 +256,7 @@ const CreateProfile = ({
             </div>
           </div>
         </div> */}
-        <div className="row">
+        {/* <div className="row">
           <div className="column">
             <p>
               In 2-4 sentences, tell us about your hobbies, internships, and
@@ -285,8 +281,8 @@ const CreateProfile = ({
               />
             </div>
           </div>
-        </div>
-        <div className="column">
+        </div> */}
+        {/* <div className="column">
           <p>* Phone Number</p>
           <PhoneInput
             placeholder="Enter phone number"
@@ -295,8 +291,8 @@ const CreateProfile = ({
             onChange={e => onPhoneChange(e)}
             required
           />
-        </div>
-        <div className="column">
+        </div> */}
+        {/* <div className="column">
           <p>How should we notify you when you've been matched?</p>
           <div className="ui field toggle checkbox">
             <input
@@ -316,7 +312,7 @@ const CreateProfile = ({
             />
             <label>Email</label>
           </div>
-        </div>
+        </div> */}
         <div className="column">
           <p>
             By clicking submit, you agree to accept our{" "}

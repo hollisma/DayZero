@@ -4,7 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 import ExampleProfile from "../profile/ExampleProfile";
-import GFLogin from "./GFLogins";
+// import GFLogin from "./GFLogins";
 
 import "./auth.css";
 
@@ -70,18 +70,18 @@ const Register = ({ register, isAuthenticated }) => {
   }
 
   return (
-    <div className="ui bigger-top-container">
+    <div className="triangle-background ui bigger-top-container">
       <div className="left-container">
         <h3 id="tagline">
           Want to meet Princeton students who share your interests?
         </h3>
-        <h3 id="tagline"></h3>
+        {/* <h3 id="tagline"></h3> */}
         <ExampleProfile firstName="carina" />
         <ExampleProfile firstName="dan" />
       </div>
       <div className="right-container">
         <p className="register title">Signing up takes 60 seconds.</p>
-        <GFLogin />
+        {/* <GFLogin /> */}
         <p className="lead my-2">
           <i className="fas fa-user" /> Create Your Account
         </p>
