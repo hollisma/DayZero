@@ -4,41 +4,31 @@
 @media only screen and (min-width: 768px) {
   .bigger-top-container {
     height: 100vh;
-    display: flex;
-    flex: 90%;
     padding: 4%;
-    /* margin: 8% 7% 4.25% 7% !important; */
-    /* margin: 0 5% !important; */
-    /* max-width: 1400px !important; */
-    justify-content: center !important;
-    align-items: center !important;
     margin-top: 3%;
   }
 
+  .upper-container {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2.5rem;
+  }
+
+  .bottom-container {
+    display: inline-flex;
+    flex-direction: row;
+    width: 90%;
+  }
+
   .left-container {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    /* border: 5px solid #44444499; */
-    flex: 60%;
-    padding-right: 5%;
-  }
-  .left-container > h3 {
-    margin: 1%;
-    font-size: 1.8rem;
-    font-weight: 300;
-  }
-  .left-container > h3:last-of-type {
-    margin-bottom: 2%;
+    padding-right: 6%;
   }
   .right-container {
     background-color: #8bccf9;
-    border: 1px solid black;
-    border-radius: 4%;
-    margin-right: 6%;
-    width: 30%;
+    border: 1px solid #707070;
+    border-radius: 1rem;
     padding: 2rem 2rem 2rem 2rem;
+    width: 40%;
   }
 
   .triangle-background {
@@ -49,6 +39,53 @@
     background-position: 90% 19%;
   }
 
+  .already {
+    font-size: 1rem;
+  }
+
+  #tagline {
+    font-weight: 700;
+    font-size: 2.5rem;
+  }
+
+  .call_to_action {
+    font-size: 1.25rem;
+  }
+
+  .form {
+    margin: 1.5rem 0rem;
+  }
+  /* .available {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: -3%;
+  } 
+
+  .princeton {
+    position: relative;
+    text-align: center;
+    width: 35%;
+  }
+
+  .register.title {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 110%;
+    text-align: center;
+    font-weight: 700;
+  } */
+
+  /* .left-container > h3 {
+    margin: 1%;
+    font-size: 1.8rem;
+    font-weight: 300;
+  }
+  .left-container > h3:last-of-type {
+    margin-bottom: 2%;
+  } */
+
+  /* 
   .social-logins {
     display: flex;
     align-items: center;
@@ -81,45 +118,11 @@
   }
   .btnGoogle:hover {
     opacity: 0.6;
-  }
+  } */
 
   /* .button {
     display: inline-block;
     white-space: nowrap;
     width: 30%;
-  } */
-
-  .already {
-    font-size: 1rem;
-  }
-
-  #tagline {
-    font-weight: 700;
-    font-size: 2rem;
-  }
-
-  .call_to_action {
-    font-size: 1.25rem;
-  }
-
-  /* .available {
-    font-size: 1rem;
-    font-weight: 400;
-    text-align: center;
-    margin-bottom: -3%;
-  } 
-
-  .princeton {
-    position: relative;
-    text-align: center;
-    width: 35%;
-  }
-
-  .register.title {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    font-size: 110%;
-    text-align: center;
-    font-weight: 700;
   } */
 }

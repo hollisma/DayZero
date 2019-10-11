@@ -11,48 +11,34 @@
   /* ExampleProfile */
   .lower {
     background-color: #ddeeff;
-    width: 33rem;
-    height: 8.5rem;
+    width: 35rem;
+    height: 9.5rem;
     border-radius: 10rem;
     border: 1px solid #707070;
-    margin: 1.5rem;
+    margin: 1.5rem 1.5rem 1.5rem 8rem;
   }
 
   .upper {
     background-color: #ddffed;
-    width: 33rem;
-    height: 8.5rem;
+    width: 35rem;
+    height: 9.5rem;
     border-radius: 10rem;
     border: 1px solid #707070;
-    margin: 1.5rem;
+    margin: 0rem 1.5rem 3rem 8rem;
   }
 
   .about {
     position: relative;
-    top: -98%;
-    left: 25.5%;
+    top: -95%;
+    left: 26.5%;
     text-align: left;
-    width: 70%;
-    font-size: 110%;
+    width: 67%;
+    font-size: 116%;
   }
 
   .circular-pic {
     position: relative;
     left: -2.5%;
-    width: 8.4rem;
+    width: 9.4rem;
   }
-
-  /* .name {
-    position: relative;
-    width: 15rem;
-    top: -8.6rem;
-    left: 48%;
-    padding: 0.8%;
-    margin: 0;
-    font-size: 1.25rem;
-  }
-  .name.carina {
-    left: 40%;
-    width: 18rem;
-  } */
 }

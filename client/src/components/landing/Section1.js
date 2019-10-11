@@ -71,66 +71,110 @@ const Section1 = ({ register, isAuthenticated }) => {
 
   return (
     <div id="section1" className="ui bigger-top-container">
-      <div className="left-container">
+      <div className="upper-container">
         <h3 id="tagline">Thirty seconds to register.</h3>
         <h3 id="tagline">Meet Princeton students who share your passions.</h3>
-        <ExampleProfile firstName="carina" />
-        <ExampleProfile firstName="dan" />
       </div>
-      <div className="right-container">
-        {/* <p className="available">Only available at:</p>
-        <div className="images">
-          <img
-            src={require("../../img/stanford.svg")}
-            className="stanford"
-            alt="stanford logo"
-          />
-          <img
-            src={require("../../img/princeton.svg")}
-            className="princeton"
-            alt="princeton logo"
-          />
-        </div> */}
-        <p className="call_to_action">
-          <i className="fas fa-user" /> Signing up takes 30 seconds
-        </p>
-        {/* <GFLogin /> */}
-
-        <form className="ui form" onSubmit={e => onSubmit(e)}>
-          <div className="field">
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              value={name}
-              onChange={e => onChange(e)}
-            />
-          </div>
-          <div className="field">
-            <input
-              type="email"
-              placeholder="Princeton Email Address"
-              name="email"
-              value={email}
-              onChange={e => onChange(e)}
-            />
-          </div>
-          <div className="field">
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={password}
-              onChange={e => onChange(e)}
-            />
-          </div>
-          <input type="submit" className="ui button my-1" value="Register" />
-        </form>
-        <p className="already">
-          Already have an account? <Link to="/login">Sign In</Link>
-        </p>
+      <div className="bottom-container">
+        <div className="left-container">
+          <ExampleProfile firstName="carina" />
+          <ExampleProfile firstName="dan" />
+        </div>
+        <div className="right-container">
+          <p className="call_to_action">
+            <i className="fas fa-user" /> Interesting people await you
+          </p>
+          <form className="ui form" onSubmit={e => onSubmit(e)}>
+            <div className="field">
+              <input
+                type="email"
+                placeholder="Princeton Email Address"
+                name="email"
+                value={email}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div className="field">
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={password}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <input type="submit" className="ui button my-1" value="Register" />
+          </form>
+          <p className="already">
+            Already have an account? <Link to="/login">Sign In</Link>
+          </p>
+        </div>
       </div>
     </div>
+
+    // <div id="section1" className="ui bigger-top-container">
+    //   <div className="section1_title">
+    //     <h3 id="tagline">Thirty seconds to register.</h3>
+    //     <h3 id="tagline">Meet Princeton students who share your passions.</h3>
+    //   </div>
+    //   <div className="left-container">
+    //     <ExampleProfile firstName="carina" />
+    //     <ExampleProfile firstName="dan" />
+    //   </div>
+    //   <div className="right-container">
+    //     {/* <p className="available">Only available at:</p>
+    //     <div className="images">
+    //       <img
+    //         src={require("../../img/stanford.svg")}
+    //         className="stanford"
+    //         alt="stanford logo"
+    //       />
+    //       <img
+    //         src={require("../../img/princeton.svg")}
+    //         className="princeton"
+    //         alt="princeton logo"
+    //       />
+    //     </div> */}
+    //     <p className="call_to_action">
+    //       <i className="fas fa-user" /> Interesting people await you
+    //     </p>
+    //     {/* <GFLogin /> */}
+
+    //     <form className="ui form" onSubmit={e => onSubmit(e)}>
+    //       {/* <div className="field">
+    //         <input
+    //           type="text"
+    //           placeholder="Name"
+    //           name="name"
+    //           value={name}
+    //           onChange={e => onChange(e)}
+    //         />
+    //       </div> */}
+    //       <div className="field">
+    //         <input
+    //           type="email"
+    //           placeholder="Princeton Email Address"
+    //           name="email"
+    //           value={email}
+    //           onChange={e => onChange(e)}
+    //         />
+    //       </div>
+    //       <div className="field">
+    //         <input
+    //           type="password"
+    //           placeholder="Password"
+    //           name="password"
+    //           value={password}
+    //           onChange={e => onChange(e)}
+    //         />
+    //       </div>
+    //       <input type="submit" className="ui button my-1" value="Register" />
+    //     </form>
+    //     <p className="already">
+    //       Already have an account? <Link to="/login">Sign In</Link>
+    //     </p>
+    //   </div>
+    // </div>
   );
 };
 

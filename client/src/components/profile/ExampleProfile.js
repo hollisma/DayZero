@@ -14,7 +14,7 @@ const ExampleProfile = ({ firstName }) => {
           />
           <div className="about">
             "I used to think there was no one else who shared my interests, but
-            boy was I wrong. The number of people doing cool shit at Princeton
+            boy was I wrong. The number of people doing cool stuff at Princeton
             is mind-blowing." — Daniel Kim '21
           </div>
         </div>
