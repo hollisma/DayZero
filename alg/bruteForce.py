@@ -2,6 +2,7 @@ import requests
 import json
 import math
 from datetime import datetime, timedelta
+from matching_notifier import MatchingNotifier
 
 k_matching_threshold = 3
 # host_name = 'http://172.31.43.129'
@@ -148,6 +149,8 @@ for time in masterSchedule_sorted_keys:
             print(match([u, v], time))
             matches.add(u)
             matches.add(v)
+            notifier = MatchingNotifier()
+            notifier.match([usersDict[u]['profile'], usersDict[v]['profile']])
             break
 
 # Create groups between matched people
