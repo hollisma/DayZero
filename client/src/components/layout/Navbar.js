@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -77,7 +77,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   return (
     <nav className="ui secondary menu navbar" id="navbar">
-      <Hamburger />
+      {!loading && <Hamburger authenticated={isAuthenticated} />}
       <h1 className="item">
         <a className="logo-box" href={isAuthenticated ? "/dashboard#" : "/#"}>
           <img
