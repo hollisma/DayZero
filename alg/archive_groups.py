@@ -3,8 +3,8 @@
 from datetime import datetime, timedelta
 import requests
 
-# host_name = 'http://172.31.43.129'
-host_name = 'http://localhost'
+host_name = 'http://172.31.43.129'
+# host_name = 'http://localhost'
 
 now = datetime.now()
 

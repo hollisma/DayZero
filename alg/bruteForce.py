@@ -5,8 +5,8 @@ from datetime import datetime, timedelta
 from matching_notifier import MatchingNotifier
 
 k_matching_threshold = 3
-# host_name = 'http://172.31.43.129'
-host_name = 'http://localhost'
+host_name = 'http://172.31.43.129'
+# host_name = 'http://localhost'
 
 url = host_name + ':5000/api/auth'
 body = { 'email': 'h@princeton.edu', 'password': 'hhhhhh' }
