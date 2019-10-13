@@ -73,11 +73,11 @@ const Section1 = ({ register, isAuthenticated }) => {
     <div id="section1" className="ui bigger-top-container">
       <div className="upper-container">
         <h3 id="tagline">
-          <span class="underline">Thirty seconds</span> to register.
+          <span className="underline">Thirty seconds</span> to register.
         </h3>
         <h3 id="tagline">
           Meet Princeton students who
-          <span class="underline"> share your passions.</span>
+          <span className="underline"> share your passions.</span>
         </h3>
       </div>
       <div className="bottom-container">
