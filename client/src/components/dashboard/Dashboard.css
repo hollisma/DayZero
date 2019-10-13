@@ -1,0 +1,9 @@
+.dashboard {
+  background-color: #F8F8F8;
+}
+
+@media only screen and (max-width: 768px) {
+  .dashboard {
+    padding-top: 100px;
+  }
+}

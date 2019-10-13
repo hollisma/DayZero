@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { logout } from "../../actions/auth";
 
 import "./Hamburger.css";
@@ -11,36 +12,40 @@ const Hamburger = ({ authenticated }) => {
       <div className="hamburger">
         <nav role="navigation">
           <div id="menuToggle" className={toggled ? "toggled" : ""}>
-            {/* A fake / hidden checkbox is used as click reciever,
-            so you can use the :checked selector on it. */}
             <input type="checkbox" onClick={() => setToggled(!toggled)} />
 
-            {/* Some spans to act as a hamburger.
-            
-            They are acting like a real hamburger,
-            not that McDonalds stuff. */}
+            {/* Some spans to act as a hamburger.*/}
             <span></span>
             <span></span>
             <span></span>
 
-            {/* Too bad the menu has to be inside of the button
-            but hey, it's pure CSS magic. */}
             <ul id="menu">
-              <a href="/dashboard#" onClick={() => setToggled(false)}>
-                <li>Your Day Zeros</li>
-              </a>
-              <a href="/dashboard#settings" onClick={() => setToggled(false)}>
-                <li>Settings</li>
-              </a>
-              <a href="/#howitworks" onClick={() => setToggled(false)}>
-                <li>How It Works</li>
-              </a>
-              <a href="/#" onClick={logout}>
-                <li>Logout</li>
-              </a>
-              {/* <Link onClick={logout} to="/#">
-                <i className="fas fa-sign-out-alt" /> <li>Logout</li>
-              </Link> */}
+              <li>
+                <a href="/dashboard#" onClick={() => setToggled(false)}>
+                  Your Day Zeros
+                </a>
+              </li>
+              <li>
+                <a href="/dashboard#settings" onClick={() => setToggled(false)}>
+                  Settings
+                </a>
+              </li>
+              <li>
+                <a href="/#howitworks" onClick={() => setToggled(false)}>
+                  How It Works
+                </a>
+              </li>
+              <li>
+                <Link
+                  to="/#"
+                  onClick={() => {
+                    setToggled(false);
+                    logout();
+                  }}
+                >
+                  Logout
+                </Link>
+              </li>
             </ul>
           </div>
         </nav>
@@ -51,37 +56,38 @@ const Hamburger = ({ authenticated }) => {
       <div className="hamburger">
         <nav role="navigation">
           <div id="menuToggle" className={toggled ? "toggled" : ""}>
-            {/* A fake / hidden checkbox is used as click reciever,
-            so you can use the :checked selector on it. */}
             <input type="checkbox" onClick={() => setToggled(!toggled)} />
 
-            {/* Some spans to act as a hamburger.
-            
-            They are acting like a real hamburger,
-            not that McDonalds stuff. */}
+            {/* Some spans to act as a hamburger.*/}
             <span></span>
             <span></span>
             <span></span>
 
-            {/* Too bad the menu has to be inside of the button
-            but hey, it's pure CSS magic. */}
             <ul id="menu">
-              <a href="/#" onClick={() => setToggled(false)}>
-                <li>Home</li>
-              </a>
-              <a href="/#howitworks" onClick={() => setToggled(false)}>
-                <li>How It Works</li>
-              </a>
-              <a href="/#faq" onClick={() => setToggled(false)}>
-                <li>FAQ/About Us</li>
-              </a>
-              <a
-                href="https://medium.com/@kelvinotcelsius/a-letter-from-the-founders-introducing-day-zero-428b591fc778"
-                // target="_blank"
-                onClick={() => setToggled(false)}
-              >
-                <li>Our Letter</li>
-              </a>
+              <li>
+                <a href="/#" onClick={() => setToggled(false)}>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="/#howitworks" onClick={() => setToggled(false)}>
+                  How It Works
+                </a>
+              </li>
+              <li>
+                <a href="/#faq" onClick={() => setToggled(false)}>
+                  FAQ/About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://medium.com/@kelvinotcelsius/a-letter-from-the-founders-introducing-day-zero-428b591fc778"
+                  // target="_blank"
+                  onClick={() => setToggled(false)}
+                >
+                  Our Letter
+                </a>
+              </li>
             </ul>
           </div>
         </nav>

@@ -2,13 +2,11 @@ import React from "react";
 import Settings from "./settings/Settings";
 import Group from "./group/Group";
 
-const pageBackground = {
-  background: "#FAFAFA"
-};
+import "./Dashboard.css";
 
 const Dashboard = () => {
   return (
-    <div className="dashboard" style={pageBackground}>
+    <div className="dashboard">
       <Group />
       <Settings />
     </div>
