@@ -151,7 +151,6 @@ for time in masterSchedule_sorted_keys:
             matches.add(u)
             matches.add(v)
             notifier = MatchingNotifier()
-            print(usersDict[u], usersDict[v])
             notifier.match([usersDict[u]['profile'], usersDict[v]['profile']])
             break
 

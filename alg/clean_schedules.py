@@ -30,7 +30,6 @@ def updateSchedule(times, user):
 for schedule in schedules:
     times = schedule['times']
     user = schedule['user']
-    tomorrow = datetime.now() + timedelta(days=1)
 
-    times = list(filter(lambda t: toDatetime(t) > tomorrow, times))
+    times = list(filter(lambda t: toDatetime(t) > datetime.now(), times))
     updateSchedule(times, user)
