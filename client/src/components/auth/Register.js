@@ -65,44 +65,50 @@ const Register = ({ register, isAuthenticated }) => {
 
   return (
     <div className="triangle-background ui bigger-top-container">
-      <div className="left-container">
+      <div className="upper-container">
         <h3 id="tagline">
-          Want to meet Princeton students who share your interests?
+          <span className="underline">Thirty seconds</span> to register.
         </h3>
-        {/* <h3 id="tagline"></h3> */}
-        <ExampleProfile firstName="carina" />
-        <ExampleProfile firstName="dan" />
+        <h3 id="tagline">
+          Meet Princeton students who
+          <span className="underline"> share your passions.</span>
+        </h3>
       </div>
-      <div className="right-container">
-        <p className="register title">Signing up takes 60 seconds.</p>
-        {/* <GFLogin /> */}
-        <p className="lead my-2">
-          <i className="fas fa-user" /> Create Your Account
-        </p>
-        <form className="ui form" onSubmit={e => onSubmit(e)}>
-          <div className="field">
-            <input
-              type="email"
-              placeholder="Email Address"
-              name="email"
-              value={email}
-              onChange={e => onChange(e)}
-            />
-          </div>
-          <div className="field">
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={password}
-              onChange={e => onChange(e)}
-            />
-          </div>
-          <input type="submit" className="ui button my-1" value="Register" />
-        </form>
-        <p className="already">
-          Already have an account? <Link to="/login">Sign In</Link>
-        </p>
+      <div className="bottom-container">
+        <div className="left-container">
+          <ExampleProfile firstName="carina" />
+          <ExampleProfile firstName="dan" />
+        </div>
+        <div className="right-container">
+          <p className="register title">Signing up takes 60 seconds.</p>
+          <p className="lead my-2">
+            <i className="fas fa-user" /> Create Your Account
+          </p>
+          <form className="ui form" onSubmit={e => onSubmit(e)}>
+            <div className="field">
+              <input
+                type="email"
+                placeholder="Email Address"
+                name="email"
+                value={email}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div className="field">
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={password}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <input type="submit" className="ui button my-1" value="Register" />
+          </form>
+          <p className="already">
+            Already have an account? <Link to="/login">Sign In</Link>
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -48,42 +48,51 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
   }
 
   return (
-    <div className="triangle-background ui bigger-top-container">
-      <div className="left-container">
-        <h3 id="tagline">Sixty seconds to sign up</h3>
-        <h3 id="tagline">Grab meals with people who share your passions</h3>
-        <ExampleProfile firstName="carina" />
-        <ExampleProfile firstName="dan" />
+    <div id="section1" className="ui bigger-top-container">
+      <div className="upper-container">
+        <h3 id="tagline">
+          <span className="underline">Thirty seconds</span> to register.
+        </h3>
+        <h3 id="tagline">
+          Meet Princeton students who
+          <span className="underline"> share your passions.</span>
+        </h3>
       </div>
-      <div className="right-container">
-        <p className="lead my-2">
-          <i className="fas fa-user" /> Sign Into Your Account
-        </p>
-        {/* <GFLogin /> */}
-        <form className="ui form" onSubmit={e => onSubmit(e)}>
-          <div className="field">
-            <input
-              type="email"
-              placeholder="Email Address"
-              name="email"
-              value={email}
-              onChange={e => onChange(e)}
-            />
-          </div>
-          <div className="field">
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={password}
-              onChange={e => onChange(e)}
-            />
-          </div>
-          <input type="submit" className="ui button my-1" value="Login" />
-        </form>
-        <p className="my-1">
-          Don't have an account? <Link to="/register">Sign Up</Link>
-        </p>
+      <div className="bottom-container">
+        <div className="left-container">
+          <ExampleProfile firstName="carina" />
+          <ExampleProfile firstName="dan" />
+        </div>
+        <div className="right-container">
+          <p className="lead my-2">
+            <i className="fas fa-user" /> Sign Into Your Account
+          </p>
+          {/* <GFLogin /> */}
+          <form className="ui form" onSubmit={e => onSubmit(e)}>
+            <div className="field">
+              <input
+                type="email"
+                placeholder="Email Address"
+                name="email"
+                value={email}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div className="field">
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={password}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <input type="submit" className="ui button my-1" value="Login" />
+          </form>
+          <p className="my-1">
+            Don't have an account? <Link to="/register">Sign Up</Link>
+          </p>
+        </div>
       </div>
     </div>
   );
