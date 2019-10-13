@@ -26,12 +26,7 @@ const Section1 = ({ register, isAuthenticated }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    if (!name) {
-      MySwal.fire({
-        title: "Please enter your name",
-        type: "error"
-      });
-    } else if (!email) {
+    if (!email) {
       MySwal.fire({
         title: "Please enter your email",
         type: "error"

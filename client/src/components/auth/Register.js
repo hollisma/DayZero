@@ -14,24 +14,18 @@ const MySwal = withReactContent(Swal);
 
 const Register = ({ register, isAuthenticated }) => {
   const [formData, setFromData] = useState({
-    name: "",
     email: "",
     password: ""
   });
 
-  const { name, email, password } = formData;
+  const { email, password } = formData;
 
   const onChange = e =>
     setFromData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = e => {
     e.preventDefault();
-    if (!name) {
-      MySwal.fire({
-        title: "Please enter your name",
-        type: "error"
-      });
-    } else if (!email) {
+    if (!email) {
       MySwal.fire({
         title: "Please enter your email",
         type: "error"
@@ -48,7 +42,7 @@ const Register = ({ register, isAuthenticated }) => {
         type: "error"
       });
     } else {
-      register({ name, email, password });
+      register({ email, password });
     }
   };
 
@@ -86,15 +80,6 @@ const Register = ({ register, isAuthenticated }) => {
           <i className="fas fa-user" /> Create Your Account
         </p>
         <form className="ui form" onSubmit={e => onSubmit(e)}>
-          <div className="field">
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              value={name}
-              onChange={e => onChange(e)}
-            />
-          </div>
           <div className="field">
             <input
               type="email"

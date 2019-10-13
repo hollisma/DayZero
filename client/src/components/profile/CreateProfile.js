@@ -9,6 +9,10 @@ import { CATEGORIES } from "../../utils/consts";
 import AvatarEdit from "react-avatar-edit";
 import Avatar from "react-avatar";
 
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
+
 const CreateProfile = ({
   auth: { user, loading },
   updateUser,
@@ -48,6 +52,7 @@ const CreateProfile = ({
 
   const {
     avatar,
+    name,
     // college,
     year,
     major,
@@ -78,6 +83,13 @@ const CreateProfile = ({
 
   const onSubmit = e => {
     e.preventDefault();
+
+    if (!formData.name) {
+      MySwal.fire({
+        title: "Please enter your name",
+        type: "error"
+      });
+    }
 
     let userData = {
       name: formData.name,
@@ -186,6 +198,17 @@ const CreateProfile = ({
             </div>
           </div> */}
           <div className="column">
+            <p>* Name</p>
+            <div className="field">
+              <input
+                type="text"
+                placeholder="Chris Eisgruber"
+                name="name"
+                value={name}
+                onChange={e => onChange(e)}
+                required
+              />
+            </div>
             <p>* Class</p>
             <div className="field">
               <input

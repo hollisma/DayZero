@@ -18,9 +18,9 @@ const { REGISTERED } = require("../../models/types");
 router.post(
   "/",
   [
-    check("name", "Name is required")
-      .not()
-      .isEmpty(),
+    // check("name", "Name is required")
+    //   .not()
+    //   .isEmpty(),
     check("email", "Please enter a valid email").isEmail(),
     check(
       "password",
@@ -34,7 +34,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, password } = req.body;
+    const { email, password } = req.body;
 
     try {
       // Check if user already exists
@@ -47,7 +47,6 @@ router.post(
 
       // Create user
       user = new User({
-        name,
         email,
         avatar: "https://i.stack.imgur.com/dr5qp.jpg",
         password,
@@ -108,10 +107,10 @@ router.put(
     const {
       name,
       email,
-      avatar,
-      phone_number,
-      comm_phone,
-      comm_email
+      avatar
+      // phone_number,
+      // comm_phone,
+      // comm_email
     } = req.body;
 
     try {
@@ -123,7 +122,8 @@ router.put(
 
       user = await User.findOneAndUpdate(
         { email },
-        { $set: { name, avatar, phone_number, comm_phone, comm_email } },
+        { $set: { name, avatar } },
+        // { $set: { name, avatar, phone_number, comm_phone, comm_email } },
         { new: true }
       );
 
@@ -177,10 +177,10 @@ router.put("/admin", admin, async (req, res) => {
     name,
     email,
     avatar,
-    phone_number,
-    comm_sms,
-    comm_email,
-    vibe,
+    // phone_number,
+    // comm_sms,
+    // comm_email,
+    // vibe,
     user_type,
     group
   } = req.body;
@@ -204,10 +204,10 @@ router.put("/admin", admin, async (req, res) => {
     if (name) newUser.name = name;
     if (email) newUser.email = email;
     if (avatar) newUser.avatar = avatar;
-    if (phone_number) newUser.phone_number = phone_number;
-    if (comm_sms) newUser.comm_sms = comm_sms;
-    if (comm_email) newUser.comm_email = comm_email;
-    if (vibe) newUser.vibe = vibe;
+    // if (phone_number) newUser.phone_number = phone_number;
+    // if (comm_sms) newUser.comm_sms = comm_sms;
+    // if (comm_email) newUser.comm_email = comm_email;
+    // if (vibe) newUser.vibe = vibe;
     if (user_type) newUser.user_type = user_type;
     if (group) newUser.group = group;
     if (password) newUser.password = password;
