@@ -6,17 +6,17 @@ class MatchingNotifier:
     def __init__(self):
         self.email = DayZeroGmail()
 
-    def match(self, names):
-        recipient_emails = [n for n in names]
+    def match(self, profiles):
+        recipient_emails = [p['user']['email'] for p in profiles]
         subject = "You've matched!"
-        self.email.send(recipient_emails, subject, self.matching_message(names))
+        self.email.send(recipient_emails, subject, self.matching_message(profiles))
 
-    def matching_message(self, names):
+    def matching_message(self, profiles):
         # Please feel free to change the content of message using the information in profiles
-        recipient_names = [n for n in names]
+        recipient_names = [p['user']['name'] for p in profiles]
         recipient_names_str = "{} and {}".format(', '.join(recipient_names[:-1]), recipient_names[-1])
         body = """
-        Hey {user1.name} and {user2.name}!
+        Hey {}!
         I'm really excited to be introducing you two. You guys seemed like such a great fit 
         it would've been a crime for you two not to meet! Now that you guys have each other's
         emails, you can trade numbers or use this email thread to schedule a specific
