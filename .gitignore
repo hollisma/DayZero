@@ -5,6 +5,7 @@ package-lock.json
 *config.json
 *#*#
 client/build/
+.env
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

@@ -1,4 +1,19 @@
 /* For mobile */
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .img-logo {
+    position: relative;
+    top: 8px;
+  }
+
+  .links {
+    display: none;
+  }
+}
 
 /* For desktop */
 @media only screen and (min-width: 768px) {

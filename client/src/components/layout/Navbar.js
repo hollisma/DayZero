@@ -1,8 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
+import Hamburger from "./Hamburger";
 
 import "./Navbar.css";
 
@@ -76,8 +77,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   return (
     <nav className="ui secondary menu navbar" id="navbar">
+      {!loading && <Hamburger authenticated={isAuthenticated} />}
       <h1 className="item">
-        <a href={isAuthenticated ? "/dashboard#" : "/#"}>
+        <a className="logo-box" href={isAuthenticated ? "/dashboard#" : "/#"}>
           <img
             src={require("../../img/logo.svg")}
             className="img-logo"
@@ -86,7 +88,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </a>
       </h1>
       {!loading && (
-        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+        <div className="links">{isAuthenticated ? authLinks : guestLinks}</div>
       )}
     </nav>
   );
