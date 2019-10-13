@@ -255,7 +255,7 @@ const EditProfile = ({
           </div>
           <div className="column avataredit2">
             <AvatarEdit
-              width={150}
+              width={130}
               height={175}
               onCrop={pic => {
                 setFormData({

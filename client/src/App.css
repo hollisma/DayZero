@@ -187,3 +187,9 @@ body {
 .ui.vertical.stripe p {
   font-size: 1.33em;
 }
+
+@media only screen and (max-width: 768px) {
+  .ui.top-container {
+    margin: 5vh 0;
+  }
+}

@@ -157,47 +157,6 @@ const CreateProfile = ({
       <form className="ui form equal width grid" onSubmit={e => onSubmit(e)}>
         <div className="row">
           <div className="column">
-            <p>Current Profile Picture</p>
-            <Avatar
-              className="avatar"
-              size="100"
-              round
-              src={user && user.avatar}
-            />
-          </div>
-          <div className="column">
-            <AvatarEdit
-              width={200}
-              height={150}
-              onCrop={pic => {
-                setFormData({
-                  ...formData,
-                  avatar: pic
-                });
-              }}
-              onClose={() => {
-                setFormData({
-                  ...formData,
-                  avatar: user && user.avatar
-                });
-              }}
-              src={avatar}
-            />
-          </div>
-          {/* <div className="column">
-            <p>* College</p>
-            <div className="field">
-              <input
-                type="text"
-                placeholder="College"
-                name="college"
-                value={college}
-                onChange={e => onChange(e)}
-                required
-              />
-            </div>
-          </div> */}
-          <div className="column">
             <p>* Name</p>
             <div className="field">
               <input
@@ -232,6 +191,49 @@ const CreateProfile = ({
               />
             </div>
           </div>
+          <div className="column avataredit" style={{ display: "flex" }}>
+            <div style={{ margin: "2vw 4vw" }}>
+              <p>Current Profile Picture</p>
+              <Avatar
+                className="avatar"
+                size="100"
+                round
+                src={user && user.avatar}
+              />
+            </div>
+            <div style={{ margin: "2vw 4vw" }}>
+              <AvatarEdit
+                width={200}
+                height={150}
+                onCrop={pic => {
+                  setFormData({
+                    ...formData,
+                    avatar: pic
+                  });
+                }}
+                onClose={() => {
+                  setFormData({
+                    ...formData,
+                    avatar: user && user.avatar
+                  });
+                }}
+                src={avatar}
+              />
+            </div>
+          </div>
+          {/* <div className="column">
+            <p>* College</p>
+            <div className="field">
+              <input
+                type="text"
+                placeholder="College"
+                name="college"
+                value={college}
+                onChange={e => onChange(e)}
+                required
+              />
+            </div>
+          </div> */}
           {/* <div className="column">
             <p>Minor (separate by commas)</p>
             <div className="field">
@@ -244,6 +246,38 @@ const CreateProfile = ({
               />
             </div>
           </div> */}
+        </div>
+        <div className="row">
+          <div className="column avataredit2" style={{ display: "flex" }}>
+            <div style={{ margin: "2vw 4vw" }}>
+              <p>Current Profile Picture</p>
+              <Avatar
+                className="avatar"
+                size="100"
+                round
+                src={user && user.avatar}
+              />
+            </div>
+            <div style={{ margin: "2vw 4vw" }}>
+              <AvatarEdit
+                width={130}
+                height={175}
+                onCrop={pic => {
+                  setFormData({
+                    ...formData,
+                    avatar: pic
+                  });
+                }}
+                onClose={() => {
+                  setFormData({
+                    ...formData,
+                    avatar: user && user.avatar
+                  });
+                }}
+                src={avatar}
+              />
+            </div>
+          </div>
         </div>
         <div className="row">
           <div className="column">
