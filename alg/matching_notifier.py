@@ -5,14 +5,14 @@ class MatchingNotifier:
     def __init__(self):
         self.email = DayZeroGmail()
 
-    def match(self, profiles):
-        recipient_emails = [p['user']['email'] for p in profiles]
+    def match(self, names):
+        recipient_emails = [n for n in names]
         subject = "You've matched!"
-        self.email.send(recipient_emails, subject, self.matching_message(profiles))
+        self.email.send(recipient_emails, subject, self.matching_message(names))
 
-    def matching_message(self, profiles):
-        #Please feel free to change the content of message using the information in profiles
-        recipient_names = [p['user']['name'] for p in profiles]
+    def matching_message(self, names):
+        # Please feel free to change the content of message using the information in profiles
+        recipient_names = [n for n in names]
         recipient_names_str = "{} and {}".format(', '.join(recipient_names[:-1]), recipient_names[-1])
         body = """
         Hello, {}!

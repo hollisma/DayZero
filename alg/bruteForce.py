@@ -146,11 +146,12 @@ for time in masterSchedule_sorted_keys:
       for v in timeUsers:
         if v not in matches and u != v:
           if len(getSharedCategories(u, v)) > k_matching_threshold:
-            print(match([u, v], time))
+            response = match([u, v], time)
+            print(response)
             matches.add(u)
             matches.add(v)
             notifier = MatchingNotifier()
-            notifier.match([usersDict[u]['profile'], usersDict[v]['profile']])
+            notifier.match([usersDict[u]['profile']['user']['name'], usersDict[v]['profile']['user']['name']])
             break
 
 # Create groups between matched people
