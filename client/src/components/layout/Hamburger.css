@@ -125,8 +125,8 @@
     */
   #menu {
     position: absolute;
-    width: 200vw;
-    height: 200vh;
+    width: 300vw;
+    height: 600vh;
     margin: -20vh 0 0 -25vw;
     padding: 100px;
     padding-top: 150px;

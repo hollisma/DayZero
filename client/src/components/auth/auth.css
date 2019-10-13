@@ -5,6 +5,11 @@
 }
 
 /* For mobile */
+@media only screen and (max-width: 768px) {
+  .bottom-container {
+    margin: 5vw
+  }
+}
 
 /* For desktop */
 @media only screen and (min-width: 768px) {
@@ -16,14 +21,14 @@
 
   .upper-container {
     text-align: center;
-    width: 100%;
+    width: 100vw;
     margin-bottom: 2.5rem;
   }
 
   .bottom-container {
     display: inline-flex;
     flex-direction: row;
-    width: 90%;
+    width: 90vw;
   }
 
   .left-container {

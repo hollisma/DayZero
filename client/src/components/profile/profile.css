@@ -1,47 +1,48 @@
 /* For mobile */
-
 @media only screen and (max-width: 768px) {
 /* ExampleProfile */
-.lower {
-  background-color: #ddeeff;
-  width: 90vw;
-  height: 20.6vh;
-  border-radius: 10rem;
-  border: 1px solid #707070;
-  margin: 8vw;
-  margin-left: 15vw;
-  position: relative;
-  left: -10vw;
-  font-size: 1.8vh;
-}
+  .lower {
+    background-color: #ddeeff;
+    width: 90vw;
+    height: 20.6vh;
+    border-radius: 10rem;
+    border: 1px solid #707070;
+    margin: 8vw;
+    margin-left: 15vw;
+    position: relative;
+    left: -10vw;
+    font-size: 1.8vh;
+    display: none;
+  }
 
-.upper {
-  background-color: #ddffed;
-  width: 90vw;
-  height: 20.6vh;
-  border-radius: 10rem;
-  border: 1px solid #707070;
-  margin: 8vw;
-  margin-left: 15vw;
-  position: relative;
-  left: -10vw;
-  font-size: 1.8vh;
-}
+  .upper {
+    background-color: #ddffed;
+    width: 90vw;
+    height: 20.6vh;
+    border-radius: 10rem;
+    border: 1px solid #707070;
+    margin: 8vw;
+    margin-left: 15vw;
+    position: relative;
+    left: -10vw;
+    font-size: 1.8vh;
+    display: none;
+  }
 
-.about {
-  position: relative;
-  top: -100%;
-  left: 32vw;
-  text-align: left;
-  width: 55vw;
-  font-size: 116%;
-}
+  .about {
+    position: relative;
+    top: -100%;
+    left: 32vw;
+    text-align: left;
+    width: 55vw;
+    font-size: 116%;
+  }
 
-.circular-pic {
-  position: relative;
-  left: -2.5%;
-  height: 20.6vh;
-}
+  .circular-pic {
+    position: relative;
+    left: -2.5%;
+    height: 20.6vh;
+  }
 }
 
 /* For desktop */

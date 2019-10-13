@@ -1,4 +1,28 @@
 /* For mobile phones */
+@media only screen and (max-width: 768px) {
+
+  /* First section */
+  #section1 {
+    text-align: center;
+  }
+  #section1 h3 {
+    margin: 5vw;
+  }
+
+  /* Second section */
+  #howitworks {
+    height: 100vh;
+    text-align: center;
+  }
+  #howitworks img {
+    max-width: 90vw;
+    margin: 5vw;
+  }
+  #howitworks p {
+    text-align: center;
+    margin: 0vw 5vw 20vw;
+  }
+}
 
 /* For desktop */
 @media only screen and (min-width: 768px) {

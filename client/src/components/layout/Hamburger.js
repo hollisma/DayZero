@@ -4,8 +4,8 @@ import { logout } from "../../actions/auth";
 
 import "./Hamburger.css";
 
-const Hamburger = isAuthenticated => {
-  if (isAuthenticated) {
+const Hamburger = ({ authenticated }) => {
+  if (authenticated) {
     console.log("authenticated :)");
     return (
       <div className="hamburger">
@@ -44,7 +44,6 @@ const Hamburger = isAuthenticated => {
       </div>
     );
   } else {
-    console.log("not authenticated :(");
     return (
       <div className="hamburger">
         <nav role="navigation">
