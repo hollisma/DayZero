@@ -43,6 +43,10 @@
     left: -2.5%;
     height: 20.6vh;
   }
+
+  .avataredit {
+    display: none !important;
+  }
 }
 
 /* For desktop */
@@ -85,5 +89,9 @@
     position: relative;
     left: -2.5%;
     width: 9.4rem;
+  }
+
+  .avataredit2 {
+    display: none !important;
   }
 }

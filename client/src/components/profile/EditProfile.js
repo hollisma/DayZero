@@ -190,7 +190,7 @@ const EditProfile = ({
               />
             </div>
           </div>
-          <div className="column">
+          <div className="column avataredit">
             <p>Current Profile Picture</p>
             <Avatar
               className="avatar"
@@ -211,10 +211,52 @@ const EditProfile = ({
               Reset
             </button>
           </div>
-          <div className="column">
+          <div className="column avataredit">
             <AvatarEdit
               width={200}
               height={150}
+              onCrop={pic => {
+                setFormData({
+                  ...formData,
+                  avatar: pic
+                });
+              }}
+              onClose={() => {
+                setFormData({
+                  ...formData,
+                  avatar: user && user.avatar
+                });
+              }}
+              src={avatar}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="column avataredit2">
+            <p>Current Profile Picture</p>
+            <Avatar
+              className="avatar"
+              size="100"
+              round
+              src={user && user.avatar}
+            />
+            <button
+              style={{ margin: "20px" }}
+              className="ui button"
+              onClick={e => {
+                setFormData({
+                  ...formData,
+                  avatar: "https://i.stack.imgur.com/dr5qp.jpg"
+                });
+              }}
+            >
+              Reset
+            </button>
+          </div>
+          <div className="column avataredit2">
+            <AvatarEdit
+              width={150}
+              height={175}
               onCrop={pic => {
                 setFormData({
                   ...formData,
