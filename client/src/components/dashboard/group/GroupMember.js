@@ -23,16 +23,19 @@ const GroupMember = ({
         </div>
         <div className="information">
           <p id="academics">
-            <b>Major:</b> {major} <b>Minor:</b> {minor}
+            <b>Major:</b> {major}
           </p>
-          <p>
-            <b>Wants to meet:</b> {want_to_meet}
-          </p>
+          {minor.length > 0 ? (
+            <p>
+              <b>Minor: </b>
+              {minor}
+            </p>
+          ) : null}
           {bio ? (
-            <div>
+            <p>
               <b>About: </b>
               {bio}
-            </div>
+            </p>
           ) : null}
         </div>
       </div>
