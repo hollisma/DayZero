@@ -58,19 +58,19 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           How It Works
         </a>
       </li>
-      <li className="item">
-        <a href="/#faq" className="reg">
-          FAQ/About Us
-        </a>
-      </li>
+
       <li className="item">
         <a
           href="https://medium.com/@kelvinotcelsius/a-letter-from-the-founders-introducing-day-zero-428b591fc778"
-          className="text-secondary"
           // target="_blank"
         >
           Our Letter
         </a>
+      </li>
+      <li className="item">
+        <Link to="/Register" className="text-secondary">
+          Register
+        </Link>
       </li>
     </ul>
   );
