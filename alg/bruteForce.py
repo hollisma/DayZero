@@ -151,7 +151,7 @@ for time in masterSchedule_sorted_keys:
             matches.add(u)
             matches.add(v)
             notifier = MatchingNotifier()
-            notifier.match([usersDict[u]['profile'], usersDict[v]['profile']])
+            notifier.match([usersDict[u]['profile'], usersDict[v]['profile']], getSharedTimes(u, v), getSharedCategories(u, v))
             break
 
 # Create groups between matched people
