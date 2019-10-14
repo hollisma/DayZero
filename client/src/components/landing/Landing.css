@@ -4,7 +4,8 @@
   /* First section */
   #section1 {
     text-align: center;
-    padding-top: 15vh;
+    padding-top: 17vh;
+    padding-bottom: 5vh;
   }
   #section1 h3 {
     margin: 5vw;
@@ -14,6 +15,7 @@
   #howitworks {
     height: 100vh;
     text-align: center;
+    padding-top: 10vh;
   }
   #howitworks img {
     max-width: 90vw;
@@ -58,6 +60,7 @@
     display: flex !important;
     flex-direction: column;
     justify-content: space-evenly;
+    padding-top: 15vh !important;
   }
 
   /* Second section */
@@ -69,6 +72,7 @@
     background-position: 50%;
     /* background-color: #f6f6f6; */
     padding: 2rem;
+    padding-top: 10vh;
   }
 
   #howitworks h1 {

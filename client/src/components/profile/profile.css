@@ -1,3 +1,7 @@
+.edit-profile-header {
+  padding-top: 10vh !important;
+}
+
 /* For mobile */
 @media only screen and (max-width: 768px) {
 /* ExampleProfile */
@@ -13,6 +17,10 @@
     left: -10vw;
     font-size: 1.8vh;
     display: none;
+  }
+  
+  .edit-profile-header {
+    padding-top: 15vh !important;
   }
 
   .upper {

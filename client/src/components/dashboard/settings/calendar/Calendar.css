@@ -1,5 +1,6 @@
 .calendar {
   margin: 0px;
+  margin-top: 2%;
   height: 70%;
   width: 100%;
   padding: 4%;
@@ -119,7 +120,7 @@
 
 .calendar-header {
   position: relative;
-  padding-top: 5%;
+  padding-top: 10vh;
   color: black;
 }
 
@@ -129,6 +130,10 @@
     flex-direction: column;
     overflow-y: scroll;
     height: 100vh;
+  }
+  
+  .calendar-header {
+    padding-top: 15vh !important;
   }
 }
 
