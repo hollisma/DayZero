@@ -33,8 +33,7 @@ const Section1 = ({ register, isAuthenticated }) => {
       });
     } else if (!isSchoolEmail(email)) {
       MySwal.fire({
-        title:
-          "Please enter your school email (@princeton.edu or @stanford.edu)",
+        title: "Please enter your school email (@princeton.edu)",
         type: "error"
       });
     } else if (password.length < 6) {
@@ -49,7 +48,7 @@ const Section1 = ({ register, isAuthenticated }) => {
 
   const isSchoolEmail = email => {
     let extension = email.split("@")[1];
-    let validExtensions = ["princeton.edu", "stanford.edu"];
+    let validExtensions = ["princeton.edu"];
 
     for (let ext of validExtensions) {
       if (extension === ext) {
