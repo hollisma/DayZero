@@ -4,6 +4,7 @@
   /* First section */
   #section1 {
     text-align: center;
+    padding-top: 15vh;
   }
   #section1 h3 {
     margin: 5vw;
@@ -54,6 +55,9 @@
 
     background-size: 400%;
     background-position: 90% 19%;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 
   /* Second section */

@@ -64,7 +64,7 @@ const Register = ({ register, isAuthenticated }) => {
   }
 
   return (
-    <div className="triangle-background ui bigger-top-container">
+    <div id="section1" className="ui bigger-top-container">
       <div className="upper-container">
         <h3 id="tagline">
           <span className="underline">Thirty seconds</span> to register.
