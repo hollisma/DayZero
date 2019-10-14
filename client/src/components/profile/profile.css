@@ -72,7 +72,8 @@
     height: 9.5rem;
     border-radius: 10rem;
     border: 1px solid #707070;
-    margin: 1.5rem 1.5rem 1.5rem 8rem;
+    margin: 1rem;
+    /* margin: 1.5rem 1.5rem 1.5rem 8rem; */
   }
 
   .upper {
@@ -81,7 +82,8 @@
     height: 9.5rem;
     border-radius: 10rem;
     border: 1px solid #707070;
-    margin: 0rem 1.5rem 3rem 8rem;
+    margin: 1rem;
+    /* margin: 0rem 1.5rem 3rem 8rem; */
   }
 
   .about {
