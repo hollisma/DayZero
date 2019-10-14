@@ -28,5 +28,5 @@ class MatchingNotifier:
         You guys both said you were free for meals on {}
 
         Go to dayzero.college to read your day zero's bio.
-        """.format(recipient_names_str, times_str, categories_str)
+        """.format(recipient_names_str, categories_str, times_str)
         return textwrap.dedent(body).strip()

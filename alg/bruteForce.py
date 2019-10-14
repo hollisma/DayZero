@@ -64,7 +64,7 @@ def categories(id):
     return []
   return usersDict[id]['profile']['categories']
 
-def times(id):
+def getTimes(id):
   if 'schedule' not in usersDict[id].keys() or 'times' not in usersDict[id]['schedule'].keys():
     return None
   return usersDict[id]['schedule']['times']
@@ -82,8 +82,8 @@ def getSharedCategories(id1, id2):
   return common
 
 def getSharedTimes(id1, id2): 
-  t1 = times(id1)
-  t2 = times(id2)
+  t1 = getTimes(id1)
+  t2 = getTimes(id2)
   common = []
   for c in t1: 
     if c in t2: 
