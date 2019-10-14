@@ -7,7 +7,7 @@
 /* For mobile */
 @media only screen and (max-width: 768px) {
   .bottom-container {
-    margin: 5vw
+    margin: 5vw;
   }
 }
 
@@ -35,14 +35,14 @@
   }
 
   .left-container {
-    padding-right: 6%;
+    padding-right: 3%;
   }
   .right-container {
     background-color: #8bccf9;
     border: 1px solid black;
     border-radius: 1rem;
     padding: 2rem 2rem 2rem 2rem;
-    width: 40%;
+    width: 30%;
   }
 
   .triangle-background {
