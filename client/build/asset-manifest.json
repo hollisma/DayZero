@@ -1,25 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.efeae7ac.chunk.css",
-    "main.js": "/static/js/main.c4b53af1.chunk.js",
-    "main.js.map": "/static/js/main.c4b53af1.chunk.js.map",
+    "main.css": "/static/css/main.7abbfaa8.chunk.css",
+    "main.js": "/static/js/main.22acbae0.chunk.js",
+    "main.js.map": "/static/js/main.22acbae0.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
     "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/css/2.ab733057.chunk.css": "/static/css/2.ab733057.chunk.css",
-    "static/js/2.2d9e629f.chunk.js": "/static/js/2.2d9e629f.chunk.js",
-    "static/js/2.2d9e629f.chunk.js.map": "/static/js/2.2d9e629f.chunk.js.map",
+    "static/js/2.4fc0efa5.chunk.js": "/static/js/2.4fc0efa5.chunk.js",
+    "static/js/2.4fc0efa5.chunk.js.map": "/static/js/2.4fc0efa5.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.eb64abfa70de3f66b48e674e3fbe9a95.js": "/precache-manifest.eb64abfa70de3f66b48e674e3fbe9a95.js",
+    "precache-manifest.def9eeb8a6959df8126824822ceb705e.js": "/precache-manifest.def9eeb8a6959df8126824822ceb705e.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/2.ab733057.chunk.css.map": "/static/css/2.ab733057.chunk.css.map",
-    "static/css/main.efeae7ac.chunk.css.map": "/static/css/main.efeae7ac.chunk.css.map",
-    "static/media/Logo.png": "/static/media/Logo.819687c1.png",
-    "static/media/calendar.svg": "/static/media/calendar.98c2e421.svg",
-    "static/media/carina.png": "/static/media/carina.6e96fd99.png",
-    "static/media/max.png": "/static/media/max.89be7547.png",
+    "static/css/main.7abbfaa8.chunk.css.map": "/static/css/main.7abbfaa8.chunk.css.map",
+    "static/media/calendar.png": "/static/media/calendar.169e1df2.png",
+    "static/media/carina.svg": "/static/media/carina.a1befb5e.svg",
+    "static/media/dan.svg": "/static/media/dan.a7fdf585.svg",
+    "static/media/interests.PNG": "/static/media/interests.e3243696.PNG",
+    "static/media/logo.svg": "/static/media/logo.5d85788b.svg",
     "static/media/people.svg": "/static/media/people.ab150eed.svg",
-    "static/media/princeton": "/static/media/princeton.4bd39f56.bin",
-    "static/media/rocket.svg": "/static/media/rocket.86660219.svg",
-    "static/media/stanford": "/static/media/stanford.f3814fe2.bin"
+    "static/media/Landing.css": "/static/media/triangle1.3003f62b.svg"
   }
 }
