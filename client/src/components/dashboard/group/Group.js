@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import GroupMember from "./GroupMember";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -55,10 +55,10 @@ const Group = ({
       <div id="group" className="group">
         {userType === PROFILED ? (
           <Fragment>
-            <p>
-              Put in some times so that other people know when they can meet
-              you. You will NOT be matched unless you fill this in.
-            </p>
+            <h3>
+              If you want to be matched, put in some times so that other people
+              know when they can meet you.
+            </h3>
             <button className="ui button basic blue">
               <a href="/dashboard#calendar" className="reg">
                 Calendar
@@ -67,12 +67,11 @@ const Group = ({
           </Fragment>
         ) : userType === SCHEDULED ? (
           <Fragment>
-            <p>
-              One sec...we're trying to find people that you'll love talking to.
-              Once the group of four is complete, we will put everyone in a
-              group chat so you guys can decide the specific time and place to
-              meet.
-            </p>
+            <h3>
+              One sec... we're searching for people that you'll love talking to.
+              Once we find a match, we'll send an email to decide the specific
+              time and place to meet. You can edit your time availability here:
+            </h3>
             <button className="ui button basic blue big">
               <a href="/dashboard#calendar" className="reg">
                 Calendar
@@ -80,20 +79,31 @@ const Group = ({
             </button>
           </Fragment>
         ) : userType === GROUPED ? (
-          <p>Here's your group!</p>
+          <h3>
+            Here's your group! You should have received an email with your
+            shared interests and time availabilities. Hope you have a good
+            conversation!
+          </h3>
         ) : // ) : userType === GROUPED ? (
         //   <p>Here's your group: </p>
         userType === MET ? (
           <Fragment>
-            <p>Fill out the feedback form here!</p>
+            {/* <p>Fill out the feedback form here!</p>
             <button className="ui button basic blue big">
               <Link to="/feedback" className="reg">
                 Feedback
               </Link>
-            </button>
+            </button> */}
+            <h3>
+              Hope your meeting went well! If you have any questions or
+              feedback, please contact us at <u>founders.dayzero@gmail.com</u>{" "}
+              :)
+            </h3>
           </Fragment>
         ) : (
-          <p>Have a question? Contact us at dayzero@gmail.com</p>
+          <h3>
+            Have a question? Contact us at <u>founders.dayzero@gmail.com</u>
+          </h3>
         )}
         {!loading && !membersLoading && isAuthenticated ? (
           <div className="group-container ui equal width grid">
