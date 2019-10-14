@@ -45,7 +45,7 @@ const GroupMember = ({
   return (
     <div className="group-member">
       {res ||
-        "We're trying to find you a match! Go do your homework, we'll send you a text when your group has been finalized :)"}
+        "We're finding you a match! Go do your homework, we'll send an email when we've found a match :)"}
     </div>
   );
 };

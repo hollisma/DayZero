@@ -56,14 +56,29 @@ const Group = ({
         {userType === PROFILED ? (
           <Fragment>
             <h3>
-              If you want to be matched, put in some times so that other people
-              know when they can meet you.
+              If you want to meet interesting people, put in some times in the
+              Calendar to let us know when you're available! Also, please fill
+              in a quick bio and some other information so that people know a
+              little bit more about you!
             </h3>
-            <button className="ui button basic blue">
-              <a href="/dashboard#calendar" className="reg">
-                Calendar
-              </a>
-            </button>
+            <div className="group-nav-buttons">
+              <button
+                className="ui button basic blue"
+                // style={{ marginRight: "1%", marginBottom: "1%" }}
+              >
+                <a href="/dashboard#calendar" className="reg">
+                  Calendar
+                </a>
+              </button>
+              <button
+                className="ui button basic blue"
+                // style={{ marginLeft: "1%", marginBottom: "1%" }}
+              >
+                <a href="/dashboard#edit-profile" className="reg">
+                  Edit Profile
+                </a>
+              </button>
+            </div>
           </Fragment>
         ) : userType === SCHEDULED ? (
           <Fragment>

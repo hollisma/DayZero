@@ -157,7 +157,7 @@ const EditProfile = ({
   });
 
   return (
-    <div className="ui container">
+    <div id="edit-profile" className="ui container">
       <h1 className="edit-profile-header">Edit Your Profile</h1>
       <p className="lead my-up-1">
         <i className="fas fa-user" />
