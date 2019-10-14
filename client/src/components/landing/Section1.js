@@ -60,9 +60,9 @@ const Section1 = ({ register, isAuthenticated }) => {
     return false;
   };
 
-  if (isAuthenticated) {
-    return <Redirect to="dashboard" />;
-  }
+  // if (isAuthenticated) {
+  //   return <Redirect to="dashboard" />;
+  // }
 
   return (
     <div id="section1" className="ui bigger-top-container">
