@@ -32,10 +32,10 @@ const Section2 = () => {
           alt=""
         />
         <p>
-          <b>Step 3: That's it!</b> Day Zero then automatically sends a group
-          text to you and the person who <b>shares the most interests</b> with
-          you so y'all can figure out where to meet! Your Day Zero dashboard
-          will display their bio so you can learn about them before the meeting.
+          <b>Step 3: That's it!</b> Day Zero then automatically sends an email
+          to you and the person who <b>shares the most interests</b> with you so
+          y'all can figure out where to meet! Your Day Zero dashboard will
+          display their bio so you can learn about them before the meeting.
         </p>
       </div>
     </div>

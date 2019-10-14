@@ -80,7 +80,7 @@ const Register = ({ register, isAuthenticated }) => {
           <ExampleProfile firstName="dan" />
         </div>
         <div className="right-container">
-          <p className="register title">Signing up takes 60 seconds.</p>
+          <p className="register title">Interesting people await you</p>
           <p className="lead my-2">
             <i className="fas fa-user" /> Create Your Account
           </p>
