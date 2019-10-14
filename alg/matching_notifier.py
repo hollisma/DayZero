@@ -19,14 +19,17 @@ class MatchingNotifier:
         categories_str = "{} and {}".format(', '.join(categories[:-1]), categories[-1])
         body = """
         Hey {}!
+
         I'm really excited to be introducing you two. You guys seemed like such a great fit 
-        it would've been a crime for you two not to meet! Now that you guys have each other's
+        it would've been a crime for you not to meet! Now that you have each other's
         emails, you can trade numbers or use this email thread to schedule a specific
         time and place. 
         
-        You guys both said you were interested in: {}
-        You guys both said you were free for meals on {}
+        You both are interested in: {}
+        You both are free for meals on {}
 
-        Go to dayzero.college to read your day zero's bio.
+        Hope you have a blast meeting each other!
+        Day Zero
+
         """.format(recipient_names_str, categories_str, times_str)
         return textwrap.dedent(body).strip()
