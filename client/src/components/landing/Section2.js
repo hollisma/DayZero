@@ -16,13 +16,12 @@ const Section2 = () => {
       </div>
       <div className="steps">
         <img
-          src={require("../../img/calendar.PNG")}
+          src={require("../../img/calendar.png")}
           className="select_time"
           alt="calendar graphic"
         />
         <p>
-          <b>Step 2:</b> Tell us what days you're free to grab lunch, coffee, or
-          dinner.
+          <b>Step 2:</b> Tell us what days you're free to grab lunch or dinner.
         </p>
       </div>
       <div className="steps">

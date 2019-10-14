@@ -31,7 +31,7 @@ const Hamburger = ({ authenticated }) => {
                 </a>
               </li>
               <li>
-                <a href="/#howitworks" onClick={() => setToggled(false)}>
+                <a href="/howitworks" onClick={() => setToggled(false)}>
                   How It Works
                 </a>
               </li>
@@ -39,8 +39,8 @@ const Hamburger = ({ authenticated }) => {
                 <Link
                   to="/#"
                   onClick={() => {
-                    setToggled(false);
                     logout();
+                    setToggled(false);
                   }}
                 >
                   Logout

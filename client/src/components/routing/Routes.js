@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Landing from "../landing/Landing";
 import Register from "../auth/Register";
 import Login from "../auth/Login";
+import Section2 from "../landing/Section2";
 import Dashboard from "../dashboard/Dashboard";
 import CreateProfile from "../profile/CreateProfile";
 import Feedback from "../feedback/Feedback";
@@ -23,6 +24,7 @@ const Routes = () => {
       <Route exact path="/" component={Landing} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/howitworks" component={Section2} />
       <PrivateRoute
         exact
         path="/create-profile"

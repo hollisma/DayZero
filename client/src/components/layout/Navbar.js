@@ -34,7 +34,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </a>
       </li>
       <li className="item">
-        <a href="/#howitworks" className="reg">
+        <a href="/howitworks" className="reg">
           How It Works
         </a>
       </li>
