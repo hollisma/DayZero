@@ -4,6 +4,11 @@
 
 /* For mobile */
 @media only screen and (max-width: 768px) {
+  .create-profile {
+    margin-top: 0 !important;
+    padding-top: 20vh !important;
+  }
+
 /* ExampleProfile */
   .lower {
     background-color: #ddeeff;

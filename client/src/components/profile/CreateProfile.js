@@ -147,7 +147,7 @@ const CreateProfile = ({
   });
 
   return (
-    <div className="ui top-container">
+    <div className="create-profile ui top-container">
       <h1>Create Your Profile</h1>
       <p className="lead my-2">
         <i className="fas fa-user" />

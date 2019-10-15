@@ -121,34 +121,35 @@ const Group = ({
           </h3>
         )}
         {!loading && !membersLoading && isAuthenticated ? (
-          <div className="group-container ui equal width grid">
-            <GroupMember
-              member_id={membersData[0].user ? membersData[0].user._id : "-1"}
-              name={membersData[0].user ? membersData[0].user.name : ""}
-              avatar={
-                membersData[0].user
-                  ? membersData[0].user.avatar
-                  : "https://i.stack.imgur.com/dr5qp.jpg"
-              }
-              major={membersData[0].major}
-              minor={membersData[0].minor}
-              bio={membersData[0].bio}
-              want_to_meet={membersData[0].want_to_meet}
-            />
-            <GroupMember
-              member_id={membersData[1].user ? membersData[1].user._id : "-1"}
-              name={membersData[1].user ? membersData[1].user.name : ""}
-              avatar={
-                membersData[1].user
-                  ? membersData[1].user.avatar
-                  : "https://i.stack.imgur.com/dr5qp.jpg"
-              }
-              major={membersData[1].major}
-              minor={membersData[1].minor}
-              bio={membersData[1].bio}
-              want_to_meet={membersData[1].want_to_meet}
-            />
-            {/* <GroupMember
+          membersData[0].user && membersData[0].user._id ? (
+            <div className="group-container ui equal width grid">
+              <GroupMember
+                member_id={membersData[0].user ? membersData[0].user._id : "-1"}
+                name={membersData[0].user ? membersData[0].user.name : ""}
+                avatar={
+                  membersData[0].user
+                    ? membersData[0].user.avatar
+                    : "https://i.stack.imgur.com/dr5qp.jpg"
+                }
+                major={membersData[0].major}
+                minor={membersData[0].minor}
+                bio={membersData[0].bio}
+                want_to_meet={membersData[0].want_to_meet}
+              />
+              <GroupMember
+                member_id={membersData[1].user ? membersData[1].user._id : "-1"}
+                name={membersData[1].user ? membersData[1].user.name : ""}
+                avatar={
+                  membersData[1].user
+                    ? membersData[1].user.avatar
+                    : "https://i.stack.imgur.com/dr5qp.jpg"
+                }
+                major={membersData[1].major}
+                minor={membersData[1].minor}
+                bio={membersData[1].bio}
+                want_to_meet={membersData[1].want_to_meet}
+              />
+              {/* <GroupMember
               member_id={membersData[2].user ? membersData[2].user._id : "-1"}
               name={membersData[2].user ? membersData[2].user.name : ""}
               avatar={
@@ -174,7 +175,13 @@ const Group = ({
               bio={membersData[3].bio}
               want_to_meet={membersData[3].want_to_meet}
             /> */}
-          </div>
+            </div>
+          ) : (
+            <p>
+              We're finding you a match! Go do your homework, we'll send an
+              email when we've found a match :)
+            </p>
+          )
         ) : (
           <Spinner />
         )}
