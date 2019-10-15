@@ -23,7 +23,7 @@
     text-align: center;
     width: 90vw;
     margin-bottom: 2.5rem;
-    margin-top: 1rem;
+    margin-top: 6rem;
   }
 
   .bottom-container {
@@ -31,24 +31,23 @@
     flex-direction: row;
     justify-content: space-around;
     width: 90vw;
-    margin: 3rem 0;
+    padding-right: 1rem;
+    padding-bottom: 5rem;
   }
 
   .left-container {
     position: relative;
-    left: 8vw;
-    padding-right: 0%;
+    margin-left: 2vw;
     display: flex;
     flex-direction: column;
   }
   .right-container {
     position: relative;
-    right: 3vw;
     background-color: #8bccf9;
     border: 1px solid black;
     border-radius: 1rem;
     padding: 2rem 2rem 2rem 2rem;
-    width: 40%;
+    width: 30%;
     max-width: 350px !important;
     margin-right: 2vw;
   }
@@ -66,7 +65,7 @@
   }
 
   #tagline {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-family: "San Francisco";
   }
 
