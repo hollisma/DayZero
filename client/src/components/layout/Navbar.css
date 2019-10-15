@@ -18,7 +18,8 @@
   .scrolled {
     height: 12vh;
     /* background-color: #ffffff !important; */
-    background-color: rgba(225, 240, 255, 0.9) !important;
+    background-color: rgba(255, 255, 255, 1) !important;
+    /* background-color: rgba(225, 240, 255, 0.9) !important; */
     align-items: center;
   }
   .scrolled .img-logo {
@@ -51,7 +52,7 @@
     padding: 0rem 0rem;
     position: fixed;
     /* background-color: white !important; */
-    background-color: rgba(255, 255, 255, 0) !important;
+    background-color: rgba(255, 255, 255, 1) !important;
     z-index: 1;
     width: 100%;
     top: 0;
@@ -66,7 +67,8 @@
   .scrolled {
     height: 10%;
     /* background-color: #ffffff !important; */
-    background-color: rgba(255, 255, 255) !important;
+    /* background-color: rgba(225, 240, 255, 0.9) !important; */
+    background-color: rgba(255, 255, 255, 1) !important;
   }
 
   /* When we use %s for two img-logo portions

@@ -342,14 +342,10 @@ const EditProfile = ({
             <div className="field">
               <textarea
                 className="big-input"
-                placeholder="I co-founded a national entrepreneurship publication that 
-                interviews entrepreneurs called Profiles In Entrepreneurship. This past 
-                summer I worked at an AI-focused venture capital firm in China, where I 
-                met some of China's top entrepreneurs and learned a lot about the Chinese 
-                entrepreneurial ecosystem. In my free time I also build websites, play 
-                basketball, and enjoy talking about religion and philosophy. I'm also 
-                working on a startup a called Day Zero to help college students meet 
-                like-minded and interesting people."
+                placeholder="I am a huge cheese fondue fan. Over the past summer,
+                I interned in Zurich where I made and served cheese fondue to customers,
+                and learned so much about the different textures, flavors, and smells of cheese.
+                Next year, I'll be starting my own restaurant to pursue my passion for cheese fondue."
                 name="bio"
                 value={bio}
                 onChange={e => onChange(e)}
@@ -414,9 +410,9 @@ const EditProfile = ({
         </div> */}
 
         <div className="column">
-          <a href="/" className="ui red basic button m-1 right floated">
+          {/* <a href="/" className="ui red basic button m-1 right floated">
             Go back
-          </a>
+          </a> */}
           <input
             type="submit"
             className="ui green basic button my-1 right floated"
