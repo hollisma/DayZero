@@ -75,11 +75,6 @@ const Hamburger = ({ authenticated }) => {
                 </a>
               </li>
               <li>
-                <a href="/#faq" onClick={() => setToggled(false)}>
-                  FAQ/About Us
-                </a>
-              </li>
-              <li>
                 <a
                   href="https://medium.com/@kelvinotcelsius/a-letter-from-the-founders-introducing-day-zero-428b591fc778"
                   // target="_blank"
@@ -87,6 +82,11 @@ const Hamburger = ({ authenticated }) => {
                 >
                   Our Letter
                 </a>
+              </li>
+              <li>
+                <Link to="/Register" onClick={() => setToggled(false)}>
+                  Register
+                </Link>
               </li>
             </ul>
           </div>
