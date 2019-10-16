@@ -64,7 +64,7 @@ export const CATEGORIES = [
   "Social Justice",
   "Conservatism",
   "Liberalism",
-  "Libertianism",
+  "Libertarianism",
   "Culture",
   "Sustainability",
   "Mental Models",
