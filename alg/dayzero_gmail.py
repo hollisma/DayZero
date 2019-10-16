@@ -18,12 +18,17 @@ class DayZeroGmail:
         msg['From'] = self.mail_address
         msg['To'] = ', '.join(recipients)
         msg['Date'] = formatdate()
-        text = MIMEText(body)
-        msg.attach(text)
         if img:
             image_data = open(img, 'rb').read()
             image = MIMEImage(image_data, name=os.path.basename(img))
+            image.add_header('Content-ID', '<image>')
             msg.attach(image)
+            body = '<br> <img src="cid:image"> </br><div>{}</div>'.format(body)
+            text = MIMEText(body, 'html')
+
+        else:
+            text = MIMEText(body)
+        msg.attach(text)
 
         smtpobj = smtplib.SMTP_SSL('smtp.gmail.com', 465, timeout=10)
         smtpobj.login(self.mail_address, os.getenv('PASSWORD'))
