@@ -5,8 +5,8 @@ from datetime import datetime, timedelta
 from matching_notifier import MatchingNotifier
 
 k_matching_threshold = 3
-host_name = 'http://172.31.43.129'
-# host_name = 'http://localhost'
+# host_name = 'http://172.31.43.129'
+host_name = 'http://localhost'
 
 url = host_name + ':5000/api/auth'
 body = { 'email': 'h@princeton.edu', 'password': 'hhhhhh' }
@@ -48,6 +48,7 @@ response = requests.get(url, headers=headers)
 profiles = json.loads(response.text)
 
 for p in profiles:
+  print(p)
   usersDict[p['user']['id']]['profile'] = p
 
 # url = host_name + ':5000/api/vibe'
@@ -146,8 +147,8 @@ for time in masterSchedule_sorted_keys:
       for v in timeUsers:
         if v not in matches and u != v:
           if len(getSharedCategories(u, v)) > k_matching_threshold:
-            response = match([u, v], time)
-            print(response)
+            # response = match([u, v], time)
+            # print(response)
             matches.add(u)
             matches.add(v)
             notifier = MatchingNotifier()

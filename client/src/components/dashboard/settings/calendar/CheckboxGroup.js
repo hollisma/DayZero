@@ -29,7 +29,7 @@ const CheckboxGroup = ({ day, changeSchedule, schedule: { schedule } }) => {
 
   return (
     <form className="column">
-      <p className="text">{moment(day).format("MMM D")}</p>
+      <p className="text">{moment(day).format("dddd, MMM D")}</p>
       <div className="inputGroup">
         <input
           id={id1}
