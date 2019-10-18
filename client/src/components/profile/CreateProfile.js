@@ -282,8 +282,7 @@ const CreateProfile = ({
         <div className="row">
           <div className="column">
             <p>
-              What topics do you enjoy talking about or want to learn more
-              about?
+              Which words or phrases describe people you would like to meet?
             </p>
             <div className="field">{categoryButtons}</div>
           </div>

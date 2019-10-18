@@ -328,17 +328,15 @@ const EditProfile = ({
         </div>
         <div className="row">
           <div className="column">
-            <p>Categories you're interested in</p>
+            <p>
+              Which words or phrases describe people you would like to meet?
+            </p>
             <div className="field">{categoryButtons}</div>
           </div>
         </div>
         <div className="row">
           <div className="column">
-            <p>
-              In 2-4 sentences, tell us about your hobbies, internships, and
-              interests. This will be shown to your matches for them to know you
-              better.
-            </p>
+            <p>Tell us about yourself!</p>
             <div className="field">
               <textarea
                 className="big-input"
