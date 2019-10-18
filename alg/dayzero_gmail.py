@@ -2,6 +2,8 @@ from dotenv import load_dotenv
 import os
 import smtplib
 from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.image import MIMEImage
 from email.utils import formatdate
 import ssl
 
@@ -10,12 +12,23 @@ class DayZeroGmail:
         load_dotenv()
         self.mail_address = os.getenv('EMAIL_ADDRESS')
 
-    def send(self, recipients, subject, body):
-        msg = MIMEText(body)
+    def send(self, recipients, subject, body, img=None):
+        msg = MIMEMultipart()
         msg['Subject'] = subject
         msg['From'] = self.mail_address
         msg['To'] = ', '.join(recipients)
         msg['Date'] = formatdate()
+        if img:
+            image_data = open(img, 'rb').read()
+            image = MIMEImage(image_data, name=os.path.basename(img))
+            image.add_header('Content-ID', '<image>')
+            msg.attach(image)
+            body = '<br> <img src="cid:image"> </br><div>{}</div>'.format(body)
+            text = MIMEText(body, 'html')
+
+        else:
+            text = MIMEText(body)
+        msg.attach(text)
 
         smtpobj = smtplib.SMTP_SSL('smtp.gmail.com', 465, timeout=10)
         smtpobj.login(self.mail_address, os.getenv('PASSWORD'))

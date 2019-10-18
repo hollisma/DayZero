@@ -9,7 +9,7 @@ class MatchingNotifier:
     def match(self, profiles, times, categories):
         recipient_emails = [p['user']['email'] for p in profiles]
         subject = "You've matched!"
-        self.email.send(recipient_emails, subject, self.matching_message(profiles, times, categories))
+        self.email.send(recipient_emails, subject, self.matching_message(profiles, times, categories), "logo.png")
 
     def matching_message(self, profiles, times, categories):
         # Please feel free to change the content of message using the information in profiles
