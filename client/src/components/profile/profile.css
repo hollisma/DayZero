@@ -9,7 +9,7 @@
     padding-top: 20vh !important;
   }
 
-/* ExampleProfile */
+  /* ExampleProfile */
   .lower {
     background-color: #ddeeff;
     width: 90vw;
@@ -23,7 +23,7 @@
     font-size: 1.8vh;
     display: none;
   }
-  
+
   .edit-profile-header {
     padding-top: 15vh !important;
   }
@@ -93,7 +93,7 @@
 
   .about {
     position: relative;
-    top: -95%;
+    top: -8.9rem;
     left: 26.5%;
     text-align: left;
     width: 67%;
