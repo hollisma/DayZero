@@ -47,6 +47,7 @@ export const CATEGORIES = [
   "Fintech",
   "Girls who lift",
   "Global citizen",
+  "Gym rat",
   "Historian",
   "Investor",
   "Legislator",
