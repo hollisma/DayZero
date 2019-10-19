@@ -282,7 +282,9 @@ const CreateProfile = ({
         <div className="row">
           <div className="column">
             <p>
-              Which words or phrases describe people you would like to meet?
+              <b>
+                Which words or phrases describe people you would like to meet?
+              </b>
             </p>
             <div className="field">{categoryButtons}</div>
           </div>

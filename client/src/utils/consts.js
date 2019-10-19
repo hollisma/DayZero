@@ -26,6 +26,7 @@ export const CATEGORIES = [
   "Biotech lover",
   "Blockchain enthusiast",
   "Blogger",
+  "Book fanatic",
   "Choreographer",
   "Comedian",
   "Consumer product enthusiast",
@@ -68,5 +69,6 @@ export const CATEGORIES = [
   "Space enthusiast",
   "Sustainability fanatic",
   "Traveller",
+  "Veggie lover",
   "Venture capital enthusiast"
 ];
