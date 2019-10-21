@@ -328,9 +328,7 @@ const EditProfile = ({
         </div>
         <div className="row">
           <div className="column">
-            <p>
-              Which words or phrases describe people you would like to meet?
-            </p>
+            <p>Which words or phrases describe you?</p>
             <div className="field">{categoryButtons}</div>
           </div>
         </div>
