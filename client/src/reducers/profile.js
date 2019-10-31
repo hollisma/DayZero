@@ -1,6 +1,17 @@
-import { GET_PROFILE, PROFILE_ERROR, LOGOUT } from "../actions/types";
+import {
+  GET_PROFILE,
+  GET_DISPLAY_PROFILE,
+  PROFILE_ERROR,
+  LOGOUT
+} from "../actions/types";
 
-const initialState = { profile: null, loading: true, error: {} };
+const initialState = {
+  profile: null,
+  display_profile: null,
+  loading: true,
+  loading_display: true,
+  error: {}
+};
 
 export default function(state = initialState, action) {
   const { type, payload } = action;
@@ -11,19 +22,29 @@ export default function(state = initialState, action) {
         profile: payload,
         loading: false
       };
+    case GET_DISPLAY_PROFILE:
+      return {
+        ...state,
+        display_profile: payload,
+        display_loading: false
+      };
     case PROFILE_ERROR:
       return {
         ...state,
         error: payload,
         profile: null,
-        loading: false
+        display_profile: null,
+        loading: false,
+        display_loading: false
       };
     case LOGOUT:
       return {
         ...state,
         error: payload,
         profile: null,
-        loading: true
+        display_profile: null,
+        loading: true,
+        display_loading: true
       };
     default:
       return state;
