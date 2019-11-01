@@ -156,4 +156,9 @@ router.post(
   }
 );
 
+router.post(
+  "/verification",
+  (req, res) => { console.log(req.headers.host); res.json({ token: req.body.token + "aaa" })}
+);
+
 module.exports = router;
