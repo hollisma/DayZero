@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getUserProfile } from "../../actions/profile";
 
+import "./ProfilePage.css";
+
 // Need to get user data
 const ProfilePage = ({
   user_id,
@@ -76,7 +78,29 @@ const ProfilePage = ({
   }, [getUserProfile, user_id, display_loading]);
 
   console.log(profileData);
-  return <div></div>;
+  return (
+    <div id="profile-page">
+      <div className="left">
+        <div className="basic-info">
+          <div className="propic"></div>
+          <div className="name"></div>
+          <div className="info"></div>
+        </div>
+        <div className="about-section">
+          <div className="about-header"></div>
+          <div className="about-paragraph"></div>
+        </div>
+      </div>
+      <div className="right">
+        <div className="also-viewed">
+          <div className="similar-person"></div>
+          <div className="similar-person"></div>
+          <div className="similar-person"></div>
+          <div className="similar-person"></div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 ProfilePage.propTypes = {

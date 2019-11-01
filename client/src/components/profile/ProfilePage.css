@@ -1,0 +1,47 @@
+#profile-page {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+#profile-page .left {
+  background: blue;
+  width: 100%;
+  margin: 8rem 1rem 3rem 5rem;
+  height: auto;
+}
+#profile-page .basic-info {
+  background: red;
+  width: 100%;
+  height: 25%;
+  min-height: 200px;
+  margin: 0;
+}
+#profile-page .about-section {
+  background: red;
+  width: 100%;
+  height: 30%;
+  min-height: 250px;
+  margin-top: 3rem;
+}
+
+#profile-page .right {
+  background: blue;
+  margin: 8rem 5rem 3rem 2rem;
+  width: 40%;
+  height: auto; 
+}
+#profile-page .also-viewed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#profile-page .similar-person {
+  background: red;
+  height: 125px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
