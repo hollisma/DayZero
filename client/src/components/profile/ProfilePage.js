@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getUserProfile } from "../../actions/profile";
+import Avatar from "react-avatar";
 
 import "./ProfilePage.css";
 
@@ -26,7 +27,7 @@ const ProfilePage = ({
 
   useEffect(() => {
     getUserProfile(user_id);
-    console.log("hi", user_id);
+
     setProfileData({
       name:
         display_loading ||
@@ -81,14 +82,23 @@ const ProfilePage = ({
   return (
     <div id="profile-page">
       <div className="left">
-        <div className="basic-info">
-          <div className="propic"></div>
-          <div className="name"></div>
-          <div className="info"></div>
+        <div className="info">
+          <Avatar
+            className="avatar"
+            size="125"
+            round
+            src={profileData.avatar}
+          />
+          <div className="basic-info">
+            <div className="name">{profileData.name}</div>
+            <div className="bio">{profileData.major}</div>
+          </div>
         </div>
         <div className="about-section">
-          <div className="about-header"></div>
-          <div className="about-paragraph"></div>
+          <div className="about-header">
+            About {profileData.name.split(" ")[0]}
+          </div>
+          <div className="about-paragraph">{profileData.bio}</div>
         </div>
       </div>
       <div className="right">

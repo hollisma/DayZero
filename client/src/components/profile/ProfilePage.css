@@ -8,24 +8,66 @@
 }
 
 #profile-page .left {
-  background: blue;
+  /* background: blue; */
+  display: flex;
+  flex-direction: column;
   width: 100%;
   margin: 8rem 1rem 3rem 5rem;
   height: auto;
 }
-#profile-page .basic-info {
-  background: red;
-  width: 100%;
+#profile-page .left .info {
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
   height: 25%;
   min-height: 200px;
   margin: 0;
+  align-items: center; 
+  background: #e3e3e3;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #aaa;
 }
-#profile-page .about-section {
-  background: red;
+#profile-page .left .info .avatar {
+  margin: 0;
+  margin-left: 2rem;
+  margin-right: 5rem;
+  min-width: 125px;
+  min-height: 125px;
+}
+#profile-page .left .info .basic-info {
+  /* background: green; */
+  display: flex;
+  flex-direction: column;
+  margin: 0rem;
+  margin-right: 3rem;
+}
+#profile-page .left .info .basic-info .name {
+  font-size: 2.5rem;
+  margin-bottom: 0.25rem;
+}
+#profile-page .left .info .basic-info .bio {
+  font-size: 1.5rem;
+}
+#profile-page .left .about-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 30%;
   min-height: 250px;
   margin-top: 3rem;
+  background: #e3e3e3;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #aaa;
+}
+#profile-page .left .about-section .about-header {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+#profile-page .left .about-section .about-paragraph {
+  font-size: 1.5rem;
+  margin: 0.5rem 4rem 3rem;
 }
 
 #profile-page .right {
@@ -34,12 +76,12 @@
   width: 40%;
   height: auto; 
 }
-#profile-page .also-viewed {
+#profile-page .right .also-viewed {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-#profile-page .similar-person {
+#profile-page .right .also-viewed .similar-person {
   background: red;
   height: 125px;
   width: 100%;
