@@ -5,7 +5,7 @@ module.exports = class DayZeroGmail {
     constructor() {
         this.mail_address = process.env.EMAIL_ADDRESS
     }
-    send(recipients, subject, body) {
+    async send(recipients, subject, body) {
         let msg = {
             from: this.mail_address,
             to: recipients,
