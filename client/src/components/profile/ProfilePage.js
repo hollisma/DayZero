@@ -139,6 +139,9 @@ const ProfilePage = ({
         </div>
       </div>
       <div className="right">
+        <h2 style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+          Similar People
+        </h2>
         <div className="also-viewed">{randomProfilesComponent}</div>
       </div>
     </div>
