@@ -157,8 +157,14 @@ router.post(
 );
 
 router.post("/verification", async (req, res) => {
-  const { token } = req.body;
-  const user = await User.findOne({ verificationToken: token });
+  const { token, id } = req.body;
+  let user = await User.findOne({ verificationToken: token });
+
+  if (user._id != id) {
+    return res.status(400).json({
+      errors: [{ msg: "Invalid verification token" }]
+    });
+  }
   if (!user) {
     return res.status(400).json({
       errors: [{ msg: "Invalid verification token" }]
@@ -166,12 +172,12 @@ router.post("/verification", async (req, res) => {
   }
   if (user.verified) {
     return res.status(400).json({
-      errors: [{ msg: "The user has already been verified" }]
+      errors: [{ msg: "The user has already been verified" + user }]
     });
   }
   user.verified = true;
-  await user.save();
-  res.json({ msg: "success" });
+  user = await user.save();
+  res.json({ user });
 });
 
 module.exports = router;

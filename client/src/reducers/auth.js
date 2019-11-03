@@ -15,7 +15,6 @@ const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: false,
   loading: true,
-  verified: false,
   verificationFailed: false,
   user: null
 };
@@ -30,14 +29,17 @@ export default function(state = initialState, action) {
         ...state,
         isAuthenticated: true,
         loading: false,
-        user: payload
+        user: payload,
+        verificationFailed: false
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
+    case VERIFICATION_SUCCESS:
       return {
         ...state,
         ...payload,
         isAuthenticated: true,
+        verificationFailed: false,
         loading: false
       };
     case REGISTER_FAIL:
@@ -51,13 +53,7 @@ export default function(state = initialState, action) {
         isAuthenticated: false,
         loading: false,
         user: null,
-        verified: false,
         verificationFailed: false
-      };
-    case VERIFICATION_SUCCESS:
-      return {
-        ...state,
-        verified: true
       };
     case VERIFICATION_FAIL:
       return {

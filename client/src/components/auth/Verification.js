@@ -11,34 +11,37 @@ const MySwal = withReactContent(Swal);
 
 const Verification = ({
   verification,
-  verified,
-  verificationFailed,
+  auth: { user, loading: user_loading, verificationFailed },
   location
 }) => {
+  let verified = !user_loading && user && user.verified;
   let { token } = queryString.parse(location.search);
-  console.log(token);
-  if (!verified && !verificationFailed) {
-    verification(token);
+
+  if (user && !verified && !verificationFailed) {
+    verification(token, user._id);
   }
-  if (verified) {
+
+  if (!user_loading && verified) {
     MySwal.fire({
       title: "Your account is verified",
       type: "success"
+    }).then(() => {
+      window.location.href = "/dashboard";
     });
-    return <Redirect to="dashboard" />;
   }
-  if (verificationFailed) {
+  if (!user_loading && verificationFailed) {
     MySwal.fire({
       title: "Verification failed",
       type: "error"
+    }).then(() => {
+      window.location.href = "/dashboard";
     });
-    return <Redirect to="/" />;
   }
+
   return (
     <div id="section1" className="ui bigger-top-container">
       <div className="upper-container">
         <h3 id="tagline">Verifying your account...</h3>
-        <h3 id="tagline">{token}</h3>
       </div>
     </div>
   );
@@ -46,13 +49,11 @@ const Verification = ({
 
 Verification.propTypes = {
   verification: PropTypes.func.isRequired,
-  verified: PropTypes.bool.isRequired,
-  verificationFailed: PropTypes.bool.isRequired
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  verified: state.auth.verified,
-  verificationFailed: state.auth.verificationFailed
+  auth: state.auth
 });
 
 export default connect(

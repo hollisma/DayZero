@@ -212,20 +212,22 @@ export const logout = () => dispatch => {
 };
 
 //Verify users
-export const verification = token => async dispatch => {
+export const verification = (token, id) => async dispatch => {
   const config = {
     headers: {
       "Content-Type": "application/json"
     }
   };
 
-  const body = JSON.stringify({ token });
+  const body = JSON.stringify({ token, id });
 
   try {
-    await axios.post("/api/auth/verification", body, config);
+    let user = await axios.post("/api/auth/verification", body, config);
+    user = user.data;
 
     dispatch({
-      type: VERIFICATION_SUCCESS
+      type: VERIFICATION_SUCCESS,
+      payload: user
     });
   } catch (err) {
     const errors = err.response.data.errors;
