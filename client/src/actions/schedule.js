@@ -55,8 +55,8 @@ export const createSchedule = (
     })
 
   } catch (err) {
-    if (err && err.response && err.response.status === 400) {
-      MySwal.fire({ title: err.response.statusText, type: "error" });
+    if (err && err.response && (err.response.status === 400 || err.response.status == 401)) {
+      MySwal.fire({ title: err.response.statusText, text: err.response.data,type: "error" });
     }
 
     dispatch({

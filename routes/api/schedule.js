@@ -43,6 +43,11 @@ router.post("/", auth, async (req, res) => {
   const { times } = req.body;
 
   try {
+    let user = await User.findById(req.user.id);
+    if(!user.verified) {
+      res.status(401).send("Please verify your account before adding new schedule");
+      return;
+    }
     let schedule = await Schedule.findOne({ user: req.user.id });
 
     if (schedule) {

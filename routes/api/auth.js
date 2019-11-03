@@ -160,7 +160,6 @@ router.post(
   "/verification",
   async (req, res) => {
     const { token } = req.body;
-    console.log(token);
     const user = await User.findOne({ verificationToken: token });
     if (!user) {
       return res.status(400).json({
