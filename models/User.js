@@ -62,6 +62,14 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
     require
+  },
+  verificationToken: {
+    type: String,
+    select: false
+  },
+  verified: {
+    type: Boolean,
+    default: false
   }
 });
 

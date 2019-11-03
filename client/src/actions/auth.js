@@ -2,6 +2,8 @@ import axios from "axios";
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  VERIFICATION_SUCCESS,
+  VERIFICATION_FAIL,
   USER_LOADED,
   AUTH_ERROR,
   LOGIN_FAIL,
@@ -207,4 +209,38 @@ export const fblogin = response => async dispatch => {
 // Logout / Clear Profile
 export const logout = () => dispatch => {
   dispatch({ type: LOGOUT });
+};
+
+//Verify users
+export const verification = token => async dispatch => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json"
+    }
+  };
+
+  const body = JSON.stringify({ token });
+
+  try {
+    await axios.post("/api/auth/verification", body, config);
+
+    dispatch({
+      type: VERIFICATION_SUCCESS
+    });
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach(error =>
+        MySwal.fire({
+          title: error.msg,
+          type: "error"
+        })
+      );
+    }
+
+    dispatch({
+      type: VERIFICATION_FAIL
+    });
+  }
 };

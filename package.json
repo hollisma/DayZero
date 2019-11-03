@@ -20,16 +20,19 @@
     "bcryptjs": "^2.4.3",
     "config": "^3.1.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.16.4",
     "express-validator": "^5.3.1",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "mongodb": "^3.3.0-beta2",
     "mongoose": "^5.6.13",
+    "nodemailer": "^6.3.1",
     "passport": "^0.4.0",
     "passport-facebook-token": "^3.3.0",
     "passport-google-token": "^0.1.2",
     "prop-types": "^15.7.2",
+    "query-string": "^6.8.3",
     "react": "^16.8.6",
     "react-avatar": "^3.6.0",
     "react-avatar-edit": "^0.8.3",
@@ -48,7 +51,8 @@
     "request": "^2.88.0",
     "semantic-ui-react": "^0.87.2",
     "sweetalert2": "^8.13.0",
-    "sweetalert2-react-content": "^1.1.0"
+    "sweetalert2-react-content": "^1.1.0",
+    "urlsafe-base64": "^1.0.0"
   },
   "bugs": {
     "url": "https://github.com/hollisma/DayZero/issues"
