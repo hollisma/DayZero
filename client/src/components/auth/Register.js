@@ -60,10 +60,6 @@ const Register = ({ register, isAuthenticated }) => {
   };
 
   if (isAuthenticated) {
-    MySwal.fire({
-      title: "Please click the link in the confirmation email we just sent you to confirm your Day Zero account.",
-      type: "info"
-    });
     return <Redirect to="dashboard" />;
   }
 

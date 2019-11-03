@@ -9,21 +9,27 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 
-const Verification = ({verification, verified, verificationFailed, location}) => {
-  let { token }= queryString.parse(location.search);
-  if(!verified && !verificationFailed) {
+const Verification = ({
+  verification,
+  verified,
+  verificationFailed,
+  location
+}) => {
+  let { token } = queryString.parse(location.search);
+  console.log(token);
+  if (!verified && !verificationFailed) {
     verification(token);
   }
-  if(verified) {
+  if (verified) {
     MySwal.fire({
       title: "Your account is verified",
       type: "success"
     });
     return <Redirect to="dashboard" />;
   }
-  if(verificationFailed) {
+  if (verificationFailed) {
     MySwal.fire({
-      title: "I'm sorry, something wrong happened",
+      title: "Verification failed",
       type: "error"
     });
     return <Redirect to="/" />;
@@ -31,12 +37,8 @@ const Verification = ({verification, verified, verificationFailed, location}) =>
   return (
     <div id="section1" className="ui bigger-top-container">
       <div className="upper-container">
-        <h3 id="tagline">
-          Verifying your account...
-        </h3>
-        <h3 id="tagline">
-          { token }
-        </h3>
+        <h3 id="tagline">Verifying your account...</h3>
+        <h3 id="tagline">{token}</h3>
       </div>
     </div>
   );

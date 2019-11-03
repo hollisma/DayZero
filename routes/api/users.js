@@ -9,9 +9,9 @@ const admin = require("../../middleware/admin");
 
 const User = require("../../models/User");
 const { REGISTERED } = require("../../models/types");
-const crypto = require("crypto")
+const crypto = require("crypto");
 const URLSafeBase64 = require("urlsafe-base64");
-const DayZeroGmail = require("../../utils/DayZeroGmail")
+const DayZeroGmail = require("../../utils/DayZeroGmail");
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -69,11 +69,14 @@ router.post(
       await user.save();
 
       //There should be a better way to generate the url
-      const url = process.env.CLIENT_ADDRESS + "/verification?token=" + user.verificationToken;
-      const message = "Please click the link below and verify your account\n" + url;
+      const url =
+        process.env.CLIENT_ADDRESS +
+        "/verification?token=" +
+        user.verificationToken;
+      const message =
+        "Please click the link below and verify your account\n" + url;
       const mail = new DayZeroGmail();
       mail.send(user.email, "Account Verification", message);
-      
 
       // Return jwt
       const payload = {

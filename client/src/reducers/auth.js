@@ -50,18 +50,20 @@ export default function(state = initialState, action) {
         token: null,
         isAuthenticated: false,
         loading: false,
-        user: null
+        user: null,
+        verified: false,
+        verificationFailed: false
       };
-  case VERIFICATION_SUCCESS:
-    return {
-      ...state,
-      verified: true
-    };
-  case VERIFICATION_FAIL:
-    return {
-      ...state,
-      verificationFailed: true
-    }
+    case VERIFICATION_SUCCESS:
+      return {
+        ...state,
+        verified: true
+      };
+    case VERIFICATION_FAIL:
+      return {
+        ...state,
+        verificationFailed: true
+      };
     default:
       return state;
   }

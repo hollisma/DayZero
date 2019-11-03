@@ -24,9 +24,7 @@ export const getCurrentSchedule = () => async dispatch => {
   }
 };
 
-export const createSchedule = (
-  times
-) => async dispatch => {
+export const createSchedule = times => async dispatch => {
   try {
     const config = {
       headers: {
@@ -48,15 +46,22 @@ export const createSchedule = (
       showConfirmButton: false,
       timer: 3000
     });
-    
+
     Toast.fire({
       type: "success",
       title: "Schedule Updated"
-    })
-
+    });
   } catch (err) {
-    if (err && err.response && (err.response.status === 400 || err.response.status == 401)) {
-      MySwal.fire({ title: err.response.statusText, text: err.response.data,type: "error" });
+    if (
+      err &&
+      err.response &&
+      (err.response.status === 400 || err.response.status === 401)
+    ) {
+      MySwal.fire({
+        title: err.response.statusText,
+        text: err.response.data,
+        type: "error"
+      });
     }
 
     dispatch({
@@ -65,11 +70,9 @@ export const createSchedule = (
   }
 };
 
-export const changeSchedule = (
-  schedule
-) => async dispatch  => {
+export const changeSchedule = schedule => async dispatch => {
   dispatch({
-    type: CHANGE_SCHEDULE, 
+    type: CHANGE_SCHEDULE,
     payload: schedule
-  })
-}
+  });
+};
