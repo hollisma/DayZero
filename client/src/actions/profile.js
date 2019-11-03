@@ -1,5 +1,11 @@
 import axios from "axios";
-import { AUTH_ERROR, USER_UPDATED, GET_PROFILE, PROFILE_ERROR } from "./types";
+import {
+  AUTH_ERROR,
+  USER_UPDATED,
+  GET_PROFILE,
+  GET_DISPLAY_PROFILE,
+  PROFILE_ERROR
+} from "./types";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -89,5 +95,24 @@ export const createProfile = (profileData, edit = false) => async dispatch => {
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
+  }
+};
+
+export const getUserProfile = user_id => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+
+    const res = await axios.get("/api/profile/user/" + user_id, config);
+
+    dispatch({
+      type: GET_DISPLAY_PROFILE,
+      payload: res.data
+    });
+  } catch (err) {
+    MySwal.fire({ title: err.response.statusText, type: "error" });
   }
 };
