@@ -93,26 +93,27 @@ const ProfilePage = ({
 
   const randomProfilesComponent = (
     <Fragment>
-      {randomProfiles.map(profile => (
-        <a
-          style={{
-            marginBottom: "1.5rem"
-          }}
-          href={profile && profile.user && profile.user._id}
-        >
-          <div className="similar-person">
-            <Avatar
-              className="avatar"
-              size="100"
-              round
-              src={profile && profile.user && profile.user.avatar}
-            />
-            <div className="name">
-              {profile && profile.user && profile.user.name}
+      {randomProfiles &&
+        randomProfiles.map(profile => (
+          <a
+            style={{
+              marginBottom: "1.5rem"
+            }}
+            href={profile && profile.user && profile.user._id}
+          >
+            <div className="similar-person">
+              <Avatar
+                className="avatar"
+                size="100"
+                round
+                src={profile && profile.user && profile.user.avatar}
+              />
+              <div className="name">
+                {profile && profile.user && profile.user.name}
+              </div>
             </div>
-          </div>
-        </a>
-      ))}
+          </a>
+        ))}
     </Fragment>
   );
 
