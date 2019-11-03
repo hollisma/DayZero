@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getUserProfile } from "../../actions/profile";
+import {
+  getDisplayProfile,
+  getUserProfile,
+  getRandomProfiles
+} from "../../actions/profile";
 import Avatar from "react-avatar";
 
 import "./ProfilePage.css";
@@ -10,8 +14,9 @@ import "./ProfilePage.css";
 const ProfilePage = ({
   user_id,
   profile: { display_profile, display_loading },
-  auth: { user, loading: user_loading },
-  getUserProfile
+  getDisplayProfile,
+  getUserProfile,
+  getRandomProfiles
 }) => {
   var [profileData, setProfileData] = useState({
     name: "",
@@ -25,8 +30,10 @@ const ProfilePage = ({
     bio: ""
   });
 
+  var [randomProfiles, setRandomProfiles] = useState([]);
+
   useEffect(() => {
-    getUserProfile(user_id);
+    getDisplayProfile(user_id);
 
     setProfileData({
       name:
@@ -75,10 +82,40 @@ const ProfilePage = ({
           ? ""
           : display_profile.bio
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getUserProfile, user_id, display_loading]);
 
-  console.log(profileData);
+    // getRandomProfiles could be optimized. rn it gets all profiles then randomly chooses 4
+    getRandomProfiles(4).then(res => {
+      setRandomProfiles(res);
+    });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [getDisplayProfile, user_id, display_loading, getRandomProfiles]);
+
+  const randomProfilesComponent = (
+    <Fragment>
+      {randomProfiles.map(profile => (
+        <a
+          style={{
+            marginBottom: "1.5rem"
+          }}
+          href={profile && profile.user && profile.user._id}
+        >
+          <div className="similar-person">
+            <Avatar
+              className="avatar"
+              size="100"
+              round
+              src={profile && profile.user && profile.user.avatar}
+            />
+            <div className="name">
+              {profile && profile.user && profile.user.name}
+            </div>
+          </div>
+        </a>
+      ))}
+    </Fragment>
+  );
+
   return (
     <div id="profile-page">
       <div className="left">
@@ -102,29 +139,24 @@ const ProfilePage = ({
         </div>
       </div>
       <div className="right">
-        <div className="also-viewed">
-          <div className="similar-person"></div>
-          <div className="similar-person"></div>
-          <div className="similar-person"></div>
-          <div className="similar-person"></div>
-        </div>
+        <div className="also-viewed">{randomProfilesComponent}</div>
       </div>
     </div>
   );
 };
 
 ProfilePage.propTypes = {
+  getDisplayProfile: PropTypes.func.isRequired,
   getUserProfile: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+  getRandomProfiles: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  profile: state.profile,
-  auth: state.auth
+  profile: state.profile
 });
 
 export default connect(
   mapStateToProps,
-  { getUserProfile }
+  { getDisplayProfile, getUserProfile, getRandomProfiles }
 )(ProfilePage);

@@ -6,6 +6,7 @@ import {
   GET_DISPLAY_PROFILE,
   PROFILE_ERROR
 } from "./types";
+import config from "../config/config.json";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -98,7 +99,7 @@ export const createProfile = (profileData, edit = false) => async dispatch => {
   }
 };
 
-export const getUserProfile = user_id => async dispatch => {
+export const getDisplayProfile = user_id => async dispatch => {
   try {
     const config = {
       headers: {
@@ -112,6 +113,91 @@ export const getUserProfile = user_id => async dispatch => {
       type: GET_DISPLAY_PROFILE,
       payload: res.data
     });
+  } catch (err) {
+    MySwal.fire({ title: err.response.statusText, type: "error" });
+  }
+};
+
+export const getUserProfile = user_id => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+
+    const res = await axios.get("/api/profile/user/" + user_id, config);
+
+    return res.data;
+  } catch (err) {
+    MySwal.fire({ title: err.response.statusText, type: "error" });
+  }
+};
+
+export const getAllProfiles = () => async dispatch => {
+  var token = localStorage.token || "";
+
+  try {
+    const reqConfig = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    const body = JSON.stringify({
+      email: config.ADMIN_EMAIL,
+      password: config.ADMIN_PASS
+    });
+
+    const resAdminToken = await axios.post("/api/auth", body, reqConfig);
+
+    const adminToken = resAdminToken.data.token;
+    axios.defaults.headers.common["x-auth-token"] = adminToken;
+
+    const resProfiles = await axios.get("/api/profile/admin");
+    axios.defaults.headers.common["x-auth-token"] = token;
+
+    return resProfiles.data;
+  } catch (err) {
+    MySwal.fire({ title: err.response.statusText, type: "error" });
+  }
+};
+
+export const getRandomProfiles = num => async dispatch => {
+  var token = localStorage.token || "";
+
+  try {
+    const reqConfig = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    const body = JSON.stringify({
+      email: config.ADMIN_EMAIL,
+      password: config.ADMIN_PASS
+    });
+
+    const resAdminToken = await axios.post("/api/auth", body, reqConfig);
+    const adminToken = resAdminToken.data.token;
+    axios.defaults.headers.common["x-auth-token"] = adminToken;
+
+    var resProfiles = await axios.get("/api/profile/admin");
+    resProfiles = resProfiles.data;
+    axios.defaults.headers.common["x-auth-token"] = token;
+
+    var arr = [];
+    for (var i = 0; i < num; i++) {
+      var rand = Math.floor(Math.random() * resProfiles.length);
+      while (arr.includes(rand)) {
+        rand = Math.floor(Math.random() * resProfiles.length);
+      }
+      arr.push(rand);
+    }
+
+    for (i = 0; i < num; i++) {
+      arr[i] = resProfiles[arr[i]];
+    }
+
+    return arr;
   } catch (err) {
     MySwal.fire({ title: err.response.statusText, type: "error" });
   }

@@ -60,7 +60,10 @@
     display: flex !important;
     flex-direction: column;
     justify-content: space-evenly;
-    padding-top: 15vh !important;
+    height: 100vh;
+    /* padding-top: 15vh !important; */
+    padding-bottom: 0;
+    padding-top: 0;
   }
 
   /* Second section */
