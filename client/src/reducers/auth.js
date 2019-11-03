@@ -1,6 +1,8 @@
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  VERIFICATION_SUCCESS,
+  VERIFICATION_FAIL,
   USER_LOADED,
   USER_UPDATED,
   AUTH_ERROR,
@@ -13,6 +15,8 @@ const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: false,
   loading: true,
+  verified: false,
+  verificationFailed: false,
   user: null
 };
 
@@ -48,6 +52,16 @@ export default function(state = initialState, action) {
         loading: false,
         user: null
       };
+  case VERIFICATION_SUCCESS:
+    return {
+      ...state,
+      verified: true
+    };
+  case VERIFICATION_FAIL:
+    return {
+      ...state,
+      verificationFailed: true
+    }
     default:
       return state;
   }

@@ -1,11 +1,59 @@
 import React from "react";
 import queryString from "query-string";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { verification } from "../../actions/auth";
 import "./auth.css";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
 
-const Verification = (props) => {
-  let query = queryString.parse(props.location.search);
+const Verification = ({verification, verified, verificationFailed, location}) => {
+  let { token }= queryString.parse(location.search);
+  if(!verified && !verificationFailed) {
+    verification(token);
+  }
+  if(verified) {
+    MySwal.fire({
+      title: "Your account is verified",
+      type: "success"
+    });
+    return <Redirect to="dashboard" />;
+  }
+  if(verificationFailed) {
+    MySwal.fire({
+      title: "I'm sorry, something wrong happened",
+      type: "error"
+    });
+    return <Redirect to="/" />;
+  }
   return (
-      <div>{query['token']}</div>
+    <div id="section1" className="ui bigger-top-container">
+      <div className="upper-container">
+        <h3 id="tagline">
+          Verifying your account...
+        </h3>
+        <h3 id="tagline">
+          { token }
+        </h3>
+      </div>
+    </div>
   );
 };
-export default Verification;
+
+Verification.propTypes = {
+  verification: PropTypes.func.isRequired,
+  verified: PropTypes.bool.isRequired,
+  verificationFailed: PropTypes.bool.isRequired
+};
+
+const mapStateToProps = state => ({
+  verified: state.auth.verified,
+  verificationFailed: state.auth.verificationFailed
+});
+
+export default connect(
+  mapStateToProps,
+  { verification }
+)(Verification);
