@@ -1,6 +1,5 @@
 import React from "react";
 import queryString from "query-string";
-import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { verification } from "../../actions/auth";
