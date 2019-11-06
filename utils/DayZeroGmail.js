@@ -25,6 +25,7 @@ module.exports = class DayZeroGmail {
         refreshToken: process.env.REFRESH_TOKEN
       }
     };
+
     let transporter = nodemailer.createTransport(config);
     transporter.sendMail(msg, function(err, response) {
       console.log(err || response);

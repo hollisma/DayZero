@@ -12,8 +12,7 @@ const { REGISTERED } = require("../../models/types");
 const crypto = require("crypto");
 const URLSafeBase64 = require("urlsafe-base64");
 const DayZeroGmail = require("../../utils/DayZeroGmail");
-const dotenv = require("dotenv");
-dotenv.config();
+require("dotenv").config();
 
 /**
  * @route   POST api/users
