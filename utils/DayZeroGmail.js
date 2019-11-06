@@ -13,26 +13,16 @@ module.exports = class DayZeroGmail {
       text: body
     };
 
-    // let config = {
-    //   host: "smtp.gmail.com",
-    //   port: 465,
-    //   secure: true,
-    //   auth: {
-    //     type: "OAuth2",
-    //     user: this.mail_address,
-    //     clientId:
-    //       "899676570691-3161ugk2b3nvnip3hahgfk4dtpkl9qg8.apps.googleusercontent.com",
-    //     clientSecret: "zh2drPx7yZWpwMgabYUu0lvy"
-    //   }
-    // };
     let config = {
       host: "smtp.gmail.com",
       port: 465,
-      // secure: true,
-      secure: false,
+      secure: true,
       auth: {
+        type: "OAuth2",
         user: this.mail_address,
-        pass: process.env.PASSWORD
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        refreshToken: process.env.REFRESH_TOKEN
       }
     };
     let transporter = nodemailer.createTransport(config);
