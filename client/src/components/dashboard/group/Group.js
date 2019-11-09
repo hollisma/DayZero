@@ -56,10 +56,9 @@ const Group = ({
         {userType === PROFILED ? (
           <Fragment>
             <h3>
-              If you want to meet interesting people, put in some times in the
-              Calendar to let us know when you're available! Also, please fill
-              in a quick bio and some other information so that people know a
-              little bit more about you!
+              If you would like us to automatically match you with a Day Zero
+              user who shares a lot of passions as you, fill out the calendar
+              section below.
             </h3>
             <div className="group-nav-buttons">
               <button

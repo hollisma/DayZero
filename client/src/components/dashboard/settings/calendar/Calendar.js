@@ -44,10 +44,9 @@ const Calendar = ({
     <div className="ui container">
       <h1 className="calendar-header">Calendar</h1>
       <p>
-        Which times are you available for? You must fill out this section in
-        order for us to match you. After matching you with a group, we will put
-        everyone into a group chat for you guys to figure out the specific time
-        and meeting location.
+        After we match you with your day zero, we will connect the two of you
+        over email. We also recommending that you fill out a quick bio below so
+        that people know a bit more about you!
       </p>
       <div id="calendar" className="calendar chunk">
         <div className="options">

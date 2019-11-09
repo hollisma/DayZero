@@ -161,7 +161,8 @@ const EditProfile = ({
       <h1 className="edit-profile-header">Edit Your Profile</h1>
       <p className="lead my-up-1">
         <i className="fas fa-user" />
-        Tell us about yourself!
+        What would you like people to know about you? This information will be
+        displayed on your profile page and to people who might want to meet you.
       </p>
       <small>* = required field</small>
       <form className="ui form equal width grid" onSubmit={e => onSubmit(e)}>
