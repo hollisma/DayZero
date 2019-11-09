@@ -117,6 +117,15 @@ const ProfilePage = ({
     </Fragment>
   );
 
+  const sayhi = () => {
+    window.open(
+      "mailto:" +
+        profileData.email +
+        "?subject=Would love to meet up for a meal sometime&body=I saw your profile on Day Zero and wanted to say hi!",
+      "_blank"
+    );
+  };
+
   return (
     <div id="profile-page">
       <div className="left">
@@ -129,7 +138,12 @@ const ProfilePage = ({
           />
           <div className="basic-info">
             <div className="name">{profileData.name}</div>
-            <div className="bio">{profileData.major}</div>
+            <div className="bio">
+              {profileData.major}
+              <button class="ui primary button" onClick={sayhi}>
+                Say hi!
+              </button>
+            </div>
           </div>
         </div>
         <div className="about-section">
@@ -140,9 +154,7 @@ const ProfilePage = ({
         </div>
       </div>
       <div className="right">
-        <h2 style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-          Similar People
-        </h2>
+        <h2 className="similar_title">Similar People</h2>
         <div className="also-viewed">{randomProfilesComponent}</div>
       </div>
     </div>
