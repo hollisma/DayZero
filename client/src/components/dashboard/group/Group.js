@@ -56,9 +56,9 @@ const Group = ({
         {userType === PROFILED ? (
           <Fragment>
             <h3>
-              If you would like us to automatically match you with a Day Zero
-              user who shares a lot of passions as you, fill out the calendar
-              section below.
+              If you would like us to automatically match you for a meal with
+              someone who shares your passions, fill out the calendar section
+              below.
             </h3>
             <div className="group-nav-buttons">
               <button

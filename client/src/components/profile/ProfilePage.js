@@ -10,6 +10,8 @@ import Avatar from "react-avatar";
 
 import "./ProfilePage.css";
 
+document.body.style = "background: #fafafa;";
+
 // Need to get user data
 const ProfilePage = ({
   user_id,
@@ -126,24 +128,33 @@ const ProfilePage = ({
     );
   };
 
+  const categoryButtons = profileData.categories.map(cat => {
+    return (
+      <button
+        className="ui primary basic button"
+        style={{ marginRight: "0.5rem" }}
+        key={cat}
+      >
+        {cat}
+      </button>
+    );
+  });
+
   return (
     <div id="profile-page">
       <div className="left">
         <div className="info">
-          <Avatar
-            className="avatar"
-            size="125"
-            round
-            src={profileData.avatar}
-          />
-          <div className="basic-info">
+          <Avatar className="avatar" round src={profileData.avatar} />
+          <div className="header">
             <div className="name">{profileData.name}</div>
-            <div className="bio">
-              {profileData.major}
-              <button class="ui primary button" onClick={sayhi}>
+            <div className="basic-info">
+              <div className="major">{profileData.major}</div>
+              <div className="divider">·</div>
+              <button className="ui primary button" onClick={sayhi}>
                 Say hi!
               </button>
             </div>
+            <div className="categories">{categoryButtons}</div>
           </div>
         </div>
         <div className="about-section">

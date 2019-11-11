@@ -71,6 +71,11 @@
     background-color: rgba(255, 255, 255, 1) !important;
   }
 
+  /* Kelvin: I put this here to shift the logo to the left, but it's causing the logo to wiggle when you start scrolling. */
+  .logo-box {
+    margin-right: 5rem;
+  }
+
   /* When we use %s for two img-logo portions
    the logo begins to vibrate for some reason */
   .img-logo {
