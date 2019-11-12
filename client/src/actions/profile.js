@@ -206,6 +206,7 @@ export const getRandomProfiles = num => async dispatch => {
 export const getSearchProfiles = categories => async dispatch => {
   var token = localStorage.token || "";
 
+  console.log(categories);
   try {
     const reqConfig = {
       headers: {
@@ -226,12 +227,14 @@ export const getSearchProfiles = categories => async dispatch => {
     axios.defaults.headers.common["x-auth-token"] = token;
 
     var hasCategories = (cats, profile) => {
+      var profileCats = profile.categories.map(s => s.toLowerCase());
+      let temp = false;
       cats.forEach(cat => {
-        if (profile.categories.includes(cat)) {
-          return true;
+        if (profileCats.includes(cat.toLowerCase())) {
+          temp = true;
         }
       });
-      return false;
+      return temp;
     };
 
     var arr = [];

@@ -1,0 +1,32 @@
+#search-page {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+#search-page .search-bar {
+  margin: 5rem;
+  margin-top: 10rem;
+}
+#search-page .results .result-person {
+  background: #e3e3e3;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #aaa;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 125px;
+  width: 100%;
+  cursor: pointer;
+}
+#search-page .results .result-person .avatar {
+  margin: 0 1.75rem 0 0.5rem;
+  padding: 0;
+}
+#search-page .results .result-person .name {
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+}
