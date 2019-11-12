@@ -11,6 +11,7 @@ import Feedback from "../feedback/Feedback";
 import PrivateRoute from "../routing/PrivateRoute";
 import NotFound from "../layout/NotFound";
 import ProfilePage from "../profile/ProfilePage";
+import Search from "../search/Search";
 // User types
 import {
   REGISTERED,
@@ -46,6 +47,12 @@ const Routes = () => {
         path="/dashboard"
         access={[PROFILED, SCHEDULED, GROUPED, MET]}
         component={Dashboard}
+      />
+      <PrivateRoute
+        exact
+        path="/search"
+        access={[PROFILED, SCHEDULED, GROUPED, MET]}
+        component={Search}
       />
       <PrivateRoute
         exact

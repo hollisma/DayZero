@@ -29,8 +29,8 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </a>
       </li>
       <li className="item">
-        <a href="/dashboard#settings" className="reg">
-          Settings
+        <a href="/search" className="reg">
+          Search
         </a>
       </li>
       <li className="item">
@@ -102,7 +102,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { logout }
-)(Navbar);
+export default connect(mapStateToProps, { logout })(Navbar);

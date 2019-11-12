@@ -202,3 +202,47 @@ export const getRandomProfiles = num => async dispatch => {
     MySwal.fire({ title: err.response.statusText, type: "error" });
   }
 };
+
+export const getSearchProfiles = categories => async dispatch => {
+  var token = localStorage.token || "";
+
+  try {
+    const reqConfig = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    const body = JSON.stringify({
+      email: config.ADMIN_EMAIL,
+      password: config.ADMIN_PASS
+    });
+
+    const resAdminToken = await axios.post("/api/auth", body, reqConfig);
+    const adminToken = resAdminToken.data.token;
+    axios.defaults.headers.common["x-auth-token"] = adminToken;
+
+    var resProfiles = await axios.get("/api/profile/admin");
+    resProfiles = resProfiles.data;
+    axios.defaults.headers.common["x-auth-token"] = token;
+
+    var hasCategories = (cats, profile) => {
+      cats.forEach(cat => {
+        if (profile.categories.includes(cat)) {
+          return true;
+        }
+      });
+      return false;
+    };
+
+    var arr = [];
+    for (var i = 0; i < resProfiles.length; i++) {
+      if (hasCategories(categories, resProfiles[i])) {
+        arr.push(resProfiles[i]);
+      }
+    }
+
+    return arr;
+  } catch (err) {
+    MySwal.fire({ title: err.response.statusText, type: "error" });
+  }
+};
