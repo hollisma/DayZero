@@ -10,6 +10,8 @@ import Avatar from "react-avatar";
 
 import "./ProfilePage.css";
 
+document.body.style = "background: #fafafa;";
+
 // Need to get user data
 const ProfilePage = ({
   user_id,
@@ -117,19 +119,42 @@ const ProfilePage = ({
     </Fragment>
   );
 
+  const sayhi = () => {
+    window.open(
+      "mailto:" +
+        profileData.email +
+        "?subject=Would love to meet up for a meal sometime&body=I saw your profile on Day Zero and wanted to say hi!",
+      "_blank"
+    );
+  };
+
+  const categoryButtons = profileData.categories.map(cat => {
+    return (
+      <button
+        className="ui primary basic button"
+        style={{ marginRight: "0.5rem" }}
+        key={cat}
+      >
+        {cat}
+      </button>
+    );
+  });
+
   return (
     <div id="profile-page">
       <div className="left">
         <div className="info">
-          <Avatar
-            className="avatar"
-            size="125"
-            round
-            src={profileData.avatar}
-          />
-          <div className="basic-info">
+          <Avatar className="avatar" round src={profileData.avatar} />
+          <div className="header">
             <div className="name">{profileData.name}</div>
-            <div className="bio">{profileData.major}</div>
+            <div className="basic-info">
+              <div className="major">{profileData.major}</div>
+              <div className="divider">·</div>
+              <button className="ui primary button" onClick={sayhi}>
+                Say hi!
+              </button>
+            </div>
+            <div className="categories">{categoryButtons}</div>
           </div>
         </div>
         <div className="about-section">
@@ -140,9 +165,7 @@ const ProfilePage = ({
         </div>
       </div>
       <div className="right">
-        <h2 style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-          Similar People
-        </h2>
+        <h2 className="similar_title">Similar People</h2>
         <div className="also-viewed">{randomProfilesComponent}</div>
       </div>
     </div>
