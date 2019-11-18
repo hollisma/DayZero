@@ -433,7 +433,8 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { updateUser, createProfile, getCurrentProfile }
-)(withRouter(EditProfile));
+export default connect(mapStateToProps, {
+  updateUser,
+  createProfile,
+  getCurrentProfile
+})(withRouter(EditProfile));

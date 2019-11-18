@@ -206,7 +206,6 @@ export const getRandomProfiles = num => async dispatch => {
 export const getSearchProfiles = categories => async dispatch => {
   var token = localStorage.token || "";
 
-  console.log(categories);
   try {
     const reqConfig = {
       headers: {
@@ -228,13 +227,13 @@ export const getSearchProfiles = categories => async dispatch => {
 
     var hasCategories = (cats, profile) => {
       var profileCats = profile.categories.map(s => s.toLowerCase());
-      let temp = false;
+      let hasAllCats = true;
       cats.forEach(cat => {
-        if (profileCats.includes(cat.toLowerCase())) {
-          temp = true;
+        if (!profileCats.includes(cat.toLowerCase())) {
+          hasAllCats = false;
         }
       });
-      return temp;
+      return hasAllCats;
     };
 
     var arr = [];
