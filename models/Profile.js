@@ -28,6 +28,10 @@ const ProfileSchema = new mongoose.Schema({
   },
   want_to_meet: {
     type: String
+  },
+  liked_users: {
+    type: [String],
+    default: []
   }
 });
 

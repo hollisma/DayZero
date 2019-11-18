@@ -4,13 +4,32 @@ import { connect } from "react-redux";
 import {
   getDisplayProfile,
   getUserProfile,
-  getRandomProfiles
+  getRandomProfiles,
+  like,
+  unlike
 } from "../../actions/profile";
 import Avatar from "react-avatar";
 
 import "./ProfilePage.css";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
 
 document.body.style = "background: #fafafa;";
+
+function fireStar() {
+  MySwal.fire({
+    title: "Favorite this person if you would like to meet more people like this. We will use this information to recommend the most relevant people tailored to you.",
+    type: "info"
+  });
+  return false;
+}
+
+function userLikedProfile(user, profile) {
+  if(!profile || !profile.liked_users) return false;
+  if(!user) return false;
+  return profile.liked_users.indexOf(user.id) != -1;
+}
 
 // Need to get user data
 const ProfilePage = ({
@@ -18,7 +37,10 @@ const ProfilePage = ({
   profile: { display_profile, display_loading },
   getDisplayProfile,
   getUserProfile,
-  getRandomProfiles
+  getRandomProfiles,
+  like,
+  unlike,
+  auth: { user, loading: user_loading }
 }) => {
   var [profileData, setProfileData] = useState({
     name: "",
@@ -33,6 +55,8 @@ const ProfilePage = ({
   });
 
   var [randomProfiles, setRandomProfiles] = useState([]);
+
+  const userid = user_loading || !user ? "aaa" : user.id
 
   useEffect(() => {
     getDisplayProfile(user_id);
@@ -140,6 +164,8 @@ const ProfilePage = ({
     );
   });
 
+  const likeButton = (<a href="#" onClick={() => like(display_profile)}> Like </a>)
+  const unlikeButton = (<a href="#" onClick={() => unlike(display_profile)}> Unlike </a>)
   return (
     <div id="profile-page">
       <div className="left">
@@ -155,6 +181,10 @@ const ProfilePage = ({
               </button>
             </div>
             <div className="categories">{categoryButtons}</div>
+            <div>
+              <a href="#" onClick={fireStar}> What's this?  </a>
+              {userLikedProfile(user, display_profile) ? unlikeButton : likeButton}
+            </div>
           </div>
         </div>
         <div className="about-section">
@@ -176,14 +206,18 @@ ProfilePage.propTypes = {
   getDisplayProfile: PropTypes.func.isRequired,
   getUserProfile: PropTypes.func.isRequired,
   getRandomProfiles: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired
+  like: PropTypes.func.isRequired,
+  unlike: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  profile: state.profile
+  profile: state.profile,
+  auth: state.auth
 });
 
 export default connect(
   mapStateToProps,
-  { getDisplayProfile, getUserProfile, getRandomProfiles }
+  { getDisplayProfile, getUserProfile, getRandomProfiles, like, unlike }
 )(ProfilePage);
