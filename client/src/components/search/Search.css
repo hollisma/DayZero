@@ -1,32 +1,67 @@
 #search-page {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
+  float: left;
+}
+
+#search-page .left {
+  float: left;
+  width: 30%;
+  padding-right: 3rem;
+  margin-right: 3rem;
+}
+
+#search-page .right {
+  width: 95%;
 }
 
 #search-page .search-categories {
-  margin: 5rem;
-  margin-top: 10rem;
+  width: 95%;
+  /* flex-direction: column; */
+  margin: 7rem 5rem 5rem 5rem;
+  background: #ffffff;
+  border-radius: 10px;
 }
+
+#search-page .results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  margin: 7rem 0rem 0rem 2rem;
+}
+
+#search-page .results .result-person .avatar {
+  margin: 0 1.75rem 0 0.5rem;
+  padding: 0;
+  width: 5rem;
+  height: 5rem;
+}
+
 #search-page .results .result-person {
-  background: #e3e3e3;
+  background: #ffffff;
   border-radius: 10px;
   box-shadow: 5px 5px 10px #aaa;
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 125px;
-  width: 100%;
+  margin: 0.75rem 0 0.75rem 0;
+  padding: 1rem 0 1rem 0;
   cursor: pointer;
 }
-#search-page .results .result-person .avatar {
-  margin: 0 1.75rem 0 0.5rem;
-  padding: 0;
-}
+
 #search-page .results .result-person .name {
   font-size: 1.5rem;
-  margin-right: 0.75rem;
+  margin-right: 1.75rem;
+  margin-left: 1rem;
+}
+
+#search-page .results .result-person .categories {
+  width: 50%;
+}
+
+#search-page .results .result-person .profile-categories {
+  background: #c8e3ff;
+  border-radius: 10px;
+  font-size: 1rem;
+  width: 20%;
+  margin: 1rem;
 }

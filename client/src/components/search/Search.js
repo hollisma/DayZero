@@ -38,21 +38,27 @@ const Search = ({ auth: { user }, getSearchProfiles }) => {
     <Fragment>
       {searchProfiles &&
         searchProfiles.map(profile => (
-          <a
-            style={{
-              marginBottom: "1.5rem"
-            }}
-            href={profile && profile.user && "profile/" + profile.user._id}
-          >
+          <a href={profile && profile.user && "profile/" + profile.user._id}>
             <div className="result-person">
               <Avatar
                 className="avatar"
-                size="100"
+                size="75"
                 round
                 src={profile && profile.user && profile.user.avatar}
               />
               <div className="name">
                 {profile && profile.user && profile.user.name}
+              </div>
+              <div className="categories">
+                {profile &&
+                  profile.categories.map(category => (
+                    <div
+                      className="profile-categories"
+                      style={{ float: "left" }}
+                    >
+                      {category}
+                    </div>
+                  ))}
               </div>
             </div>
           </a>
@@ -78,7 +84,7 @@ const Search = ({ auth: { user }, getSearchProfiles }) => {
     return (
       <button
         className={
-          "ui blue button category-button " +
+          "ui mini blue button category-button " +
           (searchCategories.includes(cat) ? "" : "basic")
         }
         style={{ margin: "5px" }}
@@ -92,14 +98,18 @@ const Search = ({ auth: { user }, getSearchProfiles }) => {
 
   return (
     <div id="search-page">
-      <div className="search-categories">
-        {categoryButtons}
-        {/* <form onSubmit={e => handleSearchSubmit(e)}>
+      <div className="left">
+        <div className="search-categories">
+          {categoryButtons}
+          {/* <form onSubmit={e => handleSearchSubmit(e)}>
           <input type="submit" style={{ display: "none" }} />
           <input type="text" onChange={e => handleSearchChange(e)} />
         </form> */}
+        </div>
       </div>
-      <div className="results">{SearchProfileComponents}</div>
+      <div className="right">
+        <div className="results">{SearchProfileComponents}</div>
+      </div>
     </div>
   );
 };
