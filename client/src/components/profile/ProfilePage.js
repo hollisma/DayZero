@@ -1,4 +1,5 @@
 import React, { useEffect, useState, Fragment } from "react";
+import { Link, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {
@@ -182,22 +183,20 @@ const ProfilePage = ({
         <div className="info">
           <Avatar className="avatar" round src={profileData.avatar} />
           <div className="header">
-            <di className="name-like">
+            <div className="name-like">
               <div className="name">{profileData.name}</div>
               <div className="like">
-                <div className="ui mini labeled like-button" tabindex="0">
-                  <div className="ui mini red button">
-                    <i className="heart icon"></i>
-                    {userLikedProfile(user, display_profile)
-                      ? unlikeButton
-                      : likeButton}
-                  </div>
+                <div className="ui mini red button">
+                  <i className="heart icon"></i>
+                  {userLikedProfile(user, display_profile)
+                    ? unlikeButton
+                    : likeButton}
                 </div>
                 <a href="#" onClick={fireStar}>
                   What's this?
                 </a>
               </div>
-            </di>
+            </div>
             <div className="basic-info">
               <div className="major">{profileData.major}</div>
               <div className="divider">·</div>

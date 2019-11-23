@@ -412,6 +412,7 @@ const EditProfile = ({
           </a> */}
           <input
             type="submit"
+            value="Save"
             className="ui green basic button my-1 right floated"
           />
         </div>
