@@ -51,14 +51,11 @@ const Search = ({ auth: { user }, getSearchProfiles }) => {
               </div>
               <div className="categories">
                 {profile &&
-                  profile.categories.map(category => (
-                    <div
-                      className="profile-categories"
-                      style={{ float: "left" }}
-                    >
-                      {category}
-                    </div>
-                  ))}
+                  profile.categories
+                    .slice(0, 5)
+                    .map(category => (
+                      <div className="profile-categories">{category}</div>
+                    ))}
               </div>
             </div>
           </a>
