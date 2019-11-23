@@ -19,7 +19,7 @@ router.get("/me", auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({ user: req.user.id }).populate(
       "user",
-      ["name", "email", "avatar", "phone_number"]
+      ["name", "email", "avatar", "phone_number", "liked_users"]
     );
 
     if (!profile) {
@@ -127,7 +127,8 @@ router.get("/admin", admin, async (req, res) => {
       "email",
       "phone_number",
       "user_type",
-      "avatar"
+      "avatar",
+      "liked_users"
     ]);
     res.json(profiles);
   } catch (err) {
@@ -145,7 +146,7 @@ router.get("/user/:user_id", async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.params.user_id
-    }).populate("user", ["name", "email", "avatar", "phone_number"]);
+    }).populate("user", ["name", "email", "avatar", "phone_number", "liked_users"]);
 
     if (!profile) return res.status(400).json({ msg: "Profile not found" });
 
@@ -175,6 +176,33 @@ router.delete("/", auth, async (req, res) => {
     await Schedule.findOneAndRemove({ user: req.user.id });
 
     res.json({ msg: "User deleted" });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+router.post("/like", auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({user: req.body.user_id}).populate("user");
+    let liked_users = profile.liked_users ? profile.liked_users : [];
+    if(liked_users.indexOf(req.user.id) == -1) liked_users.push(req.user.id);
+    profile.liked_users = liked_users;
+    await profile.save();
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+router.post("/unlike", auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({user: req.body.user_id}).populate("user");
+    let liked_users = profile.liked_users ? profile.liked_users : [];
+    profile.liked_users = liked_users.filter(id => id != req.user.id)
+    await profile.save();
+    res.json(profile);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
