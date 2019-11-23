@@ -19,15 +19,16 @@ document.body.style = "background: #fafafa;";
 
 function fireStar() {
   MySwal.fire({
-    title: "Favorite this person if you would like to meet more people like this. We will use this information to recommend the most relevant people tailored to you.",
+    title:
+      "Favorite this person if you would like to meet more people like this. We will use this information to recommend the most relevant people tailored to you.",
     type: "info"
   });
   return false;
 }
 
 function userLikedProfile(user, profile) {
-  if(!profile || !profile.liked_users) return false;
-  if(!user) return false;
+  if (!profile || !profile.liked_users) return false;
+  if (!user) return false;
   return profile.liked_users.indexOf(user.id) != -1;
 }
 
@@ -56,7 +57,7 @@ const ProfilePage = ({
 
   var [randomProfiles, setRandomProfiles] = useState([]);
 
-  const userid = user_loading || !user ? "aaa" : user.id
+  const userid = user_loading || !user ? "aaa" : user.id;
 
   useEffect(() => {
     getDisplayProfile(user_id);
@@ -153,26 +154,50 @@ const ProfilePage = ({
   };
 
   const categoryButtons = profileData.categories.map(cat => {
-    return (
-      <button
-        className="ui primary basic button"
-        style={{ marginRight: "0.5rem" }}
-        key={cat}
-      >
-        {cat}
-      </button>
-    );
+    return <div className="profile-categories">{cat}</div>;
   });
 
-  const likeButton = (<a href="#" onClick={() => like(display_profile)}> Like </a>)
-  const unlikeButton = (<a href="#" onClick={() => unlike(display_profile)}> Unlike </a>)
+  const likeButton = (
+    <a
+      href="#"
+      style={{ color: "white" }}
+      onClick={() => like(display_profile)}
+    >
+      Like
+    </a>
+  );
+  const unlikeButton = (
+    <a
+      href="#"
+      style={{ color: "white" }}
+      onClick={() => unlike(display_profile)}
+    >
+      Unlike
+    </a>
+  );
+
   return (
     <div id="profile-page">
       <div className="left">
         <div className="info">
           <Avatar className="avatar" round src={profileData.avatar} />
           <div className="header">
-            <div className="name">{profileData.name}</div>
+            <di className="name-like">
+              <div className="name">{profileData.name}</div>
+              <div className="like">
+                <div className="ui mini labeled like-button" tabindex="0">
+                  <div className="ui mini red button">
+                    <i className="heart icon"></i>
+                    {userLikedProfile(user, display_profile)
+                      ? unlikeButton
+                      : likeButton}
+                  </div>
+                </div>
+                <a href="#" onClick={fireStar}>
+                  What's this?
+                </a>
+              </div>
+            </di>
             <div className="basic-info">
               <div className="major">{profileData.major}</div>
               <div className="divider">·</div>
@@ -181,10 +206,6 @@ const ProfilePage = ({
               </button>
             </div>
             <div className="categories">{categoryButtons}</div>
-            <div>
-              <a href="#" onClick={fireStar}> What's this?  </a>
-              {userLikedProfile(user, display_profile) ? unlikeButton : likeButton}
-            </div>
           </div>
         </div>
         <div className="about-section">
@@ -217,7 +238,10 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { getDisplayProfile, getUserProfile, getRandomProfiles, like, unlike }
-)(ProfilePage);
+export default connect(mapStateToProps, {
+  getDisplayProfile,
+  getUserProfile,
+  getRandomProfiles,
+  like,
+  unlike
+})(ProfilePage);
