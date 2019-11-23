@@ -17,3 +17,5 @@ export const SCHEDULE_ERROR = "SCHEDULE_ERROR";
 export const GET_GROUP = "GET_GROUP";
 export const LOAD_MEMBERS = "LOAD_MEMBERS";
 export const GROUP_ERROR = "GROUP_ERROR";
+export const LIKED = "LIKED";
+export const UNLIKED = "UNLIKED";

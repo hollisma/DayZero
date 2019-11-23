@@ -2,7 +2,9 @@ import {
   GET_PROFILE,
   GET_DISPLAY_PROFILE,
   PROFILE_ERROR,
-  LOGOUT
+  LOGOUT,
+  LIKED,
+  UNLIKED
 } from "../actions/types";
 
 const initialState = {
@@ -45,6 +47,12 @@ export default function(state = initialState, action) {
         display_profile: null,
         loading: true,
         display_loading: true
+      };
+    case LIKED:
+    case UNLIKED:
+      return {
+        ...state,
+        display_profile: payload
       };
     default:
       return state;
