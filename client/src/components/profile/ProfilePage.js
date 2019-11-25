@@ -183,10 +183,14 @@ const ProfilePage = ({
         <div className="info">
           <Avatar className="avatar" round src={profileData.avatar} />
           <div className="header">
-            <div className="name-like">
-              <div className="name">{profileData.name}</div>
+            <div className="name">{profileData.name}</div>
+            <div className="basic-info">
+              <div className="major">{profileData.major}</div>
+              <button className="ui blue small button" onClick={sayhi}>
+                Say hi!
+              </button>
               <div className="like">
-                <div className="ui mini red button">
+                <div className="ui small red button">
                   <i className="heart icon"></i>
                   {userLikedProfile(user, display_profile)
                     ? unlikeButton
@@ -196,13 +200,6 @@ const ProfilePage = ({
                   What's this?
                 </a>
               </div>
-            </div>
-            <div className="basic-info">
-              <div className="major">{profileData.major}</div>
-              <div className="divider">·</div>
-              <button className="ui primary button" onClick={sayhi}>
-                Say hi!
-              </button>
             </div>
             <div className="categories">{categoryButtons}</div>
           </div>
@@ -215,7 +212,7 @@ const ProfilePage = ({
         </div>
       </div>
       <div className="right">
-        <h2 className="similar_title">Similar People</h2>
+        <h2 className="similar_title">People also viewed...</h2>
         <div className="also-viewed">{randomProfilesComponent}</div>
       </div>
     </div>

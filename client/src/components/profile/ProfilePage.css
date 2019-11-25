@@ -20,17 +20,16 @@
   display: flex;
   flex-direction: row;
   min-width: 100%;
-  height: 30%;
+  height: auto;
   align-items: center;
   background: white;
   border-radius: 10px;
   box-shadow: 5px 5px 10px #aaa;
-  padding: 4rem 0rem 4rem 0rem;
+  padding: 0rem 0rem 2rem 0rem;
 }
 #profile-page .left .info .avatar {
-  margin: 0;
-  margin-left: 2rem;
-  margin-right: 5rem;
+  margin-left: 1rem;
+  margin-right: 3rem;
   min-width: 8rem;
   max-width: 8rem;
   min-height: 8rem;
@@ -40,34 +39,33 @@
   /* background: green; */
   display: flex;
   flex-direction: column;
-  margin: 0rem;
-  margin-right: 3rem;
-  width: 150%;
-}
-
-#profile-page .left .info .header .name-like {
-  vertical-align: middle;
-  padding: 2rem 0 1rem 0;
+  margin: 2rem 2rem 0rem 0rem;
 }
 
 #profile-page .left .info .header .name {
   float: left;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: "Roboto", sans-serif;
   vertical-align: middle;
+  margin-bottom: 0.75rem;
+}
+
+#profile-page .left .info .header .basic-info {
+  margin-bottom: 0.5rem;
 }
 
 #profile-page .left .info .header .like {
-  float: right;
+  float: left;
   font-size: 0.75rem;
   font-family: "Roboto", sans-serif;
-  margin-top: 1rem;
+  margin-right: 1rem;
 }
 
 #profile-page .left .info .header .major {
   font-size: 1.5rem;
   margin-right: 1rem;
   float: left;
+  height: 100%;
 }
 
 #profile-page .left .info .header .divider {
