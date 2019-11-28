@@ -57,7 +57,16 @@
 }
 
 #search-page .results .result-person .categories {
-  width: 50%;
+  /* width: 50%; */
+  margin-right: 2rem;
+}
+
+#search-page .results .result-person .likes {
+  /* width: 50%; */
+  margin-right: 0.5rem;
+  min-width: 10rem;
+  max-width: 10rem;
+  color: black;
 }
 
 #search-page .results .result-person .profile-categories {

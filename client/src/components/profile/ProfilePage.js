@@ -1,5 +1,4 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { Link, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {
@@ -30,7 +29,7 @@ function fireStar() {
 function userLikedProfile(user, profile) {
   if (!profile || !profile.liked_users) return false;
   if (!user) return false;
-  return profile.liked_users.indexOf(user.id) != -1;
+  return profile.liked_users.indexOf(user.id) !== -1;
 }
 
 // Need to get user data
