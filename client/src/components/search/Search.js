@@ -51,11 +51,11 @@ const Search = ({ auth: { user }, getSearchProfiles }) => {
               </div>
               <div className="categories">
                 {profile &&
-                  profile.categories
-                    .slice(0, 5)
-                    .map(category => (
-                      <div className="profile-categories">{category}</div>
-                    ))}
+                  profile.categories.slice(0, 5).map(category => (
+                    <div className="profile-categories" key={category}>
+                      {category}
+                    </div>
+                  ))}
               </div>
               <div className="likes">
                 <p>

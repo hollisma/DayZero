@@ -1,0 +1,159 @@
+#landing-mobile {
+  display: flex;
+  flex-direction: column;
+}
+
+#landing-mobile .top {
+  padding: 20vh 12.5vw 10vh 12.5vw;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../img/landing_mobile_1.JPG");
+  background-repeat: no-repeat;
+  background-size: 250%;
+  background-position: 90% 19%;
+  color: white;
+}
+#landing-mobile .top .big-text {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 5vh;
+}
+#landing-mobile .top .small-text {
+  font-size: 1.5rem;
+  margin-bottom: 15vh;
+}
+#landing-mobile .top .sign-up-button {
+  position: absolute;
+  bottom: 15vh;
+  border: none; 
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px #00000055;
+  /* font-size:12px; */
+  padding: 10px 20px 10px 20px; 
+  text-decoration: none;
+  font-weight:bold; 
+  color: #FFFFFF;
+  background-color: #38d8ff; background-image: -webkit-gradient(linear, left top, right top, from(#38d8ff), to(#036FFC));
+  background-image: -webkit-linear-gradient(to right, #38d8ff, #036FFC);
+  background-image:    -moz-linear-gradient(to right, #38d8ff, #036FFC);
+  background-image:     -ms-linear-gradient(to right, #38d8ff, #036FFC);
+  background-image:      -o-linear-gradient(to right, #38d8ff, #036FFC);
+  background-image:         linear-gradient(to right, #38d8ff, #036FFC);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#38d8ff, endColorstr=#036FFC);
+}
+
+#landing-mobile .middle {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100vw;
+  padding: 10vh 15vw 5vh 15vw;
+  background-color: #f5f5f5 ;
+}
+#landing-mobile .middle .text {
+  margin-bottom: 30px;
+  font-size: 1.25rem;
+}
+#landing-mobile .middle .card-profile {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 10px 7px 10px #00000029;
+  margin: 5vh 0 5vh 0;
+  padding-bottom: 25px;
+}
+#landing-mobile .middle .card-profile .card-pic {
+  border-radius: 20px;
+  /* background-color:red; */
+  box-shadow: 0px 3px 3px #00000055;
+}
+#landing-mobile .middle .card-profile .text {
+  border-radius: 0;
+  padding: 20px 20px 15px 20px;
+  text-align: center;
+  margin: 0;
+}
+#landing-mobile .middle .card-profile .name {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  color: #128ae6;
+}
+
+#landing-mobile .bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100vw;
+  padding: 3vh 15vw 10vh 15vw;
+  background-color: #f5f5f5 ;
+}
+#landing-mobile .bottom .transition {
+  font-size: 3rem; 
+  font-weight: 700;
+  line-height: 3.75rem;
+  color: #128ae6;
+  margin-bottom: 5vh;
+}
+#landing-mobile .bottom .card-background {
+  margin: 10px 0px;
+  padding: 20px 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #00000022;
+  background-color: white;
+}
+#landing-mobile .bottom .card-possibility {
+  background-image: -webkit-linear-gradient(to right, #38d8ff, #036FFC); /* For Chrome and Safari */
+  background-image:    -moz-linear-gradient(to right, #38d8ff, #036FFC); /* For old Fx (3.6 to 15) */
+  background-image:     -ms-linear-gradient(to right, #38d8ff, #036FFC); /* For pre-releases of IE 10*/
+  background-image:      -o-linear-gradient(to right, #38d8ff, #036FFC); /* For old Opera (11.1 to 12.0) */
+  background-image:         linear-gradient(to right, #38d8ff, #036FFC);
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+#landing-mobile .bottom .sign-up-button {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  border: none; 
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px #00000055;
+  padding: 10px 20px 10px 20px; 
+  width: 50vw;
+  height: 10vh;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold; 
+  color: #FFFFFF;
+  background-color: #38d8ff; background-image: -webkit-gradient(linear, left top, right top, from(#38d8ff), to(#036FFC));
+  background-image: -webkit-linear-gradient(to right, #38d8ff, #036FFC);
+  background-image:    -moz-linear-gradient(to right, #38d8ff, #036FFC);
+  background-image:     -ms-linear-gradient(to right, #38d8ff, #036FFC);
+  background-image:      -o-linear-gradient(to right, #38d8ff, #036FFC);
+  background-image:         linear-gradient(to right, #38d8ff, #036FFC);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#38d8ff, endColorstr=#036FFC);
+}
+#landing-mobile .bottom .questions {
+  font-size: 1.5rem;
+  font-weight: 1000;
+}
+#landing-mobile .bottom .contact-us {
+  margin-top: 2.5vh;
+  color: #128ae6;
+}
+
+
+.colorful {
+  background-image: -webkit-linear-gradient(to right, #00bbe8, #036FFC); /* For Chrome and Safari */
+  background-image:    -moz-linear-gradient(to right, #00bbe8, #036FFC); /* For old Fx (3.6 to 15) */
+  background-image:     -ms-linear-gradient(to right, #00bbe8, #036FFC); /* For pre-releases of IE 10*/
+  background-image:      -o-linear-gradient(to right, #00bbe8, #036FFC); /* For old Opera (11.1 to 12.0) */
+  background-image:         linear-gradient(to right, #00bbe8, #036FFC);
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
