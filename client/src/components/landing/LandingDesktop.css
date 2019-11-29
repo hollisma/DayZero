@@ -1,37 +1,40 @@
-#landing-mobile {
+#landing-desktop {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: #f5f5f5;
+  height: 100%;
 }
 
-#landing-mobile .top {
-  padding: 20vh 12.5vw 10vh 12.5vw;
-  height: 100vh;
-  width: 100vw;
+#landing-desktop .top {
+  margin:10vh 0vw;
+  min-height: 60vh;
+  width: 80vw;
   display: flex;
   flex-direction: column;
   background-image: url("../../img/landing_mobile_1.JPG");
   background-repeat: no-repeat;
-  background-size: 250%;
-  background-position: 90% 19%;
+  background-size: 100%;
+  background-position: 90% 59%;
   color: white;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
 }
-#landing-mobile .top .big-text {
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin-bottom: 5vh;
+#landing-desktop .top .inner-box {
+  padding: 7vh 7vw;
+  background-color: #128ae6d0;
+  width: 80%;
+  min-height: 70%;
+  border-radius: 10px;
 }
-#landing-mobile .top .small-text {
-  font-size: 1.5rem;
-  margin-bottom: 15vh;
-}
-#landing-mobile .top .sign-up-button {
-  position: absolute;
-  bottom: 10vh;
+#landing-desktop .top .inner-box .sign-up-button {
   border: none; 
   border-radius: 10px;
-  box-shadow: 0px 5px 5px #00000055;
+  box-shadow: 0px 3px 2px #00000055;
   /* font-size:12px; */
   padding: 10px 20px 10px 20px; 
+  margin-bottom: 20px;
   text-decoration: none;
   font-weight:bold; 
   color: #FFFFFF;
@@ -41,70 +44,116 @@
   background-image:     -ms-linear-gradient(to right, #38d8ff, #036FFC);
   background-image:      -o-linear-gradient(to right, #38d8ff, #036FFC);
   background-image:         linear-gradient(to right, #38d8ff, #036FFC);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#38d8ff, endColorstr=#036FFC);
+  opacity: 1;
+}
+#landing-desktop .top .inner-box .sign-up-button:hover,
+#landing-desktop .top .inner-box .sign-up-button:focus {
+  box-shadow: 0px 1px 1px #00000055;
+  transform: translateY(2px);
+}
+#landing-desktop .top .inner-box .big-text {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 3.5rem;
+}
+#landing-desktop .top .inner-box .small-text {
+  margin: 6vh 0;
+  font-size: 1.5rem;
 }
 
-#landing-mobile .middle {
+#landing-desktop .middle {
+  margin: 0vh 7vw 5vh;
+  width: 80vw;
+}
+#landing-desktop .middle .how-we-help {
+  border-radius: 10px;
+  /* min-height: 60%; */
+  background-color: white;
+  padding: 50px 15% 35px; 
+  text-align: center;
+  box-shadow: 5px 5px 5px #00000033;
+}
+#landing-desktop .middle .how-we-help .title {
+  font-size: 2.5rem;
+  color: #128ae6;
+  font-weight: 700;
+  margin-bottom: 35px;
+}
+#landing-desktop .middle .how-we-help .text {
+  font-size: 1.60rem;
+  margin-bottom: 20px;
+}
+#landing-desktop .middle .people-cards {
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100vw;
-  padding: 10vh 15vw 5vh 15vw;
-  background-color: #f5f5f5 ;
+  flex-direction: row;
+  justify-content: space-between;
 }
-#landing-mobile .middle .text {
-  margin-bottom: 30px;
-  font-size: 1.25rem;
-}
-#landing-mobile .middle .card-profile {
+#landing-desktop .middle .people-cards .card-profile {
   background-color: white;
   border-radius: 20px;
-  box-shadow: 10px 7px 10px #00000029;
+  box-shadow: 5px 5px 5px #00000033;
   margin: 5vh 0 5vh 0;
   padding-bottom: 25px;
+  width: 30%;
 }
-#landing-mobile .middle .card-profile .card-pic {
+#landing-desktop .middle .people-cards .card-profile .card-pic {
   border-radius: 20px;
   width: 100%;
 }
-#landing-mobile .middle .card-profile .text {
+#landing-desktop .middle .people-cards .card-profile .text {
   border-radius: 0;
   padding: 20px 20px 15px 20px;
   text-align: center;
   margin: 0;
 }
-#landing-mobile .middle .card-profile .name {
+#landing-desktop .middle .people-cards .card-profile .name {
   font-size: 2rem;
   text-align: center;
   font-weight: 700;
   color: #128ae6;
+  margin-top: 5px;
 }
 
-#landing-mobile .bottom {
-  display: flex;
-  flex-direction: column;
+#landing-desktop .bottom {
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 100%;
-  width: 100vw;
-  padding: 3vh 15vw 10vh 15vw;
-  background-color: #f5f5f5 ;
 }
-#landing-mobile .bottom .transition {
+#landing-desktop .bottom .transition {
   font-size: 3rem; 
   font-weight: 700;
   line-height: 3.75rem;
   color: #128ae6;
   margin-bottom: 5vh;
 }
-#landing-mobile .bottom .card-background {
-  margin: 10px 0px;
-  padding: 20px 10px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px #00000022;
-  background-color: white;
+#landing-desktop .bottom .main-section {
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+  height: 40vh;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5vh;
 }
-#landing-mobile .bottom .card-possibility {
+#landing-desktop .bottom .main-section .cards {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  /* padding: 0 20px;  */
+  justify-content: space-between;
+  height: 100%;
+}
+#landing-desktop .bottom .card-background {
+  /* margin: 3vh 0 0; */
+  padding: 1rem 3rem;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #00000033;
+  background-color: white !important;
+}
+#landing-desktop .bottom .card-background:first-child {
+  margin-top: 0;
+}
+#landing-desktop .bottom .card {
   background-image: -webkit-linear-gradient(to right, #38d8ff, #036FFC); /* For Chrome and Safari */
   background-image:    -moz-linear-gradient(to right, #38d8ff, #036FFC); /* For old Fx (3.6 to 15) */
   background-image:     -ms-linear-gradient(to right, #38d8ff, #036FFC); /* For pre-releases of IE 10*/
@@ -116,14 +165,34 @@
   font-size: 1.25rem;
   font-weight: bold;
 }
-#landing-mobile .bottom .sign-up-button {
-  margin-top: 10vh;
-  margin-bottom: 10vh;
+#landing-desktop .bottom .main-section .pic {
+  background-image: url("../../img/landing_mobile_1.JPG");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  max-width: 50%;
+  height: 100%;
+  margin: 0 20px;
+  padding: 0;
+  border-radius: 10px;
+  /* box-shadow: 5px 5px 5px #00000033; */
+}
+
+#landing-desktop .footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vh;
+  padding: 5vh 0;
+  min-height: 40vh;
+}
+#landing-desktop .footer .sign-up-button {
+  margin-top: 3vh;
+  margin-bottom: 7vh;
   border: none; 
   border-radius: 10px;
   box-shadow: 0px 5px 5px #00000055;
-  padding: 10px 20px 10px 20px; 
-  width: 50vw;
+  padding: 2vh 20px 2vh 20px; 
+  min-width: 150px;
   height: 10vh;
   text-decoration: none;
   font-size: 2rem;
@@ -136,11 +205,16 @@
   background-image:      -o-linear-gradient(to right, #38d8ff, #036FFC);
   background-image:         linear-gradient(to right, #38d8ff, #036FFC);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#38d8ff, endColorstr=#036FFC);
 }
-#landing-mobile .bottom .questions {
+#landing-desktop .footer .sign-up-button:hover,
+#landing-desktop .footer .sign-up-button:focus {
+  box-shadow: 0px 1px 1px #00000055;
+  transform: translateY(4px);
+}
+#landing-desktop .footer .questions {
   font-size: 1.5rem;
   font-weight: 1000;
 }
-#landing-mobile .bottom .contact-us {
+#landing-desktop .footer .contact-us {
   margin-top: 2.5vh;
   color: #128ae6;
 }
@@ -156,3 +230,11 @@
   -webkit-background-clip: text;
   background-clip: text;
 }
+.alt-background {
+  background-color: #128ae6 !important;
+  color: white;
+}
+.alt-text {
+  color: white !important;
+}
+

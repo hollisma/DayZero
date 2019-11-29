@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Landing from "../landing/Landing";
-import LandingDesktop from "../landing/LandingDesktop";
+import SignUpLanding from "../landing/SignUpLanding";
 import Register from "../auth/Register";
 import Login from "../auth/Login";
 import Verification from "../auth/Verification";
@@ -26,7 +26,7 @@ const Routes = () => {
   return (
     <Switch>
       <Route exact path="/" component={Landing} />
-      <Route exact path="/desktop-landing" component={LandingDesktop} />
+      <Route exact path="/sign-up-landing" component={SignUpLanding} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/howitworks" component={Section2} />

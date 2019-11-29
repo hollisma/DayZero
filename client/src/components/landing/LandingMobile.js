@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 import "./LandingMobile.css";
 
-const Section1 = ({ isAuthenticated }) => {
+const LandingMobile = ({ isAuthenticated }) => {
   if (isAuthenticated) {
     return <Redirect to="dashboard" />;
   }
@@ -45,7 +45,7 @@ const Section1 = ({ isAuthenticated }) => {
             it. But through DZ I got dinner with a really cool guy who has a
             fintech startup!"
           </div>
-          <div className="name">Carina '21'</div>
+          <div className="name">Carina '21</div>
         </div>
       </div>
       <div className="bottom">
@@ -76,7 +76,7 @@ const Section1 = ({ isAuthenticated }) => {
   );
 };
 
-Section1.propTypes = {
+LandingMobile.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired
 };
 
@@ -84,4 +84,4 @@ const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps)(Section1);
+export default connect(mapStateToProps)(LandingMobile);
