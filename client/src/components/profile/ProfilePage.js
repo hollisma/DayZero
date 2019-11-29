@@ -57,7 +57,7 @@ const ProfilePage = ({
 
   var [randomProfiles, setRandomProfiles] = useState([]);
 
-  const userid = user_loading || !user ? "aaa" : user.id;
+  // const userid = user_loading || !user ? "aaa" : user.id;
 
   useEffect(() => {
     getDisplayProfile(user_id);
@@ -158,22 +158,14 @@ const ProfilePage = ({
   });
 
   const likeButton = (
-    <a
-      href="#"
-      style={{ color: "white" }}
-      onClick={() => like(display_profile)}
-    >
+    <button style={{ color: "white" }} onClick={() => like(display_profile)}>
       Like
-    </a>
+    </button>
   );
   const unlikeButton = (
-    <a
-      href="#"
-      style={{ color: "white" }}
-      onClick={() => unlike(display_profile)}
-    >
+    <button style={{ color: "white" }} onClick={() => unlike(display_profile)}>
       Unlike
-    </a>
+    </button>
   );
 
   return (
@@ -195,9 +187,7 @@ const ProfilePage = ({
                     ? unlikeButton
                     : likeButton}
                 </div>
-                <a href="#" onClick={fireStar}>
-                  What's this?
-                </a>
+                <button onClick={fireStar}>What's this?</button>
               </div>
             </div>
             <div className="categories">{categoryButtons}</div>
