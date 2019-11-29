@@ -17,7 +17,9 @@ const Section1 = ({ isAuthenticated }) => {
           Discover Princetonians who share your passions and values.
         </div>
         <div className="small-text">Signing up takes thirty seconds</div>
-        <button className="sign-up-button">Sign up</button>
+        <a href="/desktop-landing" className="sign-up-button">
+          Sign up
+        </a>
       </div>
       <div className="middle">
         <div className="text">
@@ -63,7 +65,9 @@ const Section1 = ({ isAuthenticated }) => {
             Schedule meals with like-minded people
           </div>
         </div>
-        <button className="sign-up-button">Sign up</button>
+        <a href="/desktop-landing" className="sign-up-button">
+          Sign up
+        </a>
         <div className="questions">Questions?</div>
         <div className="questions">Ask away~</div>
         <div className="contact-us">Email us at founders.dayzero@gmail.com</div>

@@ -1,8 +1,6 @@
 import React, { Fragment } from "react";
 import LandingMobile from "./LandingMobile";
-import Section1 from "./Section1";
-import Section2 from "./Section2";
-// import Section3 from "./Section3";
+import LandingDesktop from "./LandingDesktop";
 
 import "./Landing.css";
 
@@ -12,10 +10,8 @@ const Landing = () => {
       <section id="landing-mobile" className="landing">
         <LandingMobile />
       </section>
-      <section id="landing" className="landing">
-        <Section1 />
-        <Section2 />
-        {/* <Section3 /> */}
+      <section id="landing-desktop" className="landing">
+        <LandingDesktop />
       </section>
     </Fragment>
   );
