@@ -49,7 +49,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul className="right menu">
       <li className="item">
-        <a href="/#" className="text-primary">
+        <a href="/#" className="reg">
           Home
         </a>
       </li>

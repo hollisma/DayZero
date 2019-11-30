@@ -19,24 +19,26 @@ const LandingDesktop = ({ isAuthenticated }) => {
           </div>
           <div className="small-text">Signing up takes thirty seconds.</div>
           <a href="/sign-up-landing" className="sign-up-button">
-            Sign up
+            Register
           </a>
         </div>
       </div>
       <div className="middle">
         <div className="how-we-help">
-          <div className="title">How We Help</div>
+          <div className="title">
+            We help you quickly discover the people most relevant to you.
+          </div>
           <div className="text">
             There are <span className="colorful">8,364</span> students at
             Princeton.
           </div>
           <div className="text">
-            In 4 years, you only meet <span className="colorful">4%</span> of
-            them.
+            In 4 years, the average student only meets{" "}
+            <span className="colorful">4.3%</span> of them.
           </div>
           <div className="text">
-            <span>Day Zero</span> connects you with people you'd most vibe with
-            but have never met.
+            <span className="colorful">Day Zero</span> connects you with people
+            you'd most vibe with but have never met.
           </div>
         </div>
         <div className="people-cards">
@@ -51,12 +53,12 @@ const LandingDesktop = ({ isAuthenticated }) => {
               about it. But through DZ I got dinner with a really cool guy who
               has a fintech startup!"
             </div>
-            <div className="name">Carina '21</div>
+            <div className="name">Carina L. '21</div>
           </div>
           <div className="card-profile alt-background">
             <img
               src={require("../../img/dan_rec.PNG")}
-              alt="Carina"
+              alt="Dan"
               className="card-pic"
             />
             <div className="text">
@@ -69,7 +71,7 @@ const LandingDesktop = ({ isAuthenticated }) => {
           <div className="card-profile">
             <img
               src={require("../../img/marti_rec.PNG")}
-              alt="Carina"
+              alt="Marti"
               className="card-pic"
             />
             <div className="text">
@@ -98,8 +100,8 @@ const LandingDesktop = ({ isAuthenticated }) => {
             </div>
           </div>
           <img
-            src={require("../../img/landing_page_picture.jpg")}
-            alt="Carina"
+            src={require("../../img/friends_eating.PNG")}
+            alt="background_desktop"
             className="pic"
           />
         </div>
@@ -107,9 +109,18 @@ const LandingDesktop = ({ isAuthenticated }) => {
           <a href="/sign-up-landing" className="sign-up-button">
             Sign up
           </a>
-          <div className="questions">Questions? Ask Away~</div>
+          <div className="questions">
+            Got questions or feedback? Shoot away ~
+          </div>
           <div className="contact-us">
-            Email us at founders.dayzero@gmail.com
+            Email us{" "}
+            <a
+              href="mailto:founders.dayzero@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              here!
+            </a>
           </div>
         </div>
       </div>
