@@ -175,13 +175,14 @@ const Group = ({
               want_to_meet={membersData[3].want_to_meet}
             /> */}
             </div>
-          ) : (
-            <p>
-              We're finding you a match! Go do your homework, we'll send an
-              email when we've found a match :)
-            </p>
-          )
+          ) : null
         ) : (
+          // ) : (
+          //   <p>
+          //     We're finding you a match! Go do your homework, we'll send an
+          //     email when we've found a match :)
+          //   </p>
+          // )
           <Spinner />
         )}
       </div>
@@ -201,7 +202,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { getCurrentGroup, getMembersProfiles }
-)(Group);
+export default connect(mapStateToProps, {
+  getCurrentGroup,
+  getMembersProfiles
+})(Group);

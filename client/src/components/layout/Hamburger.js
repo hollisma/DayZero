@@ -28,8 +28,8 @@ const Hamburger = ({ authenticated, logout }) => {
                 </a>
               </li>
               <li>
-                <a href="/dashboard#settings" onClick={() => setToggled(false)}>
-                  Settings
+                <a href="/search" onClick={() => setToggled(false)}>
+                  Search
                 </a>
               </li>
               <li>
@@ -72,17 +72,13 @@ const Hamburger = ({ authenticated, logout }) => {
                 </a>
               </li>
               <li>
-                <a href="/#howitworks" onClick={() => setToggled(false)}>
-                  How It Works
+                <a href="/#discover" onClick={() => setToggled(false)}>
+                  Discover
                 </a>
               </li>
               <li>
-                <a
-                  href="https://medium.com/@kelvinotcelsius/a-letter-from-the-founders-introducing-day-zero-428b591fc778"
-                  // target="_blank"
-                  onClick={() => setToggled(false)}
-                >
-                  Our Letter
+                <a href="/#possibilities" onClick={() => setToggled(false)}>
+                  Possibilities
                 </a>
               </li>
               <li>

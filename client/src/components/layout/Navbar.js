@@ -54,14 +54,12 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </a>
       </li>
       <li className="item">
-        <a href="/#howitworks" className="reg">
-          How It Works
+        <a href="/#discover" className="reg">
+          Discover
         </a>
       </li>
       <li className="item">
-        <a href="https://medium.com/@kelvinotcelsius/a-letter-from-the-founders-introducing-day-zero-428b591fc778">
-          Our Letter
-        </a>
+        <a href="/#possibilities">Possibilities</a>
       </li>
       <li className="item">
         <Link to="/Register" className="text-secondary">
@@ -74,7 +72,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   return (
     <nav className="ui secondary menu navbar" id="navbar">
       {!loading && <Hamburger authenticated={isAuthenticated} />}
-      <h1 className="item">
+      <h1>
         <a className="logo-box" href={isAuthenticated ? "/dashboard#" : "/#"}>
           <img
             src={require("../../img/logo.svg")}

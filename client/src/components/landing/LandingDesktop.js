@@ -12,7 +12,7 @@ const LandingDesktop = ({ isAuthenticated }) => {
 
   return (
     <div id="landing-desktop" className="ui bigger-top-container">
-      <div className="top">
+      <div id="top">
         <div className="inner-box">
           <div className="big-text">
             Discover Princetonians who share your passions and values.
@@ -23,7 +23,8 @@ const LandingDesktop = ({ isAuthenticated }) => {
           </a>
         </div>
       </div>
-      <div className="middle">
+      <div id="discover"></div>
+      <div id="middle">
         <div className="how-we-help">
           <div className="title">
             Quickly discover the people most relevant to you.
@@ -84,7 +85,8 @@ const LandingDesktop = ({ isAuthenticated }) => {
           </div>
         </div>
       </div>
-      <div className="bottom">
+      <div id="possibilities"></div>
+      <div id="bottom">
         <div className="transition">With Day Zero, you can...</div>
         <div className="main-section">
           <div className="cards">
@@ -108,7 +110,7 @@ const LandingDesktop = ({ isAuthenticated }) => {
             className="pic"
           />
         </div>
-        <div className="footer">
+        <div id="footer">
           <a href="/sign-up-landing" className="sign-up-button">
             Sign up
           </a>
