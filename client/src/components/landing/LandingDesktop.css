@@ -197,9 +197,6 @@
   font-weight: bold;
 }
 #landing-desktop .bottom .main-section .pic {
-  background-image: url("../../img/landing_mobile_1.JPG");
-  background-repeat: no-repeat;
-  background-size: 100%;
   max-width: 50%;
   height: 100%;
   margin: 0 20px;
