@@ -42,7 +42,7 @@ const LandingDesktop = ({ isAuthenticated }) => {
         <div className="people-cards">
           <div className="card-profile">
             <img
-              src={require("../../img/carina.svg")}
+              src={require("../../img/carina_rec.PNG")}
               alt="Carina"
               className="card-pic"
             />
@@ -55,29 +55,29 @@ const LandingDesktop = ({ isAuthenticated }) => {
           </div>
           <div className="card-profile alt-background">
             <img
-              src={require("../../img/carina.svg")}
+              src={require("../../img/dan_rec.PNG")}
               alt="Carina"
               className="card-pic"
             />
             <div className="text">
-              "I recently got into fintech but I didn't know ppl passionate
-              about it. But through DZ I got dinner with a really cool guy who
-              has a fintech startup!"
+              "I didn't think there was anyone else super into music and
+              mindfulness, but boy was I wrong. Day Zero helped me find such
+              cool people hidden in plain sight."
             </div>
-            <div className="name alt-text">Carina '21</div>
+            <div className="name alt-text">Dan '21</div>
           </div>
           <div className="card-profile">
             <img
-              src={require("../../img/carina.svg")}
+              src={require("../../img/marti_rec.PNG")}
               alt="Carina"
               className="card-pic"
             />
             <div className="text">
-              "I recently got into fintech but I didn't know ppl passionate
-              about it. But through DZ I got dinner with a really cool guy who
-              has a fintech startup!"
+              "After joining TI it was hard to meet new people outside the club,
+              but through Day Zero, I've made great friends I prob would've
+              never met before."
             </div>
-            <div className="name">Carina '21</div>
+            <div className="name">Marti '20</div>
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@ const LandingDesktop = ({ isAuthenticated }) => {
           />
         </div>
         <div className="footer">
-          <a href="/desktop-landing" className="sign-up-button">
+          <a href="/sign-up-landing" className="sign-up-button">
             Sign up
           </a>
           <div className="questions">Questions? Ask Away~</div>

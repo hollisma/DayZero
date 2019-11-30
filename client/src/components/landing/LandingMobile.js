@@ -17,7 +17,7 @@ const LandingMobile = ({ isAuthenticated }) => {
           Discover Princetonians who share your passions and values.
         </div>
         <div className="small-text">Signing up takes thirty seconds</div>
-        <a href="/desktop-landing" className="sign-up-button">
+        <a href="/sign-up-landing" className="sign-up-button">
           Sign up
         </a>
       </div>
@@ -36,7 +36,7 @@ const LandingMobile = ({ isAuthenticated }) => {
         </div>
         <div className="card-profile">
           <img
-            src={require("../../img/carina.svg")}
+            src={require("../../img/carina_rec.PNG")}
             alt="Carina"
             className="card-pic"
           />
@@ -65,7 +65,7 @@ const LandingMobile = ({ isAuthenticated }) => {
             Schedule meals with like-minded people
           </div>
         </div>
-        <a href="/desktop-landing" className="sign-up-button">
+        <a href="/sign-up-landing" className="sign-up-button">
           Sign up
         </a>
         <div className="questions">Questions?</div>
