@@ -130,7 +130,7 @@ const EditProfile = ({
           "ui blue button category-button " +
           (categories.includes(cat) ? "" : "basic")
         }
-        style={{ margin: "5px" }}
+        style={{ margin: "5px", fontWeight: "bold" }}
         onClick={e => {
           e.preventDefault();
           if (categories.includes(cat)) {

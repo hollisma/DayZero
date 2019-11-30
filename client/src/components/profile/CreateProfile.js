@@ -11,13 +11,12 @@ import Avatar from "react-avatar";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
 
 const MySwal = withReactContent(Swal);
 
-ReactGA.initialize('UA-149452731-1');
+ReactGA.initialize("UA-149452731-1");
 ReactGA.pageview(window.location.pathname + window.location.search);
-
 
 const CreateProfile = ({
   auth: { user, loading },
@@ -115,7 +114,7 @@ const CreateProfile = ({
       // want_to_meet
     };
 
-    ReactGA.ga('send', 'event', 'profile', 'create', 'first', 0);
+    ReactGA.ga("send", "event", "profile", "create", "first", 0);
     updateUser(userData);
     createProfile(profileData);
   };
@@ -127,7 +126,7 @@ const CreateProfile = ({
           "ui blue button category-button " +
           (categories.includes(cat) ? "" : "basic")
         }
-        style={{ margin: "5px" }}
+        style={{ margin: "5px", fontWeight: "bold" }}
         onClick={e => {
           e.preventDefault();
           if (categories.includes(cat)) {
@@ -407,7 +406,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { updateUser, createProfile }
-)(withRouter(CreateProfile));
+export default connect(mapStateToProps, { updateUser, createProfile })(
+  withRouter(CreateProfile)
+);

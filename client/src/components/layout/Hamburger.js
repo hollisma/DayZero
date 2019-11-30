@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import { logout } from "../../actions/auth";
+import PropTypes from "prop-types";
 
 import "./Hamburger.css";
 
-const Hamburger = ({ authenticated }) => {
+const Hamburger = ({ authenticated, logout }) => {
   const [toggled, setToggled] = useState(false);
 
   if (authenticated) {
@@ -96,4 +98,8 @@ const Hamburger = ({ authenticated }) => {
   }
 };
 
-export default Hamburger;
+Hamburger.propTypes = {
+  logout: PropTypes.func.isRequired
+};
+
+export default connect(null, { logout })(Hamburger);
