@@ -70,7 +70,17 @@ const LandingMobile = ({ isAuthenticated }) => {
         </a>
         <div className="questions">Questions?</div>
         <div className="questions">Ask away~</div>
-        <div className="contact-us">Email us at founders.dayzero@gmail.com</div>
+        <div className="contact-us">
+          Email us Email us{" "}
+          <a
+            href="mailto:founders.dayzero@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <u>here</u>
+          </a>
+          !
+        </div>
       </div>
     </div>
   );

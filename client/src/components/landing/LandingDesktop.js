@@ -109,9 +109,7 @@ const LandingDesktop = ({ isAuthenticated }) => {
           <a href="/sign-up-landing" className="sign-up-button">
             Sign up
           </a>
-          <div className="questions">
-            Got questions or feedback? Shoot away ~
-          </div>
+          <div className="questions">Questions? Ask Away~</div>
           <div className="contact-us">
             Email us{" "}
             <a
@@ -119,8 +117,9 @@ const LandingDesktop = ({ isAuthenticated }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              here!
+              <u>here</u>
             </a>
+            !
           </div>
         </div>
       </div>
