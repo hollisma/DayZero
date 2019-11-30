@@ -91,7 +91,7 @@ const Search = ({ auth: { user }, getSearchProfiles }) => {
           "ui mini blue button category-button " +
           (searchCategories.includes(cat) ? "" : "basic")
         }
-        style={{ margin: "5px" }}
+        style={{ margin: "5px", fontWeight: "bold" }}
         onClick={e => handleCategoryChange(e, cat)}
         key={cat}
       >

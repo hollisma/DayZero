@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import moment from "moment";
+// import moment from "moment";
 import { connect } from "react-redux";
 import { changeSchedule } from "../../../../actions/schedule";
 import { TIME1, TIME2 } from "../../../../utils/consts";
@@ -8,11 +8,55 @@ import { TIME1, TIME2 } from "../../../../utils/consts";
 import "./Calendar.css";
 
 const CheckboxGroup = ({ day, changeSchedule, schedule: { schedule } }) => {
-  day = moment()
-    .add(day, "d")
-    .format("MM-DD-YYYY");
-  const id1 = day + "," + TIME1;
-  const id2 = day + "," + TIME2;
+  const dayToString = day => {
+    var resultStr = "";
+    const dayArray = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ];
+    const monthArray = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ];
+    resultStr +=
+      dayArray[day.getDay()] +
+      ", " +
+      monthArray[day.getMonth()] +
+      " " +
+      day.getDate();
+    return resultStr;
+  };
+
+  const dayToID = day => {
+    var resultStr =
+      day.getMonth() + 1 + "-" + day.getDate() + "-" + day.getFullYear();
+    return resultStr;
+  };
+
+  // day = moment()
+  //   .add(day, "d")
+  //   .format("MM-DD-YYYY");
+  // const id1 = day + "," + TIME1;
+  // const id2 = day + "," + TIME2;
+  let day3 = new Date();
+  day3.setDate(day3.getDate() + day);
+  const id1 = dayToID(day3) + "," + TIME1;
+  const id2 = dayToID(day3) + "," + TIME2;
 
   let arr = schedule ? Object.keys(schedule).map(k => schedule[k]) : [];
   let scheduleSet = schedule ? new Set(arr) : new Set();
@@ -29,7 +73,8 @@ const CheckboxGroup = ({ day, changeSchedule, schedule: { schedule } }) => {
 
   return (
     <form className="column">
-      <p className="text">{moment(day).format("dddd, MMM D")}</p>
+      {/* <p className="text">{moment(day).format("dddd, MMM D")}</p> */}
+      <p className="text">{dayToString(day3)}</p>
       <div className="inputGroup">
         <input
           id={id1}
@@ -64,7 +109,4 @@ const mapStateToProps = state => ({
   schedule: state.schedule
 });
 
-export default connect(
-  mapStateToProps,
-  { changeSchedule }
-)(CheckboxGroup);
+export default connect(mapStateToProps, { changeSchedule })(CheckboxGroup);
