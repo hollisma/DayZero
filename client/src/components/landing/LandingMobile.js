@@ -36,7 +36,7 @@ const LandingMobile = ({ isAuthenticated }) => {
         </div>
         <div className="card-profile">
           <img
-            src={require("../../img/carina.svg")}
+            src={require("../../img/carina_rec.PNG")}
             alt="Carina"
             className="card-pic"
           />

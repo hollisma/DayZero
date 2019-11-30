@@ -19,30 +19,32 @@ const LandingDesktop = ({ isAuthenticated }) => {
           </div>
           <div className="small-text">Signing up takes thirty seconds.</div>
           <a href="/sign-up-landing" className="sign-up-button">
-            Sign up
+            Register
           </a>
         </div>
       </div>
       <div className="middle">
         <div className="how-we-help">
-          <div className="title">How We Help</div>
+          <div className="title">
+            We help you quickly discover the people most relevant to you.
+          </div>
           <div className="text">
             There are <span className="colorful">8,364</span> students at
             Princeton.
           </div>
           <div className="text">
-            In 4 years, you only meet <span className="colorful">4%</span> of
-            them.
+            In 4 years, the average student only meets{" "}
+            <span className="colorful">4.3%</span> of them.
           </div>
           <div className="text">
-            <span>Day Zero</span> connects you with people you'd most vibe with
-            but have never met.
+            <span className="colorful">Day Zero</span> connects you with people
+            you'd most vibe with but have never met.
           </div>
         </div>
         <div className="people-cards">
           <div className="card-profile">
             <img
-              src={require("../../img/carina.svg")}
+              src={require("../../img/carina_rec.svg")}
               alt="Carina"
               className="card-pic"
             />
@@ -51,33 +53,33 @@ const LandingDesktop = ({ isAuthenticated }) => {
               about it. But through DZ I got dinner with a really cool guy who
               has a fintech startup!"
             </div>
-            <div className="name">Carina '21</div>
+            <div className="name">Carina L. '21</div>
           </div>
           <div className="card-profile alt-background">
             <img
-              src={require("../../img/carina.svg")}
-              alt="Carina"
+              src={require("../../img/dan_rec.svg")}
+              alt="Dan"
               className="card-pic"
             />
             <div className="text">
-              "I recently got into fintech but I didn't know ppl passionate
-              about it. But through DZ I got dinner with a really cool guy who
-              has a fintech startup!"
+              "I didn't think there was anyone else super into music and
+              mindfulness, but boy was I wrong. Day Zero helped me find so cool
+              people hidden in plain sight.”
             </div>
-            <div className="name alt-text">Carina '21</div>
+            <div className="name alt-text">Dan K. '21</div>
           </div>
           <div className="card-profile">
             <img
-              src={require("../../img/carina.svg")}
-              alt="Carina"
+              src={require("../../img/marti_rec.svg")}
+              alt="Marti"
               className="card-pic"
             />
             <div className="text">
-              "I recently got into fintech but I didn't know ppl passionate
-              about it. But through DZ I got dinner with a really cool guy who
-              has a fintech startup!"
+              “After joining TI it was hard to meet new people outside the club,
+              but through Day Zero, I've made great friends I prob would've
+              never met before.”
             </div>
-            <div className="name">Carina '21</div>
+            <div className="name">Marti V. '21</div>
           </div>
         </div>
       </div>
@@ -98,8 +100,8 @@ const LandingDesktop = ({ isAuthenticated }) => {
             </div>
           </div>
           <img
-            src={require("../../img/landing_page_picture.jpg")}
-            alt="Carina"
+            src={require("../../img/friends_eating.PNG")}
+            alt="background_desktop"
             className="pic"
           />
         </div>
@@ -107,9 +109,14 @@ const LandingDesktop = ({ isAuthenticated }) => {
           <a href="/desktop-landing" className="sign-up-button">
             Sign up
           </a>
-          <div className="questions">Questions? Ask Away~</div>
+          <div className="questions">
+            Got questions or feedback? Shoot away ~
+          </div>
           <div className="contact-us">
-            Email us at founders.dayzero@gmail.com
+            Email us{" "}
+            <a href="mailto:founders.dayzero@gmail.com" target="_blank">
+              here!
+            </a>
           </div>
         </div>
       </div>
