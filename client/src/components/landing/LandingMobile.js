@@ -22,28 +22,32 @@ const LandingMobile = ({ isAuthenticated }) => {
         </a>
       </div>
       <div className="middle">
+        <div className="title">
+          Quickly discover the people most relevant to you.
+        </div>
         <div className="text">
           There are <span className="colorful">8,364</span> students at
           Princeton.
         </div>
         <div className="text">
-          In 4 years, you only meet <span className="colorful">4%</span> of
+          In 4 years, you only meet <span className="colorful">4.3%</span> of
           them.
         </div>
         <div className="text">
-          <span className="colorful">Day Zero</span> connects you with people
-          you'd most vibe with but have never met.
+          <span className="colorful">Day Zero</span> makes it easy to discover
+          and grab meals with the people that share your passions and values but
+          you've never met.
         </div>
         <div className="card-profile">
           <img
-            src={require("../../img/carina_rec.PNG")}
+            src={require("../../img/carina_rec.svg")}
             alt="Carina"
             className="card-pic"
           />
           <div className="text">
-            "I recently got into fintech but I didn't know ppl passionate about
-            it. But through DZ I got dinner with a really cool guy who has a
-            fintech startup!"
+            Day Zero made it easy for me to find other people passionate about
+            fintech. Last week I got dinner with a guy who has his own fintech
+            startup!"
           </div>
           <div className="name">Carina '21</div>
         </div>
@@ -52,34 +56,32 @@ const LandingMobile = ({ isAuthenticated }) => {
         <div className="transition">With Day Zero, you can...</div>
         <div className="card-background">
           <div className="card-possibility">
-            Search for peers based on shared interests
+            Find peers who share your passions and values
           </div>
         </div>
         <div className="card-background">
           <div className="card-possibility">
-            Find out who are in your classes
+            Get automatically matched with like-minded people for a meal
           </div>
         </div>
         <div className="card-background">
           <div className="card-possibility">
-            Schedule meals with like-minded people
+            Find out who are in your classes{" "}
           </div>
         </div>
         <a href="/sign-up-landing" className="sign-up-button">
           Sign up
         </a>
-        <div className="questions">Questions?</div>
-        <div className="questions">Ask away~</div>
-        <div className="contact-us">
-          Email us Email us{" "}
+        <div className="questions">
+          If you have feedback or questions, we'd love to hear from you! Email
+          us{" "}
           <a
             href="mailto:founders.dayzero@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <u>here</u>
+            <u>here.</u>
           </a>
-          !
         </div>
       </div>
     </div>

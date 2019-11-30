@@ -7,12 +7,13 @@
 }
 
 #landing-desktop .top {
-  margin:10vh 0vw;
-  min-height: 60vh;
+  font-family: "Alatsi";
+  margin: 10vh 0vw;
+  min-height: 80vh;
   width: 80vw;
   display: flex;
   flex-direction: column;
-  background-image: url("../../img/landing_mobile_1.JPG");
+  background-image: url("../../img/landing_desktop_1.svg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 90% 59%;
@@ -29,21 +30,29 @@
   border-radius: 10px;
 }
 #landing-desktop .top .inner-box .sign-up-button {
-  border: none; 
+  border: none;
   border-radius: 10px;
   box-shadow: 0px 3px 2px #00000055;
   /* font-size:12px; */
-  padding: 10px 20px 10px 20px; 
+  padding: 10px 20px 10px 20px;
   margin-bottom: 20px;
   text-decoration: none;
-  font-weight:bold; 
-  color: #FFFFFF;
-  background-color: #38d8ff; background-image: -webkit-gradient(linear, left top, right top, from(#38d8ff), to(#036FFC));
-  background-image: -webkit-linear-gradient(to right, #38d8ff, #036FFC);
-  background-image:    -moz-linear-gradient(to right, #38d8ff, #036FFC);
-  background-image:     -ms-linear-gradient(to right, #38d8ff, #036FFC);
-  background-image:      -o-linear-gradient(to right, #38d8ff, #036FFC);
-  background-image:         linear-gradient(to right, #38d8ff, #036FFC);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#38d8ff, endColorstr=#036FFC);
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #38d8ff;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#38d8ff),
+    to(#036ffc)
+  );
+  background-image: -webkit-linear-gradient(to right, #38d8ff, #036ffc);
+  background-image: -moz-linear-gradient(to right, #38d8ff, #036ffc);
+  background-image: -ms-linear-gradient(to right, #38d8ff, #036ffc);
+  background-image: -o-linear-gradient(to right, #38d8ff, #036ffc);
+  background-image: linear-gradient(to right, #38d8ff, #036ffc);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#38d8ff, endColorstr=#036FFC);
   opacity: 1;
 }
 #landing-desktop .top .inner-box .sign-up-button:hover,
@@ -52,11 +61,13 @@
   transform: translateY(2px);
 }
 #landing-desktop .top .inner-box .big-text {
+  font-family: "Alatsi";
   font-size: 3rem;
   font-weight: bold;
   line-height: 3.5rem;
 }
 #landing-desktop .top .inner-box .small-text {
+  font-family: "Alatsi";
   margin: 6vh 0;
   font-size: 1.5rem;
 }
@@ -69,24 +80,27 @@
   border-radius: 10px;
   /* min-height: 60%; */
   background-color: white;
-  padding: 50px 15% 35px; 
+  padding: 50px 10% 35px;
   text-align: center;
   box-shadow: 5px 5px 5px #00000033;
 }
 #landing-desktop .middle .how-we-help .title {
+  font-family: "Alatsi";
   font-size: 2.5rem;
   color: #128ae6;
   font-weight: 700;
   margin-bottom: 35px;
 }
 #landing-desktop .middle .how-we-help .text {
-  font-size: 1.60rem;
+  font-family: "Roboto";
+  font-size: 1.6rem;
   margin-bottom: 20px;
 }
 #landing-desktop .middle .people-cards {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 5vh;
 }
 #landing-desktop .middle .people-cards .card-profile {
   background-color: white;
@@ -101,6 +115,7 @@
   width: 100%;
 }
 #landing-desktop .middle .people-cards .card-profile .text {
+  font-family: "Roboto";
   border-radius: 0;
   padding: 20px 20px 15px 20px;
   text-align: center;
@@ -120,7 +135,7 @@
   text-align: center;
 }
 #landing-desktop .bottom .transition {
-  font-size: 3rem; 
+  font-size: 3rem;
   font-weight: 700;
   line-height: 3.75rem;
   color: #128ae6;
@@ -130,7 +145,7 @@
   display: flex;
   flex-direction: row;
   width: 80vw;
-  height: 40vh;
+  height: 60vh;
   align-items: center;
   justify-content: center;
   margin-bottom: 5vh;
@@ -145,7 +160,7 @@
 }
 #landing-desktop .bottom .card-background {
   /* margin: 3vh 0 0; */
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   border-radius: 10px;
   box-shadow: 5px 5px 5px #00000033;
   background-color: white !important;
@@ -154,15 +169,31 @@
   margin-top: 0;
 }
 #landing-desktop .bottom .card {
-  background-image: -webkit-linear-gradient(to right, #38d8ff, #036FFC); /* For Chrome and Safari */
-  background-image:    -moz-linear-gradient(to right, #38d8ff, #036FFC); /* For old Fx (3.6 to 15) */
-  background-image:     -ms-linear-gradient(to right, #38d8ff, #036FFC); /* For pre-releases of IE 10*/
-  background-image:      -o-linear-gradient(to right, #38d8ff, #036FFC); /* For old Opera (11.1 to 12.0) */
-  background-image:         linear-gradient(to right, #38d8ff, #036FFC);
-  color:transparent;
+  background-image: -webkit-linear-gradient(
+    to right,
+    #38d8ff,
+    #036ffc
+  ); /* For Chrome and Safari */
+  background-image: -moz-linear-gradient(
+    to right,
+    #38d8ff,
+    #036ffc
+  ); /* For old Fx (3.6 to 15) */
+  background-image: -ms-linear-gradient(
+    to right,
+    #38d8ff,
+    #036ffc
+  ); /* For pre-releases of IE 10*/
+  background-image: -o-linear-gradient(
+    to right,
+    #38d8ff,
+    #036ffc
+  ); /* For old Opera (11.1 to 12.0) */
+  background-image: linear-gradient(to right, #38d8ff, #036ffc);
+  color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 #landing-desktop .bottom .main-section .pic {
@@ -188,22 +219,30 @@
 #landing-desktop .footer .sign-up-button {
   margin-top: 3vh;
   margin-bottom: 7vh;
-  border: none; 
+  border: none;
   border-radius: 10px;
   box-shadow: 0px 5px 5px #00000055;
-  padding: 2vh 20px 2vh 20px; 
+  padding: 1vh 20px 2vh 20px;
   min-width: 150px;
   height: 10vh;
   text-decoration: none;
   font-size: 2rem;
-  font-weight: bold; 
-  color: #FFFFFF;
-  background-color: #38d8ff; background-image: -webkit-gradient(linear, left top, right top, from(#38d8ff), to(#036FFC));
-  background-image: -webkit-linear-gradient(to right, #38d8ff, #036FFC);
-  background-image:    -moz-linear-gradient(to right, #38d8ff, #036FFC);
-  background-image:     -ms-linear-gradient(to right, #38d8ff, #036FFC);
-  background-image:      -o-linear-gradient(to right, #38d8ff, #036FFC);
-  background-image:         linear-gradient(to right, #38d8ff, #036FFC);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#38d8ff, endColorstr=#036FFC);
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #38d8ff;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#38d8ff),
+    to(#036ffc)
+  );
+  background-image: -webkit-linear-gradient(to right, #38d8ff, #036ffc);
+  background-image: -moz-linear-gradient(to right, #38d8ff, #036ffc);
+  background-image: -ms-linear-gradient(to right, #38d8ff, #036ffc);
+  background-image: -o-linear-gradient(to right, #38d8ff, #036ffc);
+  background-image: linear-gradient(to right, #38d8ff, #036ffc);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#38d8ff, endColorstr=#036FFC);
 }
 #landing-desktop .footer .sign-up-button:hover,
 #landing-desktop .footer .sign-up-button:focus {
@@ -214,19 +253,30 @@
   font-size: 1.5rem;
   font-weight: 1000;
 }
-#landing-desktop .footer .contact-us {
-  margin-top: 2.5vh;
-  color: #128ae6;
-}
-
 
 .colorful {
-  background-image: -webkit-linear-gradient(to right, #00bbe8, #036FFC); /* For Chrome and Safari */
-  background-image:    -moz-linear-gradient(to right, #00bbe8, #036FFC); /* For old Fx (3.6 to 15) */
-  background-image:     -ms-linear-gradient(to right, #00bbe8, #036FFC); /* For pre-releases of IE 10*/
-  background-image:      -o-linear-gradient(to right, #00bbe8, #036FFC); /* For old Opera (11.1 to 12.0) */
-  background-image:         linear-gradient(to right, #00bbe8, #036FFC);
-  color:transparent;
+  background-image: -webkit-linear-gradient(
+    to right,
+    #00bbe8,
+    #036ffc
+  ); /* For Chrome and Safari */
+  background-image: -moz-linear-gradient(
+    to right,
+    #00bbe8,
+    #036ffc
+  ); /* For old Fx (3.6 to 15) */
+  background-image: -ms-linear-gradient(
+    to right,
+    #00bbe8,
+    #036ffc
+  ); /* For pre-releases of IE 10*/
+  background-image: -o-linear-gradient(
+    to right,
+    #00bbe8,
+    #036ffc
+  ); /* For old Opera (11.1 to 12.0) */
+  background-image: linear-gradient(to right, #00bbe8, #036ffc);
+  color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -237,4 +287,3 @@
 .alt-text {
   color: white !important;
 }
-
