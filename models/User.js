@@ -21,14 +21,14 @@ const UserSchema = new mongoose.Schema({
   phone_number: {
     type: String
   },
-  comm_sms: {
-    type: Boolean,
-    default: true
-  },
-  comm_email: {
-    type: Boolean,
-    default: false
-  },
+  // comm_sms: {
+  //   type: Boolean,
+  //   default: true
+  // },
+  // comm_email: {
+  //   type: Boolean,
+  //   default: false
+  // },
   user_type: {
     type: String,
     default: GUEST,
