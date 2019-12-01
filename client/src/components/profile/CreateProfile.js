@@ -159,11 +159,10 @@ const CreateProfile = ({
         <i className="fas fa-user" />
         Tell us about yourself!
       </p>
-      <small>* = required field</small>
       <form className="ui form equal width grid" onSubmit={e => onSubmit(e)}>
         <div className="row">
           <div className="column">
-            <p>* Name</p>
+            <p>Name*</p>
             <div className="field">
               <input
                 type="text"
@@ -174,22 +173,22 @@ const CreateProfile = ({
                 required
               />
             </div>
-            <p>* Class</p>
+            <p>Class*</p>
             <div className="field">
               <input
                 type="text"
-                placeholder="2023"
+                placeholder="2019"
                 name="year"
                 value={year}
                 onChange={e => onChange(e)}
                 required
               />
             </div>
-            <p>* Major</p>
+            <p>Major*</p>
             <div className="field">
               <input
                 type="text"
-                placeholder="Major"
+                placeholder="SLA"
                 name="major"
                 value={major}
                 onChange={e => onChange(e)}

@@ -161,14 +161,13 @@ const EditProfile = ({
       <h1 className="edit-profile-header">Edit Your Profile</h1>
       <p className="lead my-up-1">
         <i className="fas fa-user" />
-        What would you like people to know about you? This information will be
-        displayed on your profile page and to people who might want to meet you.
+        What would you like people to know about you?
       </p>
-      <small>* = required field</small>
+      <small></small>
       <form className="ui form equal width grid" onSubmit={e => onSubmit(e)}>
         <div className="row">
           <div className="column">
-            <p>* Name</p>
+            <p>Name</p>
             <div className="field">
               <input
                 type="text"
@@ -289,11 +288,11 @@ const EditProfile = ({
             </div>
           </div> */}
           <div className="column">
-            <p>* Class</p>
+            <p>Class</p>
             <div className="field">
               <input
                 type="text"
-                placeholder="2023"
+                placeholder="2019"
                 name="year"
                 value={year}
                 onChange={e => onChange(e)}
@@ -302,11 +301,11 @@ const EditProfile = ({
             </div>
           </div>
           <div className="column">
-            <p>* Major</p>
+            <p>Major</p>
             <div className="field">
               <input
                 type="text"
-                placeholder="Major"
+                placeholder="SLA"
                 name="major"
                 value={major}
                 onChange={e => onChange(e)}
@@ -315,11 +314,11 @@ const EditProfile = ({
             </div>
           </div>
           <div className="column">
-            <p>Minor (separate by commas)</p>
+            <p>Minor</p>
             <div className="field">
               <input
                 type="text"
-                placeholder="Minor"
+                placeholder="SML, COS"
                 name="minor"
                 value={minor}
                 onChange={e => onChange(e)}

@@ -11,6 +11,7 @@
   justify-content: center;
   text-align: center;
   background-color: #a1d2ff;
+  border-radius: 10px;
 }
 
 .calendar .column .text {
@@ -20,6 +21,7 @@
 
 .calendar .column {
   padding: 1.6rem 1.2rem 0.6rem 1.2rem;
+  /* min-width: 200px; */
   min-width: 25%;
   margin-bottom: 2%;
   font-size: 1rem;
@@ -35,6 +37,7 @@
   overflow-x: scroll;
   width: 100%;
   max-width: 1200px;
+  border-radius: 10px;
 }
 
 /* Checkboxes */
@@ -124,6 +127,12 @@
   color: black;
 }
 
+@media only screen and (max-width: 1225px) {
+  .column {
+    min-width: 200px !important;
+  }
+}
+
 /* Mobile only */
 @media only screen and (max-width: 768px) {
   .options {
@@ -131,13 +140,11 @@
     overflow-y: scroll;
     height: 100vh;
   }
+  .column {
+    width: 100% !important;
+  }
   
   .calendar-header {
     padding-top: 15vh !important;
   }
-}
-
-/* Desktop only */
-@media only screen and (min-width: 768px) {
-  
 }
