@@ -25,8 +25,7 @@
   .scrolled .img-logo {
     min-height: 55px;
     max-height: 55px;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 1.2vh;
   }
   .scrolled .hamburger {
     position: relative;
@@ -87,7 +86,7 @@
   .scrolled .img-logo {
     min-height: 55px;
     max-height: 55px;
-    margin-top: 10px;
+    margin-top: 0;
   }
   .navbar a {
     color: black;
