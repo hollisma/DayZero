@@ -14,19 +14,25 @@
     margin: 5vw;
   }
 
-  /* Second section */
+  /* Second section i.e. How it works*/
   #howitworks {
     height: 100vh;
     text-align: center;
-    padding-top: 10vh;
+    padding-top: 14vh;
   }
-  #howitworks img {
-    max-width: 90vw;
-    margin: 5vw;
+
+  #howitworks .faq {
+    margin: 3vh;
+    padding: 5vh 12vw 0 12vw;
   }
-  #howitworks p {
-    text-align: center;
-    margin: 0vw 5vw 20vw;
+
+  #howitworks .faq .faq-title {
+    font-size: 1.6rem;
+  }
+
+  #howitworks .faq-body {
+    font-size: 1.25rem;
+    padding: 0;
   }
 }
 
@@ -80,8 +86,7 @@
     background-size: 100%;
     background-position: 50%;
     /* background-color: #f6f6f6; */
-    padding: 2rem;
-    padding-top: 10vh;
+    padding: 14vh 2vh 5vh 2vh;
   }
 
   #howitworks h1 {
@@ -92,10 +97,18 @@
     text-align: center;
   }
 
-  .steps {
-    margin: 3rem 2rem;
-    display: flex;
-    align-items: center;
+  #howitworks .faq {
+    margin: 3vh;
+    padding: 5vh 12vw 0 12vw;
+  }
+
+  #howitworks .faq .faq-title {
+    font-size: 1.6rem;
+  }
+
+  #howitworks .faq-body {
+    font-size: 1.25rem;
+    padding: 0;
   }
 
   .select_interests {
