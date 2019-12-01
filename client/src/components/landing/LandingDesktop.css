@@ -100,7 +100,7 @@
 }
 #landing-desktop #middle .how-we-help .text {
   font-family: "Roboto";
-  font-size: 2.75vh;
+  font-size: 3.5vh;
   margin-bottom: 2.25vh;
 }
 #landing-desktop #middle .people-cards {
@@ -121,12 +121,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 30vh;
-}
-@media only screen and (max-width: 1000px) {
-  #landing-desktop #middle .people-cards .card-profile .bottom-card {
-    height: 35vh;
-  }
+  height: 27vh;
 }
 #landing-desktop #middle .people-cards .card-profile .card-pic {
   border-radius: 20px;
@@ -134,7 +129,7 @@
 }
 #landing-desktop #middle .people-cards .card-profile .text {
   font-family: "Roboto", sans-serif;
-  font-size: 2vh;
+  font-size: 2.3vh;
   border-radius: 0;
   padding: 2vh 2.25vh 1.5vh 2vh;
   text-align: center;
@@ -146,6 +141,30 @@
   font-weight: 700;
   color: #128ae6;
   margin-bottom: 2vh;
+}
+@media only screen and (max-width: 1400px) {
+  #landing-desktop #middle .people-cards .card-profile .bottom-card {
+    height: 30vh;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  #landing-desktop #middle .people-cards .card-profile .bottom-card {
+    height: 35vh;
+  }
+  #landing-desktop #middle .people-cards .card-profile .text {
+    font-size: 2.25vh;
+  }
+  #landing-desktop #middle .people-cards .card-profile .name {
+    margin-bottom: 3vh !important;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  #landing-desktop #middle .people-cards .card-profile .bottom-card {
+    height: 35vh;
+  }
+  #landing-desktop #middle .people-cards .card-profile .text {
+    font-size: 2vh;
+  }
 }
 
 #landing-desktop #possibilities {
@@ -228,7 +247,7 @@
   /* box-shadow: 5px 5px 5px #00000033; */
 }
 
-#landing-desktop #footer {
+#landing-desktop #footer-desktop {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -236,19 +255,42 @@
   padding: 5vh 0;
   min-height: 40vh;
 }
-#landing-desktop #footer .sign-up-button {
-  margin-top: 3vh;
-  margin-bottom: 10vh;
+#landing-desktop #footer-desktop .login-stuff {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60vw;
+  align-items: center;
+}
+#landing-desktop #footer-desktop .field {
+  width: 27vw;
+  font-size: 2.5vh;
+  margin: auto 3vw 0;
+}
+#landing-desktop #footer-desktop .login-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* width: 80vw; */
+}
+#landing-desktop #footer-desktop .sign-up-button {
+  margin-top: 8vh;
+  /* margin-bottom: 10vh; */
   border: none;
   border-radius: 10px;
   box-shadow: 0px 5px 5px #00000055;
-  padding-top: 2vh;
-  min-width: 18vh;
-  height: 10vh;
+  /* padding-top: 2vh; */
+  /* min-width: 18vh; */
+  /* width: 25vw; */
+  width: 17vw;
+  /* height: 10vh; */
+  height: 7vh;
   text-decoration: none;
-  font-size: 3.5vh;
+  /* font-size: 3.5vh; */
+  font-size: 3vh;
   font-weight: bold;
   color: #ffffff;
+  cursor: pointer;
   background-color: #38d8ff;
   background-image: -webkit-gradient(
     linear,
@@ -264,12 +306,17 @@
   background-image: linear-gradient(to right, #38d8ff, #036ffc);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#38d8ff, endColorstr=#036FFC);
 }
-#landing-desktop #footer .sign-up-button:hover,
-#landing-desktop #footer .sign-up-button:focus {
+#landing-desktop #footer-desktop .sign-up-button:hover,
+#landing-desktop #footer-desktop .sign-up-button:focus {
   box-shadow: 0px 1px 1px #00000055;
   transform: translateY(4px);
 }
-#landing-desktop #footer .questions {
+#landing-desktop #footer-desktop .already {
+  font-size: 1.2rem;  
+  margin-top: 1rem;
+}
+#landing-desktop #footer-desktop .questions {
+  margin-top: 6vh;
   font-size: 2.5vh;
   font-weight: 1000;
 }
@@ -308,6 +355,11 @@
   color: white !important;
 }
 
+@media only screen and (max-width: 1200) {
+  #landing-desktop #middle .how-we-help .text {
+    font-size: 2.75vh !important;
+  }
+}
 @media only screen and (max-width: 1075px) {
   #landing-desktop #bottom .card-background {
     padding: 1rem 2rem;

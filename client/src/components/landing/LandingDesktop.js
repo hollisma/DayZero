@@ -1,11 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 
 import "./LandingDesktop.css";
 
-const LandingDesktop = ({ isAuthenticated }) => {
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
+
+const LandingDesktop = ({ register, isAuthenticated }) => {
+  const [formData, setFromData] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
+
+  const { name, email, password } = formData;
+
+  const onChange = e =>
+    setFromData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = e => {
+    e.preventDefault();
+    if (!email) {
+      MySwal.fire({
+        title: "Please enter your email",
+        type: "error"
+      });
+    } else if (!isSchoolEmail(email)) {
+      MySwal.fire({
+        title: "Please enter your Princeton email",
+        type: "error"
+      });
+    } else if (password.length < 6) {
+      MySwal.fire({
+        title: "Password must be at least 6 characters",
+        type: "error"
+      });
+    } else {
+      register({ name, email, password });
+    }
+  };
+
+  const isSchoolEmail = email => {
+    let extension = email.split("@")[1];
+    let validExtensions = ["princeton.edu"];
+
+    for (let ext of validExtensions) {
+      if (extension === ext) {
+        return true;
+      }
+    }
+
+    return false;
+  };
+
   if (isAuthenticated) {
     return <Redirect to="dashboard" />;
   }
@@ -18,7 +69,7 @@ const LandingDesktop = ({ isAuthenticated }) => {
             Discover Princetonians who share your passions.
           </div>
           <div className="small-text">Signing up takes thirty seconds.</div>
-          <a href="/#footer" className="sign-up-button">
+          <a href="/#footer-desktop" className="sign-up-button">
             Register
           </a>
         </div>
@@ -116,24 +167,50 @@ const LandingDesktop = ({ isAuthenticated }) => {
             className="pic"
           />
         </div>
-        <div id="footer">
-          <a
+      </div>
+      <div id="footer-desktop">
+        <form className="ui form login-stuff" onSubmit={e => onSubmit(e)}>
+          <div className="login-info">
+            <div className="field">
+              <input
+                type="email"
+                placeholder="Princeton Email Address"
+                name="email"
+                value={email}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div className="field">
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={password}
+                onChange={e => onChange(e)}
+              />
+            </div>
+          </div>
+          <input type="submit" className="sign-up-button" value="Register" />
+        </form>
+        <p className="already">
+          Already have an account? <Link to="/login">Sign In</Link>
+        </p>
+        {/* <a
             id="sign-up-button"
             href="/sign-up-landing"
             className="sign-up-button"
           >
             Sign up
+          </a> */}
+        <div className="questions">
+          Got questions or feedback? Email us{" "}
+          <a
+            href="mailto:founders.dayzero@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <u>here</u>
           </a>
-          <div className="questions">
-            Got questions or feedback? Email us{" "}
-            <a
-              href="mailto:founders.dayzero@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <u>here</u>
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -141,6 +218,7 @@ const LandingDesktop = ({ isAuthenticated }) => {
 };
 
 LandingDesktop.propTypes = {
+  register: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired
 };
 
@@ -148,4 +226,4 @@ const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps)(LandingDesktop);
+export default connect(mapStateToProps, { register })(LandingDesktop);

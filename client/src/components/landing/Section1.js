@@ -33,7 +33,7 @@ const Section1 = ({ register, isAuthenticated }) => {
       });
     } else if (!isSchoolEmail(email)) {
       MySwal.fire({
-        title: "Please enter your school email (@princeton.edu)",
+        title: "Please enter your Princeton email",
         type: "error"
       });
     } else if (password.length < 6) {
@@ -186,7 +186,4 @@ const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(
-  mapStateToProps,
-  { register }
-)(Section1);
+export default connect(mapStateToProps, { register })(Section1);
