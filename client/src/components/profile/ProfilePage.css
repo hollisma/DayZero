@@ -18,7 +18,7 @@
 }
 #profile-page .left .info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   min-width: 100%;
   height: auto;
   align-items: center;
@@ -26,22 +26,21 @@
   border-radius: 10px;
   box-shadow: 5px 5px 10px #aaa;
   padding: 0rem 0rem 2rem 0rem;
+  align-items: start;
 }
-#profile-page .left .info .avatar {
-  margin-left: 1rem;
-  margin-right: 3rem;
+#profile-page .left .info .header {
+  /* background: green; */
+  display: flex;
+  flex-direction: row;
+  margin: 2rem 2rem 0rem 0rem;
+}
+#profile-page .left .info .header .avatar {
+  margin: 0 2rem 0 1.5rem;
   min-width: 8rem;
   max-width: 8rem;
   min-height: 8rem;
   max-height: 8rem;
 }
-#profile-page .left .info .header {
-  /* background: green; */
-  display: flex;
-  flex-direction: column;
-  margin: 2rem 2rem 0rem 0rem;
-}
-
 #profile-page .left .info .header .name {
   float: left;
   font-size: 2rem;
@@ -49,34 +48,40 @@
   vertical-align: middle;
   margin-bottom: 0.75rem;
 }
-
 #profile-page .left .info .header .basic-info {
   margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between;   */
+  height: 4rem;
 }
-
+#profile-page .left .info .header .text-info {
+  display: flex;
+  flex-direction: column;
+}
+#profile-page .left .info .header .major {
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
+  float: left;
+  height: 3.5rem;
+}
+#profile-page .left .info .header .say-hi {
+  margin: 0 1rem 0 0;
+}
 #profile-page .left .info .header .like {
   float: left;
   font-size: 0.75rem;
   font-family: "Roboto", sans-serif;
   margin-right: 1rem;
 }
-
-#profile-page .left .info .header .major {
-  font-size: 1.2rem;
-  margin-right: 1rem;
-  float: left;
-  height: 100%;
-}
-
 #profile-page .left .info .header .divider {
   font-size: 1.5rem;
   font-weight: 900;
   margin-right: 1rem;
   float: left;
 }
-
-#profile-page .left .info .header .categories {
-  margin-top: 0.8rem;
+#profile-page .left .info .categories {
+  margin: 2.5rem 2rem 0;
 }
 
 .profile-categories {
@@ -117,13 +122,17 @@
   width: 40%;
   height: auto;
 }
-
 #profile-page .right .also-viewed {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
+#profile-page .right .similar-title {
+  margin-top: 15vh;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
 #profile-page .right .also-viewed .similar-person {
   background: white;
   border-radius: 10px;
@@ -136,23 +145,57 @@
   cursor: pointer;
   font-size: 1rem;
 }
-
 #profile-page .right .also-viewed .similar-person .avatar {
-  margin: 0 1.75rem 0 0.5rem;
+  margin: 0 1.75rem 0 1rem;
   padding: 0;
   min-width: 5rem;
   max-width: 5rem;
   min-height: 5rem;
   max-height: 5rem;
 }
-
-#profile-page .right .similar_title {
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
 #profile-page .right .also-viewed .similar-person .name {
   font-size: 1.5rem;
-  margin-right: 0.75rem;
+  margin-right: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  #profile-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    float: none;
+    padding-top: 20vh;
+  }
+  #profile-page .left {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: auto;
+    padding: 0 5vw;
+  }
+  #profile-page .right {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: auto;
+  }
+  #profile-page .right .also-viewed {
+    width: 100vw;
+    padding: 0 7.5%;
+    margin: 0;
+    /* align-items: center; */
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #profile-page .left .info .header .basic-info {
+    flex-direction: column;
+    margin-left: 2rem;
+  }
+  #profile-page .left .info .header .basic-info .say-hi {
+    margin: 0.3rem 0 0.5rem 0;
+    width: 6rem;
+    min-height: 2rem;
+  }
 }

@@ -40,29 +40,34 @@ const Search = ({ auth: { user }, getSearchProfiles }) => {
         searchProfiles.map(profile => (
           <a href={profile && profile.user && "profile/" + profile.user._id}>
             <div className="result-person">
-              <Avatar
-                className="avatar"
-                size="75"
-                round
-                src={profile && profile.user && profile.user.avatar}
-              />
-              <div className="name">
-                {profile && profile.user && profile.user.name}
+              <div className="avatar-name">
+                <Avatar
+                  className="avatar"
+                  size="75"
+                  round
+                  src={profile && profile.user && profile.user.avatar}
+                />
+                <div className="name">
+                  {profile && profile.user && profile.user.name}
+                </div>
               </div>
-              <div className="categories">
-                {profile &&
-                  profile.categories.slice(0, 5).map(category => (
-                    <div className="profile-categories" key={category}>
-                      {category}
-                    </div>
-                  ))}
-              </div>
-              <div className="likes">
-                <p>
-                  Number of users who like{" "}
-                  {profile && profile.user && profile.user.name.split(" ")[0]}:
-                </p>
-                {profile.liked_users.length}
+              <div className="categories-likes">
+                <div className="categories">
+                  {profile &&
+                    profile.categories.slice(0, 5).map(category => (
+                      <div className="profile-categories" key={category}>
+                        {category}
+                      </div>
+                    ))}
+                </div>
+                <div className="likes">
+                  <p>
+                    Number of users who like{" "}
+                    {profile && profile.user && profile.user.name.split(" ")[0]}
+                    :
+                  </p>
+                  {profile.liked_users.length}
+                </div>
               </div>
             </div>
           </a>

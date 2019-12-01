@@ -127,6 +127,7 @@ const ProfilePage = ({
               marginBottom: "1.5rem"
             }}
             href={profile && profile.user && profile.user._id}
+            key={profile && profile.user && profile.user._id}
           >
             <div className="similar-person">
               <Avatar
@@ -154,7 +155,11 @@ const ProfilePage = ({
   };
 
   const categoryButtons = profileData.categories.map(cat => {
-    return <div className="profile-categories">{cat}</div>;
+    return (
+      <div className="profile-categories" key={cat}>
+        {cat}
+      </div>
+    );
   });
 
   const likeButton = (
@@ -172,26 +177,28 @@ const ProfilePage = ({
     <div id="profile-page">
       <div className="left">
         <div className="info">
-          <Avatar className="avatar" round src={profileData.avatar} />
           <div className="header">
-            <div className="name">{profileData.name}</div>
-            <div className="basic-info">
-              <div className="major">{profileData.major}</div>
-              <button className="ui blue small button" onClick={sayhi}>
-                Say hi!
-              </button>
-              <div className="like">
-                <div className="ui small red button">
-                  <i className="heart icon"></i>
-                  {userLikedProfile(user, display_profile)
-                    ? unlikeButton
-                    : likeButton}
+            <Avatar className="avatar" round src={profileData.avatar} />
+            <div className="text-info">
+              <div className="name">{profileData.name}</div>
+              <div className="basic-info">
+                <div className="major">{profileData.major}</div>
+                <button className="ui blue small button say-hi" onClick={sayhi}>
+                  Say hi!
+                </button>
+                <div className="like">
+                  <div className="ui small red button">
+                    <i className="heart icon"></i>
+                    {userLikedProfile(user, display_profile)
+                      ? unlikeButton
+                      : likeButton}
+                  </div>
+                  <button onClick={fireStar}>What's this?</button>
                 </div>
-                <button onClick={fireStar}>What's this?</button>
               </div>
             </div>
-            <div className="categories">{categoryButtons}</div>
           </div>
+          <div className="categories">{categoryButtons}</div>
         </div>
         <div className="about-section">
           <div className="about-header">
@@ -201,7 +208,7 @@ const ProfilePage = ({
         </div>
       </div>
       <div className="right">
-        <h2 className="similar_title">People also viewed...</h2>
+        <h2 className="similar-title">People also viewed...</h2>
         <div className="also-viewed">{randomProfilesComponent}</div>
       </div>
     </div>
