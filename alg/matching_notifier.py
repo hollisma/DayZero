@@ -13,11 +13,11 @@ class MatchingNotifier:
         self.email.send(recipient_emails, subject, self.matching_message(profiles, times, categories))
 
     def matching_message(self, profiles, times, categories):
-        # Please feel free to change the content of message using the information in profiles
         recipient_names = [p['user']['name'] for p in profiles]
         recipient_names_str = "{} and {}".format(', '.join(recipient_names[:-1]), recipient_names[-1])
-        times_str = "{} and {}".format(', '.join(times[:-1]), times[-1])
-        categories_str = "{} and {}".format(', '.join(categories[:-1]), categories[-1])
+        times = list(map(formatTime, times))
+        times_str = "{}, and {}".format(', '.join(times[:-1]), times[-1])
+        categories_str = "{}, and {}".format(', '.join(categories[:-1]), categories[-1])
         body = """
         Hey {}!
 
@@ -27,10 +27,20 @@ class MatchingNotifier:
         time and place. 
         
         You both are interested in: {}
-        You both are free for meals on {}
+        You both are free for meals for {}
 
         Hope you have a blast meeting each other!
         Day Zero
 
         """.format(recipient_names_str, categories_str, times_str)
         return textwrap.dedent(body).strip()
+
+def formatTime(s):
+    arr = s.split(',')
+    meal = arr[1]
+    timesArr = arr[0].split('-')
+    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    month = months[int(timesArr[0])-1]
+    day = timesArr[1]
+    result = arr[1] + ' on ' + month + ' ' + day
+    return result
