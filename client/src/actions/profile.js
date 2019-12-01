@@ -235,6 +235,9 @@ export const getSearchProfiles = categories => async dispatch => {
           hasAllCats = false;
         }
       });
+      if (profile.user.user_type === "ADMIN") {
+        return false;
+      }
       return hasAllCats;
     };
 
@@ -257,7 +260,7 @@ export const like = profile => async dispatch => {
       "Content-Type": "application/json"
     }
   };
-  if(!profile.user) return false;
+  if (!profile.user) return false;
 
   const body = JSON.stringify({ user_id: profile.user.id });
 
@@ -277,7 +280,7 @@ export const unlike = profile => async dispatch => {
     }
   };
 
-  if(!profile.user) return false;
+  if (!profile.user) return false;
 
   const body = JSON.stringify({ user_id: profile.user.id });
 

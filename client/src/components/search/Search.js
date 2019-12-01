@@ -38,7 +38,10 @@ const Search = ({ auth: { user }, getSearchProfiles }) => {
     <Fragment>
       {searchProfiles &&
         searchProfiles.map(profile => (
-          <a href={profile && profile.user && "profile/" + profile.user._id}>
+          <a
+            href={profile && profile.user && "profile/" + profile.user._id}
+            key={profile && profile.user && profile.user._id}
+          >
             <div className="result-person">
               <div className="avatar-name">
                 <Avatar

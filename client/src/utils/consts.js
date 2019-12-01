@@ -7,6 +7,7 @@ export const GROUPED = "GROUPED";
 export const MET = "MET";
 export const INACTIVE = "INACTIVE";
 export const DELETED = "DELETED";
+export const ADMIN = "ADMIN";
 
 // Contact preferences
 export const SMS = "SMS";
