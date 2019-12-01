@@ -164,7 +164,7 @@ export const getAllProfiles = () => async dispatch => {
   }
 };
 
-export const getRandomProfiles = num => async dispatch => {
+export const getRandomProfiles = (num, id) => async dispatch => {
   var token = localStorage.token || "";
 
   try {
@@ -187,15 +187,21 @@ export const getRandomProfiles = num => async dispatch => {
     axios.defaults.headers.common["x-auth-token"] = token;
 
     var arr = [];
-    for (var i = 0; i < num; i++) {
+    // minus 2 for admin and current user
+    var numProfiles = Math.min(resProfiles.length - 2, num);
+    for (var i = 0; i < numProfiles; i++) {
       var rand = Math.floor(Math.random() * resProfiles.length);
-      while (arr.includes(rand)) {
+      while (
+        arr.includes(rand) ||
+        resProfiles[rand].user.user_type === "ADMIN" ||
+        resProfiles[rand].user._id === id
+      ) {
         rand = Math.floor(Math.random() * resProfiles.length);
       }
       arr.push(rand);
     }
 
-    for (i = 0; i < num; i++) {
+    for (i = 0; i < numProfiles; i++) {
       arr[i] = resProfiles[arr[i]];
     }
 
@@ -235,6 +241,9 @@ export const getSearchProfiles = categories => async dispatch => {
           hasAllCats = false;
         }
       });
+      if (profile.user.user_type === "ADMIN") {
+        return false;
+      }
       return hasAllCats;
     };
 
@@ -257,7 +266,7 @@ export const like = profile => async dispatch => {
       "Content-Type": "application/json"
     }
   };
-  if(!profile.user) return false;
+  if (!profile.user) return false;
 
   const body = JSON.stringify({ user_id: profile.user.id });
 
@@ -277,7 +286,7 @@ export const unlike = profile => async dispatch => {
     }
   };
 
-  if(!profile.user) return false;
+  if (!profile.user) return false;
 
   const body = JSON.stringify({ user_id: profile.user.id });
 

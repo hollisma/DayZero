@@ -25,9 +25,9 @@ class DayZeroGmail:
             msg.attach(image)
             body = '<br> <img src="cid:image"> </br><div>{}</div>'.format(body)
             text = MIMEText(body, 'html')
-
         else:
             text = MIMEText(body)
+            
         msg.attach(text)
 
         smtpobj = smtplib.SMTP_SSL('smtp.gmail.com', 465, timeout=10)

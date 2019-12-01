@@ -2,6 +2,8 @@
 
 from datetime import datetime, timedelta
 import requests
+from dotenv import load_dotenv
+import os
 
 host_name = 'http://172.31.43.129'
 # host_name = 'http://localhost'
@@ -9,8 +11,9 @@ host_name = 'http://172.31.43.129'
 now = datetime.now()
 
 # Authentication
+load_dotenv()
 url = host_name + ':5000/api/auth'
-body = { 'email': 'h@princeton.edu', 'password': 'hhhhhh' }
+body = { 'email': os.getenv('ADMIN_EMAIL'), os.getenv('ADMIN_PASSWORD') }
 response = requests.post(url, json=body).json()
 token = response['token']
 headers = { 'x-auth-token': token }

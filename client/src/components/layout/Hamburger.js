@@ -82,9 +82,12 @@ const Hamburger = ({ authenticated, logout }) => {
                 </a>
               </li>
               <li>
-                <Link to="/Register" onClick={() => setToggled(false)}>
+                {/* <Link to="/Register" onClick={() => setToggled(false)}>
                   Register
-                </Link>
+                </Link> */}
+                <a href="/#footer-mobile" onClick={() => setToggled(false)}>
+                  Register
+                </a>
               </li>
             </ul>
           </div>
