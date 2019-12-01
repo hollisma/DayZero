@@ -3,13 +3,16 @@ import json
 import math
 from datetime import datetime, timedelta
 from matching_notifier import MatchingNotifier
+from dotenv import load_dotenv
+import os
 
 k_matching_threshold = 3
 host_name = 'http://172.31.43.129'
 # host_name = 'http://localhost'
 
+load_dotenv()
 url = host_name + ':5000/api/auth'
-body = { 'email': 'h@princeton.edu', 'password': 'hhhhhh' }
+body = { 'email': os.getenv('ADMIN_EMAIL'), 'password': os.getenv('ADMIN_PASSWORD') }
 response = requests.post(url, json=body)
 response = json.loads(response.text)
 token = response['token']
