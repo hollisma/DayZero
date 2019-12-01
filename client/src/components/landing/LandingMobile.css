@@ -5,37 +5,40 @@
 
 #landing-mobile .top {
   padding: 16vh 11vw 10vh 11vw;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   background-image: url("../../img/background_mobile.svg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 145%;
+  background-position: 50% 20%;
   color: white;
 }
 #landing-mobile .top .big-text {
   font-family: "Alatsi";
-  font-size: 2.75rem;
-  margin: 7vh 0 5vh 0;
-  line-height: 3.25rem;
+  /* font-size: 3.5rem; */
+  font-size: 6vh;
+  margin: 7vh 0 3vh 0;
+  line-height: 7.5vh;
 }
 
 #landing-mobile .top .small-text {
-  font-size: 1.5rem;
+  font-size: 3vh;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8vh;
 }
 
 #landing-mobile .top .sign-up-button {
   border-radius: 10px;
   box-shadow: 0px 5px 5px #00000055;
-  /* font-size:12px; */
-  padding: 0.25rem 0rem 0.25rem 1rem;
-  width: 6rem;
+  padding-top: 1vh;
+  height: 6.5vh;
+  width: 30vw;
+  font-size: 3vh;
+  text-align: center;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.1rem;
   color: #ffffff;
   background-color: #38d8ff;
   background-image: -webkit-gradient(
@@ -64,15 +67,15 @@
 
 #landing-mobile .middle .title {
   font-family: "Alatsi";
-  font-size: 2rem;
+  font-size: 4vh;
   color: #128ae6;
   font-weight: 700;
-  margin-bottom: 35px;
+  margin-bottom: 5vh;
 }
 
 #landing-mobile .middle .text {
-  margin-bottom: 30px;
-  font-size: 1.25rem;
+  margin-bottom: 3.25vh;
+  font-size: 2.5vh;
   font-family: "Roboto";
 }
 #landing-mobile .middle .card-profile {
@@ -80,7 +83,7 @@
   border-radius: 20px;
   box-shadow: 10px 7px 10px #00000029;
   margin: 5vh 0 5vh 0;
-  padding-bottom: 25px;
+  padding-bottom: 2.5vh;
 }
 #landing-mobile .middle .card-profile .card-pic {
   border-radius: 20px;
@@ -88,12 +91,12 @@
 }
 #landing-mobile .middle .card-profile .text {
   border-radius: 0;
-  padding: 20px 20px 15px 20px;
+  padding: 2.25vh 2.25vh 2vh;
   text-align: center;
   margin: 0;
 }
 #landing-mobile .middle .card-profile .name {
-  font-size: 2rem;
+  font-size: 4vh;
   text-align: center;
   font-weight: 700;
   color: #128ae6;
@@ -111,15 +114,15 @@
   background-color: #f5f5f5;
 }
 #landing-mobile .bottom .transition {
-  font-size: 3rem;
+  font-size: 5.25vh;
   font-weight: 700;
-  line-height: 3.75rem;
+  line-height: 7vh;
   color: #128ae6;
-  margin-bottom: 5vh;
+  margin-bottom: 3vh;
 }
 #landing-mobile .bottom .card-background {
-  margin: 15px 0px;
-  padding: 20px 10px;
+  margin: 2vh 0px;
+  padding: 3vh 2vh;
   border-radius: 10px;
   box-shadow: 5px 5px 5px #00000022;
   background-color: white;
@@ -149,7 +152,7 @@
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  font-size: 1.25rem;
+  font-size: 2.5vh;
   font-weight: bold;
 }
 #landing-mobile .bottom .sign-up-button {
@@ -158,7 +161,7 @@
   border: none;
   border-radius: 10px;
   box-shadow: 0px 5px 5px #00000055;
-  padding: 2px 20px 10px 20px;
+  padding-top: 2vh;
   width: 50vw;
   height: 10vh;
   text-decoration: none;
@@ -181,7 +184,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#38d8ff, endColorstr=#036FFC);
 }
 #landing-mobile .bottom .questions {
-  font-size: 1.25rem;
+  font-size: 2.75vh;
   font-weight: 1000;
 }
 

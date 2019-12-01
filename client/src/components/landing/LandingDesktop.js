@@ -15,10 +15,10 @@ const LandingDesktop = ({ isAuthenticated }) => {
       <div id="top">
         <div className="inner-box">
           <div className="big-text">
-            Discover Princetonians who share your passions and values.
+            Discover Princetonians who share your passions.
           </div>
           <div className="small-text">Signing up takes thirty seconds.</div>
-          <a href="/sign-up-landing" className="sign-up-button">
+          <a href="/#footer" className="sign-up-button">
             Register
           </a>
         </div>
@@ -50,12 +50,14 @@ const LandingDesktop = ({ isAuthenticated }) => {
               alt="Carina"
               className="card-pic"
             />
-            <div className="text">
-              Day Zero made it easy for me to find other people passionate about
-              fintech. Last week I got dinner with a guy who has his own fintech
-              startup!"
+            <div className="bottom-card">
+              <div className="text">
+                "Day Zero made it easy for me to find other people passionate
+                about fintech. Last week I got dinner with a guy who has his own
+                fintech startup!"
+              </div>
+              <div className="name">Carina '21</div>
             </div>
-            <div className="name">Carina L. '21</div>
           </div>
           <div className="card-profile alt-background">
             <img
@@ -63,12 +65,14 @@ const LandingDesktop = ({ isAuthenticated }) => {
               alt="Dan"
               className="card-pic"
             />
-            <div className="text">
-              "I didn't think there was anyone else super into music and
-              mindfulness, but boy was I wrong. Day Zero helped me find such
-              cool people hidden in plain sight."
+            <div className="bottom-card">
+              <div className="text">
+                "I didn't think there was anyone else super into music and
+                mindfulness, but boy was I wrong. Day Zero helped me find such
+                cool people hidden in plain sight."
+              </div>
+              <div className="name alt-text">Dan '21</div>
             </div>
-            <div className="name alt-text">Dan K. '21</div>
           </div>
           <div className="card-profile">
             <img
@@ -76,12 +80,14 @@ const LandingDesktop = ({ isAuthenticated }) => {
               alt="Marti"
               className="card-pic"
             />
-            <div className="text">
-              "After joining TI it was hard to meet new people outside the club,
-              but through DZ, I've met fantastic people I prob would've never
-              ran into otherwise."
+            <div className="bottom-card">
+              <div className="text">
+                "After joining TI it was hard to meet new people outside the
+                club, but through DZ, I've met fantastic people I prob would've
+                never ran into otherwise."
+              </div>
+              <div className="name">Marti '20</div>
             </div>
-            <div className="name">Marti V. '20</div>
           </div>
         </div>
       </div>
@@ -111,18 +117,21 @@ const LandingDesktop = ({ isAuthenticated }) => {
           />
         </div>
         <div id="footer">
-          <a href="/sign-up-landing" className="sign-up-button">
+          <a
+            id="sign-up-button"
+            href="/sign-up-landing"
+            className="sign-up-button"
+          >
             Sign up
           </a>
           <div className="questions">
-            If you have feedback or questions, we'd love to hear from you! Email
-            us{" "}
+            Got questions or feedback? Email us{" "}
             <a
               href="mailto:founders.dayzero@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <u>here.</u>
+              <u>here</u>
             </a>
           </div>
         </div>

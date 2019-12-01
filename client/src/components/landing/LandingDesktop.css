@@ -23,7 +23,9 @@
   justify-content: center;
 }
 #landing-desktop #top .inner-box {
-  padding: 7vh 7vw;
+  display: flex;
+  flex-direction: column;
+  padding: 10vh 7vw 11vh;
   background-color: #128ae6d0;
   width: 80%;
   min-height: 70%;
@@ -33,9 +35,11 @@
   border: none;
   border-radius: 10px;
   box-shadow: 0px 3px 2px #00000055;
-  /* font-size:12px; */
-  padding: 10px 20px 10px 20px;
-  margin-bottom: 20px;
+  text-align: center;
+  padding-top: 1vh;
+  height: 5vh;
+  width: 10vw;
+  font-size: 2vh;
   text-decoration: none;
   font-weight: bold;
   color: #ffffff;
@@ -53,7 +57,6 @@
   background-image: -o-linear-gradient(to right, #38d8ff, #036ffc);
   background-image: linear-gradient(to right, #38d8ff, #036ffc);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#38d8ff, endColorstr=#036FFC);
-  opacity: 1;
 }
 #landing-desktop #top .inner-box .sign-up-button:hover,
 #landing-desktop #top .inner-box .sign-up-button:focus {
@@ -62,14 +65,14 @@
 }
 #landing-desktop #top .inner-box .big-text {
   font-family: "Alatsi";
-  font-size: 3rem;
+  font-size: 5.75vh;
   font-weight: bold;
-  line-height: 3.5rem;
+  line-height: 7vh;
 }
 #landing-desktop #top .inner-box .small-text {
   font-family: "Alatsi";
-  margin: 6vh 0;
-  font-size: 1.5rem;
+  margin: 3vh 0 8vh;
+  font-size: 3vh;
 }
 
 #landing-desktop #discover {
@@ -84,21 +87,21 @@
   border-radius: 10px;
   /* min-height: 60%; */
   background-color: white;
-  padding: 50px 10% 35px;
+  padding: 6vh 8vw 4vh;
   text-align: center;
   box-shadow: 5px 5px 5px #00000033;
 }
 #landing-desktop #middle .how-we-help .title {
   font-family: "Alatsi";
-  font-size: 2.5rem;
+  font-size: 5vh;
   color: #128ae6;
   font-weight: 700;
-  margin-bottom: 35px;
+  margin-bottom: 4vh;
 }
 #landing-desktop #middle .how-we-help .text {
   font-family: "Roboto";
-  font-size: 1.6rem;
-  margin-bottom: 20px;
+  font-size: 2.75vh;
+  margin-bottom: 2.25vh;
 }
 #landing-desktop #middle .people-cards {
   display: flex;
@@ -114,23 +117,35 @@
   /* padding-bottom: 25px; */
   width: 30%;
 }
+#landing-desktop #middle .people-cards .card-profile .bottom-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 30vh;
+}
+@media only screen and (max-width: 1000px) {
+  #landing-desktop #middle .people-cards .card-profile .bottom-card {
+    height: 35vh;
+  }
+}
 #landing-desktop #middle .people-cards .card-profile .card-pic {
   border-radius: 20px;
   width: 100%;
 }
 #landing-desktop #middle .people-cards .card-profile .text {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
+  font-size: 2vh;
   border-radius: 0;
-  padding: 20px 20px 15px 20px;
+  padding: 2vh 2.25vh 1.5vh 2vh;
   text-align: center;
   margin: 0;
 }
 #landing-desktop #middle .people-cards .card-profile .name {
-  font-size: 2rem;
+  font-size: 3.5vh;
   text-align: center;
   font-weight: 700;
   color: #128ae6;
-  margin-top: 5px;
+  margin-bottom: 2vh;
 }
 
 #landing-desktop #possibilities {
@@ -143,9 +158,9 @@
   text-align: center;
 }
 #landing-desktop #bottom .transition {
-  font-size: 3rem;
+  font-size: 5.5vh;
   font-weight: 700;
-  line-height: 3.75rem;
+  line-height: 6,5vh;
   color: #128ae6;
   margin-bottom: 5vh;
 }
@@ -161,14 +176,14 @@
 #landing-desktop #bottom .main-section .cards {
   display: flex;
   flex-direction: column;
-  margin: 0 20px;
+  margin: 0 2vh;
   /* padding: 0 20px;  */
   justify-content: space-between;
   height: 100%;
 }
 #landing-desktop #bottom .card-background {
   /* margin: 3vh 0 0; */
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   border-radius: 10px;
   box-shadow: 5px 5px 5px #00000033;
   background-color: white !important;
@@ -201,13 +216,13 @@
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: bold;
 }
 #landing-desktop #bottom .main-section .pic {
   max-width: 50%;
   height: 100%;
-  margin: 0 20px;
+  margin: 0 2vh;
   padding: 0;
   border-radius: 10px;
   /* box-shadow: 5px 5px 5px #00000033; */
@@ -223,15 +238,15 @@
 }
 #landing-desktop #footer .sign-up-button {
   margin-top: 3vh;
-  margin-bottom: 7vh;
+  margin-bottom: 10vh;
   border: none;
   border-radius: 10px;
   box-shadow: 0px 5px 5px #00000055;
-  padding: 1vh 20px 2vh 20px;
-  min-width: 150px;
+  padding-top: 2vh;
+  min-width: 18vh;
   height: 10vh;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 3.5vh;
   font-weight: bold;
   color: #ffffff;
   background-color: #38d8ff;
@@ -255,7 +270,7 @@
   transform: translateY(4px);
 }
 #landing-desktop #footer .questions {
-  font-size: 1.5rem;
+  font-size: 2.5vh;
   font-weight: 1000;
 }
 
@@ -291,4 +306,13 @@
 }
 .alt-text {
   color: white !important;
+}
+
+@media only screen and (max-width: 1075px) {
+  #landing-desktop #bottom .card-background {
+    padding: 1rem 2rem;
+  }
+  #landing-desktop #bottom .card {
+    font-size: 20px;
+  }
 }

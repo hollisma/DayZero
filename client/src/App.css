@@ -4,19 +4,14 @@
 } */
 
 @font-face {
-  font-family: "San Francisco";
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
 }
 
-@import url(
-  https://fonts.googleapis.com/css?family=Roboto:300,
-  400,
-  500,
-  700&display=swap
-);
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 * {
-  font-family: "San Francisco";
+  font-family: 'Roboto', sans-serif;
 }
 
 html {
@@ -29,7 +24,7 @@ html {
 }
 
 body {
-  font-family: "San Francisco" "Raleway", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;

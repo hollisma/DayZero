@@ -14,11 +14,11 @@ const LandingMobile = ({ isAuthenticated }) => {
     <div id="landing-mobile" className="ui bigger-top-container">
       <div className="top">
         <div className="big-text">
-          Discover Princetonians who share your passions and values.
+          Discover Princetonians who share your passions.
         </div>
         <div className="small-text">Signing up takes thirty seconds</div>
-        <a href="/sign-up-landing" className="sign-up-button">
-          Sign up
+        <a href="/#sign-up-button" className="sign-up-button">
+          Register
         </a>
       </div>
       <div className="middle">
@@ -69,18 +69,21 @@ const LandingMobile = ({ isAuthenticated }) => {
             Find out who are in your classes{" "}
           </div>
         </div>
-        <a href="/sign-up-landing" className="sign-up-button">
+        <a
+          id="sign-up-button"
+          href="/sign-up-landing"
+          className="sign-up-button"
+        >
           Sign up
         </a>
         <div className="questions">
-          If you have feedback or questions, we'd love to hear from you! Email
-          us{" "}
+          Got questions or feedback? Email us{" "}
           <a
             href="mailto:founders.dayzero@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <u>here.</u>
+            <u>here</u>
           </a>
         </div>
       </div>

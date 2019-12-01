@@ -26,7 +26,7 @@
   border-radius: 10px;
   box-shadow: 5px 5px 10px #aaa;
   padding: 0rem 0rem 2rem 0rem;
-  align-items: start;
+  align-items: flex-start;
 }
 #profile-page .left .info .header {
   /* background: green; */
