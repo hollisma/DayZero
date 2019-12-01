@@ -111,7 +111,7 @@ const ProfilePage = ({
     });
 
     // getRandomProfiles could be optimized. rn it gets all profiles then randomly chooses 4
-    getRandomProfiles(4).then(res => {
+    getRandomProfiles(4, user_id).then(res => {
       setRandomProfiles(res);
     });
 
