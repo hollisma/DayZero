@@ -17,7 +17,7 @@ const GroupMember = ({
   let res = "";
   if (member_id !== "-1") {
     res = (
-      <div className="group-member-info">
+      <a className="group-member-info" href={"../profile/" + member_id}>
         <div className="name-pic">
           <Avatar className="avatar" size="100" round src={avatar} />
           <p id="name">{name}</p>
@@ -39,7 +39,7 @@ const GroupMember = ({
             </p>
           ) : null}
         </div>
-      </div>
+      </a>
     );
   }
 

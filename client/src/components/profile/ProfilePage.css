@@ -199,9 +199,9 @@
     width: 30vw !important;
     /* height: 6vh !important; */
   }
-  #profile-page .left .header .like-button {
-    /* height: 6vh !important; */
-  }
+  /* #profile-page .left .header .like-button {
+    height: 6vh !important;
+  } */
   #profile-page .left .header .heart {
     margin-left: 1vw;
   }

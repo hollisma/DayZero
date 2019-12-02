@@ -41,6 +41,7 @@
   align-items: center;
   text-align: center;
   flex-direction: row;
+  color: black;
 }
 
 #name {

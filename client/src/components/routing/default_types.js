@@ -7,11 +7,11 @@ import {
 } from "../../utils/consts";
 
 const GUEST_DEFAULT = "/login";
-const REGISTERED_DEFAULT = "/create-profile";
-const PROFILED_DEFAULT = "/dashboard#calendar";
-const SCHEDULED_DEFAULT = "/dashboard#";
-const GROUPED_DEFAULT = "/dashboard#";
-const MET_DEFAULT = "/dashboard#";
+const REGISTERED_DEFAULT = "/create-profile/#";
+const PROFILED_DEFAULT = "/dashboard/calendar";
+const SCHEDULED_DEFAULT = "/dashboard/#";
+const GROUPED_DEFAULT = "/dashboard/#";
+const MET_DEFAULT = "/dashboard/#";
 
 export const getDefaultRoute = userType => {
   switch (userType) {
