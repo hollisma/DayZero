@@ -98,7 +98,13 @@
     display: flex;
   }
   .navbar .reg:hover {
-    color: lightcoral;
+    color: #666666;
+  }
+  .navbar .text-primary:hover {
+    color: #bd0000 !important;
+  }
+  .navbar .text-secondary:hover {
+    color: #4a4dff !important;
   }
 
   .navbar li {

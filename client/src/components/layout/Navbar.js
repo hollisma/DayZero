@@ -59,7 +59,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </a>
       </li>
       <li className="item">
-        <a href="/#possibilities">Possibilities</a>
+        <a href="/#possibilities" className="reg">
+          Possibilities
+        </a>
       </li>
       <li className="item">
         {/* <Link to="/Register" className="text-secondary">
