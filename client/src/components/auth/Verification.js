@@ -15,8 +15,10 @@ const Verification = ({
 }) => {
   let verified = !user_loading && user && user.verified;
   let { token } = queryString.parse(location.search);
+  console.log("token", token, user, verified, verificationFailed);
 
   if (user && !verified && !verificationFailed) {
+    console.log("ajsdpfid");
     verification(token, user._id);
   }
 
@@ -55,7 +57,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { verification }
-)(Verification);
+export default connect(mapStateToProps, { verification })(Verification);
