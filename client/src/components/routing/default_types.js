@@ -6,7 +6,7 @@ import {
   MET
 } from "../../utils/consts";
 
-const GUEST_DEFAULT = "/login";
+const GUEST_DEFAULT = "/";
 const REGISTERED_DEFAULT = "/create-profile/#";
 const PROFILED_DEFAULT = "/dashboard/#";
 const SCHEDULED_DEFAULT = "/dashboard/#";
