@@ -86,8 +86,8 @@ const LandingMobile = ({ register, isAuthenticated }) => {
         </div>
         <div className="text">
           <span className="colorful">Day Zero</span> makes it easy to discover
-          and grab meals with the people that share your passions and values but
-          you've never met.
+          and grab meals with the people you've never met that share your
+          passions and values.
         </div>
         <div className="card-profile">
           <img

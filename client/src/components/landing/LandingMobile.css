@@ -17,10 +17,11 @@
 }
 #landing-mobile .top .big-text {
   font-family: "Alatsi";
+  font-weight: bold;
   /* font-size: 3.5rem; */
-  font-size: 6vh;
-  margin: 7vh 0 3vh 0;
-  line-height: 7.5vh;
+  font-size: 7vh;
+  margin: 5vh 2vh 3vh 2vh;
+  line-height: 8.5vh;
 }
 
 #landing-mobile .top .small-text {
