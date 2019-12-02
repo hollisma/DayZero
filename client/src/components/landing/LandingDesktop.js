@@ -90,8 +90,8 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
           </div>
           <div className="text">
             <span className="colorful">Day Zero</span> makes it easy to discover
-            and grab meals with the people that share your passions and values
-            but you've never met.
+            and grab meals with the people you've never met that share your
+            passions and values.
           </div>
         </div>
         <div className="people-cards">
@@ -137,7 +137,7 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
                 club, but through DZ, I've met fantastic people I prob would've
                 never ran into otherwise."
               </div>
-              <div className="name">Marti '20</div>
+              <div className="name">Marti '21</div>
             </div>
           </div>
         </div>

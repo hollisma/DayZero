@@ -9,11 +9,11 @@
 #landing-desktop #top {
   font-family: "Alatsi";
   margin: 10vh 0vw 0vh;
-  min-height: 80vh;
-  width: 80vw;
+  min-height: 100vh;
+  width: 90vw;
   display: flex;
   flex-direction: column;
-  background-image: url("../../img/landing_desktop_1.svg");
+  background-image: url("../../img/landing_desktop_1.png");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 90% 59%;
@@ -27,7 +27,7 @@
   flex-direction: column;
   padding: 10vh 7vw 11vh;
   background-color: #128ae6d0;
-  width: 80%;
+  width: 85%;
   min-height: 70%;
   border-radius: 10px;
 }
@@ -36,10 +36,10 @@
   border-radius: 10px;
   box-shadow: 0px 3px 2px #00000055;
   text-align: center;
-  padding-top: 1vh;
-  height: 5vh;
+  padding: 1vh;
+  height: 8vh;
   width: 10vw;
-  font-size: 2vh;
+  font-size: 4vh;
   text-decoration: none;
   font-weight: bold;
   color: #ffffff;
@@ -65,14 +65,14 @@
 }
 #landing-desktop #top .inner-box .big-text {
   font-family: "Alatsi";
-  font-size: 5.75vh;
+  font-size: 11vh;
   font-weight: bold;
-  line-height: 7vh;
+  line-height: 12vh;
 }
 #landing-desktop #top .inner-box .small-text {
   font-family: "Alatsi";
-  margin: 3vh 0 8vh;
-  font-size: 3vh;
+  margin: 5vh 0 8vh;
+  font-size: 4vh;
 }
 
 #landing-desktop #discover {
@@ -93,14 +93,14 @@
 }
 #landing-desktop #middle .how-we-help .title {
   font-family: "Alatsi";
-  font-size: 5vh;
+  font-size: 6vh;
   color: #128ae6;
   font-weight: 700;
   margin-bottom: 4vh;
 }
 #landing-desktop #middle .how-we-help .text {
   font-family: "Roboto";
-  font-size: 3.5vh;
+  font-size: 4vh;
   margin-bottom: 2.25vh;
 }
 #landing-desktop #middle .people-cards {
@@ -129,11 +129,11 @@
 }
 #landing-desktop #middle .people-cards .card-profile .text {
   font-family: "Roboto", sans-serif;
-  font-size: 2.3vh;
+  font-size: 2.5vh;
   border-radius: 0;
-  padding: 2vh 2.25vh 1.5vh 2vh;
+  padding: 2vh 2.5vh 1.5vh 2.5vh;
   text-align: center;
-  margin: 0;
+  margin: 0 1vh 0 1vh;
 }
 #landing-desktop #middle .people-cards .card-profile .name {
   font-size: 3.5vh;
@@ -179,7 +179,7 @@
 #landing-desktop #bottom .transition {
   font-size: 5.5vh;
   font-weight: 700;
-  line-height: 6,5vh;
+  line-height: 6, 5vh;
   color: #128ae6;
   margin-bottom: 5vh;
 }
@@ -282,12 +282,12 @@
   /* padding-top: 2vh; */
   /* min-width: 18vh; */
   /* width: 25vw; */
-  width: 17vw;
+  width: 10vw;
   /* height: 10vh; */
-  height: 7vh;
+  height: 8vh;
   text-decoration: none;
   /* font-size: 3.5vh; */
-  font-size: 3vh;
+  font-size: 4vh;
   font-weight: bold;
   color: #ffffff;
   cursor: pointer;
@@ -312,7 +312,7 @@
   transform: translateY(4px);
 }
 #landing-desktop #footer-desktop .already {
-  font-size: 1.2rem;  
+  font-size: 1.2rem;
   margin-top: 1rem;
 }
 #landing-desktop #footer-desktop .questions {
