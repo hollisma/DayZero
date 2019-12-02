@@ -27,7 +27,7 @@ const Verification = ({
       title: "Your account is verified",
       type: "success"
     }).then(() => {
-      window.location.href = "/dashboard";
+      window.location.href = "/dashboard/#";
     });
   }
   if (!user_loading && verificationFailed) {
@@ -35,7 +35,7 @@ const Verification = ({
       title: "Verification failed",
       type: "error"
     }).then(() => {
-      window.location.href = "/dashboard";
+      window.location.href = "/dashboard#";
     });
   }
 

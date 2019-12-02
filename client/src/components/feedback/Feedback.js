@@ -39,7 +39,7 @@ const Feedback = ({
       }
       await axios.put("/api/feedback/finish");
 
-      window.location.href = "/dashboard";
+      window.location.href = "/dashboard#";
     } catch (err) {
       console.log(err.response);
     }
@@ -86,7 +86,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { getCurrentGroup, getMembersProfiles }
-)(Feedback);
+export default connect(mapStateToProps, {
+  getCurrentGroup,
+  getMembersProfiles
+})(Feedback);
