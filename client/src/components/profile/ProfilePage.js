@@ -205,15 +205,17 @@ const ProfilePage = ({
           <div className="header">
             <Avatar className="avatar" round src={profileData.avatar} />
             <div className="text-info">
-              <div className="name">{profileData.name}</div>
               <div className="basic-info">
+                <div className="name">{profileData.name}</div>
                 <div className="major">{profileData.major}</div>
+              </div>
+              <div className="buttons">
                 <button className="ui blue small button say-hi" onClick={sayhi}>
                   Say hi!
                 </button>
                 <div className="like">
                   <div
-                    className="ui small red button"
+                    className="ui small red button like-button"
                     onClick={() => handleToggleLike()}
                   >
                     <i className="heart icon"></i>

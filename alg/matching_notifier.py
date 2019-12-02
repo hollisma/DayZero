@@ -15,18 +15,10 @@ class MatchingNotifier:
 
     def matching_message(self, profiles, times, categories):
         recipient_names = [p['user']['name'] for p in profiles]
-<<<<<<< HEAD
         recipient_names_str = "{} and {}".format(', '.join(recipient_names[:-1]), recipient_names[-1])
         times = list(map(formatTime, times))
         times_str = "{}, and {}".format(', '.join(times[:-1]), times[-1])
         categories_str = "{}, and {}".format(', '.join(categories[:-1]), categories[-1])
-=======
-        recipient_names_str = "{} and {}".format(
-            ', '.join(recipient_names[:-1]), recipient_names[-1])
-        times_str = "{} and {}".format(', '.join(times[:-1]), times[-1])
-        categories_str = "{} and {}".format(
-            ', '.join(categories[:-1]), categories[-1])
->>>>>>> a457f867de7d3fd075cc5c3b1c3238301d8e64d9
         body = """
         Hey {}!
 
@@ -35,13 +27,8 @@ class MatchingNotifier:
         emails, you can trade numbers or use this email thread to schedule a specific
         time and place. 
         
-<<<<<<< HEAD
         You both are interested in: {}
         You both are free for meals for {}
-=======
-        You both identified as: {}
-        You are both free for meals on {}
->>>>>>> a457f867de7d3fd075cc5c3b1c3238301d8e64d9
 
         Hope you have a blast meeting each other!
 

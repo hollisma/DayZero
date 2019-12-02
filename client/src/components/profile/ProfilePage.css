@@ -35,44 +35,54 @@
   margin: 2rem 2rem 0rem 0rem;
 }
 #profile-page .left .info .header .avatar {
-  margin: 0 2rem 0 1.5rem;
+  margin: 0 2.25vw 0 1.5vw;
   min-width: 8rem;
   max-width: 8rem;
   min-height: 8rem;
   max-height: 8rem;
 }
-#profile-page .left .info .header .name {
-  float: left;
-  font-size: 2rem;
-  font-family: "Roboto", sans-serif;
-  vertical-align: middle;
-  margin-bottom: 0.75rem;
-}
-#profile-page .left .info .header .basic-info {
-  margin-bottom: 0.5rem;
-  display: flex;
-  flex-direction: row;
-  /* justify-content: space-between;   */
-  height: 4rem;
-}
 #profile-page .left .info .header .text-info {
   display: flex;
   flex-direction: column;
 }
-#profile-page .left .info .header .major {
-  font-size: 1.2rem;
-  margin: 0 0.5rem;
+#profile-page .left .info .header .basic-info {
+  margin-bottom: 1vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 7vh;
+}
+#profile-page .left .info .header .name {
   float: left;
-  height: 3.5rem;
+  font-size: 4vh;
+  font-family: "Roboto", sans-serif;
+  vertical-align: middle;
+  margin-left: 2vw;
+  /* margin-bottom: 0.75rem; */
+}
+#profile-page .left .info .header .major {
+  font-size: 2.5vh;
+  height: 6.25vh;;
+  margin-left: 3vw;
+  margin-top: 2.75vh;
+}
+#profile-page .left .info .header .buttons {
+  display: flex;
+  flex-direction: row;
+  margin-left: 2vw;
 }
 #profile-page .left .info .header .say-hi {
   margin: 0 1rem 0 0;
+  height: 4.5vh;
 }
 #profile-page .left .info .header .like {
-  float: left;
-  font-size: 0.75rem;
+  height: 4.5vh;
   font-family: "Roboto", sans-serif;
-  margin-right: 1rem;
+  /* margin-right: 5vw; */
+}
+#profile-page .left .info .header .like-button {
+  padding: 1.15vh 1vw 1.15vh 1.5vw;
+  margin-right: 0.75vw;
 }
 #profile-page .left .info .header .inner-button {
   color: white;
@@ -169,6 +179,35 @@
 }
 
 @media only screen and (max-width: 768px) {
+  #profile-page .left .header .avatar {
+    margin-left: 4vw !important;
+    margin-right: 4vw !important;
+  }
+  #profile-page .left .header .basic-info {
+    margin: 0 !important;
+    margin-bottom: 3vh !important;
+    justify-content: center;
+    align-items: center;
+    height: 10vh !important;
+  }
+  #profile-page .left .header .buttons {
+    justify-content: center;
+    align-items: flex-start;
+    height: 10vh !important;
+  }
+  #profile-page .left .header .say-hi {
+    width: 30vw !important;
+    /* height: 6vh !important; */
+  }
+  #profile-page .left .header .like-button {
+    /* height: 6vh !important; */
+  }
+  #profile-page .left .header .heart {
+    margin-left: 1vw;
+  }
+  #profile-page .left .header .major {
+    margin: 0 !important;
+  }
   #profile-page .right .similar-title {
     margin-top: 15vh;
   }
@@ -210,5 +249,25 @@
     margin: 0.3rem 0 0.5rem 0;
     width: 6rem;
     min-height: 2rem;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  #profile-page .left .header .buttons {
+    display: flex;
+    flex-direction: column !important;
+    height: auto !important;
+  }
+  #profile-page .left .say-hi {
+    margin-bottom: 1.5vh !important;
+    height: 4.5vh !important;
+  }
+  #profile-page .left .info .header .like {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  #profile-page .text-info {
+    height: auto; 
   }
 }
