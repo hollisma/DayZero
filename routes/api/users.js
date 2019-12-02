@@ -73,7 +73,7 @@ router.post(
         "/verification?token=" +
         user.verificationToken;
       const message =
-        "Please click the link below and verify your account\n" + url;
+        "Please click the link below and verify your account\n\n" + url;
       const mail = new DayZeroGmail();
       mail.send(user.email, "Account Verification", message);
 

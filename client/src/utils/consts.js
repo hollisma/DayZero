@@ -23,6 +23,7 @@ export const CATEGORIES = [
   "Ambitious",
   "Animal lover",
   "Artist",
+  "Athlete",
   "B2B enthusiast",
   "Biological sciences nerd",
   "Biotech lover",
