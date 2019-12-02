@@ -77,7 +77,7 @@ export const createProfile = (profileData, edit = false) => async dispatch => {
 
     // If creating profile for first time, redirect to dashboard
     if (!edit) {
-      window.location.href = "/dashboard";
+      window.location.href = "/dashboard/#";
     }
     let msg = edit ? "Profile Updated" : "Profile Created";
 
@@ -241,7 +241,7 @@ export const getSearchProfiles = categories => async dispatch => {
           hasAllCats = false;
         }
       });
-      if (profile.user.user_type === "ADMIN") {
+      if (profile && profile.user && profile.user.user_type === "ADMIN") {
         return false;
       }
       return hasAllCats;
@@ -256,7 +256,11 @@ export const getSearchProfiles = categories => async dispatch => {
 
     return arr;
   } catch (err) {
-    MySwal.fire({ title: err.response.statusText, type: "error" });
+    if (err.response && err.response.statusText) {
+      MySwal.fire({ title: err.response.statusText, type: "error" });
+    } else {
+      console.log(err);
+    }
   }
 };
 

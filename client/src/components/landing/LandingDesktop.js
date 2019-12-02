@@ -69,7 +69,7 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
             Discover Princetonians who share your passions.
           </div>
           <div className="small-text">
-            Day Zero is the only social network for meeting like-minded people
+            Day Zero is the only platform for meeting like-minded people
             offline.
           </div>
           <a href="/#footer-desktop" className="sign-up-button">

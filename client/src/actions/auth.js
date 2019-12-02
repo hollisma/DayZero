@@ -139,7 +139,7 @@ export const glogin = response => async dispatch => {
         token
       }
     });
-    window.location.href = "/dashboard";
+    window.location.href = "/dashboard/#";
   } catch (err) {
     if (err && err.response && err.response.data) {
       const errors = err.response.data.errors;
@@ -187,7 +187,7 @@ export const fblogin = response => async dispatch => {
         token
       }
     });
-    window.location.href = "/dashboard";
+    window.location.href = "/dashboard/#";
   } catch (err) {
     const errors = err.response.data.errors;
 
