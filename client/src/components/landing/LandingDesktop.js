@@ -68,7 +68,10 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
           <div className="big-text">
             Discover Princetonians who share your passions.
           </div>
-          <div className="small-text">Signing up takes thirty seconds.</div>
+          <div className="small-text">
+            Day Zero is the only social network for meeting like-minded people
+            offline.
+          </div>
           <a href="/#footer-desktop" className="sign-up-button">
             Register
           </a>
@@ -169,6 +172,7 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
         </div>
       </div>
       <div id="footer-desktop">
+        <div className="thirty">Only thirty seconds to register!</div>
         <form className="ui form login-stuff" onSubmit={e => onSubmit(e)}>
           <div className="login-info">
             <div className="field">
@@ -202,16 +206,16 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
           >
             Sign up
           </a> */}
-        <div className="questions">
-          Got questions or feedback? Email us{" "}
-          <a
-            href="mailto:founders.dayzero@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <u>here</u>
-          </a>
-        </div>
+      </div>
+      <div className="questions">
+        Got questions or feedback? Email us{" "}
+        <a
+          href="mailto:founders.dayzero@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <u>here</u>
+        </a>
       </div>
     </div>
   );

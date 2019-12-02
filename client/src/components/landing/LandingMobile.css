@@ -1,6 +1,7 @@
 #landing-mobile {
   display: flex;
   flex-direction: column;
+  background: #f5f5f5;
 }
 
 #landing-mobile .top {
@@ -20,13 +21,14 @@
   font-weight: bold;
   /* font-size: 3.5rem; */
   font-size: 7vh;
-  margin: 5vh 2vh 3vh 2vh;
+  margin: 5vh 2vw 3vh 1vw;
   line-height: 8.5vh;
 }
 
 #landing-mobile .top .small-text {
   font-size: 3vh;
   font-weight: 700;
+  margin-left: 1vw;
   margin-bottom: 8vh;
 }
 
@@ -34,12 +36,14 @@
   border-radius: 10px;
   box-shadow: 0px 5px 5px #00000055;
   padding-top: 1vh;
+  padding-bottom: 1vh;
   height: 6.5vh;
   width: 30vw;
   font-size: 3vh;
   text-align: center;
   text-decoration: none;
-  font-weight: bold;
+  /* font-weight: bold;  */
+  font-family: "Alatsi";
   color: #ffffff;
   background-color: #38d8ff;
   background-image: -webkit-gradient(
@@ -68,7 +72,7 @@
 
 #landing-mobile .middle .title {
   font-family: "Alatsi";
-  font-size: 4vh;
+  font-size: 5vh;
   color: #128ae6;
   font-weight: 700;
   margin-bottom: 5vh;
@@ -76,14 +80,14 @@
 
 #landing-mobile .middle .text {
   margin-bottom: 3.25vh;
-  font-size: 2.5vh;
+  font-size: 3vh;
   font-family: "Roboto";
 }
 #landing-mobile .middle .card-profile {
   background-color: white;
   border-radius: 20px;
   box-shadow: 10px 7px 10px #00000029;
-  margin: 5vh 0 5vh 0;
+  margin: 8vh 0 5vh 0;
   padding-bottom: 2.5vh;
 }
 #landing-mobile .middle .card-profile .card-pic {
@@ -97,7 +101,8 @@
   margin: 0;
 }
 #landing-mobile .middle .card-profile .name {
-  font-size: 4vh;
+  font-family: "Alatsi";
+  font-size: 5vh;
   text-align: center;
   font-weight: 700;
   color: #128ae6;
@@ -115,7 +120,8 @@
   background-color: #f5f5f5;
 }
 #landing-mobile .bottom .transition {
-  font-size: 5.25vh;
+  font-family: "Alatsi";
+  font-size: 5vh;
   font-weight: 700;
   line-height: 7vh;
   color: #128ae6;
@@ -153,16 +159,30 @@
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  font-size: 2.5vh;
+  font-size: 3vh;
   font-weight: bold;
 }
 #landing-mobile #footer-mobile {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  padding: 0 10vw;
-  background-color: #f5f5f5;
+  width: 80vw;
+  /* height: 61vh; */
+  height: auto;
+  padding: 5vh 10vw;
+  /* background-color: #f5f5f5; */
+  background: white;
+  margin: 0 10vw 10vh;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #00000022;
+  background-color: white;
+}
+#landing-mobile #footer-mobile .thirty {
+  font-size: 4vh;
+  font-weight: bold;
+  padding-bottom: 4vh;
+  font-family: "Alatsi";
 }
 #landing-mobile #footer-mobile .login-stuff {
   width: 100%;
@@ -182,7 +202,8 @@
   height: 8vh;
   text-decoration: none;
   font-size: 3.25vh;
-  font-weight: bold;
+  font-family: "Alatsi";
+  /* font-weight: bold; */
   color: #ffffff;
   background-color: #38d8ff;
   background-image: -webkit-gradient(
@@ -200,14 +221,15 @@
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#38d8ff, endColorstr=#036FFC);
 }
 #landing-mobile #footer-mobile .already {
-  margin-bottom: 10vh;
-  font-size: 2vh;
+  /* margin-bottom: 10vh; */
+  font-size: 2.25vh;
 }
-#landing-mobile #footer-mobile .questions {
+#landing-mobile .questions {
+  background: #f5f5f5;
   text-align: center;
   font-size: 2.75vh;
   font-weight: 300;
-  margin-bottom: 5vh;
+  padding: 0 15vw 4vh;
 }
 
 .colorful {
