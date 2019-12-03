@@ -81,9 +81,10 @@
   /* margin-right: 5vw; */
 }
 #profile-page .left .info .header .like-button {
-  padding: 1.15vh 1vw 1.15vh 1.5vw;
+  padding: 1.45vh 1vw 1.45vh 1.5vw;
   margin-right: 0.75vw;
   height: 40px;
+  align-items: center;
 }
 #profile-page .left .info .header .inner-button {
   color: white;
