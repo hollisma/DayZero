@@ -162,7 +162,7 @@ const CreateProfile = ({
       <form className="ui form equal width grid" onSubmit={e => onSubmit(e)}>
         <div className="row">
           <div className="column">
-            <p>Name*</p>
+            <p>Full Name*</p>
             <div className="field">
               <input
                 type="text"
