@@ -125,6 +125,8 @@
   position: relative;
   padding-top: 10vh;
   color: black;
+  font-family: "Alatsi";
+  font-weight: 100;
 }
 
 @media only screen and (max-width: 1225px) {

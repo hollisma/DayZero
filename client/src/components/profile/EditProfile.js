@@ -160,8 +160,8 @@ const EditProfile = ({
     <div id="edit-profile" className="ui container">
       <h1 className="edit-profile-header">Edit Your Profile</h1>
       <p className="lead my-up-1">
-        <i className="fas fa-user" />
-        What would you like people to know about you?
+        <i className="fas fa-user" /> What would you like people to know about
+        you?
       </p>
       <small></small>
       <form className="ui form equal width grid" onSubmit={e => onSubmit(e)}>

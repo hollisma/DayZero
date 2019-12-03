@@ -1,5 +1,11 @@
 .edit-profile-header {
   padding-top: 10vh !important;
+  font-family: "Alatsi" !important;
+  font-weight: 100;
+}
+#settings .lead {
+  font-family: "Alatsi";
+  font-size: 1.35rem !important;
 }
 
 /* For mobile */

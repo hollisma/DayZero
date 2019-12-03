@@ -1,12 +1,12 @@
 import React from "react";
 
+import "./Landing.css";
+
 const Section2 = () => {
   return (
     <div id="howitworks">
       <div className="faq">
-        <p className="faq-title">
-          <b>How automatic meal matches work</b>
-        </p>
+        <p className="faq-title">How automatic meal matches work</p>
         <p className="faq-body">
           In addition to manually searching for users on the Day Zero network
           with our 'search' feature, we can also match you for a meal
@@ -22,9 +22,7 @@ const Section2 = () => {
         </p>
       </div>
       <div className="faq">
-        <p className="faq-title">
-          <b>What are likes?</b>
-        </p>
+        <p className="faq-title">What are likes?</p>
         <p className="faq-body">
           If you go to someone's profile, you will see a red 'Like' button. Its
           purpose is for you to tell us what kind of person you enjoy meeting so
@@ -36,9 +34,7 @@ const Section2 = () => {
         </p>
       </div>
       <div className="faq">
-        <p className="faq-title">
-          <b>How does search work?</b>
-        </p>
+        <p className="faq-title">How does search work?</p>
         <p className="faq-body">
           Search's purpose is to help you efficiently find people that have any
           combination of characteristics. You can filter based on your heart's
