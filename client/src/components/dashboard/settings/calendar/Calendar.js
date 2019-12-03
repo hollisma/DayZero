@@ -23,18 +23,30 @@ const Calendar = ({
   if (loading) getCurrentSchedule();
 
   const onSubmit = () => {
-    if (user.user_type !== PROFILED && user.user_type !== SCHEDULED) {
+    // ---------------------------------------------------------------------------------
+    // DISABLE FEEDBACK
+    // ---------------------------------------------------------------------------------
+    // if (user.user_type !== PROFILED && user.user_type !== SCHEDULED) {
+    if (
+      user.user_type !== PROFILED &&
+      user.user_type !== SCHEDULED &&
+      user.user_type !== MET
+    ) {
       if (user.user_type === GROUPED) {
         MySwal.fire({
           title: "Please meet with your group first",
           type: "info"
         });
-      } else if (user.user_type === MET) {
-        MySwal.fire({
-          title: "Please fill out the feedback form",
-          type: "info"
-        });
       }
+      // ---------------------------------------------------------------------------------
+      // DISABLE FEEDBACK
+      // ---------------------------------------------------------------------------------
+      // } else if (user.user_type === MET) {
+      //   MySwal.fire({
+      //     title: "Please fill out the feedback form",
+      //     type: "info"
+      //   });
+      // }
     } else {
       createSchedule({ times: schedule });
     }
@@ -83,7 +95,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { createSchedule, getCurrentSchedule }
-)(Calendar);
+export default connect(mapStateToProps, { createSchedule, getCurrentSchedule })(
+  Calendar
+);
