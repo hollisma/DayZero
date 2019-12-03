@@ -196,7 +196,8 @@ export const getRandomProfiles = (num, id) => async dispatch => {
         prof.user &&
         prof.user._id &&
         prof.user._id !== id &&
-        prof.user.user_type !== "ADMIN"
+        prof.user.user_type !== "ADMIN" &&
+        prof.user.name
       );
     };
     for (var i = 0; i < numProfiles; i++) {
@@ -262,7 +263,8 @@ export const getSearchProfiles = categories => async dispatch => {
       if (
         hasCategories(categories, resProfiles[i]) &&
         resProfiles[i].user &&
-        resProfiles[i].user._id
+        resProfiles[i].user._id &&
+        resProfiles[i].user.name
       ) {
         arr.push(resProfiles[i]);
       }
