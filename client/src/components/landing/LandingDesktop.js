@@ -197,7 +197,10 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
           <input type="submit" className="sign-up-button" value="Register" />
         </form>
         <p className="already">
-          Already have an account? <Link to="/login">Sign In</Link>
+          Already have an account?{" "}
+          <Link to="/login" className="alatsi">
+            Sign In
+          </Link>
         </p>
         {/* <a
             id="sign-up-button"
@@ -214,7 +217,7 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <u>here</u>
+          <u className="alatsi">here</u>
         </a>
       </div>
     </div>

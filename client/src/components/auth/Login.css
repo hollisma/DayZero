@@ -1,0 +1,94 @@
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vh;
+  /* padding: 5vh 0; */
+  height: 100vh;
+  background: white;
+  justify-content: center;
+  padding-bottom: 15vh;
+  text-align: center;
+  border-radius: 10px;
+}
+#login .thirty {
+  font-size: 5vh;
+  font-weight: bold;
+  padding-bottom: 3vh;
+  font-family: "Alatsi";
+}
+#login .login-stuff {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60vw;
+  align-items: center;
+}
+#login .field {
+  width: 27vw;
+  font-size: 2.5vh;
+  margin: auto 2vw 0;
+}
+#login .login-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* width: 80vw; */
+}
+#login .sign-up-button {
+  margin-top: 4vh;
+  margin-bottom: 2vh;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px #00000055;
+  min-width: 125px;
+  width: 10vw;
+  height: 8vh;
+  text-decoration: none;
+  font-size: 3vh;
+  font-family: "Alatsi";
+  color: #ffffff;
+  cursor: pointer;
+  background-color: #38d8ff;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#38d8ff),
+    to(#036ffc)
+  );
+  background-image: -webkit-linear-gradient(to right, #38d8ff, #036ffc);
+  background-image: -moz-linear-gradient(to right, #38d8ff, #036ffc);
+  background-image: -ms-linear-gradient(to right, #38d8ff, #036ffc);
+  background-image: -o-linear-gradient(to right, #38d8ff, #036ffc);
+  background-image: linear-gradient(to right, #38d8ff, #036ffc);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#38d8ff, endColorstr=#036FFC);
+}
+#login .sign-up-button:hover,
+#login .sign-up-button:focus {
+  box-shadow: 0px 1px 1px #00000055;
+  transform: translateY(4px);
+}
+#login .already {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 1vh;
+  font-family: "Alatsi";
+}
+
+.alatsi {
+  font-family: "Alatsi";
+}
+
+@media only screen and (max-width: 768px) {
+  .login-info {
+    flex-direction: column !important;
+  }
+  .field {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  .field:first-child {
+    margin: 0 0 3vh 0 !important;
+  }
+}

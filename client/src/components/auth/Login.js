@@ -5,10 +5,8 @@ import { login } from "../../actions/auth";
 import PropTypes from "prop-types";
 import { getDefaultRoute } from "../routing/default_types";
 import { GUEST } from "../../utils/consts";
-import ExampleProfile from "../profile/ExampleProfile";
-// import GFLogin from "./GFLogins";
 
-import "./auth.css";
+import "./Login.css";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -48,52 +46,44 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
   }
 
   return (
-    <div id="section1" className="ui bigger-top-container">
-      <div className="upper-container">
-        <h3 id="tagline">
-          <span className="underline">Thirty seconds</span> to register.
-        </h3>
-        <h3 id="tagline">
-          Meet Princeton students who
-          <span className="underline"> share your passions.</span>
-        </h3>
-      </div>
-      <div className="bottom-container">
-        <div className="left-container">
-          <ExampleProfile firstName="carina" />
-          <ExampleProfile firstName="dan" />
+    <div id="login">
+      <div className="thirty">Meet your Day Zeros!</div>
+      <form className="ui form login-stuff" onSubmit={e => onSubmit(e)}>
+        <div className="login-info">
+          <div className="field">
+            <input
+              type="email"
+              placeholder="Princeton Email Address"
+              name="email"
+              value={email}
+              onChange={e => onChange(e)}
+            />
+          </div>
+          <div className="field">
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={password}
+              onChange={e => onChange(e)}
+            />
+          </div>
         </div>
-        <div className="right-container">
-          <p className="lead my-2">
-            <i className="fas fa-user" /> Sign Into Your Account
-          </p>
-          {/* <GFLogin /> */}
-          <form className="ui form" onSubmit={e => onSubmit(e)}>
-            <div className="field">
-              <input
-                type="email"
-                placeholder="Email Address"
-                name="email"
-                value={email}
-                onChange={e => onChange(e)}
-              />
-            </div>
-            <div className="field">
-              <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={password}
-                onChange={e => onChange(e)}
-              />
-            </div>
-            <input type="submit" className="ui button my-1" value="Login" />
-          </form>
-          <p className="my-1">
-            Don't have an account? <Link to="/register">Sign Up</Link>
-          </p>
-        </div>
-      </div>
+        <input type="submit" className="sign-up-button" value="Login" />
+      </form>
+      <p className="already">
+        Don't have an account?{" "}
+        <Link to="/#footer-desktop" className="alatsi">
+          Register
+        </Link>
+      </p>
+      {/* <a
+            id="sign-up-button"
+            href="/sign-up-landing"
+            className="sign-up-button"
+          >
+            Sign up
+          </a> */}
     </div>
   );
 };

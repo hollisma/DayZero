@@ -332,11 +332,13 @@
   font-size: 1.2rem;
   margin-top: 1rem;
   margin-bottom: 1vh;
+  font-family: "Alatsi";
 }
 #landing-desktop .questions {
   margin-top: 10vh;
   font-size: 2.5vh;
   font-weight: 1000;
+  font-family: "Alatsi";
 }
 
 .colorful {
@@ -371,6 +373,9 @@
 }
 .alt-text {
   color: white !important;
+}
+.alatsi {
+  font-family: "Alatsi";
 }
 
 @media only screen and (max-width: 1200) {

@@ -27,16 +27,16 @@
 
 #landing-mobile .top .small-text {
   font-size: 3vh;
-  font-weight: 700;
   margin-left: 1vw;
   margin-bottom: 8vh;
+  font-family: "Alatsi";
 }
 
 #landing-mobile .top .sign-up-button {
   border-radius: 10px;
   box-shadow: 0px 5px 5px #00000055;
   padding-top: 1vh;
-  padding-bottom: 1vh;
+  padding-bottom: 1.5vh;
   height: 6.5vh;
   width: 30vw;
   font-size: 3vh;
@@ -79,7 +79,7 @@
 }
 
 #landing-mobile .middle .text {
-  margin-bottom: 3.25vh;
+  margin-bottom: 4vh;
   font-size: 3vh;
   font-family: "Roboto";
 }
@@ -222,9 +222,11 @@
 }
 #landing-mobile #footer-mobile .already {
   /* margin-bottom: 10vh; */
+  font-family: "Alatsi";
   font-size: 2.25vh;
 }
 #landing-mobile .questions {
+  font-family: "Alatsi";
   background: #f5f5f5;
   text-align: center;
   font-size: 2.75vh;
@@ -257,4 +259,7 @@
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
+}
+.alatsi {
+  font-family: "Alatsi";
 }
