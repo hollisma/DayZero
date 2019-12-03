@@ -15,14 +15,15 @@ const Verification = ({
 }) => {
   let verified = !user_loading && user && user.verified;
   let { token } = queryString.parse(location.search);
-  console.log("token", token, user, verified, verificationFailed);
 
-  if (user && !verified && !verificationFailed) {
-    console.log("ajsdpfid");
-    verification(token, user._id);
+  // if (user && !verified && !verificationFailed) {
+  if (!verified && !verificationFailed) {
+    // verification(token, user._id);
+    verification(token);
   }
 
-  if (!user_loading && verified) {
+  // if (!user_loading && verified) {
+  if (verified) {
     MySwal.fire({
       title: "Your account is verified",
       type: "success"
@@ -30,7 +31,8 @@ const Verification = ({
       window.location.href = "/dashboard/#";
     });
   }
-  if (!user_loading && verificationFailed) {
+  // if (!user_loading && verificationFailed) {
+  if (verificationFailed) {
     MySwal.fire({
       title: "Verification failed",
       type: "error"
