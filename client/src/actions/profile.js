@@ -189,13 +189,19 @@ export const getRandomProfiles = (num, id) => async dispatch => {
     var arr = [];
     // minus 2 for admin and current user
     var numProfiles = Math.min(resProfiles.length - 2, num);
+    const validProfile = prof => {
+      return (
+        !arr.includes(rand) &&
+        prof &&
+        prof.user &&
+        prof.user._id &&
+        prof.user._id !== id &&
+        prof.user.user_type !== "ADMIN"
+      );
+    };
     for (var i = 0; i < numProfiles; i++) {
       var rand = Math.floor(Math.random() * resProfiles.length);
-      while (
-        arr.includes(rand) ||
-        resProfiles[rand].user.user_type === "ADMIN" ||
-        resProfiles[rand].user._id === id
-      ) {
+      while (!validProfile(resProfiles[rand])) {
         rand = Math.floor(Math.random() * resProfiles.length);
       }
       arr.push(rand);
@@ -207,7 +213,11 @@ export const getRandomProfiles = (num, id) => async dispatch => {
 
     return arr;
   } catch (err) {
-    MySwal.fire({ title: err.response.statusText, type: "error" });
+    if (err.response && err.response.statusText) {
+      MySwal.fire({ title: err.response.statusText, type: "error" });
+    } else {
+      console.log(err);
+    }
   }
 };
 
@@ -249,7 +259,11 @@ export const getSearchProfiles = categories => async dispatch => {
 
     var arr = [];
     for (var i = 0; i < resProfiles.length; i++) {
-      if (hasCategories(categories, resProfiles[i])) {
+      if (
+        hasCategories(categories, resProfiles[i]) &&
+        resProfiles[i].user &&
+        resProfiles[i].user._id
+      ) {
         arr.push(resProfiles[i]);
       }
     }

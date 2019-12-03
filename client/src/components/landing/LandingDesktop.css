@@ -118,12 +118,13 @@
   margin: 5vh 0 0 0;
   /* padding-bottom: 25px; */
   width: 30%;
+  height:100%
 }
 #landing-desktop #middle .people-cards .card-profile .bottom-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 27vh;
+  justify-content: space-between !important;
+  height: auto;
 }
 #landing-desktop #middle .people-cards .card-profile .card-pic {
   border-radius: 20px;
@@ -145,7 +146,7 @@
   margin-bottom: 2vh;
   font-family: "Alatsi";
 }
-@media only screen and (max-width: 1600px) {
+/* @media only screen and (max-width: 1600px) {
   #landing-desktop #middle .people-cards .card-profile .bottom-card {
     height: 33vh;
   }
@@ -166,9 +167,14 @@
     height: 35vh;
   }
   #landing-desktop #middle .people-cards .card-profile .text {
-    font-size: 2vh;
+    font-size: 2.25vh;
   }
 }
+@media only screen and (max-width: 905px) {
+  #landing-desktop #middle .people-cards .card-profile .text {
+    font-size: 2vh;
+  }
+} */
 
 #landing-desktop #possibilities {
   margin-bottom: 12vh;

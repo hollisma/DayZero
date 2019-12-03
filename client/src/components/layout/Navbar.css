@@ -81,7 +81,7 @@
     min-height: 60px;
     max-height: 60px;
     width: 80%;
-    margin-top: 0.5rem;
+    /* margin-top: 0.5rem; */
   }
   .scrolled .img-logo {
     min-height: 55px;
@@ -109,6 +109,6 @@
 
   .navbar li {
     color: #444;
-    font-size: 110%;
+    font-size: 2vh;
   }
 }
