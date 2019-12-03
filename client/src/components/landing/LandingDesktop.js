@@ -72,7 +72,7 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
             Day Zero is the only platform for meeting like-minded people
             offline.
           </div>
-          <a href="/#footer-desktop" className="sign-up-button">
+          <a href="/#register" className="sign-up-button">
             Register
           </a>
         </div>
@@ -171,6 +171,7 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
           />
         </div>
       </div>
+      <div id="register"></div>
       <div id="footer-desktop">
         <div className="thirty">Only thirty seconds to register!</div>
         <form className="ui form login-stuff" onSubmit={e => onSubmit(e)}>
