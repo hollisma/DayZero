@@ -384,9 +384,12 @@
   font-family: "Alatsi";
 }
 
-@media only screen and (max-width: 1200) {
+@media only screen and (max-width: 1200px) {
   #landing-desktop #middle .how-we-help .text {
     font-size: 2.75vh !important;
+  }
+  #landing-desktop #bottom .card {
+    font-size: 22px;
   }
 }
 @media only screen and (max-width: 1075px) {
@@ -394,7 +397,7 @@
     padding: 1rem 2rem;
   }
   #landing-desktop #bottom .card {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 @media only screen and (max-width: 950px) {
