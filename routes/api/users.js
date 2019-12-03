@@ -54,8 +54,12 @@ router.post(
         email,
         avatar: "https://i.stack.imgur.com/dr5qp.jpg",
         password,
-        user_type: REGISTERED
+        user_type: REGISTERED,
         // vibe: {}
+        // ---------------------------------------------------------------------------------
+        // DISABLE VERIFICATION
+        // ---------------------------------------------------------------------------------
+        verified: true
       });
 
       // Encrypt password
@@ -67,15 +71,18 @@ router.post(
       // Save to database
       await user.save();
 
+      // ---------------------------------------------------------------------------------
+      // DISABLE VERIFICATION
+      // ---------------------------------------------------------------------------------
       //There should be a better way to generate the url
-      const url =
-        process.env.CLIENT_ADDRESS +
-        "/verification?token=" +
-        user.verificationToken;
-      const message =
-        "Please click the link below and verify your account\n\n" + url;
-      const mail = new DayZeroGmail();
-      mail.send(user.email, "Account Verification", message);
+      // const url =
+      //   process.env.CLIENT_ADDRESS +
+      //   "/verification?token=" +
+      //   user.verificationToken;
+      // const message =
+      //   "Please click the link below and verify your account\n\n" + url;
+      // const mail = new DayZeroGmail();
+      // mail.send(user.email, "Account Verification", message);
 
       // Return jwt
       const payload = {
