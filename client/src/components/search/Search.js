@@ -63,14 +63,9 @@ const Search = ({ auth: { user }, getSearchProfiles }) => {
                       </div>
                     ))}
                 </div>
-                {/* <div className="likes">
-                  <p>
-                    Number of users who like{" "}
-                    {profile && profile.user && profile.user.name.split(" ")[0]}
-                    :
-                  </p>
-                  {profile.liked_users.length}
-                </div> */}
+                <div className="likes">
+                  {profile.liked_users.length} <i class="red heart icon"></i>
+                </div>
               </div>
             </div>
           </a>
