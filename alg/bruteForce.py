@@ -51,7 +51,6 @@ response = requests.get(url, headers=headers)
 profiles = json.loads(response.text)
 
 for p in profiles:
-  print(p)
   usersDict[p['user']['id']]['profile'] = p
 
 # url = host_name + ':5000/api/vibe'
@@ -128,7 +127,9 @@ def toDatetime(t):
 # masterSchedule holds times and users with the time slot
 masterSchedule = dict()
 for id in users:
-  times = usersDict[id]['schedule']['times']
+  times = []
+  if 'schedule' in usersDict[id].keys():
+    times = usersDict[id]['schedule']['times']
   for t in times:
     if t not in masterSchedule.keys():
       masterSchedule[t] = []
