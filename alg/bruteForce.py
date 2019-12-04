@@ -6,7 +6,7 @@ from matching_notifier import MatchingNotifier
 from dotenv import load_dotenv
 import os
 
-k_matching_threshold = 3
+k_matching_threshold = 2
 host_name = 'http://172.31.43.129'
 # host_name = 'http://localhost'
 
