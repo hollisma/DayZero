@@ -140,7 +140,7 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
                 club, but through DZ, I've met fantastic people I prob would've
                 never ran into otherwise."
               </div>
-              <div className="name">Marti '21</div>
+              <div className="name">Marti '20</div>
             </div>
           </div>
         </div>
