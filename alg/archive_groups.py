@@ -13,7 +13,7 @@ now = datetime.now()
 # Authentication
 load_dotenv()
 url = host_name + ':5000/api/auth'
-body = { 'email': os.getenv('ADMIN_EMAIL'), os.getenv('ADMIN_PASSWORD') }
+body = { 'email': os.getenv('ADMIN_EMAIL'), 'password': os.getenv('ADMIN_PASSWORD') }
 response = requests.post(url, json=body).json()
 token = response['token']
 headers = { 'x-auth-token': token }

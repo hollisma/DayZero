@@ -2,22 +2,29 @@
 
 from datetime import datetime, timedelta
 import requests
+import json
 from dotenv import load_dotenv
 import os
+
+host_name = 'http://172.31.43.129'
+# host_name = 'http://localhost'
 
 now = datetime.now()
 
 # Authentication
 load_dotenv()
-url = 'http://172.31.43.129:5000/api/auth'
+url = host_name + ':5000/api/auth'
 body = { 'email': os.getenv('ADMIN_EMAIL'), 'password': os.getenv('ADMIN_PASSWORD') }
 response = requests.post(url, json=body).json()
 token = response['token']
+
 headers = { 'x-auth-token': token }
 
 # Get all users' schedules
-url = 'http://172.31.43.129:5000/api/schedule/all/admin'
-schedules = requests.get(url, headers=headers).json()
+url = host_name + ':5000/api/schedule/admin'
+response = requests.get(url, headers=headers)
+print(response.text)
+schedules = json.loads(response.text)
 
 def toDatetime(t):
     nums = t.split(',')[0].split('-')
@@ -25,9 +32,10 @@ def toDatetime(t):
     return dt
 
 def updateSchedule(times, user):
-    url = 'http://172.31.43.129:5000/api/schedule/admin'
+    url = host_name + ':5000/api/schedule/admin'
     body = { 'times': times, 'user': user }
-    response = requests.post(url, json=body, headers=headers).json()
+    response = requests.post(url, headers=headers)
+    response = json.loads(response.text)
     print(response)
 
 for schedule in schedules:
