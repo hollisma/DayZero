@@ -109,9 +109,8 @@ const Group = ({
               </Link>
             </button> */}
             <h3>
-              Hope your meeting went well! If you have any questions or
-              feedback, please contact us at <u>founders.dayzero@gmail.com</u>{" "}
-              :)
+              Hope your meeting went well! If you want to meet another person,
+              fill out the calendar and we'll search for your Day Zero :)
             </h3>
           </Fragment>
         ) : (
