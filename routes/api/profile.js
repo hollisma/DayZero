@@ -172,11 +172,10 @@ router.get("/user/:user_id", async (req, res) => {
 });
 
 /**
- * @route   DELETE api/profile/
+ * @route   DELETE api/profile
  * @desc    Delete profile and user
  * @access  Private
  */
-/** @TODO use DELETED user_type to keep info stored */
 router.delete("/", auth, async (req, res) => {
   try {
     // Remove profile
@@ -193,15 +192,25 @@ router.delete("/", auth, async (req, res) => {
   }
 });
 
+/**
+ * @route   POST api/like
+ * @desc    Like profile
+ * @access  Private
+ */
 router.post("/like", auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({ user: req.body.user_id }).populate(
       "user"
     );
+
     let liked_users = profile.liked_users ? profile.liked_users : [];
-    if (liked_users.indexOf(req.user.id) == -1) liked_users.push(req.user.id);
+    if (liked_users.indexOf(req.user.id) == -1) {
+      liked_users.push(req.user.id);
+    }
     profile.liked_users = liked_users;
+
     await profile.save();
+
     res.json(profile);
   } catch (err) {
     console.error(err.message);
@@ -209,14 +218,22 @@ router.post("/like", auth, async (req, res) => {
   }
 });
 
+/**
+ * @route   POST api/unlike
+ * @desc    Unlike profile
+ * @access  Private
+ */
 router.post("/unlike", auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({ user: req.body.user_id }).populate(
       "user"
     );
+
     let liked_users = profile.liked_users ? profile.liked_users : [];
     profile.liked_users = liked_users.filter(id => id != req.user.id);
+
     await profile.save();
+
     res.json(profile);
   } catch (err) {
     console.error(err.message);

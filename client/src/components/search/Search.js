@@ -106,13 +106,7 @@ const Search = ({ auth: { user }, getSearchProfiles }) => {
   return (
     <div id="search-page">
       <div className="left">
-        <div className="search-categories">
-          {categoryButtons}
-          {/* <form onSubmit={e => handleSearchSubmit(e)}>
-          <input type="submit" style={{ display: "none" }} />
-          <input type="text" onChange={e => handleSearchChange(e)} />
-        </form> */}
-        </div>
+        <div className="search-categories">{categoryButtons}</div>
       </div>
       <div className="right">
         <div className="results">{SearchProfileComponents}</div>

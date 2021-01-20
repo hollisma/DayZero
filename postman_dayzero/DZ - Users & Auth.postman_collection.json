@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "0348bd06-a71c-47b4-99a4-a42f3aca042d",
+		"name": "DZ - Users & Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "JSON content\n",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"q\",\n\t\"email\": \"q@princeton.edu\",\n\t\"password\": \"qqqqqq\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "JSON content\n",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"h@princeton.edu\",\n\t\"password\": \"hhhhhh\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/auth",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get authenticated user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQwZTQwNTY2ZWZhMmIxNzAwNTkwZjgxIn0sImlhdCI6MTU2MTIxNTA2MiwiZXhwIjoxNTY0ODE1MDYyfQ.Pyl9OVEGvGC-Mepx5fWi0KUtFEvbVCvRy-cmm46VgMQ",
+						"description": "DZ - Hollis' Token\n",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/api/auth",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Google login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "JSON content\n",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"access_token\": \"ya29.GlxyB026-0y8Ylf0dTgm17KXQfbMy3jsH9GEWS7N2gdqq7y8aKdw_b8rQxcjFc5eBZXJF1JPPKslOUhduhs4Mu-rnIDXnXp-CE9CNVEeOXiYG1Fph6rX-ST4jpm3vw\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/auth/google",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"google"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Facebook login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "JSON content\n",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"access_token\": \"EAAiZCRY6lDxABAAKVECwLQAuQZCwuu5P7PTPjH0HoL2ngPZBylIpFsB2CXrtttuYiioXyexzgPziiZBfREWhYDml4HaLZC9aTK7GzpJRGxbdgnvD2D7ZC7qkS1MeK7OfzrsXxT7vxFtwQfH7x6apUUZAQw4MsZBFqw4lUB4aXfievODwZA92ZByo3VaPX6PihNjDZA12gGV9Ez2gwZDZD\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/auth/facebook",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"facebook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user - admin",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ4NjM1MGM0MjNiMjAxNTc1OWIyYzFiIn0sImlhdCI6MTU2OTA3NjQ5OCwiZXhwIjoxNTY5NDM2NDk4fQ.m5uK_vpyxhuv5njetBoclNrT8bO-qA7jUgTt6ZiLXBQ",
+						"description": "Token",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"5d8638b96bb6a31825ec98a4\", \n\t\"phone_number\": \"12345678900\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/users/admin",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

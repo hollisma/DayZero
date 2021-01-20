@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "bae0fc4b-e840-465a-b4b1-57d3efcfb67c",
+		"name": "DZ - Feedback",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create feedback",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ0Yzg3NWJiZmU1NjMxYjkxZmQxYjVkIn0sImlhdCI6MTU2NjQ4NDI4MCwiZXhwIjoxNTY2ODQ0MjgwfQ.fhkQkBz6T5TkWeD4TrF6oD0_2tacPDoerRrgDdvkpMM",
+						"description": "Token",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"receiver_id\": \"5d5d52e843bf9955c7c6d5af\",\n\t\"rating\": 5,\n\t\"binary\": true\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/feedback",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"feedback"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

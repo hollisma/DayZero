@@ -4,7 +4,6 @@ import { Link, Redirect } from "react-router-dom";
 import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 import ExampleProfile from "../profile/ExampleProfile";
-// import GFLogin from "./GFLogins";
 
 import "./auth.css";
 
@@ -32,8 +31,7 @@ const Register = ({ register, isAuthenticated }) => {
       });
     } else if (!isSchoolEmail(email)) {
       MySwal.fire({
-        title:
-          "Please enter your school email (@princeton.edu or @stanford.edu)",
+        title: "Please enter your school email (@princeton.edu)",
         type: "error"
       });
     } else if (password.length < 6) {
@@ -123,7 +121,4 @@ const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(
-  mapStateToProps,
-  { register }
-)(Register);
+export default connect(mapStateToProps, { register })(Register);

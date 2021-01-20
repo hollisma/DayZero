@@ -77,13 +77,6 @@ const Login = ({ login, auth: { isAuthenticated, user } }) => {
           Register
         </Link>
       </p>
-      {/* <a
-            id="sign-up-button"
-            href="/sign-up-landing"
-            className="sign-up-button"
-          >
-            Sign up
-          </a> */}
     </div>
   );
 };

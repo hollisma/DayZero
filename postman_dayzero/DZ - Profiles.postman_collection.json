@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "01ec6878-701d-4fbe-a7d9-1832c7ce01d0",
+		"name": "DZ - Profiles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create or update profile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQwZTQwNTY2ZWZhMmIxNzAwNTkwZjgxIn0sImlhdCI6MTU2MTIxNTA2MiwiZXhwIjoxNTY0ODE1MDYyfQ.Pyl9OVEGvGC-Mepx5fWi0KUtFEvbVCvRy-cmm46VgMQ",
+						"description": "DZ - Hollis' Token\n",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"major\": \"math, cos\",\n\t\"bio\": \"i love catherine yu\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get current profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQwZTQwNTY2ZWZhMmIxNzAwNTkwZjgxIn0sImlhdCI6MTU2MTIxNTA2MiwiZXhwIjoxNTY0ODE1MDYyfQ.Pyl9OVEGvGC-Mepx5fWi0KUtFEvbVCvRy-cmm46VgMQ",
+						"description": "DZ - Hollis' Token\n",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/api/profile/me",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"profile",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get profile by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/profile/user/:user_id",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"profile",
+						"user",
+						":user_id"
+					],
+					"variable": [
+						{
+							"id": "8c3c88c1-3317-4b89-9995-78997fbe37bf",
+							"key": "user_id",
+							"value": "5d0e40566efa2b1700590f81",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all profiles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User and Profile",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/api/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

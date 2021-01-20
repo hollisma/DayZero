@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "b3be5d5c-ea40-4801-9722-16d93f155d78",
+		"name": "DZ - Schedule",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Schedule",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ0OWY2ZTFmN2ExZGYwZmNiZDcwOGUyIn0sImlhdCI6MTU2NTEyODQxNywiZXhwIjoxNTY4NzI4NDE3fQ.LDW-q4q-wZjXLCsoJVOMvnxoTgbWZSVUSt1n-jTvj3M",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"times\": []\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/schedule",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"schedule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Current Schedule",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ0OWY2ZTFmN2ExZGYwZmNiZDcwOGUyIn0sImlhdCI6MTU2NTEyODQxNywiZXhwIjoxNTY4NzI4NDE3fQ.LDW-q4q-wZjXLCsoJVOMvnxoTgbWZSVUSt1n-jTvj3M",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/api/schedule/me",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"schedule",
+						"me"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

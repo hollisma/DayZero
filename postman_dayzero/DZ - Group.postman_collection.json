@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "b9dcce1f-7788-4543-a0d5-5f5437582e55",
+		"name": "DZ - Group",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get current group",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ0Yzg3NWJiZmU1NjMxYjkxZmQxYjVkIn0sImlhdCI6MTU2NTcxODYzNCwiZXhwIjoxNTY2MDc4NjM0fQ.lE_5iYxOU6EZvkonPukE6ODE_OqfxvnsFXX9uvPTnBg",
+						"description": "Token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/api/groups",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create group",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ4NzBlZjE3YzJhYTQ2MjdmMGYxZjJlIn0sImlhdCI6MTU2OTQ1ODc2NCwiZXhwIjoxNTY5ODE4NzY0fQ.hAO3EZ9I4Fz-7JnR_eiyoKRRD9Ls_KL9mlVIOpobE24",
+						"description": "Token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/api/groups/user_id",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"groups",
+						"user_id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add member to group",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ1ZDUyZTg0M2JmOTk1NWM3YzZkNWFmIn0sImlhdCI6MTU2NjM5OTE4NywiZXhwIjoxNTY2NzU5MTg3fQ.iUKFN4ZiTtkf595zMojZR7w7nKvagTxr6KxY9ZifJxA",
+						"description": "Token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/api/groups/add/5d5d5a858131fd7ade476ed9",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"groups",
+						"add",
+						"5d5d5a858131fd7ade476ed9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Archive group",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ3MTI0NTFhMGFhYjA0YjM3OGU3MzRlIn0sImlhdCI6MTU2NzY5NTk4OSwiZXhwIjoxNTY4MDU1OTg5fQ.HCeR3SkMUEAw3OT3qgoNkYKBIVm_eZNcO1e-Gywsgus",
+						"description": "Token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/api/groups/admin/archive/5d5e9c10ba52e64b36fe4259",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"groups",
+						"admin",
+						"archive",
+						"5d5e9c10ba52e64b36fe4259"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove member from group",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ0Yzg3NWJiZmU1NjMxYjkxZmQxYjVkIn0sImlhdCI6MTU2NjU2NzYyNywiZXhwIjoxNTY2OTI3NjI3fQ.QJCczlaf9ThUNz2R1ofO0d8cYEyQIgkeLVljUkuieEw",
+						"description": "Token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/api/groups/remove/5d5fecff7eb7f6198a6a3a73",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"groups",
+						"remove",
+						"5d5fecff7eb7f6198a6a3a73"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin - update group",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ3MTI0NTFhMGFhYjA0YjM3OGU3MzRlIn0sImlhdCI6MTU2Nzc3OTAxOCwiZXhwIjoxNTY4MTM5MDE4fQ.O8wTZ_IaP3cYT-qGK-DIa5d1WPUZPTezKWkcFvGHXJU",
+						"description": "Token",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"members\": [\n\t\t\"5d7266880400873946410186\",\n\t\t\"5d71232ffacfec49ea186179\",\n\t\t\"5d7266500400873946410183\"\n\t]\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/api/groups/admin/5d726957bdfa0020b4e45b9e",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"groups",
+						"admin",
+						"5d726957bdfa0020b4e45b9e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all groups",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ4NzBlZjE3YzJhYTQ2MjdmMGYxZjJlIn0sImlhdCI6MTU3MDcxOTE3NywiZXhwIjoxNTcxMDc5MTc3fQ.XQdMrs-JQo007BIAAks3YGyZ9IoUC5j5XoczsSmCdlw",
+						"description": "Token",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:5000/api/groups/admin",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"groups",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
