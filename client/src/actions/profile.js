@@ -205,6 +205,7 @@ export const getRandomProfiles = (num, id) => async dispatch => {
       while (!validProfile(resProfiles[rand])) {
         rand = Math.floor(Math.random() * resProfiles.length);
       }
+      // Don't directly add user info to make it easier to check if rand has already been used
       arr.push(rand);
     }
 
