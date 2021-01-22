@@ -13,6 +13,8 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import ReactGA from "react-ga";
 
+import './EditProfile.css';
+
 const MySwal = withReactContent(Swal);
 
 ReactGA.initialize("UA-149452731-1");
@@ -30,9 +32,9 @@ const CreateProfile = ({
     // college: "",
     year: "",
     major: "",
-    // minor: "",
-    categories: []
-    // bio: "",
+    minor: "",
+    categories: [],
+    bio: "",
     // want_to_meet: "",
     // phone_number: "",
     // comm_sms: true,
@@ -61,9 +63,9 @@ const CreateProfile = ({
     // college,
     year,
     major,
-    // minor,
-    categories
-    // bio,
+    minor,
+    categories,
+    bio,
     // want_to_meet,
     // phone_number,
     // comm_sms,
@@ -108,9 +110,9 @@ const CreateProfile = ({
       // college,
       year,
       major,
-      // minor,
-      categories
-      // bio
+      minor,
+      categories,
+      bio,
       // want_to_meet
     };
 
@@ -162,38 +164,58 @@ const CreateProfile = ({
       <form className="ui form equal width grid" onSubmit={e => onSubmit(e)}>
         <div className="row">
           <div className="column">
-            <p>Full Name*</p>
-            <div className="field">
-              <input
-                type="text"
-                placeholder="Chris Eisgruber"
-                name="name"
-                value={name}
-                onChange={e => onChange(e)}
-                required
-              />
+            <div className="row">
+              <p>Full Name*</p>
+              <div className="field">
+                <input
+                  type="text"
+                  placeholder="Chris Eisgruber"
+                  name="name"
+                  value={name}
+                  onChange={e => onChange(e)}
+                  required
+                />
+              </div>
             </div>
-            <p>Class*</p>
-            <div className="field">
-              <input
-                type="text"
-                placeholder="2019"
-                name="year"
-                value={year}
-                onChange={e => onChange(e)}
-                required
-              />
-            </div>
-            <p>Major*</p>
-            <div className="field">
-              <input
-                type="text"
-                placeholder="SLA"
-                name="major"
-                value={major}
-                onChange={e => onChange(e)}
-                required
-              />
+            <div className="row triple-input">
+              <div className="column right-pad">
+                <p>Class*</p>
+                <div className="field">
+                  <input
+                    type="text"
+                    placeholder="2021"
+                    name="year"
+                    value={year}
+                    onChange={e => onChange(e)}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="column right-pad">
+                <p>Major*</p>
+                <div className="field">
+                  <input
+                    type="text"
+                    placeholder="COS"
+                    name="major"
+                    value={major}
+                    onChange={e => onChange(e)}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="column pad">
+                <p>Minor</p>
+                <div className="field">
+                  <input
+                    type="text"
+                    placeholder="ABC, XYZ"
+                    name="minor"
+                    value={minor}
+                    onChange={e => onChange(e)}
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <div className="column avataredit" style={{ display: "flex" }}>
@@ -292,49 +314,16 @@ const CreateProfile = ({
             <div className="field">{categoryButtons}</div>
           </div>
         </div>
-        {/* <div className="row">
+        <div className="row">
           <div className="column">
-            <p>
-              In 2-3 sentences, describe the type of person you want to meet
-              through Day Zero. This will be shown to your matches for them to
-              know you better.
-            </p>
+            <p>Tell us about yourself!</p>
             <div className="field">
               <textarea
                 className="big-input"
-                placeholder="I want to meet people who are deeply optimistic and passionate 
-                about their work, whether it be entrepreneurship, music, physics, 
-                volunteering, or anything else. I approach my passions with a hunger and 
-                want to be inspired by similar people who share that drive to become 
-                great. I appreciate people who are thoughtful and willing to challenge
-                their own beliefs."
-                name="want_to_meet"
-                value={want_to_meet}
-                onChange={e => onChange(e)}
-                rows="4"
-                maxLength="400"
-              />
-            </div>
-          </div>
-        </div> */}
-        {/* <div className="row">
-          <div className="column">
-            <p>
-              In 2-4 sentences, tell us about your hobbies, internships, and
-              interests. This will be shown to your matches for them to know you
-              better.
-            </p>
-            <div className="field">
-              <textarea
-                className="big-input"
-                placeholder="I co-founded a national entrepreneurship publication that 
-                interviews entrepreneurs called Profiles In Entrepreneurship. This past 
-                summer I worked at an AI-focused venture capital firm in China, where I 
-                met some of China's top entrepreneurs and learned a lot about the Chinese 
-                entrepreneurial ecosystem. In my free time I also build websites, play 
-                basketball, and enjoy talking about religion and philosophy. I'm also 
-                working on a startup a called Day Zero to help college students meet 
-                like-minded and interesting people."
+                placeholder="I am a huge cheese fondue fan. Over the past summer,
+                I interned in Zurich where I made and served cheese fondue to customers,
+                and learned so much about the different textures, flavors, and smells of cheese.
+                Next year, I'll be starting my own restaurant to pursue my passion for cheese fondue."
                 name="bio"
                 value={bio}
                 onChange={e => onChange(e)}
@@ -342,7 +331,7 @@ const CreateProfile = ({
               />
             </div>
           </div>
-        </div> */}
+        </div>
         {/* <div className="column">
           <p>* Phone Number</p>
           <PhoneInput
@@ -375,14 +364,14 @@ const CreateProfile = ({
           </div>
         </div> */}
         <div className="column">
-          <p>
+          {/* <p>
             By clicking submit, you agree to accept our{" "}
             {
               <a href="https://drive.google.com/file/d/1qv_2QlRe09NeJ1LjRoryaSPxpDuHjMIh/view?usp=sharing">
                 Terms and Conditions
               </a>
             }
-          </p>
+          </p> */}
           <a href="/" className="ui red basic button m-1 right floated">
             Go back
           </a>

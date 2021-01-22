@@ -1,0 +1,30 @@
+.triple-input {
+  display: flex;
+  padding-top: 20px;
+}
+
+.right-pad {
+  padding: 15px;
+  padding-left: 0px;
+}
+
+.pad {
+  padding: 15px 0;
+}
+
+@media only screen and (max-width: 1225px) {
+  .triple-input {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .right-pad, .pad {
+    padding: 0px 0;
+  }
+
+  .triple-input p {
+    padding-top: 10px;
+    margin: 7px 0;
+  }
+}

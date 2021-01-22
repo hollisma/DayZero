@@ -292,7 +292,7 @@ const EditProfile = ({
             <div className="field">
               <input
                 type="text"
-                placeholder="2019"
+                placeholder="2021"
                 name="year"
                 value={year}
                 onChange={e => onChange(e)}
@@ -305,7 +305,7 @@ const EditProfile = ({
             <div className="field">
               <input
                 type="text"
-                placeholder="SLA"
+                placeholder="COS"
                 name="major"
                 value={major}
                 onChange={e => onChange(e)}
@@ -318,7 +318,7 @@ const EditProfile = ({
             <div className="field">
               <input
                 type="text"
-                placeholder="SML, COS"
+                placeholder="ABC, XYZ"
                 name="minor"
                 value={minor}
                 onChange={e => onChange(e)}
