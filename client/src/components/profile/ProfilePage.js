@@ -115,12 +115,14 @@ const ProfilePage = ({
     setUserLiked(userLikedProfile(user, display_profile));
 
     // getRandomProfiles could be optimized. rn it gets all profiles then randomly chooses 4
-    getRandomProfiles(4, user_id).then(res => {
-      setRandomProfiles(res);
-    });
+    if (display_loading === false) {
+      getRandomProfiles(4, user_id).then(res => {
+        setRandomProfiles(res);
+      });
+    }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getDisplayProfile, user_id, display_loading, getRandomProfiles, user]);
+  }, [getDisplayProfile, user_id, display_loading, getRandomProfiles]);
 
   const randomProfilesComponent = (
     <Fragment>
