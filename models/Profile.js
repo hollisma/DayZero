@@ -29,10 +29,10 @@ const ProfileSchema = new mongoose.Schema({
   want_to_meet: {
     type: String
   },
-  liked_users: {
-    type: [String],
-    default: []
-  }
+  // liked_users: {
+  //   type: [String],
+  //   default: []
+  // }
 });
 
 module.exports = Profile = mongoose.model("profile", ProfileSchema);

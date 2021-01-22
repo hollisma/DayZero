@@ -5,43 +5,41 @@ import {
   getDisplayProfile,
   getUserProfile,
   getRandomProfiles,
-  like,
-  unlike
+  // like,
+  // unlike
 } from "../../actions/profile";
 import Avatar from "react-avatar";
 
 import "./ProfilePage.css";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-const MySwal = withReactContent(Swal);
+// import Swal from "sweetalert2";
+// import withReactContent from "sweetalert2-react-content";
+// const MySwal = withReactContent(Swal);
 
 document.body.style = "background: #fafafa;";
 
-function fireStar() {
-  MySwal.fire({
-    title:
-      "Favorite this person if you would like to meet more people like this. We will use this information to recommend the most relevant people tailored to you.",
-    type: "info"
-  });
-  return false;
-}
+// function fireStar() {
+//   MySwal.fire({
+//     title:
+//       "Favorite this person if you would like to meet more people like this. We will use this information to recommend the most relevant people tailored to you.",
+//     type: "info"
+//   });
+//   return false;
+// }
 
-var userLikedProfile = (user, profile) => {
-  if (!profile || !profile.liked_users) return false;
-  if (!user) return false;
-  return profile.liked_users.indexOf(user.id) !== -1;
-};
+// var userLikedProfile = (user, profile) => {
+//   if (!profile || !profile.liked_users) return false;
+//   if (!user) return false;
+//   return profile.liked_users.indexOf(user.id) !== -1;
+// };
 
 // Need to get user data
 const ProfilePage = ({
   user_id,
   profile: { display_profile, display_loading },
   getDisplayProfile,
-  getUserProfile,
-  getRandomProfiles,
-  like,
-  unlike,
-  auth: { user, loading: user_loading }
+  getRandomProfiles
+  // like,
+  // unlike,
 }) => {
   var [profileData, setProfileData] = useState({
     name: "",
@@ -57,7 +55,7 @@ const ProfilePage = ({
 
   var [randomProfiles, setRandomProfiles] = useState([]);
 
-  var [userLiked, setUserLiked] = useState(true);
+  // var [userLiked, setUserLiked] = useState(true);
 
   // const userid = user_loading || !user ? "aaa" : user.id;
 
@@ -112,7 +110,7 @@ const ProfilePage = ({
           : display_profile.bio
     });
 
-    setUserLiked(userLikedProfile(user, display_profile));
+    // setUserLiked(userLikedProfile(user, display_profile));
 
     // getRandomProfiles could be optimized. rn it gets all profiles then randomly chooses 4
     if (display_loading === false) {
@@ -168,37 +166,37 @@ const ProfilePage = ({
     );
   });
 
-  const likeButton = (
-    <button
-      className="inner-button"
-      // onClick={() => {
-      //   like(display_profile);
-      //   setUserLiked(true);
-      // }}
-    >
-      Like
-    </button>
-  );
-  const unlikeButton = (
-    <button
-      className="inner-button"
-      // onClick={() => {
-      //   unlike(display_profile);
-      //   setUserLiked(false);
-      // }}
-    >
-      Unlike
-    </button>
-  );
-  const handleToggleLike = () => {
-    if (userLiked) {
-      unlike(display_profile);
-      setUserLiked(false);
-    } else {
-      like(display_profile);
-      setUserLiked(true);
-    }
-  };
+  // const likeButton = (
+  //   <button
+  //     className="inner-button"
+  //     // onClick={() => {
+  //     //   like(display_profile);
+  //     //   setUserLiked(true);
+  //     // }}
+  //   >
+  //     Like
+  //   </button>
+  // );
+  // const unlikeButton = (
+  //   <button
+  //     className="inner-button"
+  //     // onClick={() => {
+  //     //   unlike(display_profile);
+  //     //   setUserLiked(false);
+  //     // }}
+  //   >
+  //     Unlike
+  //   </button>
+  // );
+  // const handleToggleLike = () => {
+  //   if (userLiked) {
+  //     unlike(display_profile);
+  //     setUserLiked(false);
+  //   } else {
+  //     like(display_profile);
+  //     setUserLiked(true);
+  //   }
+  // };
 
   return (
     <div id="profile-page">
@@ -215,7 +213,7 @@ const ProfilePage = ({
                 <button className="ui blue small button say-hi" onClick={sayhi}>
                   Say hi!
                 </button>
-                <div className="like">
+                {/* <div className="like">
                   <div
                     className="ui small red button like-button"
                     onClick={() => handleToggleLike()}
@@ -226,7 +224,7 @@ const ProfilePage = ({
                   <u className="what-this" onClick={fireStar}>
                     What's this?
                   </u>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -251,8 +249,8 @@ ProfilePage.propTypes = {
   getDisplayProfile: PropTypes.func.isRequired,
   getUserProfile: PropTypes.func.isRequired,
   getRandomProfiles: PropTypes.func.isRequired,
-  like: PropTypes.func.isRequired,
-  unlike: PropTypes.func.isRequired,
+  // like: PropTypes.func.isRequired,
+  // unlike: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
 };
@@ -266,6 +264,6 @@ export default connect(mapStateToProps, {
   getDisplayProfile,
   getUserProfile,
   getRandomProfiles,
-  like,
-  unlike
+  // like,
+  // unlike
 })(ProfilePage);

@@ -4,9 +4,9 @@ import {
   USER_UPDATED,
   GET_PROFILE,
   GET_DISPLAY_PROFILE,
-  PROFILE_ERROR,
-  LIKED,
-  UNLIKED
+  PROFILE_ERROR
+  // LIKED,
+  // UNLIKED
 } from "./types";
 import config from "../config/config.json";
 
@@ -281,41 +281,41 @@ export const getSearchProfiles = categories => async dispatch => {
   }
 };
 
-export const like = profile => async dispatch => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json"
-    }
-  };
-  if (!profile.user) return false;
+// export const like = profile => async dispatch => {
+//   const config = {
+//     headers: {
+//       "Content-Type": "application/json"
+//     }
+//   };
+//   if (!profile.user) return false;
 
-  const body = JSON.stringify({ user_id: profile.user.id });
+//   const body = JSON.stringify({ user_id: profile.user.id });
 
-  const res = await axios.post("/api/profile/like", body, config);
+//   const res = await axios.post("/api/profile/like", body, config);
 
-  dispatch({
-    type: LIKED,
-    payload: res.data
-  });
-  return false;
-};
+//   dispatch({
+//     type: LIKED,
+//     payload: res.data
+//   });
+//   return false;
+// };
 
-export const unlike = profile => async dispatch => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json"
-    }
-  };
+// export const unlike = profile => async dispatch => {
+//   const config = {
+//     headers: {
+//       "Content-Type": "application/json"
+//     }
+//   };
 
-  if (!profile.user) return false;
+//   if (!profile.user) return false;
 
-  const body = JSON.stringify({ user_id: profile.user.id });
+//   const body = JSON.stringify({ user_id: profile.user.id });
 
-  const res = await axios.post("/api/profile/unlike", body, config);
+//   const res = await axios.post("/api/profile/unlike", body, config);
 
-  dispatch({
-    type: UNLIKED,
-    payload: res.data
-  });
-  return false;
-};
+//   dispatch({
+//     type: UNLIKED,
+//     payload: res.data
+//   });
+//   return false;
+// };
