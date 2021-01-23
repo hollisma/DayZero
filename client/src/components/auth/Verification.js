@@ -25,7 +25,7 @@ const Verification = ({
   // if (!user_loading && verified) {
   if (verified) {
     MySwal.fire({
-      title: "Your account is verified",
+      title: "Your account is verified!",
       type: "success"
     }).then(() => {
       window.location.href = "/dashboard/#";

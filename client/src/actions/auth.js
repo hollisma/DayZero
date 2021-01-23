@@ -223,10 +223,8 @@ export const verification = token => async dispatch => {
   const body = JSON.stringify({ token });
 
   try {
-    console.log("hi");
     let user = await axios.post("/api/auth/verification", body, config);
     user = user.data;
-    console.log("hii", user);
 
     dispatch({
       type: VERIFICATION_SUCCESS,

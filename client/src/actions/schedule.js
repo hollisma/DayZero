@@ -58,7 +58,8 @@ export const createSchedule = times => async dispatch => {
       (err.response.status === 400 || err.response.status === 401)
     ) {
       MySwal.fire({
-        title: err.response.statusText,
+        // title: err.response.statusText,
+        title: 'Not Verified',
         text: err.response.data,
         type: "error"
       });
