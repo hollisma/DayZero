@@ -211,7 +211,7 @@ export const logout = () => dispatch => {
   dispatch({ type: LOGOUT });
 };
 
-//Verify users
+// Verify users
 export const verification = token => async dispatch => {
   const config = {
     headers: {

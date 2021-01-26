@@ -324,7 +324,7 @@ const CreateProfile = ({
                 className="big-input"
                 placeholder="I am a huge cheese fondue fan. Over the past summer,
                 I interned in Zurich where I made and served cheese fondue to customers,
-                and learned so much about the different textures, flavors, and smells of cheese.
+                and learned about the different textures, flavors, and smells of cheese.
                 Next year, I'll be starting my own restaurant to pursue my passion for cheese fondue."
                 name="bio"
                 value={bio}

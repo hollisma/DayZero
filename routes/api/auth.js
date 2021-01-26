@@ -156,6 +156,11 @@ router.post(
   }
 );
 
+/**
+ * @route   POST api/auth/verification
+ * @desc    Verify a user based on token
+ * @access  Public
+ */
 router.post("/verification", async (req, res) => {
   // const { token, id } = req.body;
   const { token } = req.body;
