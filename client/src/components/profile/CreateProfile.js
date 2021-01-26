@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { updateUser, createProfile } from "../../actions/profile";
+import { logout } from "../../actions/auth";
 // import PhoneInput from "react-phone-number-input";
 // import "react-phone-number-input/style.css";
 import { CATEGORIES } from "../../utils/consts";
@@ -23,6 +24,7 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 const CreateProfile = ({
   auth: { user, loading },
   updateUser,
+  logout,
   createProfile
 }) => {
   const [formData, setFormData] = useState({
@@ -372,9 +374,9 @@ const CreateProfile = ({
               </a>
             }
           </p> */}
-          <a href="/" className="ui red basic button m-1 right floated">
+          <Link to='/' onClick={logout} className="ui red basic button m-1 right floated">
             Go back
-          </a>
+          </Link>
           <input
             type="submit"
             className="ui green basic button my-1 right floated"
@@ -387,13 +389,14 @@ const CreateProfile = ({
 
 CreateProfile.propTypes = {
   updateUser: PropTypes.func.isRequired,
-  createProfile: PropTypes.func.isRequired
+  createProfile: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { updateUser, createProfile })(
+export default connect(mapStateToProps, { updateUser, createProfile, logout })(
   withRouter(CreateProfile)
 );
