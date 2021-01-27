@@ -5,7 +5,7 @@ import {
   LOGOUT
 } from "../actions/types";
 
-const initialState = { schedule: {}, loading: true };
+const initialState = { schedule: {}, activities: {}, loading: true };
 
 export default function(state = initialState, action) {
   const { type, payload } = action;

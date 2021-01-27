@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import {
   createSchedule,
   getCurrentSchedule
-} from "../../../../actions/schedule";
-import { PROFILED, SCHEDULED, GROUPED, MET } from "../../../../utils/consts";
+} from "../../../actions/schedule";
+import { PROFILED, SCHEDULED, GROUPED, MET } from "../../../utils/consts";
 
 import "./Calendar.css";
 

@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 // import moment from "moment";
 import { connect } from "react-redux";
-import { changeSchedule } from "../../../../actions/schedule";
-import { TIME1, TIME2 } from "../../../../utils/consts";
+import { changeSchedule } from "../../../actions/schedule";
+import { TIMES } from "../../../utils/consts";
 
 import "./Calendar.css";
 
@@ -48,15 +48,10 @@ const CheckboxGroup = ({ day, changeSchedule, schedule: { schedule } }) => {
     return resultStr;
   };
 
-  // day = moment()
-  //   .add(day, "d")
-  //   .format("MM-DD-YYYY");
-  // const id1 = day + "," + TIME1;
-  // const id2 = day + "," + TIME2;
-  let day3 = new Date();
-  day3.setDate(day3.getDate() + day);
-  const id1 = dayToID(day3) + "," + TIME1;
-  const id2 = dayToID(day3) + "," + TIME2;
+  let day2 = new Date();
+  day2.setDate(day2.getDate() + day);
+  const id1 = dayToID(day2) + "," + TIMES[0];
+  const id2 = dayToID(day2) + "," + TIMES[1];
 
   let arr = schedule ? Object.keys(schedule).map(k => schedule[k]) : [];
   let scheduleSet = schedule ? new Set(arr) : new Set();
@@ -74,7 +69,7 @@ const CheckboxGroup = ({ day, changeSchedule, schedule: { schedule } }) => {
   return (
     <form className="column">
       {/* <p className="text">{moment(day).format("dddd, MMM D")}</p> */}
-      <p className="text">{dayToString(day3)}</p>
+      <p className="text">{dayToString(day2)}</p>
       <div className="inputGroup">
         <input
           id={id1}
@@ -83,7 +78,7 @@ const CheckboxGroup = ({ day, changeSchedule, schedule: { schedule } }) => {
           checked={scheduleSet.has(id1)}
           onChange={e => onChange(e)}
         />
-        <label htmlFor={id1}>{TIME1}</label>
+        <label htmlFor={id1}>{TIMES[0]}</label>
       </div>
       <div className="inputGroup">
         <input
@@ -93,7 +88,7 @@ const CheckboxGroup = ({ day, changeSchedule, schedule: { schedule } }) => {
           checked={scheduleSet.has(id2)}
           onChange={e => onChange(e)}
         />
-        <label htmlFor={id2}>{TIME2}</label>
+        <label htmlFor={id2}>{TIMES[1]}</label>
       </div>
     </form>
   );

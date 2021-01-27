@@ -1,5 +1,11 @@
 import axios from "axios";
-import { GET_SCHEDULE, CHANGE_SCHEDULE, SCHEDULE_ERROR } from "./types";
+import { 
+  GET_SCHEDULE, 
+  CHANGE_SCHEDULE, 
+  SCHEDULE_ERROR, 
+  SUBMIT_ACTIVITIES,
+  ACTIVITIES_ERROR
+} from "./types";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -77,3 +83,38 @@ export const changeSchedule = schedule => async dispatch => {
     payload: schedule
   });
 };
+
+export const submitActivities = activities => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+  
+    console.log('hiiiiii', activities)
+    const res = await axios.post("/api/schedule", activities, config);
+    
+    dispatch({
+      type: SUBMIT_ACTIVITIES, 
+      payload: res.data
+    })
+  } catch (err) {
+    if (
+      err &&
+      err.response &&
+      (err.response.status === 400 || err.response.status === 401)
+    ) {
+      MySwal.fire({
+        // title: err.response.statusText,
+        title: 'Not Verified',
+        text: err.response.data,
+        type: "error"
+      })
+    }
+
+    dispatch({
+      type: ACTIVITIES_ERROR
+    })
+  }
+}

@@ -14,8 +14,9 @@ export const SMS = "SMS";
 export const EMAIL = "EMAIL";
 
 // Time availability
-export const TIME1 = "Lunch";
-export const TIME2 = "Dinner";
+export const TIMES = ['Morning', 'Lunch', 'Afternoon', 'Dinner', 'Night']
+
+export const ACTIVITIES = ['Walk', 'Meal', 'Call']
 
 // Categories
 export const CATEGORIES = [
