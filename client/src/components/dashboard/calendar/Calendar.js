@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import {
   createSchedule,
   getCurrentSchedule
-} from "../../../actions/schedule";
+} from "../../../actions/matchInfo";
 import { PROFILED, SCHEDULED, GROUPED, MET } from "../../../utils/consts";
 
 import "./Calendar.css";
@@ -15,7 +15,7 @@ import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 
 const Calendar = ({
-  schedule: { schedule, loading },
+  matchInfo: { schedule, loading },
   auth: { user },
   createSchedule,
   getCurrentSchedule
@@ -91,7 +91,7 @@ Calendar.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  schedule: state.schedule,
+  matchInfo: state.matchInfo,
   auth: state.auth
 });
 

@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 // import moment from "moment";
 import { connect } from "react-redux";
-import { changeSchedule } from "../../../actions/schedule";
+import { changeSchedule } from "../../../actions/matchInfo";
 import { TIMES } from "../../../utils/consts";
 
 import "./Calendar.css";
 
-const CheckboxGroup = ({ day, changeSchedule, schedule: { schedule } }) => {
+const CheckboxGroup = ({ day, changeSchedule, matchInfo: { schedule } }) => {
   const dayToString = day => {
     var resultStr = "";
     const dayArray = [
@@ -96,12 +96,12 @@ const CheckboxGroup = ({ day, changeSchedule, schedule: { schedule } }) => {
 
 CheckboxGroup.propTypes = {
   day: PropTypes.number.isRequired,
-  schedule: PropTypes.object.isRequired,
+  matchInfo: PropTypes.object.isRequired,
   changeSchedule: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  schedule: state.schedule
+  matchInfo: state.matchInfo
 });
 
 export default connect(mapStateToProps, { changeSchedule })(CheckboxGroup);

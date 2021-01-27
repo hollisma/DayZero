@@ -27,7 +27,7 @@ app.use(cors(corsOption));
 app.use("/api/auth", require("./routes/api/auth.js"));
 app.use("/api/users", require("./routes/api/users.js"));
 app.use("/api/profile", require("./routes/api/profile.js"));
-app.use("/api/schedule", require("./routes/api/schedule.js"));
+app.use("/api/matchInfo", require("./routes/api/matchInfo.js"));
 app.use("/api/groups", require("./routes/api/groups.js"));
 app.use("/api/feedback", require("./routes/api/feedback.js"));
 // app.use("/api/vibe", require("./routes/api/vibe.js"));

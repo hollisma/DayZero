@@ -1,23 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { submitActivities } from "../../../actions/schedule";
+import { submitActivities, changeActivities } from "../../../actions/matchInfo";
 import { ACTIVITIES } from "../../../utils/consts";
 
 import "./Activities.css";
 
-const Activities = ({ submitActivities }) => {
-  const ids = [0, 1, 2]
+const Activities = ({ submitActivities, changeActivities, matchInfo: { activities } }) => {
+  const ids = ['walk', 'meal', 'call']
 
-  let activities = new Set()
+  let activitiesValues = activities ? Object.keys(activities).map(k => activities[k]) : [];
+  let activitiesSet = activities ? new Set(activitiesValues) : new Set();
 
   const onChange = e => {
-    if (e.target.checked && !activities.has(e.target.name)) {
-      activities.add(e.target.name)
+    if (e.target.checked && !activitiesSet.has(e.target.name)) {
+      activitiesSet.add(e.target.name)
     }
-    if (!e.target.checked && activities.has(e.target.name)) {
-      activities.delete(e.target.name)
+    if (!e.target.checked && activitiesSet.has(e.target.name)) {
+      activitiesSet.delete(e.target.name)
     }
+    changeActivities(Array.from(activitiesSet))
   }
 
   const onSubmit = () => {
@@ -76,10 +78,12 @@ const Activities = ({ submitActivities }) => {
 
 Activities.propTypes = {
   submitActivities: PropTypes.func.isRequired,
+  changeActivities: PropTypes.func.isRequired,
+  activities: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
-  schedule: state.schedule
+  matchInfo: state.matchInfo
 });
 
-export default connect(mapStateToProps, { submitActivities })(Activities);
+export default connect(mapStateToProps, { submitActivities, changeActivities })(Activities);

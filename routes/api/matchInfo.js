@@ -4,30 +4,30 @@ const auth = require("../../middleware/auth");
 const admin = require("../../middleware/admin");
 
 // Models
-const Schedule = require("../../models/Schedule");
+const MatchInfo = require("../../models/MatchInfo");
 const User = require("../../models/User");
 const { SCHEDULED } = require("../../models/types");
 
 /**
- * @route   GET api/schedule/me
- * @desc    Get current user's schedule
+ * @route   GET api/matchInfo/me
+ * @desc    Get current user's matching information
  * @access  Private
  */
 router.get("/me", auth, async (req, res) => {
   try {
-    const schedule = await Schedule.findOne({ user: req.user.id }).populate(
+    const matchInfo = await MatchInfo.findOne({ user: req.user.id }).populate(
       "user",
       ["name", "avatar"]
     );
 
-    if (!schedule) {
+    if (!matchInfo) {
       // return res
       //   .status(400)
-      //   .json({ msg: "There is no schedule for this user" });
+      //   .json({ msg: "There is no matching information for this user" });
       return res.json({});
     }
 
-    res.json(schedule.times);
+    res.json(matchInfo);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
@@ -35,34 +35,38 @@ router.get("/me", auth, async (req, res) => {
 });
 
 /**
- * @route   POST api/schedule
- * @desc    Create or update user schedule
+ * @route   POST api/matchInfo
+ * @desc    Create or update user matchInfo
  * @access  Private
  */
 router.post("/", auth, async (req, res) => {
-  const { times } = req.body;
+  let { times, activities } = req.body;
 
   try {
     let user = await User.findById(req.user.id);
     if (!user.verified) {
       res
         .status(401)
-        .send("Please verify your account before adding a new schedule");
+        .send("Please verify your account before matching");
       return;
     }
-    let schedule = await Schedule.findOne({ user: req.user.id });
 
-    if (schedule) {
+    let matchInfo = await MatchInfo.findOne({ user: req.user.id });
+
+    times = times || matchInfo.times
+    activities = activities || matchInfo.activities
+
+    if (matchInfo) {
       // Update
-      schedule = await Schedule.findOneAndUpdate(
-        { user: req.user.id },
-        { times: times },
+      matchInfo = await MatchInfo.findOneAndUpdate(
+        { user: user },
+        { times: times, activities: activities },
         { new: true }
       );
     } else {
       // Create
-      schedule = new Schedule({ times: times, user: req.user.id });
-      await schedule.save();
+      matchInfo = new MatchInfo({ times: times, activities: activities, user: user });
+      await matchInfo.save();
     }
 
     // Set user type to SCHEDULED
@@ -70,7 +74,7 @@ router.post("/", auth, async (req, res) => {
       $set: { user_type: SCHEDULED }
     });
 
-    res.json(schedule.times);
+    res.json(matchInfo);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
@@ -78,27 +82,30 @@ router.post("/", auth, async (req, res) => {
 });
 
 /**
- * @route   POST api/schedule/admin
- * @desc    Create or update user schedule
+ * @route   POST api/matchInfo/admin
+ * @desc    Create or update user matchInfo
  * @access  Admin
  */
 router.post("/admin", admin, async (req, res) => {
-  const { times, user } = req.body;
+  let { times, activities, user } = req.body;
 
   try {
-    let schedule = await Schedule.findOne({ user: user });
+    let matchInfo = await MatchInfo.findOne({ user: user });
 
-    if (schedule) {
+    times = times || matchInfo.times
+    activities = activities || matchInfo.activities
+
+    if (matchInfo) {
       // Update
-      schedule = await Schedule.findOneAndUpdate(
+      matchInfo = await MatchInfo.findOneAndUpdate(
         { user: user },
-        { times: times },
+        { times: times, activities: activities },
         { new: true }
       );
     } else {
       // Create
-      schedule = new Schedule({ times: times, user: user });
-      await schedule.save();
+      matchInfo = new MatchInfo({ times: times, activities: activities, user: user });
+      await matchInfo.save();
     }
 
     // Set user type to SCHEDULED
@@ -106,7 +113,7 @@ router.post("/admin", admin, async (req, res) => {
       $set: { user_type: SCHEDULED }
     });
 
-    res.json(schedule.times);
+    res.json(matchInfo);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
@@ -114,19 +121,19 @@ router.post("/admin", admin, async (req, res) => {
 });
 
 /**
- * @route   GET api/schedule/user/:user_id
- * @desc    Get schedule by user ID
+ * @route   GET api/matchInfo/user/:user_id
+ * @desc    Get matchInfo by user ID
  * @access  Public
  */
 router.get("/user/:user_id", async (req, res) => {
   try {
-    const schedule = await Schedule.findOne({
+    const matchInfo = await MatchInfo.findOne({
       user: req.params.user_id
     }).populate("user", ["name", "avatar"]);
 
-    if (!schedule) return res.status(400).json({ msg: "Schedule not found" });
+    if (!matchInfo) return res.status(400).json({ msg: "Schedule not found" });
 
-    res.json(schedule.times);
+    res.json(matchInfo);
   } catch (err) {
     console.error(err.message);
     if (err.kind == "ObjectId") {
@@ -137,14 +144,14 @@ router.get("/user/:user_id", async (req, res) => {
 });
 
 /**
- * @route   GET api/schedule/admin
- * @desc    Get all schedules
+ * @route   GET api/matchInfo/admin
+ * @desc    Get all matchInfos
  * @access  Admin
  * */
 router.get("/admin", admin, async (req, res) => {
   try {
-    let schedules = await Schedule.find();
-    res.json(schedules);
+    let matchInfos = await MatchInfo.find();
+    res.json(matchInfos);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

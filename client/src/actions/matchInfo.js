@@ -4,7 +4,8 @@ import {
   CHANGE_SCHEDULE, 
   SCHEDULE_ERROR, 
   SUBMIT_ACTIVITIES,
-  ACTIVITIES_ERROR
+  ACTIVITIES_ERROR,
+  CHANGE_ACTIVITIES
 } from "./types";
 
 import Swal from "sweetalert2";
@@ -13,11 +14,11 @@ const MySwal = withReactContent(Swal);
 
 export const getCurrentSchedule = () => async dispatch => {
   try {
-    const res = await axios.get("/api/schedule/me");
+    const res = await axios.get("/api/matchInfo/schedule/me");
 
     dispatch({
       type: GET_SCHEDULE,
-      payload: res.data
+      payload: res.data.times
     });
   } catch (err) {
     if (err.response.status === 400) {
@@ -92,12 +93,11 @@ export const submitActivities = activities => async dispatch => {
       }
     }
   
-    console.log('hiiiiii', activities)
-    const res = await axios.post("/api/schedule", activities, config);
+    const res = await axios.post("/api/matchInfo", { activities }, config);
     
     dispatch({
       type: SUBMIT_ACTIVITIES, 
-      payload: res.data
+      payload: res.data.activities
     })
   } catch (err) {
     if (
@@ -117,4 +117,11 @@ export const submitActivities = activities => async dispatch => {
       type: ACTIVITIES_ERROR
     })
   }
+}
+
+export const changeActivities = activities => async dispatch => {
+  dispatch({
+    type: CHANGE_ACTIVITIES,
+    payload: activities
+  })
 }

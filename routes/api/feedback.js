@@ -5,7 +5,7 @@ const auth = require("../../middleware/auth");
 // Models
 const User = require("../../models/User");
 const Group = require("../../models/Group");
-const Schedule = require("../../models/Schedule");
+const MatchInfo = require("../../models/MatchInfo");
 const Feedback = require("../../models/Feedback");
 const { PROFILED, MET } = require("../../models/types");
 
@@ -61,10 +61,10 @@ router.put("/finish", auth, async (req, res) => {
     const newUserAttrs = { group: null, user_type: PROFILED };
     await User.findByIdAndUpdate(req.user.id, { $set: newUserAttrs });
 
-    // Reset user schedule
-    await Schedule.findOneAndUpdate(
+    // Reset user matching info
+    await MatchInfo.findOneAndUpdate(
       { user: req.user.id },
-      { $set: { times: [] } }
+      { $set: { times: [], activities: [], active: false } }
     );
 
     user = await User.findById(req.user.id);

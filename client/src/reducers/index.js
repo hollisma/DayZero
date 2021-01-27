@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import auth from "./auth";
 import profile from "./profile";
-import schedule from "./schedule";
+import matchInfo from "./matchInfo";
 import group from "./group";
 
-export default combineReducers({ auth, profile, schedule, group });
+export default combineReducers({ auth, profile, matchInfo, group });

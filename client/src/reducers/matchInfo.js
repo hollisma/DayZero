@@ -2,6 +2,9 @@ import {
   GET_SCHEDULE,
   CHANGE_SCHEDULE,
   SCHEDULE_ERROR,
+  SUBMIT_ACTIVITIES,
+  CHANGE_ACTIVITIES,
+  ACTIVITIES_ERROR,
   LOGOUT
 } from "../actions/types";
 
@@ -22,15 +25,29 @@ export default function(state = initialState, action) {
         schedule: payload
       };
     case SCHEDULE_ERROR:
+    case ACTIVITIES_ERROR:
       return {
         ...state,
         schedule: null,
+        activities: null, 
         loading: false
+      };
+    case SUBMIT_ACTIVITIES:
+      return {
+        ...state, 
+        activities: payload, 
+        loading: false
+      };
+    case CHANGE_ACTIVITIES:
+      return {
+        ...state, 
+        activities: payload
       };
     case LOGOUT:
       return {
         ...state,
         schedule: null,
+        activities: null, 
         loading: true
       };
     default:

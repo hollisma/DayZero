@@ -6,7 +6,7 @@ const admin = require("../../middleware/admin");
 
 // Models
 const Profile = require("../../models/Profile");
-const Schedule = require("../../models/Schedule");
+const MatchInfo = require("../../models/MatchInfo");
 const User = require("../../models/User");
 const { PROFILED } = require("../../models/types");
 
@@ -182,8 +182,8 @@ router.delete("/", auth, async (req, res) => {
     await Profile.findOneAndRemove({ user: req.user.id });
     // Remove user
     await User.findOneAndRemove({ _id: req.user.id });
-    // Remove schedule
-    await Schedule.findOneAndRemove({ user: req.user.id });
+    // Remove matching info
+    await MatchInfo.findOneAndRemove({ user: req.user.id });
 
     res.json({ msg: "User deleted" });
   } catch (err) {
