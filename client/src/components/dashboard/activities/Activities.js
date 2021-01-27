@@ -7,7 +7,7 @@ import { ACTIVITIES } from "../../../utils/consts";
 import "./Activities.css";
 
 const Activities = ({ submitActivities, changeActivities, matchInfo: { activities } }) => {
-  const ids = ['walk', 'meal', 'call']
+  const ids = ['Walk', 'Meal', 'Call']
 
   let activitiesValues = activities ? Object.keys(activities).map(k => activities[k]) : [];
   let activitiesSet = activities ? new Set(activitiesValues) : new Set();
@@ -40,6 +40,7 @@ const Activities = ({ submitActivities, changeActivities, matchInfo: { activitie
               id={ids[0]} 
               name={ids[0]} 
               type='checkbox' 
+              checked={activitiesSet.has(ids[0])}
               onChange={e=>onChange(e)}
             />
             <label htmlFor={ids[0]}>Activity 1 {ACTIVITIES[0]}</label>
@@ -49,6 +50,7 @@ const Activities = ({ submitActivities, changeActivities, matchInfo: { activitie
               id={ids[1]} 
               name={ids[1]} 
               type='checkbox' 
+              checked={activitiesSet.has(ids[1])}
               onChange={e=>onChange(e)}
             />
             <label htmlFor={ids[1]}>Activity 2 {ACTIVITIES[1]}</label>
@@ -58,6 +60,7 @@ const Activities = ({ submitActivities, changeActivities, matchInfo: { activitie
               id={ids[2]} 
               name={ids[2]} 
               type='checkbox' 
+              checked={activitiesSet.has(ids[2])}
               onChange={e=>onChange(e)}
             />
             <label htmlFor={ids[2]}>Activity 3 {ACTIVITIES[2]}</label>
@@ -79,7 +82,6 @@ const Activities = ({ submitActivities, changeActivities, matchInfo: { activitie
 Activities.propTypes = {
   submitActivities: PropTypes.func.isRequired,
   changeActivities: PropTypes.func.isRequired,
-  activities: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({

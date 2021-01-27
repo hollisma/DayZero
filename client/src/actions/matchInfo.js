@@ -1,6 +1,6 @@
 import axios from "axios";
 import { 
-  GET_SCHEDULE, 
+  GET_MATCH_INFO, 
   CHANGE_SCHEDULE, 
   SCHEDULE_ERROR, 
   SUBMIT_ACTIVITIES,
@@ -12,13 +12,16 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 
-export const getCurrentSchedule = () => async dispatch => {
+export const getMatchInfo = () => async dispatch => {
   try {
-    const res = await axios.get("/api/matchInfo/schedule/me");
+    const res = await axios.get("/api/matchInfo/me");
 
     dispatch({
-      type: GET_SCHEDULE,
-      payload: res.data.times
+      type: GET_MATCH_INFO,
+      payload: {
+        times: res.data.times, 
+        activities: res.data.activities
+      }
     });
   } catch (err) {
     if (err.response.status === 400) {
@@ -39,25 +42,28 @@ export const createSchedule = times => async dispatch => {
       }
     };
 
-    const res = await axios.post("/api/schedule", times, config);
+    const res = await axios.post("/api/matchInfo", { times }, config);
 
     dispatch({
-      type: GET_SCHEDULE,
-      payload: res.data
+      type: GET_MATCH_INFO,
+      payload: {
+        times: res.data.times, 
+        activities: res.data.activities
+      }
     });
 
-    // Throw toast
-    const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 3000
-    });
+    // // Throw toast
+    // const Toast = Swal.mixin({
+    //   toast: true,
+    //   position: "top-end",
+    //   showConfirmButton: false,
+    //   timer: 3000
+    // });
 
-    Toast.fire({
-      type: "success",
-      title: "Schedule Updated"
-    });
+    // Toast.fire({
+    //   type: "success",
+    //   title: "Schedule Updated"
+    // });
   } catch (err) {
     if (
       err &&
@@ -99,6 +105,8 @@ export const submitActivities = activities => async dispatch => {
       type: SUBMIT_ACTIVITIES, 
       payload: res.data.activities
     })
+
+    window.location.href = "/dashboard/schedule";
   } catch (err) {
     if (
       err &&

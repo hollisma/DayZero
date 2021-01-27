@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 // import moment from "moment";
 import { connect } from "react-redux";
 import { changeSchedule } from "../../../actions/matchInfo";
-import { TIMES } from "../../../utils/consts";
+import { TIMES, ACTIVITIES } from "../../../utils/consts";
 
 import "./Calendar.css";
 
-const CheckboxGroup = ({ day, changeSchedule, matchInfo: { schedule } }) => {
+const CheckboxGroup = ({ day, changeSchedule, matchInfo: { schedule, activities } }) => {
   const dayToString = day => {
     var resultStr = "";
     const dayArray = [
@@ -50,11 +50,52 @@ const CheckboxGroup = ({ day, changeSchedule, matchInfo: { schedule } }) => {
 
   let day2 = new Date();
   day2.setDate(day2.getDate() + day);
-  const id1 = dayToID(day2) + "," + TIMES[0];
-  const id2 = dayToID(day2) + "," + TIMES[1];
+  const day2ID = dayToID(day2)
 
-  let arr = schedule ? Object.keys(schedule).map(k => schedule[k]) : [];
-  let scheduleSet = schedule ? new Set(arr) : new Set();
+  let scheduleValues = Object.values(schedule)
+  let scheduleSet = schedule ? new Set(scheduleValues) : new Set();
+
+  // Filter via activities
+  let actVals = Object.values(activities)
+  let sectionsInclude = []
+  if (actVals.includes(ACTIVITIES[0]) || actVals.includes(ACTIVITIES[2])) {
+    sectionsInclude.push(1)
+  }
+  if (actVals.includes(ACTIVITIES[1])) {
+    sectionsInclude.push(2)
+  }
+
+  let times = []
+
+  // Section 1
+  let values = Object.values(schedule)
+  let startLen = values.length
+  const goodTimes1 = [TIMES[0], TIMES[2], TIMES[4]]
+  if (sectionsInclude.includes(1)) {
+    times = times.concat(goodTimes1)
+  } else {
+    // Filter schedule
+    values = values.filter(v => !goodTimes1.includes(v.split(',')[1]))
+  }
+
+  // Section 2
+  const goodTimes2 = [TIMES[1], TIMES[3]]
+  if (sectionsInclude.includes(2)) {
+    if (times.length > 0) {
+      times.splice(1, 0, TIMES[1])
+      times.splice(3, 0, TIMES[3])
+    } else {
+      times = times.concat(goodTimes2)
+    }
+  } else {
+    // Filter schedule
+    values = values.filter(v => !goodTimes2.includes(v.split(',')[1]))
+  }
+  if (values.length < startLen) {
+    changeSchedule(values)
+  }
+
+  const ids = times.map(t => day2ID + ',' + t)
 
   const onChange = e => {
     if (e.target.checked && !scheduleSet.has(e.target.name)) {
@@ -66,30 +107,23 @@ const CheckboxGroup = ({ day, changeSchedule, matchInfo: { schedule } }) => {
     changeSchedule(Array.from(scheduleSet));
   };
 
+  let inputGroups = ids.map((id, i) => (
+    <div className="inputGroup" key={day+'/'+id}>
+      <input
+        id={id}
+        name={id}
+        type="checkbox"
+        checked={scheduleSet.has(id)}
+        onChange={e => onChange(e)}
+      />
+      <label htmlFor={id}>{times[i]}</label>
+    </div>
+  ))
+
   return (
     <form className="column">
-      {/* <p className="text">{moment(day).format("dddd, MMM D")}</p> */}
       <p className="text">{dayToString(day2)}</p>
-      <div className="inputGroup">
-        <input
-          id={id1}
-          name={id1}
-          type="checkbox"
-          checked={scheduleSet.has(id1)}
-          onChange={e => onChange(e)}
-        />
-        <label htmlFor={id1}>{TIMES[0]}</label>
-      </div>
-      <div className="inputGroup">
-        <input
-          id={id2}
-          name={id2}
-          type="checkbox"
-          checked={scheduleSet.has(id2)}
-          onChange={e => onChange(e)}
-        />
-        <label htmlFor={id2}>{TIMES[1]}</label>
-      </div>
+      {inputGroups}
     </form>
   );
 };

@@ -7,6 +7,7 @@ import Login from "../auth/Login";
 import Verification from "../auth/Verification";
 import Section2 from "../landing/Section2";
 import Dashboard from "../dashboard/Dashboard";
+import Calendar from "../dashboard/calendar/Calendar";
 import CreateProfile from "../profile/CreateProfile";
 import Feedback from "../feedback/Feedback";
 import PrivateRoute from "../routing/PrivateRoute";
@@ -49,6 +50,12 @@ const Routes = () => {
         path="/dashboard"
         access={[PROFILED, SCHEDULED, GROUPED, MET]}
         component={Dashboard}
+      />
+      <PrivateRoute
+        exact
+        path="/dashboard/schedule"
+        access={[PROFILED, SCHEDULED, GROUPED, MET]}
+        component={Calendar}
       />
       <PrivateRoute
         exact

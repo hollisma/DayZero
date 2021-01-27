@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {
   createSchedule,
-  getCurrentSchedule
+  getMatchInfo
 } from "../../../actions/matchInfo";
 import { PROFILED, SCHEDULED, GROUPED, MET } from "../../../utils/consts";
 
@@ -18,9 +18,11 @@ const Calendar = ({
   matchInfo: { schedule, loading },
   auth: { user },
   createSchedule,
-  getCurrentSchedule
+  getMatchInfo
 }) => {
-  if (loading) getCurrentSchedule();
+  if (loading) {
+    getMatchInfo();
+  }
 
   const onSubmit = () => {
     // ---------------------------------------------------------------------------------
@@ -48,7 +50,7 @@ const Calendar = ({
       //   });
       // }
     } else {
-      createSchedule({ times: schedule });
+      createSchedule(schedule);
     }
   };
 
@@ -85,8 +87,7 @@ const Calendar = ({
 
 Calendar.propTypes = {
   createSchedule: PropTypes.func.isRequired,
-  getCurrentSchedule: PropTypes.func.isRequired,
-  schedule: PropTypes.object.isRequired,
+  getMatchInfo: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -95,6 +96,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { createSchedule, getCurrentSchedule })(
+export default connect(mapStateToProps, { createSchedule, getMatchInfo })(
   Calendar
 );

@@ -1,5 +1,5 @@
 import {
-  GET_SCHEDULE,
+  GET_MATCH_INFO,
   CHANGE_SCHEDULE,
   SCHEDULE_ERROR,
   SUBMIT_ACTIVITIES,
@@ -13,10 +13,11 @@ const initialState = { schedule: {}, activities: {}, loading: true };
 export default function(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
-    case GET_SCHEDULE:
+    case GET_MATCH_INFO:
       return {
         ...state,
-        schedule: payload,
+        schedule: payload.times,
+        activities: payload.activities,
         loading: false
       };
     case CHANGE_SCHEDULE:
