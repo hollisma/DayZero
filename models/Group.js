@@ -7,8 +7,14 @@ const GroupSchema = new mongoose.Schema({
     // Will depend on if we want empty groups
     // require: true
   },
-  time: {
-    type: String
+  categories: {
+    type: [String]
+  },
+  activities: {
+    type: [String]
+  },
+  times: {
+    type: [String]
   },
   active: {
     type: Boolean,

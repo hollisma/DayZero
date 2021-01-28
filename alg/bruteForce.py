@@ -114,9 +114,10 @@ def getSharedActivities(id1, id2):
   return common
 
 # Create a group with the users and the time
-def match(members, time):
+def match(members, categories, activities, times):
   url = host_name + ':5000/api/groups'
-  body = { 'user_ids': members, 'time': time }
+  body = { 'user_ids': members, 'categories': categories, \
+    'activities': activities, 'times': times }
   response = requests.post(url, headers=headers, json=body)
   response = json.loads(response.text)
   return response
@@ -185,8 +186,8 @@ for time in masterSchedule_sorted_keys:
           sharedTimes = getSharedTimes(u, v)
           if len(sharedCats) > k_matching_threshold \
             and len(sharedActs) > 0:
-            # response = match([u, v], time)
-            # print(response)
+            response = match([u, v], sharedCats, sharedActs, sharedTimes)
+            print(response)
             matched.add(u)
             matched.add(v)
             notifier = MatchingNotifier()

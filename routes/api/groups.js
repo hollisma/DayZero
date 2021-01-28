@@ -40,7 +40,7 @@ router.get("/", auth, async (req, res) => {
 router.post("/", admin, async (req, res) => {
   try {
     const user_ids = req.body.user_ids;
-    const time = req.body.time;
+    const { categories, activities, times } = req.body;
 
     for (let i = 0; i < user_ids.length; i++) {
       const user = await User.findById(user_ids[i]);
@@ -52,7 +52,7 @@ router.post("/", admin, async (req, res) => {
     }
 
     // Create group
-    const group = new Group({ members: user_ids, time });
+    const group = new Group({ members: user_ids, categories, activities, times });
     await group.save();
 
     // Add group to user
