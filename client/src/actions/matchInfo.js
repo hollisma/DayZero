@@ -52,6 +52,8 @@ export const createSchedule = times => async dispatch => {
       }
     });
 
+    window.location.href = "/dashboard/#";
+
     // // Throw toast
     // const Toast = Swal.mixin({
     //   toast: true,

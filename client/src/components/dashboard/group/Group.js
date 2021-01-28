@@ -72,7 +72,7 @@ const Group = ({
           <Fragment>
             <h3>
               We're currently searching for someone that shares your interests! 
-              Once we find a match, we'll email y'all :) In the meantime, feel 
+              Once we find a match, we'll email you :) In the meantime, feel 
               free to change your preferences here. 
             </h3>
             <Matching />

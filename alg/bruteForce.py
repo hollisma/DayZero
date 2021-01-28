@@ -10,6 +10,7 @@ import os
 k_matching_threshold = 2
 # host_name = 'http://172.31.43.129'
 host_name = 'http://localhost'
+options_email = False
 
 load_dotenv()
 
@@ -190,8 +191,9 @@ for time in masterSchedule_sorted_keys:
             print(response)
             matched.add(u)
             matched.add(v)
-            notifier = MatchingNotifier()
-            notifier.match([usersDict[u]['profile'], usersDict[v]['profile']], sharedTimes, sharedCats, sharedActs)
+            if options_email: 
+              notifier = MatchingNotifier()
+              notifier.match([usersDict[u]['profile'], usersDict[v]['profile']], sharedTimes, sharedCats, sharedActs)
             break
 
 

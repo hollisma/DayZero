@@ -69,6 +69,8 @@ export const archiveGroup = () => async dispatch => {
       type: GET_GROUP,
       payload: res.data
     });
+
+    window.location.reload()
   } catch (err) {
     console.error(err)
 
