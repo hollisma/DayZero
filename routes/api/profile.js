@@ -130,12 +130,37 @@ router.get("/admin", admin, async (req, res) => {
     const profiles = await Profile.find().populate("user", [
       "name",
       "email",
-      "phone_number",
       "user_type",
       "avatar",
-      // "liked_users"
     ]);
     res.json(profiles);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+/**
+ * @route   GET api/profile/scheduled/admin
+ * @desc    Get all scheduled profiles
+ * @access  Admin
+ * */
+router.get("/scheduled/admin", admin, async (req, res) => {
+  try {
+    // const profiles = await Profile.find().populate("user", [
+    //   "name",
+    //   "email",
+    //   "user_type",
+    // ], { user_type: { $in: ['SCHEDULED'] } });
+    const profiles = await Profile.find().populate("user", [
+      "name",
+      "email",
+      "user_type",
+    ]).exec(async (err, profiles) => {
+      profiles = profiles.filter(p => p && p.user && p.user.user_type == 'SCHEDULED')
+      res.json(profiles)
+    });
+    // res.json(profiles);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

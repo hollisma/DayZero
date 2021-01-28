@@ -30,34 +30,29 @@ headers = { 'x-auth-token': res['token']}
 url = host_name + ':5000/api/users/admin'
 response = requests.get(url, headers=headers)
 users = json.loads(response.text)
-scheduledUsers = list(filter(lambda u: u['user_type'] == 'SCHEDULED', users))
-scheduledIDs = list(map(lambda u: u['_id'], scheduledUsers))
-
-users = scheduledUsers
-ids = scheduledIDs
+allUsers = list(map(lambda u: u['_id'], users))
+users = list(filter(lambda u: u['user_type'] == 'SCHEDULED', users))
+users = list(map(lambda u: u['_id'], users))
 
 usersDict = dict()
-for u in ids:
+for u in allUsers:
   usersDict[u] = dict()
 
 # Get all users' schedules
-url = host_name + ':5000/api/matchInfo/admin'
+url = host_name + ':5000/api/schedule/admin'
 response = requests.get(url, headers=headers)
-matchInfos = json.loads(response.text)
+schedules = json.loads(response.text)
 
-for m in matchInfos:
-  usersDict[m['user']]['matchInfo'] = m
+for s in schedules:
+  usersDict[s['user']]['schedule'] = s
 
-# Get all scheduled profiles
-url = host_name + ':5000/api/profile/scheduled/admin'
+# Get all users' profiles
+url = host_name + ':5000/api/profile/admin'
 response = requests.get(url, headers=headers)
 profiles = json.loads(response.text)
 
-# Add profiles to userDict
 for p in profiles:
   usersDict[p['user']['id']]['profile'] = p
-
-print(usersDict, '\n')
 
 # url = host_name + ':5000/api/vibe'
 # response = requests.get(url, headers=headers)
@@ -74,9 +69,9 @@ def categories(id):
   return usersDict[id]['profile']['categories']
 
 def getTimes(id):
-  if 'matchInfo' not in usersDict[id].keys() or 'times' not in usersDict[id]['matchInfo'].keys():
+  if 'schedule' not in usersDict[id].keys() or 'times' not in usersDict[id]['schedule'].keys():
     return None
-  return usersDict[id]['matchInfo']['times']
+  return usersDict[id]['schedule']['times']
 
 def getSharedCategories(id1, id2): 
   c1 = categories(id1)
@@ -120,16 +115,10 @@ def match(members, time):
 def toDatetime(t):
     split = t.split(',')
     date = datetime.strptime(split[0], '%m-%d-%Y')
-    if split[1] == 'Morning': 
-        date = date + timedelta(hours=8)
     if split[1] == 'Lunch': 
         date = date + timedelta(hours=12)
-    if split[1] == 'Afternoon': 
-        date = date + timedelta(hours=14)
-    if split[1] == 'Dinner': 
+    if split[1] == 'Afternoon Coffee': 
         date = date + timedelta(hours=18)
-    if split[1] == 'Night': 
-        date = date + timedelta(hours=20)
     return date
 
 ###################################################################################################
@@ -138,13 +127,10 @@ def toDatetime(t):
 
 # masterSchedule holds times and users with the time slot
 masterSchedule = dict()
-for id in ids:
-  
-  times = usersDict[id]['matchInfo']['times']
-  # times = []
-  # if 'matchInfo' in usersDict[id].keys():
-  #   times = usersDict[id]['matchInfo']['times']
-
+for id in users:
+  times = []
+  if 'schedule' in usersDict[id].keys():
+    times = usersDict[id]['schedule']['times']
   for t in times:
     if t not in masterSchedule.keys():
       masterSchedule[t] = []
@@ -154,48 +140,33 @@ for id in ids:
 masterSchedule_sorted_keys = list(masterSchedule.keys())
 masterSchedule_sorted_keys = sorted(masterSchedule_sorted_keys, key=toDatetime)
 
-### Match people with same time slot and shared interests
-matched = set()
+# Match people with same time slot and shared interests
+matches = set()
 # For each time where at least one user is available
 for time in masterSchedule_sorted_keys:
   timeUsers = masterSchedule[time]
   # For every user in this time
   for u in timeUsers:
-    # Make sure they haven't matched yet
-    if u not in matched:
+    if u not in matches:
       # For every potential match for the first user
       for v in timeUsers:
-        if v not in matched and u != v:
+        if v not in matches and u != v:
           if len(getSharedCategories(u, v)) > k_matching_threshold:
-            # response = match([u, v], time)
-            # print(response)
-            matched.add(u)
-            matched.add(v)
-            # notifier = MatchingNotifier()
-            # notifier.match([usersDict[u]['profile'], usersDict[v]['profile']], getSharedTimes(u, v), getSharedCategories(u, v))
+            response = match([u, v], time)
+            print(response)
+            matches.add(u)
+            matches.add(v)
+            notifier = MatchingNotifier()
+            notifier.match([usersDict[u]['profile'], usersDict[v]['profile']], getSharedTimes(u, v), getSharedCategories(u, v))
             break
 
-
-
-
-
-
-
-### Create groups between matched people
-## Expects matches to be a dictionary
+# Create groups between matched people
 # matched = []
 # for m in matches.keys():
 #   if m not in matched:
 #     members = [m, matches[m]]
 #     res = createGroup(members)
 #     matched.extend(members)
-
-
-
-
-
-
-
 
 
 

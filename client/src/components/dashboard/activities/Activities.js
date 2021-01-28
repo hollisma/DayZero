@@ -1,12 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { submitActivities, changeActivities } from "../../../actions/matchInfo";
+import { submitActivities, changeActivities, getMatchInfo } from "../../../actions/matchInfo";
 import { ACTIVITIES } from "../../../utils/consts";
 
 import "./Activities.css";
 
-const Activities = ({ submitActivities, changeActivities, matchInfo: { activities } }) => {
+const Activities = ({ 
+  matchInfo: { activities, loading }, 
+  submitActivities, 
+  changeActivities, 
+  getMatchInfo
+}) => {
+  if (loading) {
+    getMatchInfo();
+  }
+
   const ids = ['Walk', 'Meal', 'Call']
 
   let activitiesValues = activities ? Object.keys(activities).map(k => activities[k]) : [];
@@ -82,10 +91,15 @@ const Activities = ({ submitActivities, changeActivities, matchInfo: { activitie
 Activities.propTypes = {
   submitActivities: PropTypes.func.isRequired,
   changeActivities: PropTypes.func.isRequired,
+  getMatchInfo: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   matchInfo: state.matchInfo
 });
 
-export default connect(mapStateToProps, { submitActivities, changeActivities })(Activities);
+export default connect(mapStateToProps, { 
+  submitActivities, 
+  changeActivities, 
+  getMatchInfo 
+})(Activities);

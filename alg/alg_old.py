@@ -4,13 +4,7 @@ import math
 
 k_matching_threshold = 3
 k_total_categories = 57
-
-# Get admin token
-body = { 'email': 'email', 'password': 'password' }
-url = 'http://localhost:5000/api/auth'
-response = requests.post(url, json=body)
-res = json.loads(response.text)
-headers = { 'x-auth-token': res['token']}
+headers = { 'x-auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWQ4NzBlZjE3YzJhYTQ2MjdmMGYxZjJlIn0sImlhdCI6MTU2OTE5OTM2OSwiZXhwIjoxNTY5NTU5MzY5fQ.O2elJZBhDK9On0STmQBsl9IR0Mwk0o4zRrDe_sGWiGM'}
 
 ###################################################################################################
 #  Get information                                                                                #
@@ -21,34 +15,27 @@ url = 'http://localhost:5000/api/users/admin'
 response = requests.get(url, headers=headers)
 users = json.loads(response.text)
 scheduledUsers = list(filter(lambda u: u['user_type'] == 'SCHEDULED', users))
-# userIDs = list(map(lambda u: u['_id'], users))
-scheduledIDs = list(map(lambda u: u['_id'], scheduledUsers))
+users = list(map(lambda u: u['_id'], users))
+scheduledUsers = list(map(lambda u: u['_id'], scheduledUsers))
 
 usersDict = dict()
-for u in scheduledIDs:
+for u in users:
   usersDict[u] = dict()
 
 # Get all users' schedules
-url = 'http://localhost:5000/api/matchInfo/admin'
+url = 'http://localhost:5000/api/schedule/admin'
 response = requests.get(url, headers=headers)
 schedules = json.loads(response.text)
 
 for s in schedules:
   usersDict[s['user']]['schedule'] = s
 
-# Get all scheduled profiles
-url = 'http://localhost:5000/api/profile/scheduled/admin'
+url = 'http://localhost:5000/api/profile/admin'
 response = requests.get(url, headers=headers)
 profiles = json.loads(response.text)
 
-# Add profiles to usersDict
 for p in profiles:
-  id = p['user']['_id']
-  if id in usersDict.keys(): 
-    usersDict[p['user']['_id']]['profile'] = p
-
-print(usersDict)
-
+  usersDict[p['user']['id']]['profile'] = p
 
 ###################################################################################################
 #  Helper methods                                                                                 #
@@ -93,6 +80,8 @@ def match(id1, id2):
   matches[id1].append(id2)
   matches[id2].append(id1)
 
+print(usersDict)
+
 def computeCompatibilities():
   newUsers = []
   for id in scheduledUsers:
@@ -113,43 +102,61 @@ def computeCompatibilities():
       vibe[id2] = score
       usersDict[id2]['profile']['user']['vibe'][id1] = score
     usersDict[id1]['profile']['user']['vibe'] = vibe
+    
+#TODO add sharedCategories to vibe, then figure out how to update vibe of both users. Might want to edit locally first, then once loop is done mass update. 
 
 
-###################################################################################################
-#  Payload                                                                                        #
-###################################################################################################
+      # if id2 not in usersDict[id]['profile']['user']
 
-# computeCompatibilities()
+computeCompatibilities()
 
-# matches = dict()
-# # keys are ids, values are dicts with keys as ids and values as number of categories they share
-# potentialMatches = dict()
+matches = dict()
+# keys are ids, values are dicts with keys as ids and values as number of categories they share
+potentialMatches = dict()
 
-# # go through all users, find automatches, and create potentialMatches
-# for i, id1 in enumerate(scheduledUsers):
-#   for j, id2 in enumerate(scheduledUsers): 
-#     sharedTimes = getSharedTimes(id1, id2)
+# go through all users, find automatches, and create potentialMatches
+for i, id1 in enumerate(scheduledUsers):
+  for j, id2 in enumerate(scheduledUsers): 
+    sharedTimes = getSharedTimes(id1, id2)
 
-#     # if ids are different and there are sharedTimes
-#     if id1 != id2 and sharedTimes:
+    # if ids are different and there are sharedTimes
+    if id1 != id2 and sharedTimes:
       
 
-#       # automatch if number of shared categories are above a threshold
-#       if len(sharedCategories) >= k_matching_threshold:
-#         match(id1, id2)
+      # automatch if number of shared categories are above a threshold
+      if len(sharedCategories) >= k_matching_threshold:
+        match(id1, id2)
 
-#       # create sub-dict if necessary
-#       if id1 not in list(potentialMatches.keys()):
-#         potentialMatches[id1] = dict()
-#       if id2 not in list(potentialMatches.keys()):
-#         potentialMatches[id2] = dict()
+      # create sub-dict if necessary
+      if id1 not in list(potentialMatches.keys()):
+        potentialMatches[id1] = dict()
+      if id2 not in list(potentialMatches.keys()):
+        potentialMatches[id2] = dict()
 
-#       # include undirected weighted link
-#       potentialMatches[id1][id2] = sharedCategories
-#       potentialMatches[id2][id1] = sharedCategories
+      # include undirected weighted link
+      potentialMatches[id1][id2] = sharedCategories
+      potentialMatches[id2][id1] = sharedCategories
 
-# print('potential matches: \n', potentialMatches, '\n')
-# print('matches: \n', matches, '\n')
+print('potential matches: \n', potentialMatches, '\n')
+print('matches: \n', matches, '\n')
 
-# for u in usersDict:
-#   print(u)
+for u in usersDict:
+  print(u)
+
+
+        
+###############################################################################
+# TODO
+# 
+# Step 1: make schema and endpoints to create and update compatibility tables
+# 
+# Should probably make it so that every time a new user is added, they're 
+# given a dict with a list of all other users and the new user's compatibility 
+# with all the other users. This compatibility score is also added to the 
+# existing user's dict.
+# 
+# Then at the start of the day, go through the times and match people with high
+# scores. 
+# 
+# 
+###############################################################################
