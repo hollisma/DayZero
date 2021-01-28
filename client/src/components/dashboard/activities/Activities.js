@@ -27,8 +27,8 @@ const Activities = ({ submitActivities, changeActivities, matchInfo: { activitie
   }
 
   return (
-    <div className="ui container">
-      <h1>Activities</h1>
+    <div className="my-container">
+      <h1 className="header">Activities</h1>
       <p>
         Some information about activities...
       </p>

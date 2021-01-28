@@ -1,8 +1,7 @@
 import React from "react";
-import Calendar from "./calendar/Calendar";
 import EditProfile from "../profile/EditProfile";
 import Group from "./group/Group";
-import Activities from "./activities/Activities";
+import Matching from "./Matching";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -22,10 +21,9 @@ const Dashboard = ({ auth: { user, loading: user_loading } }) => {
   }
 
   return (
-    <div className="dashboard">
+    <div className="my-container">
       <Group />
-      <Activities />
-      <Calendar />
+      <Matching />
       <EditProfile />
     </div>
   );
