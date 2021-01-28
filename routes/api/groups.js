@@ -6,6 +6,7 @@ const admin = require("../../middleware/admin");
 // Models
 const User = require("../../models/User");
 const Group = require("../../models/Group");
+const MatchInfo = require("../../models/MatchInfo");
 const { SCHEDULED, GROUPED, MET } = require("../../models/types");
 
 /**
@@ -188,6 +189,55 @@ router.put("/admin/:group_id", admin, async (req, res) => {
         user_type: GROUPED
       });
     });
+
+    res.json(group);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+/**
+ * @route   PUT api/groups/archive
+ * @desc    Archive current group
+ * @access  Private
+ */
+router.put("/archive", auth, async (req, res) => {
+  try {
+    // Get group members
+    const user = await User.findById(req.user.id).populate('group', ['members'])
+
+    if (!user.group) {
+      return res.status(400).json({ msg: "You do not have a group" });
+    }
+
+    // Change each member type to MET
+    const members = user.group.members
+    members.forEach(async member => {
+      await User.findByIdAndUpdate(member, {
+        $set: { user_type: MET, group: null }
+      })
+    })
+
+    // Reset matching info
+    members.forEach(async member => {
+      await MatchInfo.findOneAndUpdate({ 
+        user: member 
+      }, { 
+        $set: {
+          times: [],
+          activities: [],
+          active: false
+        }
+      })
+    })
+
+    // Set group to inactive
+    await Group.findByIdAndUpdate(user.group._id, {
+      $set: { active: false }
+    });
+
+    group = await Group.findById(user.group._id);
 
     res.json(group);
   } catch (err) {

@@ -1,9 +1,10 @@
 import React, { Fragment } from "react";
 // import { Link } from "react-router-dom";
 import GroupMember from "./GroupMember";
+import Matching from "..//Matching";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getCurrentGroup, getMembersProfiles } from "../../../actions/group";
+import { getCurrentGroup, getMembersProfiles, archiveGroup } from "../../../actions/group";
 import Spinner from "../../layout/Spinner";
 import {
   GUEST,
@@ -19,7 +20,8 @@ const Group = ({
   group: { members, membersData, loading, membersLoading },
   auth: { user, isAuthenticated },
   getCurrentGroup,
-  getMembersProfiles
+  getMembersProfiles,
+  archiveGroup
 }) => {
   if (loading) {
     getCurrentGroup();
@@ -29,25 +31,30 @@ const Group = ({
     getMembersProfiles(members);
   }
 
-  // let memberComponents =
-  //   !loading && !membersLoading ? (
-  //     membersData.map((m, i) => (
-  //       <GroupMember
-  //         member_id={m.user ? m.user._id : "-1"}
-  //         name={m.user ? m.user.name : ""}
-  //         avatar={
-  //           m.user ? m.user.avatar : "https://i.stack.imgur.com/dr5qp.jpg"
-  //         }
-  //         major={m.major}
-  //         bio={m.bio}
-  //         key={i}
-  //       />
-  //     ))
-  //   ) : (
-  //     <Spinner />
-  //   );
+  let memberComponents =
+    !loading && !membersLoading && isAuthenticated ? (
+      membersData.map((m, i) => (
+        <GroupMember
+          member_id={m.user ? m.user._id : "-1"}
+          name={m.user ? m.user.name : ""}
+          avatar={
+            m.user ? m.user.avatar : "https://i.stack.imgur.com/dr5qp.jpg"
+          }
+          major={m.major}
+          minor={m.minor}
+          bio={m.bio}
+          key={i}
+        />
+      ))
+    ) : (
+      <Spinner />
+    );
 
   const userType = user ? user.user_type : GUEST;
+
+  const metOnClick = () => {
+    archiveGroup()
+  }
 
   return (
     <div className="ui container">
@@ -56,51 +63,30 @@ const Group = ({
         {userType === PROFILED ? (
           <Fragment>
             <h3>
-              If you would like us to automatically match you for a meal with
-              someone who shares your passions, fill out the calendar section
-              below.
+              If you want to find someone to meet, click here and fill out the
+              activities and times you'd like!
             </h3>
-            <div className="group-nav-buttons">
-              <button
-                className="ui button basic blue"
-                // style={{ marginRight: "1%", marginBottom: "1%" }}
-              >
-                <a href="/dashboard#calendar" className="reg">
-                  Calendar
-                </a>
-              </button>
-              <button
-                className="ui button basic blue"
-                // style={{ marginLeft: "1%", marginBottom: "1%" }}
-              >
-                <a href="/dashboard#edit-profile" className="reg">
-                  Edit Profile
-                </a>
-              </button>
-            </div>
+            <Matching />
           </Fragment>
         ) : userType === SCHEDULED ? (
           <Fragment>
             <h3>
-              One sec... we're searching for people that you'll love talking to.
-              Once we find a match, we'll send an email to decide the specific
-              time and place to meet. You can edit your time availability here:
+              We're currently searching for someone that shares your interests! 
+              Once we find a match, we'll email y'all :) In the meantime, feel 
+              free to change your preferences here. 
             </h3>
-            <button className="ui button basic blue big">
-              <a href="/dashboard#calendar" className="reg">
-                Calendar
-              </a>
-            </button>
+            <Matching />
           </Fragment>
         ) : userType === GROUPED ? (
-          <h3>
-            Here's your group! You should have received an email with your
-            shared interests and time availabilities. Hope you have a good
-            conversation!
-          </h3>
-        ) : // ) : userType === GROUPED ? (
-        //   <p>Here's your group: </p>
-        userType === MET ? (
+          <Fragment>
+            <h3>
+              Here's your group! You should have received an email that you can 
+              communicate through. Hope you enjoying your meeting :D Once you've  
+              met, please click this button. 
+            </h3>
+            <button onClick={metOnClick} className="ui button basic blue">Met</button>
+          </Fragment>
+        ) : userType === MET ? (
           <Fragment>
             {/* <p>Fill out the feedback form here!</p>
             <button className="ui button basic blue big">
@@ -110,8 +96,10 @@ const Group = ({
             </button> */}
             <h3>
               Hope your meeting went well! If you want to meet another person,
-              fill out the calendar and we'll search for your Day Zero :)
+              fill out the Matching form again and we'll search for your next 
+              Day Zero :)
             </h3>
+            <Matching />
           </Fragment>
         ) : (
           <h3>
@@ -121,67 +109,10 @@ const Group = ({
         {!loading && !membersLoading && isAuthenticated ? (
           membersData[0].user && membersData[0].user._id ? (
             <div className="group-container ui equal width grid">
-              <GroupMember
-                member_id={membersData[0].user ? membersData[0].user._id : "-1"}
-                name={membersData[0].user ? membersData[0].user.name : ""}
-                avatar={
-                  membersData[0].user
-                    ? membersData[0].user.avatar
-                    : "https://i.stack.imgur.com/dr5qp.jpg"
-                }
-                major={membersData[0].major}
-                minor={membersData[0].minor}
-                bio={membersData[0].bio}
-                want_to_meet={membersData[0].want_to_meet}
-              />
-              <GroupMember
-                member_id={membersData[1].user ? membersData[1].user._id : "-1"}
-                name={membersData[1].user ? membersData[1].user.name : ""}
-                avatar={
-                  membersData[1].user
-                    ? membersData[1].user.avatar
-                    : "https://i.stack.imgur.com/dr5qp.jpg"
-                }
-                major={membersData[1].major}
-                minor={membersData[1].minor}
-                bio={membersData[1].bio}
-                want_to_meet={membersData[1].want_to_meet}
-              />
-              {/* <GroupMember
-              member_id={membersData[2].user ? membersData[2].user._id : "-1"}
-              name={membersData[2].user ? membersData[2].user.name : ""}
-              avatar={
-                membersData[2].user
-                  ? membersData[2].user.avatar
-                  : "https://i.stack.imgur.com/dr5qp.jpg"
-              }
-              major={membersData[2].major}
-              minor={membersData[2].minor}
-              bio={membersData[2].bio}
-              want_to_meet={membersData[2].want_to_meet}
-            />
-            <GroupMember
-              member_id={membersData[3].user ? membersData[3].user._id : "-1"}
-              name={membersData[3].user ? membersData[3].user.name : ""}
-              avatar={
-                membersData[3].user
-                  ? membersData[3].user.avatar
-                  : "https://i.stack.imgur.com/dr5qp.jpg"
-              }
-              major={membersData[3].major}
-              minor={membersData[3].minor}
-              bio={membersData[3].bio}
-              want_to_meet={membersData[3].want_to_meet}
-            /> */}
+              {memberComponents}
             </div>
           ) : null
         ) : (
-          // ) : (
-          //   <p>
-          //     We're finding you a match! Go do your homework, we'll send an
-          //     email when we've found a match :)
-          //   </p>
-          // )
           <Spinner />
         )}
       </div>
@@ -192,6 +123,7 @@ const Group = ({
 Group.propTypes = {
   getCurrentGroup: PropTypes.func.isRequired,
   getMembersProfiles: PropTypes.func.isRequired,
+  archiveGroup: PropTypes.func.isRequired,
   group: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
 };
@@ -203,5 +135,6 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   getCurrentGroup,
-  getMembersProfiles
+  getMembersProfiles,
+  archiveGroup
 })(Group);

@@ -2,7 +2,7 @@ import { GET_GROUP, GROUP_ERROR, LOAD_MEMBERS, LOGOUT } from "../actions/types";
 
 const initialState = {
   members: [],
-  membersData: [{}, {}, {}, {}],
+  membersData: [{}, {}],
   active: false,
   date: null,
   loading: true,
@@ -30,7 +30,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         members: [],
-        membersData: [{}, {}, {}, {}],
+        membersData: [{}, {}],
         active: false,
         date: null,
         loading: false,
@@ -40,7 +40,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         members: [],
-        membersData: [{}, {}, {}, {}],
+        membersData: [{}, {}],
         active: false,
         date: null,
         loading: true,

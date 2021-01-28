@@ -1,7 +1,6 @@
 import React from "react";
 import EditProfile from "../profile/EditProfile";
 import Group from "./group/Group";
-import Matching from "./Matching";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -23,7 +22,6 @@ const Dashboard = ({ auth: { user, loading: user_loading } }) => {
   return (
     <div className="my-container">
       <Group />
-      <Matching />
       <EditProfile />
     </div>
   );
