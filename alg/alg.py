@@ -47,7 +47,7 @@ for p in profiles:
   if id in usersDict.keys(): 
     usersDict[p['user']['_id']]['profile'] = p
 
-print(usersDict)
+print(usersDict, '\n')
 
 
 ###################################################################################################

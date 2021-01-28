@@ -78,6 +78,11 @@ def getTimes(id):
     return None
   return usersDict[id]['matchInfo']['times']
 
+def getActivities(id):
+  if 'matchInfo' not in usersDict[id].keys() or 'activities' not in usersDict[id]['matchInfo'].keys():
+    return None
+  return usersDict[id]['matchInfo']['activities']
+
 def getSharedCategories(id1, id2): 
   c1 = categories(id1)
   c2 = categories(id2)
@@ -93,6 +98,15 @@ def getSharedCategories(id1, id2):
 def getSharedTimes(id1, id2): 
   t1 = getTimes(id1)
   t2 = getTimes(id2)
+  common = []
+  for c in t1: 
+    if c in t2: 
+      common.append(c)
+  return common
+
+def getSharedActivities(id1, id2): 
+  t1 = getActivities(id1)
+  t2 = getActivities(id2)
   common = []
   for c in t1: 
     if c in t2: 
@@ -166,13 +180,17 @@ for time in masterSchedule_sorted_keys:
       # For every potential match for the first user
       for v in timeUsers:
         if v not in matched and u != v:
-          if len(getSharedCategories(u, v)) > k_matching_threshold:
+          sharedCats = getSharedCategories(u, v)
+          sharedActs = getSharedActivities(u, v)
+          sharedTimes = getSharedTimes(u, v)
+          if len(sharedCats) > k_matching_threshold \
+            and len(sharedActs) > 0:
             # response = match([u, v], time)
             # print(response)
             matched.add(u)
             matched.add(v)
-            # notifier = MatchingNotifier()
-            # notifier.match([usersDict[u]['profile'], usersDict[v]['profile']], getSharedTimes(u, v), getSharedCategories(u, v))
+            notifier = MatchingNotifier()
+            notifier.match([usersDict[u]['profile'], usersDict[v]['profile']], sharedTimes, sharedCats, sharedActs)
             break
 
 
