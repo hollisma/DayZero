@@ -1,3 +1,44 @@
-.test {
-  padding-bottom: 50px; 
+.activities-container {
+  padding: 0rem 12rem 0rem 12rem;
+  height: 100vh;
+  background: #f1f1f1f1;
+  text-align: center;
+}
+
+.activities-selector {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-between;
+}
+.activities-selector img {
+  padding: 10%;
+  height: 80%;
+  width: 80%;
+  background-color: #00000000;
+  transition: background-color 0.25s ease-in-out;
+  border-radius: 7%;
+}
+.activities-selector input {
+  opacity: 0;
+  position: absolute;
+  left: -100vw;
+}
+:checked ~ label img {
+  background-color: #bcdaf6;
+  transition: background-color 0.25s ease-in-out;
+  border-radius: 7%;
+}
+.activity-label {
+  font-size: 2rem;
+}
+.activity-card {
+  width: 33%;
+  height: 50vh;
+}
+.activities-header {
+  font-size: 3rem;
+}
+.activities-info {
+  font-size: 1.25rem;
 }

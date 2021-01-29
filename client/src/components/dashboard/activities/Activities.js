@@ -36,15 +36,14 @@ const Activities = ({
   }
 
   return (
-    <div className="my-container">
-      <h1 className="header">Activities</h1>
-      <p>
-        Some information about activities...
+    <div className="activities-container">
+      <h1 className="activities-header header">Activities</h1>
+      <p className='activities-info'>
+        What activities are you comfortable with? 
       </p>
-      <div className='test'>
-        <form>
-          {/* image checkboxes: https://stackoverflow.com/questions/30663562/use-images-like-checkboxes */}
-          <div>
+      <div>
+        <form className='activities-selector'>
+          <div className='activity-card'>
             <input 
               id={ids[0]} 
               name={ids[0]} 
@@ -52,9 +51,12 @@ const Activities = ({
               checked={activitiesSet.has(ids[0])}
               onChange={e=>onChange(e)}
             />
-            <label htmlFor={ids[0]}>Activity 1 {ACTIVITIES[0]}</label>
+            <label htmlFor={ids[0]}>
+              <img src={require("../../../img/walk.svg")} className='activity-image' alt='walk' width='80%' />
+            </label>
+            <div className='activity-label'>{ACTIVITIES[0]}</div>
           </div>  
-          <div>
+          <div className='activity-card'>
             <input 
               id={ids[1]} 
               name={ids[1]} 
@@ -62,9 +64,12 @@ const Activities = ({
               checked={activitiesSet.has(ids[1])}
               onChange={e=>onChange(e)}
             />
-            <label htmlFor={ids[1]}>Activity 2 {ACTIVITIES[1]}</label>
+            <label htmlFor={ids[1]}>
+              <img src={require("../../../img/meal.svg")} className='activity-image' alt='meal' width='80%' />
+            </label>
+            <div className='activity-label'>{ACTIVITIES[1]}</div>
           </div>  
-          <div>
+          <div className='activity-card'>
             <input 
               id={ids[2]} 
               name={ids[2]} 
@@ -72,17 +77,18 @@ const Activities = ({
               checked={activitiesSet.has(ids[2])}
               onChange={e=>onChange(e)}
             />
-            <label htmlFor={ids[2]}>Activity 3 {ACTIVITIES[2]}</label>
+            <label htmlFor={ids[2]}>
+              <img src={require("../../../img/call.svg")} className='activity-image' alt='call' width='80%' />
+            </label>
+            <div className='activity-label'>{ACTIVITIES[2]}</div>
           </div>  
         </form>
-        <div>
-          <button
-            className="ui green basic button my-1 right floated"
-            onClick={()=>onSubmit()}
-          >
-            Submit
-          </button>
-        </div>
+        <button
+          className="ui green basic button my-1 right floated"
+          onClick={()=>onSubmit()}
+        >
+          Submit
+        </button>
       </div>
     </div>
   );

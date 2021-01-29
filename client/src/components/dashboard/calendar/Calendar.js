@@ -55,9 +55,9 @@ const Calendar = ({
   };
 
   return (
-    <div className="ui container">
-      <h1 className="header">Calendar</h1>
-      <p>
+    <div className="ui container calendar-container">
+      <h1 className="calendar-header header">Calendar</h1>
+      <p className='calendar-info'>
         After we match you with your day zero, we will connect the two of you
         over email. We also recommending that you fill out a quick bio below so
         that people know a bit more about you!

@@ -1,10 +1,18 @@
+.calendar-container {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-between;
+  height: 100vh;
+}
+
 .calendar {
   margin: 0px;
   margin-top: 2%;
-  height: 70%;
+  height: 63%;
   width: 100%;
-  padding: 4%;
-  padding-bottom: 2%;
+  padding: 2% 4%;
+  padding-bottom: 0.5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,16 +22,24 @@
   border-radius: 10px;
 }
 
+.calendar-header {
+  font-size: 3rem;
+  padding-top: 8rem;
+}
+.calendar-info {
+  font-size: 1.15rem;
+}
+
 .calendar .column .text {
   justify-content: center;
-  padding: 8%;
+  padding: 4%;
 }
 
 .calendar .column {
   padding: 1.6rem 1.2rem 0.6rem 1.2rem;
   /* min-width: 200px; */
   min-width: 25%;
-  margin-bottom: 2%;
+  margin-bottom: 0%;
   font-size: 1rem;
   font-weight: 600;
   justify-content: center;
@@ -44,12 +60,12 @@
 .inputGroup {
   background-color: #fff;
   display: block;
-  margin: 0.8rem 0rem;
+  margin: 0.75rem 0rem;
   position: relative;
   border-radius: 10px;
 }
 .inputGroup label {
-  padding: 0.8rem 2rem;
+  padding: 0.5rem 2rem;
   width: 100%;
   display: block;
   text-align: left;
