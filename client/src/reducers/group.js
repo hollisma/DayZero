@@ -4,7 +4,9 @@ const initialState = {
   members: [],
   membersData: [{}, {}],
   active: false,
-  date: null,
+  categories: [],
+  activities: [],
+  times: [],
   loading: true,
   membersLoading: true
 };
@@ -17,7 +19,9 @@ export default function(state = initialState, action) {
         ...state,
         members: payload.members,
         active: payload.active,
-        date: payload.date,
+        categories: payload.categories,
+        activities: payload.activities,
+        times: payload.times.slice(0, 5),
         loading: false
       };
     case LOAD_MEMBERS:
@@ -32,7 +36,9 @@ export default function(state = initialState, action) {
         members: [],
         membersData: [{}, {}],
         active: false,
-        date: null,
+        categories: [],
+        activities: [],
+        times: [],
         loading: false,
         membersLoading: false
       };
@@ -42,7 +48,9 @@ export default function(state = initialState, action) {
         members: [],
         membersData: [{}, {}],
         active: false,
-        date: null,
+        categories: [],
+        activities: [],
+        times: [],
         loading: true,
         membersLoading: true
       };

@@ -34,8 +34,8 @@ class MatchingNotifier:
         time and place. 
         
         Interests you share: {}
-        Times you share: {}
         Activities you share: {}
+        Times you share: {}
 
         Hope you have a blast meeting each other!
 

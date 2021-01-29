@@ -17,7 +17,7 @@ import {
 import "./Group.css";
 
 const Group = ({
-  group: { members, membersData, loading, membersLoading },
+  group: { members, membersData, categories, activities, times, loading, membersLoading },
   auth: { user, isAuthenticated },
   getCurrentGroup,
   getMembersProfiles,
@@ -57,6 +57,25 @@ const Group = ({
     archiveGroup()
   }
 
+  const formatTime = s => {
+    let arr = s.split(',')
+    let meal = arr[1]
+    let timesArr = arr[0].split('-')
+    let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    let month = months[parseInt(timesArr[0])-1]
+    let day = timesArr[1]
+    let result = meal + ' on ' + month + ' ' + day
+    return result
+  }
+
+  let strListFormat = list => { 
+    if (list.length > 2)
+        return `${list.slice(0, list.length-1).join(', ')}, and ${list[list.length-1]}`
+    else if (list.length === 2)
+        return `${list[0]} and ${list[1]}`
+    else return `${list[0]}`
+  }
+
   return (
     <div className="ui container">
       <h1 className="group-header">Your Group</h1>
@@ -82,8 +101,10 @@ const Group = ({
           <Fragment>
             <h3>
               Here's your group! You should have received an email that you can 
-              communicate through. Hope you enjoying your meeting :D Once you've  
-              met, please click this button. 
+              communicate through. Hope you enjoying your meeting :D
+            </h3>
+            <h3 style={{ marginTop: '0', marginBottom: '3%' }}>
+              Once you've met, please click this button. 
             </h3>
             <button onClick={metOnClick} className="ui button basic blue">Met</button>
           </Fragment>
@@ -110,6 +131,11 @@ const Group = ({
         {!loading && !membersLoading && isAuthenticated ? (
           membersData[0].user && membersData[0].user._id ? (
             <div className="group-container ui equal width grid">
+              <div className='commonalities'>
+                <p><b>Shared categories:</b> {strListFormat(categories)}</p>
+                <p><b>Shared activities:</b> {strListFormat(activities)}</p>
+                <p><b>Shared times:</b> {strListFormat(times.map(formatTime))}</p>
+              </div>
               {memberComponents}
             </div>
           ) : null
