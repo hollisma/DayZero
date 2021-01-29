@@ -15,8 +15,6 @@ import "./ProfilePage.css";
 // import withReactContent from "sweetalert2-react-content";
 // const MySwal = withReactContent(Swal);
 
-document.body.style = "background: rgb(238, 247, 255);";
-
 // function fireStar() {
 //   MySwal.fire({
 //     title:
@@ -56,8 +54,6 @@ const ProfilePage = ({
   var [randomProfiles, setRandomProfiles] = useState([]);
 
   // var [userLiked, setUserLiked] = useState(true);
-
-  // const userid = user_loading || !user ? "aaa" : user.id;
 
   useEffect(() => {
     getDisplayProfile(user_id);
@@ -166,38 +162,6 @@ const ProfilePage = ({
     );
   });
 
-  // const likeButton = (
-  //   <button
-  //     className="inner-button"
-  //     // onClick={() => {
-  //     //   like(display_profile);
-  //     //   setUserLiked(true);
-  //     // }}
-  //   >
-  //     Like
-  //   </button>
-  // );
-  // const unlikeButton = (
-  //   <button
-  //     className="inner-button"
-  //     // onClick={() => {
-  //     //   unlike(display_profile);
-  //     //   setUserLiked(false);
-  //     // }}
-  //   >
-  //     Unlike
-  //   </button>
-  // );
-  // const handleToggleLike = () => {
-  //   if (userLiked) {
-  //     unlike(display_profile);
-  //     setUserLiked(false);
-  //   } else {
-  //     like(display_profile);
-  //     setUserLiked(true);
-  //   }
-  // };
-
   return (
     <div id="profile-page">
       <div className="left">
@@ -208,6 +172,8 @@ const ProfilePage = ({
               <div className="basic-info">
                 <div className="name">{profileData.name}</div>
                 <div className="major">{profileData.major}</div>
+                <div className="major">{profileData.minor}</div>
+                <div className="major">{profileData.year}</div>
               </div>
               <div className="buttons">
                 <button className="ui blue small button say-hi" onClick={sayhi}>

@@ -64,9 +64,14 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </a>
       </li>
       <li className="item">
-        <a href="/#footer-desktop" className="text-secondary">
+        <a href="/#footer-desktop" className="text-primary">
           Register
         </a>
+      </li>
+      <li className="item">
+        <Link to="/login" className="text-secondary">
+          Login
+        </Link>
       </li>
     </ul>
   );

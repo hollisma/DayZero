@@ -63,9 +63,6 @@ const Search = ({ auth: { user }, getSearchProfiles }) => {
                       </div>
                     ))}
                 </div>
-                <div className="likes">
-                  {profile.liked_users.length} <i class="red heart icon"></i>
-                </div>
               </div>
             </div>
           </a>

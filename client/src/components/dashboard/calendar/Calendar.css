@@ -4,6 +4,7 @@
   text-align: center;
   justify-content: space-between;
   height: 100vh;
+  background-color: rgb(238, 247, 255);
 }
 
 .calendar {
@@ -140,6 +141,10 @@
 @media only screen and (max-width: 1225px) {
   .column {
     min-width: 200px !important;
+  }
+
+  .calendar {
+    padding: 5% 4% 2%;
   }
 }
 

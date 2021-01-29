@@ -36,7 +36,7 @@ const Activities = ({
   }
 
   return (
-    <div className="activities-container">
+    <div className="ui container activities-container">
       <h1 className="activities-header header">Activities</h1>
       <p className='activities-info'>
         What activities are you comfortable with? 

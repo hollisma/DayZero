@@ -1,7 +1,7 @@
 .activities-container {
-  padding: 0rem 12rem 0rem 12rem;
+  /* padding: 0rem 12rem 0rem 12rem; */
   height: 100vh;
-  background: #f1f1f1f1;
+  background: rgb(238, 247, 255);
   text-align: center;
 }
 
@@ -42,3 +42,21 @@
 .activities-info {
   font-size: 1.25rem;
 }
+.activity-image {
+  cursor: pointer;
+}
+
+/* Mobile only */
+@media only screen and (max-width: 768px) {
+  .activities-header {
+    margin-top: 5vh !important;
+  }
+  .activities-selector {
+    flex-direction: column;
+  }
+  .activity-card {
+    width: 100%;
+    height: 50vh;
+  }
+}
+

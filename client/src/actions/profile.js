@@ -188,7 +188,7 @@ export const getRandomProfiles = (num, id) => async dispatch => {
 
     var arr = [];
     // minus 2 for admin and current user
-    var numProfiles = Math.min(resProfiles.length - 2, num);
+    var numProfiles = Math.min(resProfiles.length - 1, num);
     const validProfile = prof => {
       return (
         !arr.includes(rand) &&
@@ -200,6 +200,7 @@ export const getRandomProfiles = (num, id) => async dispatch => {
         prof.user.name
       );
     };
+    
     for (var i = 0; i < numProfiles; i++) {
       var rand = Math.floor(Math.random() * resProfiles.length);
       while (!validProfile(resProfiles[rand])) {
