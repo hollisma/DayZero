@@ -7,8 +7,7 @@ const Matching = () => {
 
   return (
     <div className="matching">
-      Click here to get a match!
-      <Link to='/dashboard/activities' className="ui basic button m-1">
+      <Link to='/dashboard/activities' className="ui primary big button m-1 match-button">
         Match
       </Link>
     </div>

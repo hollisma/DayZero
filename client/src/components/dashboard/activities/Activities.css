@@ -16,7 +16,7 @@
   height: 80%;
   width: 80%;
   background-color: #00000000;
-  transition: background-color 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
   border-radius: 7%;
 }
 .activities-selector input {
@@ -26,7 +26,7 @@
 }
 :checked ~ label img {
   background-color: #bcdaf6;
-  transition: background-color 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
   border-radius: 7%;
 }
 .activity-label {

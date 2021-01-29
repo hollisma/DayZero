@@ -11,6 +11,15 @@
   font-weight: 100;
 }
 
+.match-button {
+  background-color: #118AE6 !important;
+  transition: 0.25s ease-out;
+}
+.match-button:hover {
+  background-color: #118ae6c4 !important;
+  transition: 0.25s ease-out;
+}
+
 @media only screen and (max-width: 768px) {
   .my-container {
     padding: 100px 6vw 0;

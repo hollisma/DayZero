@@ -12,6 +12,27 @@
   padding: 15px 0;
 }
 
+.category-button {
+  background-color: #118AE6 !important;
+  transition: 0.25s ease-out;
+}
+.category-button:hover {
+  background-color: #118ae6c4 !important;
+  transition: 0.25s ease-out;
+}
+.category-button.not-selected {
+  background-color: #118AE600 !important;
+  border: 1px #118AE6 solid;
+  color: #118AE6 !important;
+  transition: 0.25s ease-out;
+}
+.category-button.not-selected:hover {
+  background-color: #118ae62a !important;
+  transition: 0.25s ease-out;
+  border: 1px #118ae694 solid;
+  color: #118ae6ea !important;
+}
+
 @media only screen and (max-width: 1225px) {
   .triple-input {
     display: flex;

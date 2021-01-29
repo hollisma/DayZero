@@ -128,7 +128,7 @@ const EditProfile = ({
       <button
         className={
           "ui blue button category-button " +
-          (categories.includes(cat) ? "" : "basic")
+          (categories.includes(cat) ? "" : "not-selected")
         }
         style={{ margin: "5px", fontWeight: "bold" }}
         onClick={e => {
