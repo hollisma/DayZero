@@ -69,8 +69,6 @@ const Calendar = ({
           <CheckboxGroup day={3} />
           <CheckboxGroup day={4} />
           <CheckboxGroup day={5} />
-          <CheckboxGroup day={6} />
-          <CheckboxGroup day={7} />
         </div>
         <div>
           <button

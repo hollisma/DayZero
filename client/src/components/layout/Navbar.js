@@ -79,15 +79,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   return (
     <nav className="ui secondary menu navbar" id="navbar">
       {!loading && <Hamburger authenticated={isAuthenticated} />}
-      <h1>
-        <a className="logo-box" href={isAuthenticated ? "/dashboard#" : "/#"}>
-          <img
-            src={require("../../img/logo.svg")}
-            className="img-logo"
-            alt="Day Zero"
-          />
-        </a>
-      </h1>
+      <a className="logo-box" href={isAuthenticated ? "/dashboard#" : "/#"}>
+        <img
+          src={require("../../img/logo.svg")}
+          className="img-logo"
+          alt="Day Zero"
+        />
+      </a>
       {!loading && (
         <div className="links">{isAuthenticated ? authLinks : guestLinks}</div>
       )}
