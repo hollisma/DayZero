@@ -9,6 +9,7 @@ const GroupMember = ({
   member_id,
   name,
   avatar,
+  year,
   major,
   minor,
   bio
@@ -23,6 +24,9 @@ const GroupMember = ({
           <p id="name">{name}</p>
         </div>
         <div className="information">
+          <p id="academics">
+            <b>Year:</b> {year}
+          </p>
           <p id="academics">
             <b>Major:</b> {major}
           </p>

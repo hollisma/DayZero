@@ -40,6 +40,7 @@ const Group = ({
           avatar={
             m.user ? m.user.avatar : "https://i.stack.imgur.com/dr5qp.jpg"
           }
+          year={m.year}
           major={m.major}
           minor={m.minor}
           bio={m.bio}

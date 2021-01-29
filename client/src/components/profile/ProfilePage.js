@@ -15,7 +15,7 @@ import "./ProfilePage.css";
 // import withReactContent from "sweetalert2-react-content";
 // const MySwal = withReactContent(Swal);
 
-document.body.style = "background: #fafafa;";
+document.body.style = "background: rgb(238, 247, 255);";
 
 // function fireStar() {
 //   MySwal.fire({
