@@ -158,7 +158,10 @@ const EditProfile = ({
 
   return (
     <div id="edit-profile" className="ui container">
-      <h1 className="edit-profile-header">Edit Your Profile</h1>
+      <h1 className="edit-profile-header">
+        Edit Your Profile
+        <button className='ui green button my-1 right floated' onClick={onSubmit}>Save</button>
+      </h1>
       <p className="lead my-up-1">
         <i className="fas fa-user" /> What would you like people to know about
         you?
@@ -412,7 +415,7 @@ const EditProfile = ({
           <input
             type="submit"
             value="Save"
-            className="ui green basic button my-1 right floated"
+            className="ui green button my-1 right floated"
           />
         </div>
       </form>

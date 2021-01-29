@@ -21,7 +21,7 @@ export default function(state = initialState, action) {
         active: payload.active,
         categories: payload.categories,
         activities: payload.activities,
-        times: payload.times.slice(0, 5),
+        times: payload.times && payload.times.slice(0, 5),
         loading: false
       };
     case LOAD_MEMBERS:
