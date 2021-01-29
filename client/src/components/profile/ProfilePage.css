@@ -34,6 +34,7 @@
   display: flex;
   flex-direction: row;
   margin: 2rem 2rem 0rem 0rem;
+  height: auto;
   padding: 0;
 }
 #profile-page .left .info .header .avatar {
@@ -53,7 +54,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 7vh;
 }
 #profile-page .left .info .header .name {
   float: left;
@@ -65,7 +65,7 @@
 }
 #profile-page .left .info .header .major {
   font-size: 2.5vh;
-  height: 6.25vh;;
+  /* height: 6.25vh; */
   margin-left: 3vw;
   margin-top: 2.75vh;
 }
@@ -183,6 +183,38 @@
   margin-right: 2rem;
 }
 
+@media only screen and (max-width: 1000px) {
+  #profile-page .left .info {
+    align-items: center;
+  }
+  #profile-page .left .info .header {
+    flex-direction: column !important;
+    align-items: center;
+    margin-right: 0;
+  }
+  #profile-page .left .info .header .avatar {
+    margin: 0 !important;
+  }
+  #profile-page .left .info .header .basic-info {
+    flex-direction: column !important;
+  }
+  #profile-page .left .info .header .text-info {
+    align-items: center;
+  }
+  #profile-page .left .info .header .text-info .buttons {
+    margin: 0 !important;
+  }
+  #profile-page .left .info .header .text-info .buttons button {
+    margin: 0 !important;
+  }
+  .name {
+    margin: 2vh 0 1vh !important;
+  } 
+  .major {
+    margin: 0 !important;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   #profile-page .left .header .avatar {
     margin-left: 4vw !important;
@@ -193,12 +225,12 @@
     margin-bottom: 3vh !important;
     justify-content: center;
     align-items: center;
-    height: 10vh !important;
+    /* height: 10vh !important; */
   }
   #profile-page .left .header .buttons {
     justify-content: center;
     align-items: flex-start;
-    height: 10vh !important;
+    /* height: 10vh !important; */
   }
   #profile-page .left .header .say-hi {
     width: 30vw !important;
@@ -212,6 +244,9 @@
   }
   #profile-page .left .header .major {
     margin: 0 !important;
+  }
+  #profile-page .left .info .header .text-info {
+    height: auto;
   }
   #profile-page .right .similar-title {
     margin-top: 15vh;
@@ -245,7 +280,7 @@
   }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
   #profile-page .left .info .header .basic-info {
     flex-direction: column;
     margin-left: 2rem;
