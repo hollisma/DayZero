@@ -4,42 +4,32 @@ import "./Landing.css";
 
 const Section2 = () => {
   return (
-    <div id="howitworks">
+    <div id="faq">
       <div className="faq">
-        <p className="faq-title">How automatic meal matches work</p>
+        <p className="faq-title">What's the matching process like?</p>
         <p className="faq-body">
-          In addition to manually searching for users on the Day Zero network
-          with our 'search' feature, we can also match you for a meal
-          automatically with a someone who shares your passions.
-          <br></br>
-          <br></br>
-          To get an automatic match, go to your Day Zero dashboard and fill out
-          when you're free for lunch or dinner. Based on who you've liked (see
-          below) and what categories you identified with, DZ will automatically
-          find an optimal match. Once found, we will send you both an
-          introductory email, and then you guys can figure out the specific
-          meeting place and time.
+          Once you fill out the Activities and Calendar, we'll find someone 
+          who's put down at least one same activity and time and who also shares
+          at least 2 interests as you (which can be changed in the profile). 
         </p>
       </div>
       <div className="faq">
-        <p className="faq-title">What are likes?</p>
+        <p className="faq-title">If I'm not on campus, can I still use this?</p>
         <p className="faq-body">
-          If you go to someone's profile, you will see a red 'Like' button. Its
-          purpose is for you to tell us what kind of person you enjoy meeting so
-          we can recommend you people you'd vibe with but don't necessarily
-          share a lot of commonalities with. For example, if you have a close
-          friend that has different interests than you but you would still like
-          to engage with people like them, you'd 'like' them and DZ will
-          incorporate that in its recommendation engine.
+          Definitely! The three activities right now are walking, having a meal, and 
+          calling, and each of these can be done remotely. For example, you 
+          and your match can go on a walk while voice calling each other, or
+          share a virtual meal. If you have any ideas for more activities, 
+          please email us at founders.dayzero@gmail.com :)
         </p>
       </div>
       <div className="faq">
-        <p className="faq-title">How does search work?</p>
+        <p className="faq-title">Is this a dating app?</p>
         <p className="faq-body">
-          Search's purpose is to help you efficiently find people that have any
-          combination of characteristics. You can filter based on your heart's
-          desire, and once you go to someone's profile, you can click 'Say Hi'
-          to reach out to them.
+          Short answer: no, it's to meet people you otherwise wouldn't meet. 
+          Long answer: trying to build a genuiune friend/relationship with 
+          someone takes time, and we hope that Day Zero can be the zeroth step
+          in that process :)
         </p>
       </div>
     </div>

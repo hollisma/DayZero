@@ -5,6 +5,7 @@ import { logout } from "../../actions/auth";
 import PropTypes from "prop-types";
 
 import "./Hamburger.css";
+import "./Navbar.css";
 
 const Hamburger = ({ authenticated, logout }) => {
   const [toggled, setToggled] = useState(false);
@@ -23,23 +24,24 @@ const Hamburger = ({ authenticated, logout }) => {
 
             <ul id="menu">
               <li>
-                <a href="/dashboard#" onClick={() => setToggled(false)}>
+                <a href="/dashboard#" className='color-pri' onClick={() => setToggled(false)}>
                   Your Day Zeros
                 </a>
               </li>
               <li>
-                <a href="/search" onClick={() => setToggled(false)}>
+                <a href="/search" className='reg' onClick={() => setToggled(false)}>
                   Search
                 </a>
               </li>
               <li>
-                <a href="/howitworks" onClick={() => setToggled(false)}>
-                  How It Works
+                <a href="/FAQ" className='reg' onClick={() => setToggled(false)}>
+                  FAQ
                 </a>
               </li>
               <li>
                 <Link
                   to="/#"
+                  className='color-sec' 
                   onClick={() => {
                     logout();
                     setToggled(false);
@@ -67,11 +69,11 @@ const Hamburger = ({ authenticated, logout }) => {
 
             <ul id="menu">
               <li>
-                <a href="/#" onClick={() => setToggled(false)}>
+                <a href="/#" className='reg' onClick={() => setToggled(false)}>
                   Home
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="/#discover" onClick={() => setToggled(false)}>
                   Discover
                 </a>
@@ -80,13 +82,20 @@ const Hamburger = ({ authenticated, logout }) => {
                 <a href="/#possibilities" onClick={() => setToggled(false)}>
                   Possibilities
                 </a>
+              </li> */}
+              <li>
+                <Link to="/FAQ" className='reg' onClick={() => setToggled(false)}>
+                  FAQ
+                </Link>
               </li>
               <li>
-                {/* <Link to="/Register" onClick={() => setToggled(false)}>
+                <a href="/#footer-mobile" className='color-sec' onClick={() => setToggled(false)}>
                   Register
-                </Link> */}
-                <a href="/#footer-mobile" onClick={() => setToggled(false)}>
-                  Register
+                </a>
+              </li>
+              <li>
+                <a href="/login" className='color-pri' onClick={() => setToggled(false)}>
+                  Login
                 </a>
               </li>
             </ul>

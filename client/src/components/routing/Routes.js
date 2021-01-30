@@ -31,7 +31,7 @@ const Routes = () => {
       <Route exact path="/sign-up-landing" component={SignUpLanding} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/login" component={Login} />
-      <Route exact path="/howitworks" component={Section2} />
+      <Route exact path="/faq" component={Section2} />
       <Route exact path="/verification" component={Verification} />
       <Route
         exact

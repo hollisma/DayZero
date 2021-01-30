@@ -23,7 +23,13 @@
     color: #0084ff !important;
   }
   .color-sec {
-    color: #ff2c2caf !important;
+    color: #ff0f0faf !important;
+  }
+  .color-pri:hover {
+    color: #5cb0ff !important;
+  }
+  .color-sec:hover {
+    color: #ff5050af !important;
   }
   .scrolled {
     height: 10%;
@@ -124,5 +130,24 @@
 
   .links {
     display: none;
+  }
+
+  .color-pri {
+    color: #0084ff !important;
+  }
+  .color-sec {
+    color: #ff0f0faf !important;
+  }
+  .color-pri:hover {
+    color: #5cb0ff !important;
+  }
+  .color-sec:hover {
+    color: #ff5050af !important;
+  }
+  .navbar .reg {
+    color: black;
+  }
+  .navbar .reg:hover {
+    color: #666666;
   }
 }

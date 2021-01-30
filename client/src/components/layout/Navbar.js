@@ -34,8 +34,8 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </a>
       </li>
       <li className="item">
-        <a href="/howitworks" className="reg">
-          How It Works
+        <a href="/faq" className="reg">
+          FAQ
         </a>
       </li>
       <li className="item">
@@ -53,7 +53,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
           Home
         </a>
       </li>
-      <li className="item">
+      {/* <li className="item">
         <a href="/#discover" className="reg">
           Discover
         </a>
@@ -62,6 +62,11 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <a href="/#possibilities" className="reg">
           Possibilities
         </a>
+      </li> */}
+      <li className="item">
+        <Link to='FAQ' className="reg">
+          FAQ
+        </Link>
       </li>
       <li className="item">
         <a href="/#footer-desktop" className="color-sec">

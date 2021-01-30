@@ -1,44 +1,3 @@
-/* For mobile phones */
-@media only screen and (max-width: 768px) {
-  #landing-desktop {
-    display: none;
-  }
-
-  /* First section */
-  #section1 {
-    text-align: center;
-    padding-top: 17vh;
-    padding-bottom: 5vh;
-  }
-  #section1 h3 {
-    margin: 5vw;
-  }
-
-  /* Second section i.e. How it works*/
-  #howitworks {
-    height: 100vh;
-    text-align: center;
-    padding-top: 14vh;
-  }
-
-  #howitworks .faq {
-    margin: 3vh;
-    padding: 5vh 12vw 0 12vw;
-  }
-
-  #howitworks .faq .faq-title {
-    font-size: 1.6rem;
-    font-family: "Alatsi";
-    margin-bottom: 2rem;
-  }
-
-  #howitworks .faq-body {
-    font-size: 1.25rem;
-    padding: 0;
-    margin-bottom: 3rem;
-  }
-}
-
 /* For desktop */
 @media only screen and (min-width: 768px) {
   #landing-mobile {
@@ -82,17 +41,17 @@
   }
 
   /* Second section */
-  #howitworks {
+  #faq {
     background-image: url("../../img/section2_background.svg");
     background-repeat: no-repeat;
 
     background-size: 100%;
     background-position: 50%;
     /* background-color: #f6f6f6; */
-    padding: 14vh 2vh 5vh 2vh;
+    padding: 10vh 2vh 5vh 2vh;
   }
 
-  #howitworks h1 {
+  #faq h1 {
     position: relative;
     padding: 1rem;
     margin-left: 7rem;
@@ -100,19 +59,19 @@
     text-align: center;
   }
 
-  #howitworks .faq {
+  #faq .faq {
     margin: 3vh;
-    padding: 5vh 12vw 0 12vw;
+    padding: 4vh 12vw 0 12vw;
   }
 
-  #howitworks .faq .faq-title {
+  #faq .faq .faq-title {
     font-size: 2rem;
     font-family: "Alatsi";
     margin-bottom: 0.75rem;
   }
 
-  #howitworks .faq-body {
-    font-size: 1.25rem;
+  #faq .faq-body {
+    font-size: 1.4rem;
     padding: 0;
   }
 
@@ -131,13 +90,12 @@
     width: 43rem;
   }
 
-  #howitworks p {
+  #faq p {
     position: relative;
     /* background-color: white; */
-    font-size: 1.4rem;
     margin: 0rem 0.5rem;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
     overflow: auto;
   }
 
@@ -179,5 +137,46 @@
     grid-gap: 13%;
     justify-items: start;
     justify-content: start !important;
+  }
+}
+
+/* For mobile phones */
+@media only screen and (max-width: 768px) {
+  #landing-desktop {
+    display: none;
+  }
+
+  /* First section */
+  #section1 {
+    text-align: center;
+    padding-top: 17vh;
+    padding-bottom: 5vh;
+  }
+  #section1 h3 {
+    margin: 5vw;
+  }
+
+  /* Second section i.e. How it works*/
+  #faq {
+    height: 100vh;
+    text-align: center;
+    padding-top: 14vh;
+  }
+
+  #faq .faq {
+    margin: 3vh;
+    padding: 5vh 12vw 0 12vw;
+  }
+
+  #faq .faq .faq-title {
+    font-size: 1.6rem;
+    font-family: "Alatsi";
+    margin-bottom: 2rem;
+  }
+
+  #faq .faq-body {
+    font-size: 1.25rem;
+    padding: 0;
+    margin-bottom: 3rem;
   }
 }
