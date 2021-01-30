@@ -250,11 +250,11 @@ router.put("/admin", admin, async (req, res) => {
 });
 
 /**
- * @route   DELETE api/profile
- * @desc    Delete user and everything attached to user
+ * @route   DELETE api/users/:user_id
+ * @desc    Delete user and profile/matching info attached to user
  * @access  Admin
  */
-router.delete("/:user_id", admin, async (req, res) => {
+router.delete("/admin/:user_id", admin, async (req, res) => {
   try {
     // Remove user
     await User.findOneAndRemove({ _id: req.params.user_id });
@@ -264,6 +264,23 @@ router.delete("/:user_id", admin, async (req, res) => {
     await MatchInfo.findOneAndRemove({ user: req.params.user_id });
 
     res.json({ msg: "User deleted" });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+/**
+ * @route   DELETE api/users/danger_zone
+ * @desc    Clear all users except admin
+ * @access  Admin
+ */
+router.delete("/danger_zone/admin", admin, async (req, res) => {
+  try {
+    let data = await User.deleteMany({ user_type: { $ne: 'ADMIN' } })
+    console.log(data)
+
+    res.json({ msg: "Poof", data });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
