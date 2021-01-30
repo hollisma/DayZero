@@ -67,10 +67,9 @@ const Feedback = ({
   return (
     <div className="feedback">
       <p id="feedback-intro">
-        Hey {user.name.split(' ')[0]}, I hope you enjoyed meeting your Day Zeros! To make sure
-        you get matched with the people you'd vibe with most, we'd really
-        appreciate your anonymous feedback. Your Day Zeros won't know what
-        responses you gave.
+        Hey {user.name.split(' ')[0]}, we hope you enjoyed meeting your Day 
+        Zero! To ensure that you're matched with people you'd vibe with, we'd
+        love to know how your meeting went.
       </p>
       {Receivers}
       <div className='general-feedback'>
@@ -85,7 +84,7 @@ const Feedback = ({
           value={genFeedback} 
         />
       </div>
-      <button onClick={() => onSubmit()} className="ui green basic button">
+      <button onClick={() => onSubmit()} className="ui green button">
         Submit
       </button>
     </div>

@@ -81,15 +81,16 @@ const LandingMobile = ({ register, isAuthenticated }) => {
           Quickly discover the meet new people
         </div>
         <div className="text">
-          There are over <span className="colorful">8,000</span> students at
-          Princeton.
+          Fill out a <span className="colorful">short profile</span> with 
+          your interests to start matching with people.  
         </div>
         <div className="text">
-          Meeting them has become <span className="colorful">harder than ever.</span>
+          Choose between socially distanced <span className="colorful">walks, 
+          meals, or calls</span> to meet people.
         </div>
         <div className="text">
-          <span className="colorful">Day Zero</span> makes it easier to discover
-          and connect with people that share your passions and values.
+          We'll send an <span className="colorful">email</span> your way when 
+          we've found someone that shares your interests.
         </div>
         <div className="card-profile">
           <img
@@ -109,18 +110,17 @@ const LandingMobile = ({ register, isAuthenticated }) => {
         <div className="transition">With Day Zero, you can...</div>
         <div className="card-background">
           <div className="card-possibility">
-            Discover students who share your passions and values
+            Connect with people you normally wouldn't meet
           </div>
         </div>
         <div className="card-background">
           <div className="card-possibility">
-            Get matched with someone for a walk, meal, 
-            or call
+            Find out who is in your classes
           </div>
         </div>
         <div className="card-background">
           <div className="card-possibility">
-            Find out who is in your classes{" "}
+            Take the first step in building a meaningful relationship
           </div>
         </div>
       </div>

@@ -7,14 +7,13 @@
   align-items: left;
   justify-content: center;
   text-align: left;
-  background-color: rgb(238, 247, 255);
 }
 
 .receiver-feedback {
   display: flex;
   flex-direction: row;
-  margin: 1%;
-  justify-content: left;
+  margin: 1% 10%;
+  justify-content: space-around;
   align-items: top;
 }
 .receiver-feedback .member {
@@ -45,7 +44,10 @@
   height: 100%;
   min-width: 17rem;
   max-width: 17rem;
-  text-align: top;
+  text-align: center;
+}
+#question-one {
+  padding-top: 5%;
 }
 
 .avatar {
@@ -53,14 +55,16 @@
 }
 
 #feedback-intro {
-  background-color: #e2f1ff;
-  font-size: 1.15rem;
-  padding: 0.5rem;
+  background-color: white;
+  font-size: 1.5rem;
+  padding: 2rem;
   margin-bottom: 2rem;
+  box-shadow: 0px 3px 2px #00000055;
+  border-radius: 1rem;
 }
 
 .general-feedback {
-  margin: 5% 0;
+  margin: 5% 0 2%;
   text-align: center;
 }
 .general-feedback-text {

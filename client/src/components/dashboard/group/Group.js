@@ -87,8 +87,9 @@ const Group = ({
         {userType === PROFILED ? (
           <Fragment>
             <h3>
-              If you want to find someone to meet, click here and fill out the
-              activities and times you'd like!
+              If you'd like to meet someone, click here and fill out the
+              activities and times you can do for your next meeting, then we'll 
+              email you when we've found someone!
             </h3>
             <Matching />
           </Fragment>
@@ -116,18 +117,18 @@ const Group = ({
           </Fragment>
         ) : userType === MET ? (
           <Fragment>
-            <p>Fill out the feedback form here!</p>
-            <button className="ui button basic blue big">
-              <Link to="/feedback" className="reg">
-                Feedback
-              </Link>
-            </button>
             <h3>
               Hope your meeting with {otherName} went well! 
-              If you want to meet another person, fill out the Matching form 
-              again and we'll search for your next Day Zero :)
+              You can fill out the feedback form to let us know how to improve
+              your experience. Afterwards, you can match with more people.
             </h3>
-            <Matching />
+            <div className='met-buttons'>
+              <button className="ui button basic blue big">
+                <Link to="/feedback" className="reg">
+                  Feedback
+                </Link>
+              </button>
+            </div>
           </Fragment>
         ) : (
           <h3>

@@ -85,21 +85,31 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
           <div className="title">
             Quickly discover and meet new people
           </div>
+
           <div className="text">
+            Fill out a <span className="colorful">short profile</span> with 
+            your interests to start matching with people.  
+          </div>
+          <div className="text">
+            Choose between socially distanced <span className="colorful">walks, 
+            meals, or calls</span> to meet people.
+          </div>
+          <div className="text">
+            We'll send an <span className="colorful">email</span> your way when 
+            we've found someone that shares your interests.
+          </div>
+
+          {/* <div className="text">
             There are over <span className="colorful">8,000</span> students at
             Princeton.
           </div>
           <div className="text">
             Meeting them has become <span className="colorful">harder than ever.</span>
           </div>
-          {/* <div className="text">
-            In 4 years, the average student only meets{" "}
-            <span className="colorful">4.3%</span> of them.
-          </div> */}
           <div className="text">
             <span className="colorful">Day Zero</span> makes it easier to discover
             and connect with people that share your passions and values.
-          </div>
+          </div> */}
         </div>
         <div className="people-cards">
           <div className="card-profile">
@@ -156,17 +166,18 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
           <div className="cards">
             <div className="card-background">
               <div className="card">
-                Discover students who share your passions and values
+                Connect with people you normally wouldn't meet
               </div>
             </div>
             <div className="card-background">
               <div className="card">
-                Get matched with someone for a walk, meal, 
-                or call
+                Find out who is in your classes
               </div>
             </div>
             <div className="card-background">
-              <div className="card">Find out who is in your classes</div>
+              <div className="card">
+                Take the first step in building a meaningful relationship
+              </div>
             </div>
           </div>
           <img

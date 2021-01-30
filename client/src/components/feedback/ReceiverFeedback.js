@@ -50,7 +50,7 @@ const ReceiverFeedback = ({
           aria-label='heart'
           onClick={() => updateParent(null, 3)}
         >
-          😍
+          ♥
         </span>
       </div>
       {/* <div className="superlike">
