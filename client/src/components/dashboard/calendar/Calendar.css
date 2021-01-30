@@ -10,7 +10,7 @@
 .calendar {
   margin: 0px;
   margin-top: 2%;
-  height: 63%;
+  height: 65%;
   width: 100%;
   padding: 2% 4%;
   padding-bottom: 0.5%;
@@ -64,6 +64,7 @@
   margin: 0.75rem 0rem;
   position: relative;
   border-radius: 10px;
+  border: 1px solid rgb(137, 177, 171);
 }
 .inputGroup label {
   padding: 0.5rem 2rem;
@@ -83,7 +84,7 @@
   height: 1rem;
   border-radius: 50%;
   content: "";
-  background-color: #5df1c5;
+  background-color: #bef8e7;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -121,8 +122,8 @@
   opacity: 1;
 }
 .inputGroup input:checked ~ label:after {
-  background-color: #17df38;
-  border-color: #059e33;
+  background-color: #7af1f5;
+  border-color: #51b8c5;
 }
 .inputGroup input {
   width: 32px;

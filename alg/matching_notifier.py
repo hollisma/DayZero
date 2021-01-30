@@ -34,7 +34,9 @@ class MatchingNotifier:
         time and place. 
         
         Interests you share: {}
+        
         Activities you share: {}
+
         Times you share: {}
 
         Hope you have a blast meeting each other!
@@ -43,7 +45,7 @@ class MatchingNotifier:
 
         Day Zero
 
-        """.format(recipient_names_str, categories_str, times_str, activities_str)
+        """.format(recipient_names_str, categories_str, activities_str, times_str)
         return textwrap.dedent(body).strip()
 
 def formatTime(s):
