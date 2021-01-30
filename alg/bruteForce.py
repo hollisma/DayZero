@@ -184,7 +184,7 @@ for time in masterSchedule_sorted_keys:
           sharedCats = getSharedCategories(u, v)
           sharedActs = getSharedActivities(u, v)
           sharedTimes = getSharedTimes(u, v)
-          if len(sharedCats) > k_matching_threshold \
+          if len(sharedCats) >= k_matching_threshold \
             and len(sharedActs) > 0:
             response = match([u, v], sharedCats, sharedActs, sharedTimes)
             print(response)
