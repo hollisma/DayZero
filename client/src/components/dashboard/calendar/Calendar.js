@@ -58,9 +58,8 @@ const Calendar = ({
     <div className="ui container calendar-container">
       <h1 className="calendar-header header">Calendar</h1>
       <p className='calendar-info'>
-        After we match you with your day zero, we will connect the two of you
-        over email. We also recommending that you fill out a quick bio below so
-        that people know a bit more about you!
+        Fill out some times for when you're free to meet someone. You'll be 
+        able to schedule a more specific time later!
       </p>
       <div id="calendar" className="calendar chunk">
         <div className="options">

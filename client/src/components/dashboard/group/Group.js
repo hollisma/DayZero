@@ -92,8 +92,10 @@ const Group = ({
           <Fragment>
             <h3>
               We're currently searching for someone that shares your interests! 
-              Once we find a match, we'll email you :) In the meantime, feel 
-              free to change your preferences here. 
+              Once we find a match, we'll email you :) 
+            </h3>
+            <h3 style={{ marginTop: '0', marginBottom: '0' }}>
+              In the meantime, feel free to change your preferences here: 
             </h3>
             <Matching />
           </Fragment>

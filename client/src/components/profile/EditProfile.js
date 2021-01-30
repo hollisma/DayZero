@@ -235,7 +235,7 @@ const EditProfile = ({
           </div>
         </div>
         <div className="row">
-          <div className="column avataredit1">
+          <div className="column avataredit2 avatar-photo">
             <p>Current Profile Picture</p>
             <Avatar
               className="avatar"

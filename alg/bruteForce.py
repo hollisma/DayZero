@@ -58,8 +58,6 @@ profiles = json.loads(response.text)
 for p in profiles:
   usersDict[p['user']['id']]['profile'] = p
 
-print(usersDict, '\n')
-
 # url = host_name + ':5000/api/vibe'
 # response = requests.get(url, headers=headers)
 # vibe = json.loads(response.text)
@@ -172,6 +170,7 @@ masterSchedule_sorted_keys = sorted(masterSchedule_sorted_keys, key=toDatetime)
 
 ### Match people with same time slot and shared interests
 matched = set()
+numMatched = 0
 # For each time where at least one user is available
 for time in masterSchedule_sorted_keys:
   timeUsers = masterSchedule[time]
@@ -194,9 +193,11 @@ for time in masterSchedule_sorted_keys:
             if options_email: 
               notifier = MatchingNotifier()
               notifier.match([usersDict[u]['profile'], usersDict[v]['profile']], sharedTimes, sharedCats, sharedActs)
+
+            numMatched += 1
             break
 
-
+print('Matched', numMatched, 'people')
 
 
 

@@ -39,7 +39,7 @@ const Activities = ({
     <div className="ui container activities-container">
       <h1 className="activities-header header">Activities</h1>
       <p className='activities-info'>
-        What activities are you comfortable with? 
+        What activities are you comfortable with to meet someone? 
       </p>
       <div>
         <form className='activities-selector'>
