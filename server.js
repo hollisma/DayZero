@@ -29,6 +29,7 @@ app.use("/api/users", require("./routes/api/users.js"));
 app.use("/api/profile", require("./routes/api/profile.js"));
 app.use("/api/matchInfo", require("./routes/api/matchInfo.js"));
 app.use("/api/groups", require("./routes/api/groups.js"));
+app.use("/api/rating", require("./routes/api/rating.js"));
 app.use("/api/feedback", require("./routes/api/feedback.js"));
 // app.use("/api/vibe", require("./routes/api/vibe.js"));
 

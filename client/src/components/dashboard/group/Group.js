@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import GroupMember from "./GroupMember";
 import Matching from "..//Matching";
 import PropTypes from "prop-types";
@@ -76,6 +76,10 @@ const Group = ({
     else return `${list[0]}`
   }
 
+  const otherName = userType === MET && membersData[0] && membersData[0].user && 
+    membersData[0].user.name !== user.name ? membersData[0].user.name.split(' ')[0] : 
+    membersData[1] && membersData[1].user && membersData[1].user.name.split(' ')[0]
+
   return (
     <div className="ui container">
       <h1 className="group-header">Your Group</h1>
@@ -112,16 +116,16 @@ const Group = ({
           </Fragment>
         ) : userType === MET ? (
           <Fragment>
-            {/* <p>Fill out the feedback form here!</p>
+            <p>Fill out the feedback form here!</p>
             <button className="ui button basic blue big">
               <Link to="/feedback" className="reg">
                 Feedback
               </Link>
-            </button> */}
+            </button>
             <h3>
-              Hope your meeting went well! If you want to meet another person,
-              fill out the Matching form again and we'll search for your next 
-              Day Zero :)
+              Hope your meeting with {otherName} went well! 
+              If you want to meet another person, fill out the Matching form 
+              again and we'll search for your next Day Zero :)
             </h3>
             <Matching />
           </Fragment>

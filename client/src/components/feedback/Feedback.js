@@ -15,8 +15,10 @@ const Feedback = ({
 }) => {
   const [r1, setR1] = useState({
     receiver_id: null,
-    binary: null
+    emoji: -1
   });
+
+  const [genFeedback, setGenFeedback] = useState('');
 
   if (loading) {
     getCurrentGroup();
@@ -35,9 +37,13 @@ const Feedback = ({
 
     try {
       if (r1.receiver_id) {
-        await axios.post("/api/feedback", r1, config);
+        await axios.post("/api/rating", r1, config);
       }
-      await axios.put("/api/feedback/finish");
+      await axios.put("/api/rating/finish");
+
+      if (genFeedback) {
+        await axios.post('api/feedback', { feedback: genFeedback }, config)
+      }
 
       window.location.href = "/dashboard#";
     } catch (err) {
@@ -51,7 +57,7 @@ const Feedback = ({
         name={m.user.name}
         avatar={m.user.avatar}
         setStateCallback={setR1}
-        binary={r1.binary}
+        emoji={r1.emoji}
         receiver_id={m.user._id}
         key={i}
       />
@@ -61,12 +67,24 @@ const Feedback = ({
   return (
     <div className="feedback">
       <p id="feedback-intro">
-        Hey {user.name}, I hope you enjoyed meeting your Day Zeros! To make sure
+        Hey {user.name.split(' ')[0]}, I hope you enjoyed meeting your Day Zeros! To make sure
         you get matched with the people you'd vibe with most, we'd really
         appreciate your anonymous feedback. Your Day Zeros won't know what
         responses you gave.
       </p>
       {Receivers}
+      <div className='general-feedback'>
+        <p className='general-feedback-text'>
+          Any thoughts, complaints, praises, or changes you'd like to see on 
+          your experience with DayZero? (this is anonymous!)
+        </p>
+        <textarea 
+          type='text'  
+          className='general-feedback-input'
+          onChange={e=>setGenFeedback(e.target.value)} 
+          value={genFeedback} 
+        />
+      </div>
       <button onClick={() => onSubmit()} className="ui green basic button">
         Submit
       </button>

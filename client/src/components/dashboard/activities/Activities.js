@@ -102,22 +102,22 @@ const Activities = ({
       <div className='activities-bottom-section'>
         {/* <input id='agreement' type='checkbox' checked={agreement} onClick={()=>setAgreement(!agreement)} />
         <label htmlFor='agreement'>I agree to perform social distancing during any activity I select. </label> */}
-        <label class="label">
-          <div class="toggle">
+        <label className="label">
+          <div className="toggle">
             <input 
-              class="toggle-state" 
+              className="toggle-state" 
               type="checkbox" 
               name="check" 
               value="check" 
               checked={agreement} 
               onChange={()=>setAgreement(!agreement)} 
             />
-            <div class="toggle-inner">
-              <div class="indicator"></div>
+            <div className="toggle-inner">
+              <div className="indicator"></div>
             </div>
-            <div class="active-bg"></div>
+            <div className="active-bg"></div>
           </div>
-          <div class="label-text">I agree to perform social distancing during any activity I select.</div>
+          <div className="label-text">I agree to perform social distancing during any activity I select.</div>
         </label>
 
         <button

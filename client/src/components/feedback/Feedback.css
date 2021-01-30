@@ -58,3 +58,17 @@
   padding: 0.5rem;
   margin-bottom: 2rem;
 }
+
+.general-feedback {
+  margin: 5% 0;
+  text-align: center;
+}
+.general-feedback-text {
+  margin: 0;
+}
+.general-feedback-input {
+  margin: 2% 2%;
+  width: 96%;
+  padding: 1%;
+  border: 1px solid black;
+}

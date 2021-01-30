@@ -215,7 +215,7 @@ router.put("/archive", auth, async (req, res) => {
     const members = user.group.members
     members.forEach(async member => {
       await User.findByIdAndUpdate(member, {
-        $set: { user_type: MET, group: null }
+        $set: { user_type: MET }
       })
     })
 

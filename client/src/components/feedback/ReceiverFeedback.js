@@ -8,13 +8,13 @@ const ReceiverFeedback = ({
   name,
   avatar,
   receiver_id,
-  binary,
+  emoji,
   setStateCallback
 }) => {
   const updateParent = (r, b) => {
     setStateCallback({
       receiver_id: receiver_id,
-      binary: b != null ? b : binary
+      emoji: b !== -1 ? b : emoji
     });
   };
 
@@ -25,23 +25,35 @@ const ReceiverFeedback = ({
         <div className="member">{name}</div>
       </div>
       <div className="binary">
-        <p id="question-one">Would you want to meet {name} again?</p>
-        <button
+        <p id="question-one">How did your meeting with {name} go?</p>
+        <span
           className={
-            "ui green button " + ((binary == null || !binary) && "basic")
+            "ui button " + (emoji !== 1 && "basic")
           }
-          onClick={() => updateParent(null, true)}
+          role='img'
+          aria-label='thumbs down'
+          onClick={() => updateParent(null, 1)}
         >
-          Yes
-        </button>
-        <button
-          className={"ui red button " + ((binary == null || binary) && "basic")}
-          onClick={() => updateParent(null, false)}
+          👎
+        </span>
+        <span
+          className={"ui button " + (emoji !== 2 && "basic")}
+          role='img'
+          aria-label='thumbs up'
+          onClick={() => updateParent(null, 2)}
         >
-          No
-        </button>
+          👍
+        </span>
+        <span
+          className={"ui button " + (emoji !== 3 && "basic")}
+          role='img'
+          aria-label='heart'
+          onClick={() => updateParent(null, 3)}
+        >
+          😍
+        </span>
       </div>
-      <div className="superlike">
+      {/* <div className="superlike">
         <p>I absolutely LOVED meeting this person!</p>
         <div class="ui labeled button" tabindex="0">
           <div class="ui red button">
@@ -49,7 +61,7 @@ const ReceiverFeedback = ({
           </div>
           <p class="ui basic red left pointing label">1,048</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
