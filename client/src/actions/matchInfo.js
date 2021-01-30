@@ -74,7 +74,7 @@ export const createSchedule = times => async dispatch => {
     ) {
       MySwal.fire({
         // title: err.response.statusText,
-        title: 'Not Verified',
+        title: 'Please verify!',
         text: err.response.data,
         type: "error"
       });
@@ -117,7 +117,7 @@ export const submitActivities = activities => async dispatch => {
     ) {
       MySwal.fire({
         // title: err.response.statusText,
-        title: 'Not Verified',
+        title: 'Please verify!',
         text: err.response.data,
         type: "error"
       })

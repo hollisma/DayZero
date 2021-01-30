@@ -57,8 +57,8 @@ router.post(
         user_type: REGISTERED,
         // vibe: {}
         // ---------------------------------------------------------------------------------
-        // COMMENT BELOW TO NOT AUTOVERIFY USERS
-        verified: true
+        // CHANGE TO TRUE TO AUTOVERIFY USERS
+        verified: false
         // ---------------------------------------------------------------------------------
       });
 
@@ -73,14 +73,14 @@ router.post(
 
       // ---------------------------------------------------------------------------------
       // COMMENT BELOW TO NOT SEND VERIFICATION EMAIL
-      // const url =
-      //   process.env.CLIENT_ADDRESS +
-      //   "/verification?token=" +
-      //   user.verificationToken;
-      // const message =
-      //   "Please click the link below and verify your account\n\n" + url;
-      // const mail = new DayZeroGmail();
-      // mail.send(user.email, "Account Verification", message);
+      const url =
+        process.env.CLIENT_ADDRESS +
+        "/verification?token=" +
+        user.verificationToken;
+      const message =
+        "Click the link below to verify your account!\n\n" + url;
+      const mail = new DayZeroGmail();
+      mail.send(user.email, "Account Verification", message);
       // ---------------------------------------------------------------------------------
 
       // Return jwt
@@ -248,5 +248,27 @@ router.put("/admin", admin, async (req, res) => {
     res.status(500).json({ msg: "Server Error" });
   }
 });
+
+/**
+ * @route   DELETE api/profile
+ * @desc    Delete user and everything attached to user
+ * @access  Admin
+ */
+router.delete("/:user_id", admin, async (req, res) => {
+  try {
+    // Remove user
+    await User.findOneAndRemove({ _id: req.params.user_id });
+    // Remove profile
+    await Profile.findOneAndRemove({ user: req.params.user_id });
+    // Remove matching info
+    await MatchInfo.findOneAndRemove({ user: req.params.user_id });
+
+    res.json({ msg: "User deleted" });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 
 module.exports = router;

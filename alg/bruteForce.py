@@ -8,9 +8,9 @@ import os
 
 
 k_matching_threshold = 2
-# host_name = 'http://172.31.43.129'
-host_name = 'http://localhost'
-options_email = False
+host_name = 'http://172.31.43.129'
+# host_name = 'http://localhost'
+options_email = True
 
 load_dotenv()
 

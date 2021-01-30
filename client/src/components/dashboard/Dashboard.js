@@ -14,7 +14,8 @@ const Dashboard = ({ auth: { user, loading: user_loading } }) => {
   if (!user_loading && user && !user.verified) {
     MySwal.fire({
       title:
-        "Please click the link in the confirmation email we just sent you. Be sure to check your spam folder!",
+        "We just sent you an email with a link you can click on to verify your account :)",
+        // "Please click the link in the confirmation email we just sent you. Be sure to check your spam folder!",
       type: "info"
     });
   }

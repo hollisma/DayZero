@@ -44,12 +44,12 @@ router.post("/", auth, async (req, res) => {
 
   try {
     let user = await User.findById(req.user.id);
-    // if (!user.verified) {
-    //   res
-    //     .status(401)
-    //     .send("Please verify your account before matching");
-    //   return;
-    // }
+    if (!user.verified) {
+      res
+        .status(401)
+        .send("We need to make sure you're a Princeton student :)");
+      return;
+    }
 
     let matchInfo = await MatchInfo.findOne({ user: req.user.id });
 
