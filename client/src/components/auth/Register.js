@@ -54,6 +54,8 @@ const Register = ({ register, isAuthenticated }) => {
       }
     }
 
+    if (email === 'hkh4@williams.edu') return true;
+
     return false;
   };
 
