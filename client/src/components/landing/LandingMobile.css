@@ -10,10 +10,11 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
+  background-color: #128ae699;
   background-image: url("../../img/background_mobile.svg");
   background-repeat: no-repeat;
-  background-size: 145%;
-  background-position: 50% 20%;
+  background-size: 140%;
+  background-position: 50% 25%;
   color: white;
 }
 #landing-mobile .top .big-text {

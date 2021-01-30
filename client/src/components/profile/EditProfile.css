@@ -48,4 +48,12 @@
     padding-top: 10px;
     margin: 7px 0;
   }
+
+  .edit-profile-labels {
+    margin: 2vh 0 0 !important;
+  }
+
+  .avataredit1 {
+    padding-bottom: 5vh !important;
+  }
 }

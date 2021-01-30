@@ -170,7 +170,7 @@ const EditProfile = ({
       <form className="ui form equal width grid" onSubmit={e => onSubmit(e)}>
         <div className="row">
           <div className="column">
-            <p>Name</p>
+            <p className='edit-profile-labels'>Name</p>
             <div className="field">
               <input
                 type="text"
@@ -181,7 +181,7 @@ const EditProfile = ({
                 required
               />
             </div>
-            <p>Email (cannot change)</p>
+            <p className='edit-profile-labels'>Email (cannot change)</p>
             <div className="field">
               <input
                 type="text"
@@ -235,7 +235,7 @@ const EditProfile = ({
           </div>
         </div>
         <div className="row">
-          <div className="column avataredit2">
+          <div className="column avataredit1">
             <p>Current Profile Picture</p>
             <Avatar
               className="avatar"
@@ -291,7 +291,7 @@ const EditProfile = ({
             </div>
           </div> */}
           <div className="column">
-            <p>Class</p>
+            <p className='edit-profile-labels'>Class</p>
             <div className="field">
               <input
                 type="text"
@@ -304,7 +304,7 @@ const EditProfile = ({
             </div>
           </div>
           <div className="column">
-            <p>Major</p>
+            <p className='edit-profile-labels'>Major</p>
             <div className="field">
               <input
                 type="text"
@@ -317,11 +317,11 @@ const EditProfile = ({
             </div>
           </div>
           <div className="column">
-            <p>Minor</p>
+            <p className='edit-profile-labels'>Minor(s)</p>
             <div className="field">
               <input
                 type="text"
-                placeholder="ABC, XYZ"
+                placeholder="B flat"
                 name="minor"
                 value={minor}
                 onChange={e => onChange(e)}

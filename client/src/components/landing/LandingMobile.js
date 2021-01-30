@@ -65,31 +65,29 @@ const LandingMobile = ({ register, isAuthenticated }) => {
     <div id="landing-mobile" className="ui bigger-top-container">
       <div className="top">
         <div className="big-text">
-          Discover Princetonians who share your passions.
+          Discover Princetonians who share your passions
         </div>
         <div className="small-text">
-          Day Zero is the only platform for meeting like-minded people offline.
+          Day Zero is a new platform for meeting people online and offline
         </div>
         <a href="/#footer-mobile" className="sign-up-button">
           Register
         </a>
       </div>
-      <div className="middle">
+      <div id='discover' className="middle">
         <div className="title">
-          Quickly discover the people most relevant to you.
+          Quickly discover the meet new people
         </div>
         <div className="text">
-          There are <span className="colorful">8,364</span> students at
+          There are over <span className="colorful">8,000</span> students at
           Princeton.
         </div>
         <div className="text">
-          In 4 years, you only meet <span className="colorful">4.3%</span> of
-          them.
+          Meeting them has become <span className="colorful">harder than ever.</span>
         </div>
         <div className="text">
-          <span className="colorful">Day Zero</span> makes it easy to discover
-          and grab meals with the people you've never met that share your
-          passions and values.
+          <span className="colorful">Day Zero</span> makes it easier to discover
+          and connect with people that share your passions and values.
         </div>
         <div className="card-profile">
           <img
@@ -105,21 +103,22 @@ const LandingMobile = ({ register, isAuthenticated }) => {
           <div className="name">Carina '21</div>
         </div>
       </div>
-      <div className="bottom">
+      <div id='possibilities' className="bottom">
         <div className="transition">With Day Zero, you can...</div>
         <div className="card-background">
           <div className="card-possibility">
-            Find peers who share your passions and values
+            Discover students who share your passions and values
           </div>
         </div>
         <div className="card-background">
           <div className="card-possibility">
-            Get automatically matched with like-minded people for a meal
+            Get matched with someone for a walk, meal, 
+            or call
           </div>
         </div>
         <div className="card-background">
           <div className="card-possibility">
-            Find out who are in your classes{" "}
+            Find out who is in your classes{" "}
           </div>
         </div>
       </div>

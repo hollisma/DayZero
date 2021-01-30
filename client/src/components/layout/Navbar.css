@@ -100,20 +100,26 @@
     background-color: rgba(255, 255, 255, 1) !important;
     /* background-color: rgba(225, 240, 255, 0.9) !important; */
     align-items: center;
+    transition: 0.25s ease-out;
   }
   .scrolled .img-logo {
     min-height: 55px;
     max-height: 55px;
     margin-bottom: 1.2vh;
+    margin-top: 2vh;
+    transition: 0.25s ease-out;
   }
   .scrolled .hamburger {
     position: relative;
     top: -6vh;
+    transition: 0.25s ease-out;
   }
 
   .img-logo {
     position: relative;
+    margin-top: 3vh;
     top: 0.75vh;
+    transition: 0.25s ease-out;
   }
 
   .links {

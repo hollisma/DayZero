@@ -14,7 +14,7 @@
 #login .thirty {
   font-size: 5vh;
   font-weight: bold;
-  padding-bottom: 3vh;
+  padding: 0 5vw 3vh;
   font-family: "Alatsi";
 }
 #login .login-stuff {

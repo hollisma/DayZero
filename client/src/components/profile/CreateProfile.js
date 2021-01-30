@@ -198,7 +198,7 @@ const CreateProfile = ({
                 <div className="field">
                   <input
                     type="text"
-                    placeholder="COS"
+                    placeholder="ABC"
                     name="major"
                     value={major}
                     onChange={e => onChange(e)}
@@ -207,11 +207,11 @@ const CreateProfile = ({
                 </div>
               </div>
               <div className="column pad">
-                <p>Minor</p>
+                <p>Minor(s)</p>
                 <div className="field">
                   <input
                     type="text"
-                    placeholder="ABC, XYZ"
+                    placeholder="B flat"
                     name="minor"
                     value={minor}
                     onChange={e => onChange(e)}

@@ -66,11 +66,11 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
       <div id="top">
         <div className="inner-box">
           <div className="big-text">
-            Discover Princetonians who share your passions.
+            Discover Princetonians who share your passions
           </div>
           <div className="small-text">
-            Day Zero is the only platform for meeting like-minded people
-            offline.
+            Day Zero is a new platform for meeting people online and offline 
+            {/* Day Zero is the only platfrom for meeting like-minded people. */}
           </div>
           <a href="/#register" className="sign-up-button">
             Register
@@ -81,20 +81,22 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
       <div id="middle">
         <div className="how-we-help">
           <div className="title">
-            Quickly discover the people most relevant to you.
+            Quickly discover and meet new people
           </div>
           <div className="text">
-            There are <span className="colorful">8,364</span> students at
+            There are over <span className="colorful">8,000</span> students at
             Princeton.
           </div>
           <div className="text">
+            Meeting them has become <span className="colorful">harder than ever.</span>
+          </div>
+          {/* <div className="text">
             In 4 years, the average student only meets{" "}
             <span className="colorful">4.3%</span> of them.
-          </div>
+          </div> */}
           <div className="text">
-            <span className="colorful">Day Zero</span> makes it easy to discover
-            and grab meals with the people you've never met that share your
-            passions and values.
+            <span className="colorful">Day Zero</span> makes it easier to discover
+            and connect with people that share your passions and values.
           </div>
         </div>
         <div className="people-cards">
@@ -152,16 +154,17 @@ const LandingDesktop = ({ register, isAuthenticated }) => {
           <div className="cards">
             <div className="card-background">
               <div className="card">
-                Discover peers who share your passions and values
+                Discover students who share your passions and values
               </div>
             </div>
             <div className="card-background">
               <div className="card">
-                Get automatically matched with like-minded people for a meal
+                Get matched with someone for a walk, meal, 
+                or call
               </div>
             </div>
             <div className="card-background">
-              <div className="card">Find out who are in your classes</div>
+              <div className="card">Find out who is in your classes</div>
             </div>
           </div>
           <img
