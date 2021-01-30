@@ -35,7 +35,7 @@ const CreateProfile = ({
     // college: "",
     year: "",
     major: "",
-    minor: "",
+    minor: [],
     categories: [],
     bio: "",
     // want_to_meet: "",

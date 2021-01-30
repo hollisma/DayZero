@@ -28,7 +28,7 @@ const EditProfile = ({
     college: "",
     year: "",
     major: "",
-    minor: "",
+    minor: [],
     categories: [],
     bio: ""
     // want_to_meet: "",
@@ -53,8 +53,8 @@ const EditProfile = ({
           : profile.major.join(", "),
       minor:
         profile_loading || !profile || !profile.minor
-          ? ""
-          : profile.minor.join(", "),
+          ? []
+          : profile.minor,
       categories:
         profile_loading || !profile || !profile.categories
           ? []
