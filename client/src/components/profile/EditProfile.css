@@ -33,6 +33,10 @@
   color: #118ae6ea !important;
 }
 
+.left-fields p {
+  margin: 3% 0 1% 0;
+}
+
 @media only screen and (max-width: 1225px) {
   .triple-input {
     display: flex;

@@ -6,7 +6,7 @@ import { updateUser, createProfile } from "../../actions/profile";
 import { logout } from "../../actions/auth";
 // import PhoneInput from "react-phone-number-input";
 // import "react-phone-number-input/style.css";
-import { CATEGORIES } from "../../utils/consts";
+import { CATEGORIES, MAJORS, MINORS } from "../../utils/consts";
 import AvatarEdit from "react-avatar-edit";
 import Avatar from "react-avatar";
 
@@ -14,6 +14,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import ReactGA from "react-ga";
 
+import { Dropdown } from 'semantic-ui-react'
 import './EditProfile.css';
 
 const MySwal = withReactContent(Swal);
@@ -73,18 +74,6 @@ const CreateProfile = ({
     // comm_sms,
     // comm_email
   } = formData;
-
-  const onChange = e => {
-    const target = e.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
-
-    if (name === "bio" && value.length > 400) {
-      return;
-    }
-
-    setFormData({ ...formData, [name]: value });
-  };
 
   // const onPhoneChange = e => {
   //   setFormData({ ...formData, phone_number: e });
@@ -156,6 +145,36 @@ const CreateProfile = ({
     );
   });
 
+  const onChange = e => {
+    const target = e.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+
+    if (name === "bio" && value.length > 400) {
+      return;
+    }
+
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const onDropdownChange = (_, val) => {
+    const value = val.value
+    const name = val.name
+    setFormData({ ...formData, [name]: value })
+  }
+
+  const classOptions = ['2024', '2023', '2022', '2021', 'Grad'].map(year => (
+    { key: year, text: year, value: year }
+  ))
+
+  const majorOptions = MAJORS.map(m => (
+    { key: m[0], text: m[1], value: m[0] }
+  ))
+
+  const minorOptions = MINORS.map(m => (
+    { key: m, text: m, value: m }
+  ))
+
   return (
     <div className="create-profile ui top-container">
       <h1>Create Your Profile</h1>
@@ -166,7 +185,7 @@ const CreateProfile = ({
       <form className="ui form equal width grid" onSubmit={e => onSubmit(e)}>
         <div className="row">
           <div className="column">
-            <div className="row">
+            <div className="row left-fields">
               <p>Full Name*</p>
               <div className="field">
                 <input
@@ -179,46 +198,50 @@ const CreateProfile = ({
                 />
               </div>
             </div>
-            <div className="row triple-input">
-              <div className="column right-pad">
+            {/* <div className="row triple-input"> */}
+              <div className="row left-fields">
+              {/* <div className="column right-pad"> */}
                 <p>Class*</p>
                 <div className="field">
-                  <input
-                    type="text"
-                    placeholder="2021"
-                    name="year"
-                    value={year}
-                    onChange={e => onChange(e)}
-                    required
+                  <Dropdown 
+                    placeholder='Class' 
+                    selection 
+                    name='year' 
+                    options={classOptions} 
+                    onChange={onDropdownChange} 
+                    value={year} 
                   />
                 </div>
               </div>
-              <div className="column right-pad">
+              <div className="row left-fields">
+              {/* <div className="column right-pad"> */}
                 <p>Major*</p>
                 <div className="field">
-                  <input
-                    type="text"
-                    placeholder="ABC"
-                    name="major"
-                    value={major}
-                    onChange={e => onChange(e)}
-                    required
+                  <Dropdown 
+                    placeholder='Major' 
+                    selection search
+                    name='major' 
+                    options={majorOptions} 
+                    onChange={onDropdownChange} 
+                    value={major} 
                   />
                 </div>
               </div>
-              <div className="column pad">
+              <div className="row left-fields">
+              {/* <div className="column pad"> */}
                 <p>Minor(s)</p>
                 <div className="field">
-                  <input
-                    type="text"
-                    placeholder="B flat"
-                    name="minor"
-                    value={minor}
-                    onChange={e => onChange(e)}
+                  <Dropdown 
+                    placeholder='Minor' 
+                    selection search multiple fluid
+                    name='minor' 
+                    options={minorOptions} 
+                    onChange={onDropdownChange} 
+                    value={minor} 
                   />
                 </div>
               </div>
-            </div>
+            {/* </div> */}
           </div>
           <div className="column avataredit" style={{ display: "flex" }}>
             <div style={{ margin: "2vw 4vw" }}>

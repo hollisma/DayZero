@@ -9,9 +9,10 @@ import {
 } from "../../actions/profile";
 // import PhoneInput from "react-phone-number-input";
 // import "react-phone-number-input/style.css";
-import { CATEGORIES } from "../../utils/consts";
+import { CATEGORIES, MAJORS, MINORS } from "../../utils/consts";
 import AvatarEdit from "react-avatar-edit";
 import Avatar from "react-avatar";
+import { Dropdown } from 'semantic-ui-react'
 
 const EditProfile = ({
   profile: { profile, loading: profile_loading },
@@ -156,6 +157,24 @@ const EditProfile = ({
     );
   });
 
+  const onDropdownChange = (_, val) => {
+    const value = val.value
+    const name = val.name
+    setFormData({ ...formData, [name]: value })
+  }
+
+  const classOptions = ['2024', '2023', '2022', '2021', 'Grad'].map(year => (
+    { key: year, text: year, value: year }
+  ))
+
+  const majorOptions = MAJORS.map(m => (
+    { key: m[0], text: m[1], value: m[0] }
+  ))
+
+  const minorOptions = MINORS.map(m => (
+    { key: m, text: m, value: m }
+  ))
+
   return (
     <div id="edit-profile" className="ui container">
       <h1 className="edit-profile-header">
@@ -293,38 +312,39 @@ const EditProfile = ({
           <div className="column">
             <p className='edit-profile-labels'>Class</p>
             <div className="field">
-              <input
-                type="text"
-                placeholder="2021"
-                name="year"
-                value={year}
-                onChange={e => onChange(e)}
-                required
+              <Dropdown 
+                placeholder='Class' 
+                selection 
+                name='year' 
+                options={classOptions} 
+                onChange={onDropdownChange} 
+                value={year} 
               />
             </div>
           </div>
           <div className="column">
             <p className='edit-profile-labels'>Major</p>
             <div className="field">
-              <input
-                type="text"
-                placeholder="COS"
-                name="major"
-                value={major}
-                onChange={e => onChange(e)}
-                required
+              <Dropdown 
+                placeholder='Major' 
+                selection search
+                name='major' 
+                options={majorOptions} 
+                onChange={onDropdownChange} 
+                value={major} 
               />
             </div>
           </div>
           <div className="column">
             <p className='edit-profile-labels'>Minor(s)</p>
             <div className="field">
-              <input
-                type="text"
-                placeholder="B flat"
-                name="minor"
-                value={minor}
-                onChange={e => onChange(e)}
+              <Dropdown 
+                placeholder='Minor' 
+                selection search multiple fluid
+                name='minor' 
+                options={minorOptions} 
+                onChange={onDropdownChange} 
+                value={minor} 
               />
             </div>
           </div>
