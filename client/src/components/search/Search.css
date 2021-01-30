@@ -121,7 +121,7 @@
   #search-page .results .avatar-name {
     flex-direction: column;
     margin-top: 10px;
-    margin-left: 1  0px; 
+    margin-left: 10px; 
   }
   #search-page .results .categories-likes {
     flex-direction: column;

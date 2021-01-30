@@ -172,8 +172,8 @@ const ProfilePage = ({
               <div className="basic-info">
                 <div className="name">{profileData.name}</div>
                 <div className="major">{profileData.major}</div>
-                <div className="major">{profileData.minor}</div>
-                <div className="major">{profileData.year}</div>
+                {profileData && profileData.minor ? <div className="major">{profileData.minor}</div> : null}
+                {profileData && profileData.year ? <div className="major">{profileData.year}</div> : null}
               </div>
               <div className="buttons">
                 <button className="ui blue small button say-hi" onClick={sayhi}>

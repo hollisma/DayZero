@@ -9,6 +9,7 @@ const PrivateRoute = ({
   component: Component,
   auth: { isAuthenticated, loading, user },
   access,
+  render,
   ...rest
 }) => {
   access = access == null ? [] : access;
@@ -21,7 +22,7 @@ const PrivateRoute = ({
 
   const returnRoute = <Route
     {...rest}
-    render={props =>
+    render={render ? render : props =>
       // (isAuthenticated && userTypeIncluded) || loading ? (
       //   <Component {...props} />
       // ) : (
