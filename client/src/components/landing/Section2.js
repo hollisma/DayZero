@@ -33,6 +33,15 @@ const Section2 = () => {
           in that process :)
         </p>
       </div>
+      <div className="faq">
+        <p className="faq-title">What are you doing with my data?</p>
+        <p className="faq-body">
+          The only data of yours that we share is with the other 
+          Princeton-email-verified people on the platform. Your data will never 
+          be sold or given to anyone else without your consent. Also, your 
+          password is encrypted. 
+        </p>
+      </div>
     </div>
   );
 };

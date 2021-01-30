@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Landing from "../landing/Landing";
 import SignUpLanding from "../landing/SignUpLanding";
-import Register from "../auth/Register";
+// import Register from "../auth/Register";
 import Login from "../auth/Login";
 import Verification from "../auth/Verification";
 import Section2 from "../landing/Section2";
@@ -29,13 +29,14 @@ const Routes = () => {
     <Switch>
       <Route exact path="/" component={Landing} />
       <Route exact path="/sign-up-landing" component={SignUpLanding} />
-      <Route exact path="/register" component={Register} />
+      {/* <Route exact path="/register" component={Register} /> */}
       <Route exact path="/login" component={Login} />
       <Route exact path="/faq" component={Section2} />
       <Route exact path="/verification" component={Verification} />
-      <Route
+      <PrivateRoute
         exact
         path="/profile/:user_id"
+        access={[PROFILED, SCHEDULED, GROUPED, MET]}
         render={path_object => (
           <ProfilePage user_id={path_object.match.params.user_id} />
         )}
