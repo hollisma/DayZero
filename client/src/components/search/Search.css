@@ -87,6 +87,14 @@
   flex-direction: row;
 }
 
+#search-page .filter {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+#search-page .filter:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
 @media only screen and (max-width: 768px) {
   #search-page {
     display: flex;

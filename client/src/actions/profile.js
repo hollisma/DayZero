@@ -224,7 +224,7 @@ export const getRandomProfiles = (num, id) => async dispatch => {
   }
 };
 
-export const getSearchProfiles = categories => async dispatch => {
+export const getSearchProfiles = (categories, filters) => async dispatch => {
   var token = localStorage.token || "";
 
   try {
@@ -246,7 +246,7 @@ export const getSearchProfiles = categories => async dispatch => {
     resProfiles = resProfiles.data;
     axios.defaults.headers.common["x-auth-token"] = token;
 
-    var hasCategories = (cats, profile) => {
+    var hasAllCategories = (cats, profile) => {
       var profileCats = profile.categories.map(s => s.toLowerCase());
       let hasAllCats = true;
       cats.forEach(cat => {
@@ -260,10 +260,22 @@ export const getSearchProfiles = categories => async dispatch => {
       return hasAllCats;
     };
 
+    var fitsFilters = (filters, profile) => {
+      const { year, major, minor } = filters
+
+      if ((!year || profile.year === year) && 
+          (!major || profile.major.includes(major)) &&
+          (!minor || profile.minor.includes(minor)))
+          return true;
+      
+      return false
+    }
+
     var arr = [];
     for (var i = 0; i < resProfiles.length; i++) {
       if (
-        hasCategories(categories, resProfiles[i]) &&
+        hasAllCategories(categories, resProfiles[i]) &&
+        fitsFilters(filters, resProfiles[i]) &&
         resProfiles[i].user &&
         resProfiles[i].user._id &&
         resProfiles[i].user.name
