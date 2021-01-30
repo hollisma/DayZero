@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { submitActivities, changeActivities, getMatchInfo } from "../../../actions/matchInfo";
 import { ACTIVITIES } from "../../../utils/consts";
 
 import "./Activities.css";
+
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
 
 const Activities = ({ 
   matchInfo: { activities, loading }, 
@@ -15,6 +19,8 @@ const Activities = ({
   if (loading) {
     getMatchInfo();
   }
+
+  const [agreement, setAgreement] = useState(false)
 
   const ids = ['Walk', 'Meal', 'Call']
 
@@ -32,7 +38,16 @@ const Activities = ({
   }
 
   const onSubmit = () => {
-    submitActivities(activities)
+    if (!agreement) {
+      MySwal.fire({
+        title:
+          "Please read and accept the social distancing agreement.",
+          // "Please click the link in the confirmation email we just sent you. Be sure to check your spam folder!",
+        type: "info"
+      });
+    } else {
+      submitActivities(activities)
+    }
   }
 
   return (
@@ -83,6 +98,28 @@ const Activities = ({
             <div className='activity-label'>{ACTIVITIES[2]}</div>
           </div>  
         </form>
+      </div>
+      <div className='activities-bottom-section'>
+        {/* <input id='agreement' type='checkbox' checked={agreement} onClick={()=>setAgreement(!agreement)} />
+        <label htmlFor='agreement'>I agree to perform social distancing during any activity I select. </label> */}
+        <label class="label">
+          <div class="toggle">
+            <input 
+              class="toggle-state" 
+              type="checkbox" 
+              name="check" 
+              value="check" 
+              checked={agreement} 
+              onChange={()=>setAgreement(!agreement)} 
+            />
+            <div class="toggle-inner">
+              <div class="indicator"></div>
+            </div>
+            <div class="active-bg"></div>
+          </div>
+          <div class="label-text">I agree to perform social distancing during any activity I select.</div>
+        </label>
+
         <button
           className="ui green basic button my-1 right floated"
           onClick={()=>onSubmit()}
