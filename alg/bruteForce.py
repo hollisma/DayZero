@@ -8,8 +8,8 @@ import os
 
 
 k_matching_threshold = 2
-host_name = 'http://172.31.43.129'
-# host_name = 'http://localhost'
+# host_name = 'http://172.31.43.129'
+host_name = 'http://localhost'
 options_email = True
 
 load_dotenv()
@@ -47,7 +47,8 @@ response = requests.get(url, headers=headers)
 matchInfos = json.loads(response.text)
 
 for m in matchInfos:
-  usersDict[m['user']]['matchInfo'] = m
+  if m['user'] in ids: 
+    usersDict[m['user']]['matchInfo'] = m
 
 # Get all scheduled profiles
 url = host_name + ':5000/api/profile/scheduled/admin'

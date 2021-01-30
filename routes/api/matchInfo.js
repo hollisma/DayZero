@@ -60,12 +60,12 @@ router.post("/", auth, async (req, res) => {
       // Update
       matchInfo = await MatchInfo.findOneAndUpdate(
         { user: user },
-        { times: times, activities: activities },
+        { times: times, activities: activities, active: true },
         { new: true }
       );
     } else {
       // Create
-      matchInfo = new MatchInfo({ times: times, activities: activities, user: user });
+      matchInfo = new MatchInfo({ times: times, activities: activities, user: user, active: true });
       await matchInfo.save();
     }
 
