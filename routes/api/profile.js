@@ -83,8 +83,8 @@ router.post(
     profileFields.user = req.user.id;
     profileFields.college = college || null;
     profileFields.year = year || null;
-    profileFields.major = major ? major.split(",").map(maj => maj.trim()) : [];
-    profileFields.minor = minor ? minor.split(",").map(min => min.trim()) : [];
+    profileFields.major = major || '';
+    profileFields.minor = minor || [];
     profileFields.categories = categories || [];
     profileFields.bio = bio || null;
     // profileFields.want_to_meet = want_to_meet || null;
