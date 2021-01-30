@@ -49,6 +49,11 @@ const Calendar = ({
       //     type: "info"
       //   });
       // }
+    } else if (schedule.length === 0) {
+      MySwal.fire({
+        title: "Please select at least one time",
+        type: "info"
+      });
     } else {
       createSchedule(schedule);
     }

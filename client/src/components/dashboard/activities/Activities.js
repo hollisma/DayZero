@@ -45,6 +45,13 @@ const Activities = ({
           // "Please click the link in the confirmation email we just sent you. Be sure to check your spam folder!",
         type: "info"
       });
+    } else if (activitiesSet.size === 0) {
+      MySwal.fire({
+        title:
+          "Please select at least one activity.",
+          // "Please click the link in the confirmation email we just sent you. Be sure to check your spam folder!",
+        type: "info"
+      });
     } else {
       submitActivities(activities)
     }
