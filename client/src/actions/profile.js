@@ -76,9 +76,9 @@ export const createProfile = (profileData, edit = false) => async dispatch => {
     });
 
     // If creating profile for first time, redirect to dashboard
-    if (!edit) {
-      window.location.href = "/dashboard/#";
-    }
+    // if (!edit) {
+    //   window.location.href = "/dashboard/#";
+    // }
     let msg = edit ? "Profile Updated" : "Profile Created";
 
     // Throw toast

@@ -110,6 +110,7 @@ const CreateProfile = ({
     ReactGA.ga("send", "event", "profile", "create", "first", 0);
     updateUser(userData);
     createProfile(profileData);
+    window.location.href = "/dashboard/#";
   };
 
   const categoryButtons = CATEGORIES.map(cat => {
