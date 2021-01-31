@@ -18,9 +18,28 @@ const Search = ({ auth: { user }, getSearchProfiles }) => {
     'minor': ''
   })
 
+  const shuffle = array => {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+  
+    return array;
+  }
+
   useEffect(() => {
     getSearchProfiles(searchCategories, searchFilters).then(res => {
-      setSearchProfiles(res);
+      setSearchProfiles(shuffle(res));
     });
   }, [getSearchProfiles, searchCategories, searchFilters]);
 
@@ -86,7 +105,7 @@ const Search = ({ auth: { user }, getSearchProfiles }) => {
     }
     setSearchCategories(temp);
     getSearchProfiles(searchCategories, searchFilters).then(res => {
-      setSearchProfiles(res);
+      setSearchProfiles(shuffle(res));
     });
   };
 
@@ -112,7 +131,7 @@ const Search = ({ auth: { user }, getSearchProfiles }) => {
     setSearchFilters({ ...searchFilters, [name]: value })
 
     getSearchProfiles(searchCategories, searchFilters).then(res => {
-      setSearchProfiles(res);
+      setSearchProfiles(shuffle(res));
     });
   }
 
