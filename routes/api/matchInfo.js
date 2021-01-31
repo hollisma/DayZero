@@ -47,7 +47,7 @@ router.post("/", auth, async (req, res) => {
     if (!user.verified) {
       res
         .status(401)
-        .send("We need to make sure you're a Princeton student :)");
+        .send("We need to make sure you're a Princeton student");
       return;
     }
 
