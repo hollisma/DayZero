@@ -46,7 +46,7 @@ const ProfilePage = ({
     college: "",
     year: "",
     major: "",
-    minor: "",
+    minor: [],
     categories: [],
     bio: ""
   });
@@ -91,11 +91,11 @@ const ProfilePage = ({
       major:
         display_loading || !display_profile || !display_profile.major
           ? ""
-          : display_profile.major.join(", "),
+          : display_profile.major,
       minor:
         display_loading || !display_profile || !display_profile.minor
-          ? ""
-          : display_profile.minor.join(", "),
+          ? []
+          : display_profile.minor.slice(0,8).join(", "),
       categories:
         display_loading || !display_profile || !display_profile.categories
           ? []

@@ -158,8 +158,6 @@ const EditProfile = ({
   });
 
   const onDropdownChange = (_, val) => {
-    console.log(val.value)
-    
     const value = val.value
     const name = val.name
     setFormData({ ...formData, [name]: value })

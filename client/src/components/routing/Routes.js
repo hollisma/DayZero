@@ -33,21 +33,19 @@ const Routes = () => {
       <Route exact path="/login" component={Login} />
       <Route exact path="/faq" component={Section2} />
       <Route exact path="/verification" component={Verification} />
-      <Route
+      {/* <Route
         exact
         path="/profile/:user_id"
-        render={path_object => (
-          <ProfilePage user_id={path_object.match.params.user_id} />
-        )}
-      />
-      {/* <PrivateRoute
-        exact
-        path="/profile/:user_id"
-        access={[PROFILED, SCHEDULED, GROUPED, MET]}
         render={path_object => (
           <ProfilePage user_id={path_object.match.params.user_id} />
         )}
       /> */}
+      <PrivateRoute
+        exact
+        path="/profile/:user_id"
+        access={[PROFILED, SCHEDULED, GROUPED, MET]}
+        component={ProfilePage}
+      />
       <PrivateRoute
         exact
         path="/create-profile"

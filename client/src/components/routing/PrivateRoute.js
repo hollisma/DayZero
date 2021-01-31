@@ -1,4 +1,5 @@
 import React from "react";
+import ProfilePage from '../profile/ProfilePage'
 import { Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -6,10 +7,10 @@ import { getDefaultRoute } from "../routing/default_types";
 import { GUEST } from "../../utils/consts";
 
 const PrivateRoute = ({
-  component: Component,
   auth: { isAuthenticated, loading, user },
+  component: Component,
   access,
-  render,
+  path,
   ...rest
 }) => {
   access = access == null ? [] : access;
@@ -19,6 +20,45 @@ const PrivateRoute = ({
 
   const userTypeIncluded =
     access.some(currentType => userType === currentType) || access.length === 0;
+
+  return <Route
+    {...rest}
+    render={props =>
+      (!isAuthenticated || !userTypeIncluded) && !loading ? (
+        <Redirect to={defaultRoute} />
+      ) : path.split('/')[1] === 'profile' ? (
+        <Route
+          exact
+          path="/profile/:user_id"
+          render={path_object => (
+            <ProfilePage user_id={path_object.match.params.user_id} />
+          )}
+        />
+      ) : (
+        <Component {...props} path={path} />
+      )
+    }
+  />
+  
+  // console.log(userTypeIncluded, isAuthenticated, loading)
+  // console.log(user)
+
+  // return (
+  //   <Route {...rest} render={props => (
+  //     userTypeIncluded && isAuthenticated
+  //       ? <Component {...props} />
+  //       : <Redirect to={defaultRoute} />
+  //   )} />
+  // )
+
+  // return !localStorage.getItem('token') ? (
+  // // return (!isAuthenticated || !userTypeIncluded) && !loading ? (
+  //   <Redirect to={defaultRoute} />
+  // ) : <Route
+  //       {...rest}
+  //       component={Component}
+  //       path={path}
+  //     />
 
   // const returnRoute = <Route
   //   {...rest}
@@ -40,23 +80,6 @@ const PrivateRoute = ({
   // return loading ? (
   //   <div />
   // ) : returnRoute;
-
-  return <Route
-    {...rest}
-    // render={render ? render : props =>
-    render={props =>
-      // (isAuthenticated && userTypeIncluded) || loading ? (
-      //   <Component {...props} />
-      // ) : (
-      //   <Redirect to={defaultRoute} />
-      // )
-      (!isAuthenticated || !userTypeIncluded) && !loading ? (
-        <Redirect to={defaultRoute} />
-      ) : (
-        <Component {...props} />
-      )
-    }
-  />
 };
 
 PrivateRoute.propTypes = {
