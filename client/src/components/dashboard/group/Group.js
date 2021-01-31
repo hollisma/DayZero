@@ -95,6 +95,7 @@ const Group = ({
           </Fragment>
         ) : userType === SCHEDULED ? (
           <Fragment>
+            <h1 className='good-to-go'>You're good to go!</h1>
             <h3>
               We're currently searching for someone that shares your interests! 
               Once we find a match, we'll email you :) 
