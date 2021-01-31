@@ -37,6 +37,12 @@
   margin: 3% 0 1% 0;
 }
 
+.create-avatar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 @media only screen and (max-width: 1225px) {
   .triple-input {
     display: flex;

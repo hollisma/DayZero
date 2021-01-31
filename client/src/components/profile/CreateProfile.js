@@ -243,7 +243,7 @@ const CreateProfile = ({
               </div>
             {/* </div> */}
           </div>
-          <div className="column avataredit" style={{ display: "flex" }}>
+          <div className="column avataredit create-avatar" style={{ display: "flex" }}>
             <div style={{ margin: "2vw 4vw" }}>
               <p>Current Profile Picture</p>
               <Avatar
