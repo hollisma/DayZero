@@ -14,7 +14,7 @@ const ProfileSchema = new mongoose.Schema({
     require: true
   },
   major: {
-    type: [String],
+    type: String,
     require: true
   },
   minor: {

@@ -50,7 +50,7 @@ const EditProfile = ({
       major:
         profile_loading || !profile || !profile.major
           ? ""
-          : profile.major.join(", "),
+          : profile.major,
       minor:
         profile_loading || !profile || !profile.minor
           ? []
@@ -158,6 +158,8 @@ const EditProfile = ({
   });
 
   const onDropdownChange = (_, val) => {
+    console.log(val.value)
+    
     const value = val.value
     const name = val.name
     setFormData({ ...formData, [name]: value })
