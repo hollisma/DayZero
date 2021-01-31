@@ -58,7 +58,7 @@ router.post(
         // vibe: {}
         // ---------------------------------------------------------------------------------
         // CHANGE TO TRUE TO AUTOVERIFY USERS
-        verified: true
+        verified: false
         // ---------------------------------------------------------------------------------
       });
 
@@ -73,14 +73,14 @@ router.post(
 
       // ---------------------------------------------------------------------------------
       // COMMENT BELOW TO NOT SEND VERIFICATION EMAIL
-      // const url =
-      //   process.env.CLIENT_ADDRESS +
-      //   "/verification?token=" +
-      //   user.verificationToken;
-      // const message =
-      //   "Click the link below to verify your account!\n\n" + url;
-      // const mail = new DayZeroGmail();
-      // mail.send(user.email, "Account Verification", message);
+      const url =
+        process.env.CLIENT_ADDRESS +
+        "/verification?token=" +
+        user.verificationToken;
+      const message =
+        "Click the link below to verify your account!\n\n" + url;
+      const mail = new DayZeroGmail();
+      mail.send(user.email, "Account Verification", message);
       // ---------------------------------------------------------------------------------
 
       // Return jwt
