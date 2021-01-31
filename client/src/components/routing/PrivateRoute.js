@@ -20,25 +20,43 @@ const PrivateRoute = ({
   const userTypeIncluded =
     access.some(currentType => userType === currentType) || access.length === 0;
 
-  const returnRoute = <Route
+  // const returnRoute = <Route
+  //   {...rest}
+  //   // render={render ? render : props =>
+  //   render={render ? render : props =>
+  //     // (isAuthenticated && userTypeIncluded) || loading ? (
+  //     //   <Component {...props} />
+  //     // ) : (
+  //     //   <Redirect to={defaultRoute} />
+  //     // )
+  //     !isAuthenticated || !userTypeIncluded ? (
+  //       <Redirect to={defaultRoute} />
+  //     ) : (
+  //       <Component {...props} />
+  //     )
+  //   }
+  // />
+  // 
+  // return loading ? (
+  //   <div />
+  // ) : returnRoute;
+
+  return <Route
     {...rest}
-    render={render ? render : props =>
+    // render={render ? render : props =>
+    render={props =>
       // (isAuthenticated && userTypeIncluded) || loading ? (
       //   <Component {...props} />
       // ) : (
       //   <Redirect to={defaultRoute} />
       // )
-      !isAuthenticated || !userTypeIncluded ? (
+      (!isAuthenticated || !userTypeIncluded) && !loading ? (
         <Redirect to={defaultRoute} />
       ) : (
         <Component {...props} />
       )
     }
   />
-
-  return loading ? (
-    <div />
-  ) : returnRoute;
 };
 
 PrivateRoute.propTypes = {

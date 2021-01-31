@@ -76,9 +76,9 @@ export const createProfile = (profileData, edit = false) => async dispatch => {
     });
 
     // If creating profile for first time, redirect to dashboard
-    // if (!edit) {
-    //   window.location.href = "/dashboard/#";
-    // }
+    if (!edit) {
+      window.location.href = "/dashboard/#";
+    }
     let msg = edit ? "Profile Updated" : "Profile Created";
 
     // Throw toast
@@ -264,7 +264,7 @@ export const getSearchProfiles = (categories, filters) => async dispatch => {
       const { year, major, minor } = filters
 
       if ((!year || profile.year === year) && 
-          (!major || profile.major.includes(major)) &&
+          (!major || profile.major === major) &&
           (!minor || profile.minor.includes(minor)))
           return true;
       
