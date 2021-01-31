@@ -351,7 +351,7 @@ const EditProfile = ({
         </div>
         <div className="row">
           <div className="column">
-            <p>Which words or phrases describe you?</p>
+            <p>Which phrases describe you or future you?</p>
             <div className="field">{categoryButtons}</div>
           </div>
         </div>

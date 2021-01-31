@@ -334,7 +334,7 @@ const CreateProfile = ({
         <div className="row">
           <div className="column">
             <p>
-              <b>Which words or phrases describe you?</b>
+              <b>Which phrases describe you or future you?</b>
             </p>
             <div className="field">{categoryButtons}</div>
           </div>
