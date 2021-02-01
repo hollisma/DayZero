@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import os
 
 
-k_matching_threshold = 2
+k_matching_threshold = 3
 host_name = 'http://172.31.43.129'
 # host_name = 'http://localhost'
 options_email = True
