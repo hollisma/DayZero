@@ -67,12 +67,12 @@ router.post("/", auth, async (req, res) => {
       // Create
       matchInfo = new MatchInfo({ times: times, activities: activities, user: user, active: true });
       await matchInfo.save();
-    }
 
-    // Set user type to SCHEDULED
-    await User.findByIdAndUpdate(req.user.id, {
-      $set: { user_type: SCHEDULED }
-    });
+      // Set user type to SCHEDULED
+      await User.findByIdAndUpdate(req.user.id, {
+        $set: { user_type: SCHEDULED }
+      });
+    }
 
     res.json(matchInfo);
   } catch (err) {
