@@ -287,5 +287,26 @@ router.delete("/danger_zone/admin", admin, async (req, res) => {
   }
 });
 
+/**
+ * @route   put api/users/group/:user_id
+ * @desc    Change user_type to GROUPED
+ * @access  Admin
+ */
+router.put("/group/:user_id", admin, async (req, res) => {
+  try {
+    req.params.user_id
+
+    user = await User.findByIdAndUpdate(req.params.user_id, {
+        $set: { user_type: 'GROUPED' }
+      }
+    );
+
+    res.json({ user });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 
 module.exports = router;
